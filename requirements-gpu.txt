@@ -1,0 +1,13 @@
+# GPU training/inference stack.
+# transformers is PINNED: the surgical pruning path (direct
+# Qwen3VLTextModel call with visual_pos_masks/deepstack_visual_embeds,
+# get_rope_index(input_ids, mm_token_type_ids, ...) signature) was verified
+# line-by-line against 5.12.1. Do not upgrade without re-running
+# scripts/smoke_gpu.py (the parity check will catch a break).
+transformers==5.12.1
+accelerate>=1.0
+bitsandbytes>=0.44
+peft>=0.14
+torchvision
+pandas
+pillow

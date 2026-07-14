@@ -1,0 +1,12 @@
+[project]
+name = "snuai11"
+version = "11.0.0"
+description = "SNU AI Challenge 2026 Ver11 - Cross-Targeted FitPrune + Stackelberg two-time-scale score24"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]

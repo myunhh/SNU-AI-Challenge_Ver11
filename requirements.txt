@@ -1,0 +1,5 @@
+# CPU / test dependencies
+torch>=2.4
+pandas
+pillow
+pytest
