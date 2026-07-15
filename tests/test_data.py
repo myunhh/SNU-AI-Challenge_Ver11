@@ -2,7 +2,7 @@ import random
 from pathlib import Path
 
 from snuai11 import perm
-from snuai11.data import Sample, holdout_ids, shuffle_sample, split_train_holdout, uniform_augment
+from snuai11.data import Sample, shuffle_sample, uniform_augment
 
 
 def _mk(sid: str, rank) -> Sample:
@@ -39,13 +39,3 @@ def test_uniform_augment_covers_label_space():
     rng = random.Random(0)
     labels = {uniform_augment(s, rng).label for _ in range(2000)}
     assert len(labels) == 24
-
-
-def test_holdout_deterministic_and_disjoint():
-    samples = [_mk(f"id{i:05d}", (0, 1, 2, 3)) for i in range(2000)]
-    h1 = holdout_ids(samples, 200)
-    h2 = holdout_ids(list(reversed(samples)), 200)
-    assert h1 == h2  # order-independent
-    train, hold = split_train_holdout(samples, 200)
-    assert len(hold) == 200 and len(train) == 1800
-    assert not ({s.id for s in train} & {s.id for s in hold})

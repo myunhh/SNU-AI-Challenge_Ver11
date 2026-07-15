@@ -4,8 +4,8 @@
 Defaults: score24 + FitPrune stage1 + TTA3 + margin cascade (tau=0.10).
 Point it at a trained adapter:
   python run_pre.py --adapter runs/sft32b_v11/adapter_final/adapter
-Holdout evaluation (945, never trained on):
-  python run_pre.py --holdout-val --adapter ... [--eval]
+In-sample sanity check on train (no local holdout — Ver11 trains on 100%):
+  python run_pre.py --split train --eval --adapter ... --limit 200
 """
 
 import sys

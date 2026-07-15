@@ -27,7 +27,7 @@ import torch
 import torch.nn.functional as F
 
 from . import perm
-from .data import load_samples, split_train_holdout, uniform_augment
+from .data import load_samples, uniform_augment
 from .fitprune import PruneConfig
 from .fsm import letter_token_ids
 from .stackelberg import StackelbergConfig, build_optimizer, build_param_groups, build_scheduler
@@ -123,7 +123,6 @@ def main(argv: list[str] | None = None) -> None:
     # DPO
     ap.add_argument("--dpo-beta", type=float, default=1.0)
     ap.add_argument("--dpo-ce-weight", type=float, default=0.2)
-    ap.add_argument("--holdout-size", type=int, default=945)
     args = ap.parse_args(argv)
 
     if args.model_id is None:
@@ -144,10 +143,11 @@ def main(argv: list[str] | None = None) -> None:
     torch.manual_seed(args.seed)
 
     # ---- data ----------------------------------------------------------
-    all_samples = load_samples(args.data_root, "train")
-    train_samples, holdout = split_train_holdout(all_samples, args.holdout_size)
-    (out / "split.json").write_text(json.dumps({"holdout_ids": sorted(s.id for s in holdout)}))
-    print(f"[data] train {len(train_samples)} / holdout {len(holdout)} (never trained on)")
+    # No local holdout carve-out: tuning decisions were already validated
+    # against the Ver4/Ver10 track; Ver11 trains on the full train set and
+    # the design is judged via LB slots (see CLAUDE.md).
+    train_samples = load_samples(args.data_root, "train")
+    print(f"[data] train {len(train_samples)} (100%, no local holdout)")
 
     # ---- model ---------------------------------------------------------
     model, processor = load_model_and_processor(args.model_id, four_bit=args.four_bit)

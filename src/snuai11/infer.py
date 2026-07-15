@@ -21,7 +21,7 @@ from pathlib import Path
 import torch
 
 from . import perm
-from .data import load_samples, split_train_holdout
+from .data import load_samples
 from .fitprune import PruneConfig
 from .submission import write_submission
 from .tta import aggregate_logprobs, margin_of, normalize, remap_scores, tta_views
@@ -100,7 +100,6 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--model-id", default=None)
     ap.add_argument("--data-root", default="data")
     ap.add_argument("--split", choices=["test", "train"], default="test")
-    ap.add_argument("--holdout-val", action="store_true", help="evaluate on the 945-sample holdout")
     ap.add_argument("--adapter", default=None)
     ap.add_argument("--head", default=None)
     ap.add_argument("--four-bit", action="store_true")
@@ -112,22 +111,18 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--no-prune", action="store_true")
     ap.add_argument("--max-pixels", type=int, default=DEFAULT_MAX_PIXELS)
     ap.add_argument("--limit", type=int, default=None)
-    ap.add_argument("--eval", action="store_true")
+    ap.add_argument("--eval", action="store_true",
+                     help="score against truth (train split only; in-sample since Ver11 trains on 100%)")
     args = ap.parse_args(argv)
 
     if args.model_id is None:
         from run_common import resolve_model_id
 
         args.model_id = resolve_model_id()
-    out = Path(args.out or ("runs/holdout_v11" if args.holdout_val else f"runs/{args.split}_v11"))
+    out = Path(args.out or f"runs/{args.split}_v11")
     out.mkdir(parents=True, exist_ok=True)
 
-    if args.holdout_val:
-        alls = load_samples(args.data_root, "train")
-        _, samples = split_train_holdout(alls)
-        (out / "split.json").write_text(json.dumps({"holdout_ids": sorted(s.id for s in samples)}))
-    else:
-        samples = load_samples(args.data_root, args.split)
+    samples = load_samples(args.data_root, args.split)
     if args.limit:
         samples = samples[: args.limit]
 
@@ -163,7 +158,7 @@ def main(argv: list[str] | None = None) -> None:
 
     records = [done[s.id] for s in samples if s.id in done]
 
-    if args.eval or args.holdout_val:
+    if args.eval:
         labeled = [(r, s) for r, s in zip(records, samples) if s.rank is not None]
         em = sum(tuple(r["rank"]) == s.rank for r, s in labeled) / max(1, len(labeled))
         pw = sum(perm.pairwise_score(tuple(r["rank"]), s.rank) for r, s in labeled) / max(1, len(labeled))
@@ -172,7 +167,7 @@ def main(argv: list[str] | None = None) -> None:
         (out / "eval.json").write_text(json.dumps(report, indent=2))
         print(f"[eval] EM {em:.4f} | pairwise {pw:.4f} | escalated {esc}/{len(labeled)}")
 
-    if args.split == "test" and not args.holdout_val:
+    if args.split == "test":
         rows = [(r["id"], tuple(r["rank"])) for r in records]
         sub = write_submission(rows, out / "submission.csv", Path(args.data_root) / "sample_submission.csv")
         print(f"[submission] {sub} ({len(rows)} rows)")
