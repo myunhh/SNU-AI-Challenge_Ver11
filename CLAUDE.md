@@ -1,41 +1,45 @@
 # CLAUDE.md — Ver11
 
-셔플된 비디오 프레임 4장 + 캡션 → 시간순 재배열(4!=24). **설계 정본: [VER11.md](VER11.md)**,
-빠른 시작: [README.md](README.md). 이 저장소는 Ver10까지의 코드를 상속하지 않은 **독립 구현**이다
-(지식은 `../PROJECT_SUMMARY.md`에서 계승).
+셔플된 비디오 프레임 4장 + 캡션 → 시간순 재배열(4!=24). 이 저장소는 Ver10까지의 코드를
+상속하지 않은 **독립 구현**이다(지식은 `../PROJECT_SUMMARY.md`에서 계승).
 
 구성: Cross-Targeted FitPrune(4×4 캡션-교차 50% 토큰 컷) + one-pass score24 헤드
 (lm_head 글자행 초기화) + Stackelberg 두-시간축 QLoRA(body 2e-4 / head 1e-3, head wd 0.1)
-+ TTA3 + 마진 캐스케이드(τ 미만이면 풀토큰 재검).
++ TTA3 + 마진 캐스케이드(τ 미만이면 풀토큰 재검). 설계 근거·논문 매핑·하이퍼파라미터 전체는
+`../PROJECT_SUMMARY.md`의 "Ver11 설계 상세" 절, 공통 규정·전 버전 함정은 `../CLAUDE.md` 참고.
+
+안전 하한 = **Ver4 32B-4bit ckpt1600+TTA3, LB 0.90226** — 단 현재 대회 전체 챔피언은 Ver8 DPO
+LB 0.90401(`../TODO.md` 참고). Ver11은 대체가 아니라 초과 도전.
 
 ## 진입점
 
-- `python run_fit.py` (학습) / `python run_pre.py` (추론) — clone+pip 후 바로 동작
-- `bash scripts/run_a100.sh [smoke|sft|dpo|holdout|test]` — 스테이지 런처
-- `python scripts/smoke_gpu.py --train` — parity·프루닝·back>0 게이트 (**모델/transformers를 바꾸면 필수 재실행**)
+```bash
+pytest tests/ -q                                    # CPU 안전망 (47개)
+python scripts/smoke_gpu.py --train                 # GPU 스모크: parity·프루닝·back>0 게이트
+python run_fit.py                                   # SFT 2000스텝, train 100%(9,535) → runs/sft32b_v11/
+python run_fit.py --phase dpo \
+  --adapter runs/sft32b_v11/adapter_final/adapter    # DPO(인접스와프 마진) 400스텝
+python run_pre.py --adapter <ADPT>                   # test 819 → runs/test_v11/submission.csv
+```
 
-## 함정 (이 저장소에서 실제로 밟았거나 코드가 방어 중인 것)
+플래그: `--no-prune` · `--keep-ratio 0.5` · `--diversity-frac 0.2` · `--tta 3` · `--tau 0.10` ·
+`--uniform-lr`(Stackelberg ablation 대조군).
 
-- **transformers==5.12.1 고정.** 프루닝은 `Qwen3VLTextModel`을 직접 호출하는 수술 경로
-  (`snuai11/vlm.py` 참조 — `Qwen3VLModel.forward`는 deepstack 인자를 안 받음). 버전을 올리면
-  smoke의 parity 체크(스톡 forward와 max|diff|=0)로 검증할 것.
-- **사전양자화 32B의 vision 재양자화 버그**: bnb는 사용자 quantization_config를 무시하므로
-  (merge에 loading attribute 없음) `config.quantization_config`의 skip 목록을 직접 패치해야
-  한다 — `vlm._patch_skip_modules` + `verify_vision_not_quantized`가 처리·검증. 실측으로
-  한 번 재현 후 수정됨(2026-07-14).
-- **Answer = rank** (`Answer[i-1]` = Input_i의 시간순 순위, 1-indexed). order 인코딩과 섞으면
-  비자기역원 순열에서 조용히 틀린다. 순열 연산은 `snuai11/perm.py` 함수만 사용(직접 구현 금지),
-  `tests/test_perm.py`가 방어선. 제출 형식은 공백 포함 `"[1, 2, 3, 4]"`.
+## 검증 현황 (2026-07-15, RTX 4090 — 로컬 검증 전부 완료)
+
+parity(스톡 forward 대비 max|diff|=0, 8B·32B) · 프루닝 50% 컷 정상(VRAM 피크 19.9GiB) ·
+back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escalate, 819건 4090 ~29분).
+남은 건 A100 SFT 본런 → (선택)DPO → test → LB 슬롯뿐.
+
+## 이 버전 고유 함정
+
+- **transformers==5.12.1 고정** — 프루닝은 `Qwen3VLTextModel`을 직접 호출하는 수술 경로
+  (`Qwen3VLModel.forward`는 deepstack 인자를 안 받음). 버전을 올리면 `smoke_gpu.py`의 parity
+  체크(스톡 forward와 max|diff|=0) 재통과 필수.
 - **position_ids는 (3,B,L) 시맨틱 M-RoPE 좌표** — 프루닝은 마지막 차원 index-select만 허용.
   2D/None을 넘기면 텍스트 RoPE로 조용히 격하된다(에러 없음).
-- **캡션 분해는 규칙 기반만**(`decompose.py`) — 생성 텍스트 학습 투입 금지 규정.
-- 홀드아웃 945는 **Ver11 자체 sha1 분할** — 이전 버전 수치와 절대치 비교 금지. 채택은
-  `scripts/ab_gate.py`(paired bootstrap, ΔEM≥+2pp AND CI 하한>0, 쌍순서 병행)로만.
-- conda env `py3_11` 사용. pandas GLIBCXX 에러 → `export LD_LIBRARY_PATH=$CONDA_PREFIX/lib`.
-  editable install이 Ver1을 가리키는 전역 함정 → 항상 `PYTHONPATH=$PWD/src` (스크립트 자동 처리).
-
-## 규정 요약 (위반 = 실격)
-
-오프라인 추론, 3090 24GB 1대·24h/819건, 모델 총량 80GB, 외부 API·외부 데이터·앙상블 금지,
-생성 모델 증강 금지, 2026-05-31 이전 공개 모델만, 허용 기법 = Quantization·LoRA·CoT·TTA.
-모든 튜닝 결정은 홀드아웃으로만(test 분포 참조 금지).
+- bnb는 5.12.1의 merge 시 사용자 `quantization_config`를 무시함 — `config.quantization_config`의
+  skip 목록을 직접 패치해야 vision 재양자화가 막힘(`vlm._patch_skip_modules`).
+- **로컬 홀드아웃 폐지(2026-07-15)**: train 9,535건 전량 학습. τ·keep-ratio는 Ver4/Ver10 트랙
+  검증치 상속, 프루닝 on/off 같은 신규 설계 선택은 LB 제출로만 판정 — 이 판정 방식 자체의 데이터
+  누수 소지는 `../TODO.md`·`../PROJECT_SUMMARY.md` §6 참고(아직 미확인 상태).
