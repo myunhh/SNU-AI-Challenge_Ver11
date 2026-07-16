@@ -66,15 +66,18 @@ def load_font(size: int = 16):
     return ImageFont.load_default()
 
 
-def score_grid(visual: torch.Tensor, event_embeds, cfg, h2: int, w2: int) -> np.ndarray:
-    """Per-token importance against ONE event (or pooled if len(event_embeds)>1
-    is passed through cross_target_scores' own event pooling), reshaped to the
-    (h2, w2) merged-token grid. [h2, w2] numpy, min-max normalized to [0, 1]."""
-    from snuai11.fitprune import cross_target_scores
+def event_score_grids(visual: torch.Tensor, event_embeds, cfg, h2: int, w2: int) -> np.ndarray:
+    """Per-event importance maps on the (h2, w2) merged-token grid, computed
+    in ONE call with the full event list so the text-anchor mean mu_T matches
+    the selection path exactly (re-scoring a single event alone would center
+    by that event's own mean — a different geometry than what selection saw).
+    [E, h2, w2] numpy, each event min-max normalized to [0, 1]."""
+    from snuai11.fitprune import per_event_scores
 
-    s = cross_target_scores(visual, event_embeds, cfg).cpu().numpy()
-    s = s.reshape(h2, w2)
-    lo, hi = s.min(), s.max()
+    s = per_event_scores(visual, event_embeds, cfg).cpu().numpy()  # [E, N]
+    s = s.reshape(s.shape[0], h2, w2)
+    lo = s.min(axis=(1, 2), keepdims=True)
+    hi = s.max(axis=(1, 2), keepdims=True)
     return (s - lo) / (hi - lo + 1e-8)
 
 
@@ -281,10 +284,10 @@ def main() -> None:
             n_kept, n_tot = int(kept_local.sum()), kept_local.size
             assert n_tot == h2 * w2
 
+            grids = event_score_grids(visual, event_embeds, cfg, h2, w2)
             panels = []
             for ev_i in range(len(events)):
-                g = score_grid(visual, [event_embeds[ev_i]], cfg, h2, w2)
-                ov = draw_grid_lines(overlay(resized, g, None), h2, w2)
+                ov = draw_grid_lines(overlay(resized, grids[ev_i], None), h2, w2)
                 ov.thumbnail((260, 260))
                 panels.append(make_panel(f"img{img_i+1} · E{ev_i+1}", ov, font))
 

@@ -20,6 +20,25 @@ Scoring uses cosine similarity between visual tokens and text-token
 embeddings of the event's content words — a training-free surrogate for
 FitPrune's attention statistics that needs no extra forward pass (the
 visual embeddings are computed by the model anyway).
+
+Similarity geometry (2026-07-16): every cosine is computed after removing
+each side's OWN population mean ("all-but-the-top"-style mean removal):
+visual tokens are centered by the image's token centroid, text anchors by
+the caption-level anchor mean mu_T. A shared dominant direction on either
+side makes sim(v_i, t_j) approximately (per-token offset) + (per-event
+scale) * const, so after pooling all 4 event maps collapse into one generic
+saliency map (rank-1 degeneracy — observed on real samples in
+runs/prune_viz, where the pre-fix E1..E4 heatmaps were visually identical).
+Own-mean centering is the unique constant shift that zeroes the shared
+component exactly; centering text by the VISUAL centroid (the first fix
+attempt) leaves the modality-gap vector mu_T - mu_V inside every anchor and
+merely relocates the degeneracy. Measured on the real Qwen3-VL-32B embed
+table (400 train captions): mean pairwise cosine of the 4 event mean
+directions goes +0.20 raw -> -0.33 after mu_T centering (~ the -1/3 maximum
+contrast for 4 mean-zero vectors), i.e. events become mutually contrastive
+anchors instead of near-parallel ones. The same centering is used for the
+diversity dissimilarity space (farthest-point picks are meaningless in the
+raw anisotropic space where all pairwise cosines sit in one narrow band).
 """
 
 from __future__ import annotations
@@ -47,6 +66,41 @@ def _pool(x: torch.Tensor, how: str, dim: int) -> torch.Tensor:
     raise ValueError(f"unknown pool {how!r}")
 
 
+def _center_unit(x: torch.Tensor) -> torch.Tensor:
+    """Unit vectors of x after removing its own population mean."""
+    return F.normalize(x - x.mean(dim=0, keepdim=True), dim=-1)
+
+
+@torch.no_grad()
+def per_event_scores(
+    visual: torch.Tensor,  # [N, D] merged visual tokens (LLM embed space)
+    event_embeds: list[torch.Tensor],  # E x [T_j, D] text-token embeddings
+    cfg: PruneConfig = PruneConfig(),
+) -> torch.Tensor:
+    """Per-event importance per visual token. [E, N]
+
+    mu_T is the mean over ALL events' anchors, so per-event rows are only
+    faithful to the selection path when the full event list is passed
+    (visualizers must slice rows of this, not re-score one event alone).
+    """
+    v = _center_unit(visual.float())
+
+    all_t = torch.cat([e.float() for e in event_embeds], dim=0)
+    mu_t = all_t.mean(dim=0, keepdim=True)
+
+    per_event = []
+    for emb in event_embeds:
+        t_f = emb.float()
+        res = t_f - mu_t
+        # Degenerate captions (one word repeated into all events) have zero
+        # residuals — fall back to the raw anchor direction per row.
+        ok = res.norm(dim=-1, keepdim=True) > 1e-6 * t_f.norm(dim=-1, keepdim=True)
+        t = F.normalize(torch.where(ok, res, t_f), dim=-1)
+        sim = v @ t.T  # [N, T_j]
+        per_event.append(_pool(sim, cfg.text_pool, dim=1))  # [N]
+    return torch.stack(per_event, dim=0)  # [E, N]
+
+
 @torch.no_grad()
 def cross_target_scores(
     visual: torch.Tensor,  # [N, D] merged visual tokens (LLM embed space)
@@ -54,18 +108,7 @@ def cross_target_scores(
     cfg: PruneConfig = PruneConfig(),
 ) -> torch.Tensor:
     """Importance score per visual token, pooled over the 4 events. [N]"""
-    v_f = visual.float()
-    centroid = v_f.mean(dim=0, keepdim=True)
-    v = F.normalize(v_f - centroid, dim=-1)
-    
-    per_event = []
-    for emb in event_embeds:
-        t_f = emb.float()
-        t = F.normalize(t_f - centroid, dim=-1)
-        sim = v @ t.T  # [N, T_j]
-        per_event.append(_pool(sim, cfg.text_pool, dim=1))  # [N]
-    stacked = torch.stack(per_event, dim=0)  # [4, N]
-    return _pool(stacked, cfg.event_pool, dim=0)  # [N]
+    return _pool(per_event_scores(visual, event_embeds, cfg), cfg.event_pool, dim=0)
 
 
 @torch.no_grad()
@@ -80,17 +123,20 @@ def select_diverse(
     top-k by score for (1 - diversity_frac) of the budget, then greedily add
     the token with the LOWEST max-cosine-similarity to the kept set until the
     budget is full (farthest-point style, LearnPruner diversity tokens).
+    Dissimilarity lives in the centered space (see module docstring).
     """
     n = scores.shape[0]
     keep = max(1, min(n, round(n * keep_ratio)))
+    if keep >= n:
+        return torch.arange(n, device=scores.device)
     n_div = int(round(keep * diversity_frac))
     n_top = keep - n_div
 
-    order = torch.argsort(scores, descending=True)
+    order = torch.argsort(scores, descending=True, stable=True)
     kept = order[:n_top] if n_top > 0 else order[:0]
 
     if n_div > 0:
-        v = F.normalize(visual.float(), dim=-1)
+        v = _center_unit(visual.float())
         remaining = order[n_top:]
         if kept.numel() == 0:
             # degenerate: seed with the single best-scored token
@@ -104,7 +150,7 @@ def select_diverse(
         for _ in range(n_div_left):
             if remaining.numel() == 0:
                 break
-            pick = int(torch.argmin(max_sim).item())
+            pick = torch.argmin(max_sim)  # tensor index — no host sync
             chosen = remaining[pick]
             kept = torch.cat([kept, chosen.view(1)])
             mask = torch.ones_like(remaining, dtype=torch.bool)
