@@ -51,10 +51,21 @@ back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escala
   누수 소지는 `../TODO.md`·`../PROJECT_SUMMARY.md` §6 참고(아직 미확인 상태).
 - **DDP는 Ver10/grpo.py와 같은 패턴**(`DistributedDataParallel` wrapper 미사용, 스텝 끝 1회 수동
   `all_reduce(SUM)`) — 여기는 backward 호출횟수가 매 스텝 항상 `local_accum`으로 고정(조건부 스킵
-  없음)이라 DDP wrapper를 써도 안전했겠지만, 두 트레이너의 방식을 통일해뒀다. body/head 파라미터
-  초기화(신규 LoRA일 때)는 `torch.manual_seed(args.seed)`가 모델 로딩 전 모든 rank에 동일하게
-  걸려 있어 rank 간 일치 보장. **A100 2장 환경에서 실제로 검증 안 됨(GPU 없는 환경에서 작성)** —
-  본런 전 `--steps 2`짜리 짧은 스모크로 먼저 `train_log.jsonl`에 정상 loss가 찍히는지 확인할 것.
+  없음)이라 DDP wrapper를 써도, Ver10의 all-or-nothing 조건부 backward 교착 버그도 원래 없었지만,
+  두 트레이너의 방식을 통일해뒀다. body/head 파라미터 초기화(신규 LoRA일 때)는 `torch.manual_seed
+  (args.seed)`가 모델 로딩 전 모든 rank에 동일하게 걸려 있어 rank 간 일치 보장(CUDA RNG도 함께
+  시딩됨을 PyTorch 소스로 확인 — `torch.cuda.manual_seed_all` 경유). **A100 2장 환경에서 실제로
+  검증 안 됨(GPU 없는 환경에서 작성)** — 본런 전 `--steps 2`짜리 짧은 스모크로 먼저
+  `train_log.jsonl`에 정상 loss가 찍히는지 확인할 것.
+- **⚠️ 2026-07-16 재검토로 발견·수정된 로그 오염 버그**: `running`/`hits`의 rank 간 `all_gather_object`
+  병합을 매 스텝 부르고 있었는데, rank0가 자기 변수를 병합 결과로 덮어쓴 뒤 다음 스텝에 또 다른
+  rank의 "그 시점까지의 로컬 히스토리 전체"를 다시 흡수해 O(n²)로 부풀며 초반 값이 중복 반영되는
+  버그였다(그래디언트/가중치엔 영향 없음, `train_log.jsonl`의 loss/acc만 왜곡). 이번 SFT 본런에서
+  확인하려는 게 정확히 "loss가 ln(24) 플래토를 언제 벗어나는지"라 로그가 왜곡되면 그 판단 자체가
+  무의미해질 뻔했다 — gather를 `log_boundary`(10스텝 윈도우) 안으로 옮겨 윈도우당 1회만 하도록 고침.
+- **잔여 리스크(코드로 못 막음)**: rank0가 체크포인트 저장 도중 죽으면 다른 rank는 그 barrier에서
+  NCCL 기본 타임아웃까지 대기 — 오래 멈춘 것 같으면 rank0 생존을 확인 후 죽여서 마지막 체크포인트
+  (`save_steps`마다 저장)에서 재개할 것.
   fresh clone에서 데이터가 없을 때 여러 rank가 동시에 다운로드하는 경합은 `run_common.ensure_data`가
   rank0만 다운로드하고 나머지는 폴링 대기하도록 막아둠(2026-07-16).
 - **2026-07-16 SFT 1차 본런 학습 불안정 진단 진행 중** — loss가 `ln(24)`(≈3.178) 근방에서 예산의

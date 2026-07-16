@@ -86,10 +86,10 @@ def sync_grads_sum(params, world_size: int) -> None:
 
 def local_accum_for(accum: int, world_size: int) -> int:
     """--accum을 world_size로 나눈 rank당 몫. 나누어떨어지지 않으면 즉시 에러."""
-    if world_size > 1 and accum % world_size != 0:
+    if accum % world_size != 0:
         raise ValueError(f"--accum({accum})은 world_size({world_size})로 나누어떨어져야 함 "
                          "(rank마다 동일한 수의 샘플을 처리)")
-    return accum // world_size if world_size > 1 else accum
+    return accum // world_size
 
 
 def lora_target_modules(model) -> list[str]:
@@ -296,7 +296,11 @@ def main(argv: list[str] | None = None) -> None:
         scheduler.step()
         running.append(step_loss)
 
-        if world_size > 1:
+        log_boundary = step % 10 == 0 or step == 1
+        if log_boundary and world_size > 1:
+            # gather는 로그 시점(윈도우당 1회)에만 — 매 스텝 부르면 rank0의 running이
+            # 매번 다른 rank의 "그 시점까지 누적된 로컬 리스트" 전체를 다시 흡수해
+            # O(n^2)로 부풀며 초반 값이 중복 반영되는 버그가 있었다(2026-07-16 발견).
             import torch.distributed as dist
             gathered_running: list[object] = [None] * world_size
             dist.all_gather_object(gathered_running, running)
@@ -306,7 +310,6 @@ def main(argv: list[str] | None = None) -> None:
                 running = [x for part in gathered_running for x in part]
                 hits = [x for part in gathered_hits for x in part]
 
-        log_boundary = step % 10 == 0 or step == 1
         if log_boundary and is_main:
             lrs = {g["name"]: g["lr"] for g in optimizer.param_groups}
             rec = {
