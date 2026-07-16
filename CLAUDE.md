@@ -16,7 +16,9 @@ LB 0.90401(`../TODO.md` 참고). Ver11은 대체가 아니라 초과 도전.
 ```bash
 pytest tests/ -q                                    # CPU 안전망 (47개)
 python scripts/smoke_gpu.py --train                 # GPU 스모크: parity·프루닝·back>0 게이트
-python run_fit.py                                   # SFT 2000스텝, train 100%(9,535) → runs/sft32b_v11/
+bash scripts/run_a100.sh ws8                        # ★ 확정 레시피: Ver8 warm-start SFT
+                                                    #   (전이 게이트 10스텝 → 1500스텝, DDP 자동)
+python run_fit.py                                   # (구) cold-start SFT 2000스텝 → runs/sft32b_v11/
 python run_fit.py --phase dpo \
   --adapter runs/sft32b_v11/adapter_final/adapter    # DPO(인접스와프 마진) 400스텝
 python run_pre.py --adapter <ADPT>                   # test 819 → runs/test_v11/submission.csv
@@ -68,10 +70,35 @@ back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escala
   (`save_steps`마다 저장)에서 재개할 것.
   fresh clone에서 데이터가 없을 때 여러 rank가 동시에 다운로드하는 경합은 `run_common.ensure_data`가
   rank0만 다운로드하고 나머지는 폴링 대기하도록 막아둠(2026-07-16).
-- **2026-07-16 SFT 1차 본런 학습 불안정 진단 진행 중** — loss가 `ln(24)`(≈3.178) 근방에서 예산의
-  약 65%를 허비하다 코사인 후반에야 풀리는 문제 발견(`../PROJECT_SUMMARY.md` §2 참고). 로컬 4090
-  8B 진단런(accum16/poly/lr-ratio3)으로 원인 검증 시도했으나 GPU가 중간에 다른 작업(Ver8-Refactored
-  reranker 학습)에 밀려 step 130에서 결론 없이 중단됨 — A100 재본런 전에 이 진단부터 재확인하거나,
-  8×A100처럼 GPU가 여유 있으면 진단 없이 바로 DDP로 유효배치를 늘려(accum을 world_size로 분산해도
-  전체 accum은 그대로 유지되므로, `--accum` 자체를 8~16으로 올리고 world_size로 나누는 방식을 권장)
-  재본런하는 것도 근본 원인(유효배치 과소) 직접 해결책이 될 수 있음.
+- **2026-07-16 SFT 1차 본런 학습 불안정 → Ver8 warm-start 재본런 레시피로 확정** (4-에이전트
+  검증 워크플로 + S1 데이터 게이트 완료, 진입점: `bash scripts/run_a100.sh ws8`):
+  - **진단 확정치**: 1차 본런(cosine/accum4/head 1e-3)은 step 1260~1290(예산 63% 소진)에야
+    플래토 탈출, 탈출 시점 head lr = 0.287~0.301×peak(≈2.9e-4). 탈출 후 남은 cosine LR 면적은
+    전체의 7.3%뿐인데 그걸로 acc 0.40까지 감 — 종료 시점에도 미수렴(LR 고갈로 중단된 상태).
+  - **poly 스케줄 기각**: `stackelberg.py`의 poly는 warmup 직후부터 즉시 감쇠(step 20에 body
+    이미 0.161×peak)라 2000스텝 총 LR 예산이 cosine 대비 body 19.9×/head 6.3× 작음. 8B 진단런
+    (step 130 중단)은 무결론으로 종결 — 재개하지 않는다. lr_head/lr_body 비율이 로그에서
+    3→8로 벌어지는 건 버그가 아니라 이론 스케줄(지수 0.6/0.4 차이)임.
+  - **재본런 = Ver8 챔피언 warm-start**(사용자 결정): `--adapter "../Ver8/runs/checkpoint-200-Ver8
+    DPO"`(LB 0.90401). 호환성 검증 완료 — base(unsloth 32B 4bit)·LoRA(r16/α32/타겟 7proj·언어
+    64층)·peft 0.19.1 전부 일치, 코드 변경 불필요. head.pt가 없으므로 `init_from_lm_head`로
+    초기화되는데 이게 곧 Ver8의 "24글자 제한 로짓 스코어링"을 수학적으로 정확히 재현하는
+    올바른 warm-start 경로. ln(24) 플래토는 시작점이 유능해지므로 원천 제거됨.
+  - **레시피**: body-lr **5e-5**(2e-4는 DPO 정련 가중치를 덮어씀), lr-ratio 5(기본; head peak
+    2.5e-4 = 실측 탈출 임계 바로 아래), cosine(기본), **accum 16**(유효배치 4→16 — 플래토 근본
+    원인 직접 해결, DDP 2장이면 rank당 8), steps 1500(24k 샘플 ≈2.5 epoch, save 200마다),
+    out `runs/sft32b_v11_ws8`. 프롬프트·max_pixels(1,126,400)는 Ver11 기본 유지 — Ver8과의
+    분포 이동(프롬프트 문구/캡션 위치/범례 형식, 해상도 602,112→1,126,400 ≈ 비주얼 토큰 2배,
+    FitPrune 미경험)이 SFT가 적응할 대상 그 자체다.
+  - **전이 게이트**(러너에 내장): 본런 전 10스텝 런의 평균 loss < 3.0 필수(warmup 중이라 LR
+    미미 → 초기 loss = 전이 품질). ≥3.0(ln24 근방)이면 무전이 — 1순위 용의자는 해상도 이동,
+    `--max-pixels 602112`로 게이트만 재시도해 원인 분리.
+- **프루닝 재설계(per-event/배정-인지)는 S1 게이트 불통과로 보류(2026-07-16)**: train 캡션
+  9,535건 중 94%가 자연 절(clause) 4개 미만(1절 35%/2절 45%) → "4이벤트"는 대부분 기계적
+  단어-중간 분할이라 "이벤트↔프레임 1:1 배정"의 전제가 성립 안 함(복합 퇴화 51.5% > kill 기준
+  30~40%). 16변형 추론 원안은 3중 결함(1이미지 입력에서 score24 정의 불능 — 이미지당 ≥1토큰만
+  학습됨 / decompose는 순서 무관 COVER 시맨틱이라 이벤트 순서≠시간 순서 / 충돌-재예측 미정의,
+  결정적 24순열 브루트포스가 상위호환)으로 기각. max-pool은 union 시맨틱이라 파편 품질에
+  강건 — 현행 유지가 데이터로 재확인됨. 잔여 후속: "병합=유실" 가설의 이득 상한 측정(S3:
+  train 서브셋 500~1000건 `--no-prune` vs 현행 paired A/B, 4090 빌 때) — 격차 ≈0이면 이 계열
+  재설계 전체 종결.
