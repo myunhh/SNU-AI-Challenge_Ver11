@@ -54,10 +54,14 @@ def cross_target_scores(
     cfg: PruneConfig = PruneConfig(),
 ) -> torch.Tensor:
     """Importance score per visual token, pooled over the 4 events. [N]"""
-    v = F.normalize(visual.float(), dim=-1)
+    v_f = visual.float()
+    centroid = v_f.mean(dim=0, keepdim=True)
+    v = F.normalize(v_f - centroid, dim=-1)
+    
     per_event = []
     for emb in event_embeds:
-        t = F.normalize(emb.float(), dim=-1)
+        t_f = emb.float()
+        t = F.normalize(t_f - centroid, dim=-1)
         sim = v @ t.T  # [N, T_j]
         per_event.append(_pool(sim, cfg.text_pool, dim=1))  # [N]
     stacked = torch.stack(per_event, dim=0)  # [4, N]
