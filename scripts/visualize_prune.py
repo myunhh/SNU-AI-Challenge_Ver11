@@ -230,6 +230,8 @@ def main() -> None:
     ap.add_argument("--start", type=int, default=0)
     ap.add_argument("--keep-ratio", type=float, default=0.5)
     ap.add_argument("--diversity-frac", type=float, default=0.2)
+    ap.add_argument("--objectness-weight", type=float, default=0.3)
+    ap.add_argument("--mmr-lambda", type=float, default=0.5)
     ap.add_argument("--max-pixels", type=int, default=None)
     ap.add_argument("--out", default="runs/prune_viz")
     args = ap.parse_args()
@@ -250,7 +252,8 @@ def main() -> None:
     model, processor = load_model_and_processor(model_id, four_bit=args.four_bit)
     letter_ids = letter_token_ids(processor.tokenizer)
     head = Score24Head.init_from_lm_head(model, letter_ids).to(model.lm_head.weight.device).eval()
-    cfg = PruneConfig(keep_ratio=args.keep_ratio, diversity_frac=args.diversity_frac)
+    cfg = PruneConfig(keep_ratio=args.keep_ratio, diversity_frac=args.diversity_frac,
+                      objectness_weight=args.objectness_weight, mmr_lambda=args.mmr_lambda)
     engine = Engine(model, processor, head, cfg, max_pixels=args.max_pixels or DEFAULT_MAX_PIXELS)
 
     font = load_font(16)
@@ -290,6 +293,13 @@ def main() -> None:
                 ov = draw_grid_lines(overlay(resized, grids[ev_i], None), h2, w2)
                 ov.thumbnail((260, 260))
                 panels.append(make_panel(f"img{img_i+1} · E{ev_i+1}", ov, font))
+
+            from snuai11.fitprune import objectness_scores
+            obj = objectness_scores(visual).cpu().numpy().reshape(h2, w2)
+            obj = (obj - obj.min()) / (obj.max() - obj.min() + 1e-8)
+            ov = draw_grid_lines(overlay(resized, obj, None), h2, w2)
+            ov.thumbnail((260, 260))
+            panels.append(make_panel(f"img{img_i+1} OBJ (w={cfg.objectness_weight})", ov, font))
 
             final = draw_grid_lines(overlay(resized, np.ones((h2, w2)), kept_grid), h2, w2, kept_mask=kept_grid)
             final.thumbnail((260, 260))

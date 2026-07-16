@@ -104,6 +104,17 @@ back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escala
   `per_event_scores`의 행을 써야 선택 경로와 같은 μ_T가 적용된다(1이벤트만 재채점 금지 —
   `visualize_prune.py`는 반영됨). **keep-set이 바뀌므로 이 날짜 이전 프루닝 선택과의 A/B 비교
   금지**(시간·VRAM 측정치는 유효, parity 게이트는 무관).
+- **2026-07-16 FitPrune stuff-over-things 수정 — 객체성 블렌드 + MMR 선택 (기본 on)**: `runs/prune_viz`
+  실측에서 캡션 장면명사(pool/ice/snow)와 매칭되는 대면적 배경 텍스처가 top-k 예산을 중복으로
+  독식하고, 순서 판별의 실제 단서인 소형 전경 물체(스키어·공·흰모자·얼굴)가 잘리는 패턴 확인.
+  수정 2개: ① `objectness_weight`(기본 0.3) — 센트로이드 residual의 norm(정규화가 버리던 크기
+  정보 = 전경성)을 per-image min-max 후 코사인과 블렌드, ② `mmr_lambda`(기본 0.5) — top-k+
+  diversity-fill을 greedy MMR(`score − λ·relu(kept와의 최대 코사인)`)로 대체, 중복 배경이 소수
+  대표로 압축되고 예산이 novel 토큰으로 흐름. λ 하한은 유도값: 두 항이 [0,1] 스케일이라 최악
+  케이스(전경=코사인 최저, 배경=완전중복 최고) 구제에 λ > 1−2w = 0.4 필요, 0.5는 여유분.
+  `--objectness-weight 0 --mmr-lambda 0`이 이전 파이프라인을 정확히 재현(min-max는 단조라 랭킹
+  불변, 테스트로 고정). **keep-set이 또 바뀌므로 이 시점 이전 선택과 A/B 금지.** 가중치는
+  튜닝값이 아닌 구조적 선택 — S3 슬롯이 나면 paired A/B로 ablate.
 - **프루닝 재설계(per-event/배정-인지)는 S1 게이트 불통과로 보류(2026-07-16)**: train 캡션
   9,535건 중 94%가 자연 절(clause) 4개 미만(1절 35%/2절 45%) → "4이벤트"는 대부분 기계적
   단어-중간 분할이라 "이벤트↔프레임 1:1 배정"의 전제가 성립 안 함(복합 퇴화 51.5% > kill 기준

@@ -55,6 +55,8 @@ def load_engine(args) -> Engine:
     prune_cfg = PruneConfig(
         keep_ratio=args.keep_ratio,
         diversity_frac=args.diversity_frac,
+        objectness_weight=args.objectness_weight,
+        mmr_lambda=args.mmr_lambda,
         enabled=not args.no_prune,
     )
     return Engine(model, processor, head, prune_cfg, max_pixels=args.max_pixels)
@@ -109,6 +111,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--tau", type=float, default=0.10)
     ap.add_argument("--keep-ratio", type=float, default=0.5)
     ap.add_argument("--diversity-frac", type=float, default=0.2)
+    ap.add_argument("--objectness-weight", type=float, default=0.3)
+    ap.add_argument("--mmr-lambda", type=float, default=0.5)
     ap.add_argument("--no-prune", action="store_true")
     ap.add_argument("--max-pixels", type=int, default=DEFAULT_MAX_PIXELS)
     ap.add_argument("--limit", type=int, default=None)

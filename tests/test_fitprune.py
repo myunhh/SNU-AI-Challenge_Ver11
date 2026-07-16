@@ -2,10 +2,13 @@ import torch
 
 from snuai11.fitprune import (
     PruneConfig,
+    combined_scores,
     cross_target_scores,
     keep_indices_for_image,
+    objectness_scores,
     per_event_scores,
     select_diverse,
+    select_mmr,
 )
 
 
@@ -156,3 +159,97 @@ def test_keep_at_least_one():
     events = [_rand(2, 8) for _ in range(4)]
     idx = keep_indices_for_image(vis, events, PruneConfig(keep_ratio=0.01))
     assert idx.numel() >= 1
+
+
+def _stuff_vs_things(d=16, seed=5):
+    """The pruned-skier scenario from runs/prune_viz: a caption-aligned
+    texture cluster ("water", 20 tokens, matches event 0's anchor), an
+    off-caption background cluster ("sky", 18 tokens) and 2 small foreground
+    objects far from the centroid but not caption-aligned. Visual centering
+    de-means shared directions, so bg dominance must come from a cluster
+    (not one global direction) to survive centering — as in real images."""
+    e = torch.eye(d)
+    g = torch.Generator().manual_seed(seed)
+    water = e[3].repeat(20, 1) + torch.randn(20, d, generator=g) * 1e-2
+    sky = e[8].repeat(18, 1) + torch.randn(18, d, generator=g) * 1e-2
+    fg = torch.stack([6.0 * e[1], 6.0 * e[2]])  # tokens 38, 39
+    vis = torch.cat([water, sky, fg])
+    events = [e[3 + j].unsqueeze(0) for j in range(4)]  # event 0 == "water"
+    return vis, events
+
+
+def test_objectness_scores_rank_foreground_first():
+    vis, _ = _stuff_vs_things()
+    obj = objectness_scores(vis)
+    assert obj.shape == (40,)
+    assert set(obj.topk(2).indices.tolist()) == {38, 39}
+
+
+def test_objectness_blend_rescues_pruned_foreground():
+    # stuff-over-things regression: at 50% (budget 20) pure cosine fills the
+    # whole budget with the 20 caption-aligned water tokens and cuts both
+    # foreground objects; the objectness blend + MMR must keep them.
+    vis, events = _stuff_vs_things()
+    old = PruneConfig(keep_ratio=0.5, objectness_weight=0.0, mmr_lambda=0.0, diversity_frac=0.0)
+    new = PruneConfig(keep_ratio=0.5)
+    kept_old = set(keep_indices_for_image(vis, events, old).tolist())
+    kept_new = set(keep_indices_for_image(vis, events, new).tolist())
+    assert not {38, 39} & kept_old
+    assert {38, 39} <= kept_new
+    assert len(kept_new) == len(kept_old) == 20
+
+
+def test_combined_scores_weight_zero_is_pure_cosine_ranking():
+    vis = _rand(30, 16)
+    events = [_rand(3, 16, seed=i) for i in range(4)]
+    cfg0 = PruneConfig(objectness_weight=0.0)
+    blended = combined_scores(vis, events, cfg0)
+    raw = cross_target_scores(vis, events, cfg0)
+    assert torch.equal(torch.argsort(blended, stable=True), torch.argsort(raw, stable=True))
+
+
+def test_select_mmr_counts_sorted_unique_and_budget():
+    vis = _rand(100, 32)
+    scores = torch.rand(100)
+    idx = select_mmr(scores, vis, keep_ratio=0.5, mmr_lambda=0.3)
+    assert idx.shape[0] == 50
+    assert len(set(idx.tolist())) == 50
+    assert idx.tolist() == sorted(idx.tolist())
+    # keep everything when the budget covers all tokens
+    assert select_mmr(scores, vis, 1.0, 0.3).tolist() == list(range(100))
+
+
+def test_select_mmr_compresses_redundant_high_scorers():
+    # 20 near-identical high scorers + 10 distinct medium scorers, budget 15:
+    # top-k would take 15 duplicates; MMR must trade some for novel tokens.
+    d = 8
+    vis = torch.zeros(30, d)
+    vis[:20, 0] = 1.0
+    vis[:20] += _rand(20, d, seed=6) * 1e-3
+    for i in range(10):
+        vis[20 + i, i % (d - 1) + 1] = 1.0
+    scores = torch.cat([torch.full((20,), 0.9), torch.full((10,), 0.75)])
+    kept = select_mmr(scores, vis, keep_ratio=0.5, mmr_lambda=0.3)
+    n_novel = sum(1 for i in kept.tolist() if i >= 20)
+    assert n_novel >= 5
+    # and the single best-scored token always survives
+    assert int(torch.argmax(scores)) in set(kept.tolist())
+
+
+def test_select_mmr_deterministic():
+    vis = _rand(64, 16, seed=9)
+    scores = torch.rand(64)
+    a = select_mmr(scores, vis, 0.5, 0.3).tolist()
+    b = select_mmr(scores, vis, 0.5, 0.3).tolist()
+    assert a == b
+
+
+def test_legacy_path_via_zero_flags_matches_old_selection():
+    # objectness_weight=0 + mmr_lambda=0 must reproduce the previous
+    # pipeline exactly (min-max on scores is monotonic -> same argsort).
+    vis = _rand(50, 16, seed=11)
+    events = [_rand(3, 16, seed=i) for i in range(4)]
+    cfg = PruneConfig(keep_ratio=0.5, diversity_frac=0.2, objectness_weight=0.0, mmr_lambda=0.0)
+    got = keep_indices_for_image(vis, events, cfg)
+    old = select_diverse(cross_target_scores(vis, events, cfg), vis, 0.5, 0.2)
+    assert got.tolist() == old.tolist()

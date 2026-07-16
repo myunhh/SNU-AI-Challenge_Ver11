@@ -21,6 +21,39 @@ embeddings of the event's content words — a training-free surrogate for
 FitPrune's attention statistics that needs no extra forward pass (the
 visual embeddings are computed by the model anyway).
 
+Selection objective (2026-07-16, post prune_viz forensics): pure
+caption-cosine top-k has a stuff-over-things failure mode observed on real
+samples — scene nouns in the caption (pool/ice/snow) match every patch of a
+large homogeneous region, so hundreds of near-identical background tokens
+fill the top-k while the small objects that actually discriminate temporal
+order (ball, cap, hoop, skier) are cut. Two counter-terms, both on by
+default and each ablatable to exactly the previous behavior:
+
+  * objectness (cfg.objectness_weight): blend in the norm of each token's
+    residual from the image centroid — foreground "things" deviate far from
+    the image mean, homogeneous "stuff" sits near it. This is precisely the
+    magnitude that _center_unit's normalization discards. Blended after
+    per-image min-max so both terms share a [0, 1] scale; weight 0 restores
+    the pure-cosine ranking (min-max is monotonic).
+  * MMR selection (cfg.mmr_lambda): replace top-k + diversity-fill with one
+    greedy maximal-marginal-relevance pass — pick argmax(score - lambda *
+    relu(max cos-sim to already-kept)) until the budget is full. Redundant
+    background patches collapse to a few representatives and the freed
+    budget flows to lower-scored but novel tokens. relu: dissimilarity is
+    not rewarded (that was the old farthest-point diversity fill's job,
+    which MMR subsumes; diversity_frac is ignored when mmr_lambda > 0).
+    lambda 0 falls back to the legacy top-k + diversity-fill path.
+
+Default weights (objectness 0.3, MMR lambda 0.5) are structural choices,
+not tuned values (Ver11 has no local holdout). The lambda floor is derived,
+not arbitrary: both terms live on [0, 1], so in the worst case (foreground
+at the cosine minimum -> blended score = w; a fully redundant background
+cluster at the maximum -> deduped score = (1 - w) - lambda) rescue requires
+lambda > 1 - 2w = 0.4; 0.5 adds margin for near-1 intra-cluster sims.
+Ablate via the flags in a paired train-subset A/B (S3) if a measurement
+slot opens. Keep-sets differ from all selections made before this change:
+no A/B against pre-change runs.
+
 Similarity geometry (2026-07-16): every cosine is computed after removing
 each side's OWN population mean ("all-but-the-top"-style mean removal):
 visual tokens are centered by the image's token centroid, text anchors by
@@ -52,9 +85,11 @@ import torch.nn.functional as F
 @dataclass(frozen=True)
 class PruneConfig:
     keep_ratio: float = 0.5  # fraction of visual tokens kept per image
-    diversity_frac: float = 0.2  # fraction of the KEPT budget from diversity
+    diversity_frac: float = 0.2  # legacy path only (mmr_lambda == 0)
     text_pool: str = "max"  # pool over text tokens of one event: max|mean
     event_pool: str = "max"  # pool over the 4 events: max|mean
+    objectness_weight: float = 0.3  # blend weight of centroid-residual norm (0 = pure cosine)
+    mmr_lambda: float = 0.5  # MMR redundancy penalty (0 = legacy top-k + diversity fill)
     enabled: bool = True
 
 
@@ -69,6 +104,11 @@ def _pool(x: torch.Tensor, how: str, dim: int) -> torch.Tensor:
 def _center_unit(x: torch.Tensor) -> torch.Tensor:
     """Unit vectors of x after removing its own population mean."""
     return F.normalize(x - x.mean(dim=0, keepdim=True), dim=-1)
+
+
+def _minmax(x: torch.Tensor) -> torch.Tensor:
+    lo, hi = x.min(), x.max()
+    return (x - lo) / (hi - lo + 1e-8)
 
 
 @torch.no_grad()
@@ -109,6 +149,68 @@ def cross_target_scores(
 ) -> torch.Tensor:
     """Importance score per visual token, pooled over the 4 events. [N]"""
     return _pool(per_event_scores(visual, event_embeds, cfg), cfg.event_pool, dim=0)
+
+
+@torch.no_grad()
+def objectness_scores(visual: torch.Tensor) -> torch.Tensor:
+    """Norm of each token's residual from the image centroid. [N]
+
+    Foreground objects deviate far from the image mean; homogeneous
+    background sits near it. Raw scale — callers min-max before blending.
+    """
+    v_f = visual.float()
+    return (v_f - v_f.mean(dim=0, keepdim=True)).norm(dim=-1)
+
+
+@torch.no_grad()
+def combined_scores(
+    visual: torch.Tensor,
+    event_embeds: list[torch.Tensor],
+    cfg: PruneConfig = PruneConfig(),
+) -> torch.Tensor:
+    """Selection score: caption-cosine blended with objectness, each
+    per-image min-maxed to [0, 1]. weight 0 keeps the pure-cosine RANKING
+    (min-max is monotonic), so the ablation is exact. [N]"""
+    cos = _minmax(cross_target_scores(visual, event_embeds, cfg))
+    w = cfg.objectness_weight
+    if w <= 0.0:
+        return cos
+    return (1.0 - w) * cos + w * _minmax(objectness_scores(visual))
+
+
+@torch.no_grad()
+def select_mmr(
+    scores: torch.Tensor,  # [N]
+    visual: torch.Tensor,  # [N, D]
+    keep_ratio: float,
+    mmr_lambda: float,
+) -> torch.Tensor:
+    """Indices (sorted ascending — spatial order preserved) of kept tokens.
+
+    Greedy maximal-marginal-relevance over the WHOLE keep budget: pick
+    argmax(score - lambda * relu(max cos-sim to kept)) each round.
+    Similarity lives in the centered space (see module docstring); relu so
+    dissimilarity is never rewarded, only redundancy penalized.
+    """
+    n = scores.shape[0]
+    keep = max(1, min(n, round(n * keep_ratio)))
+    if keep >= n:
+        return torch.arange(n, device=scores.device)
+
+    v = _center_unit(visual.float())
+    first = torch.argmax(scores)  # argmax → first occurrence: deterministic
+    kept = first.view(1)
+    taken = torch.zeros(n, dtype=torch.bool, device=scores.device)
+    taken[first] = True
+    max_sim = v @ v[first]  # [N]
+    for _ in range(keep - 1):
+        adj = scores - mmr_lambda * max_sim.clamp_min(0.0)
+        adj = adj.masked_fill(taken, float("-inf"))
+        pick = torch.argmax(adj)
+        kept = torch.cat([kept, pick.view(1)])
+        taken[pick] = True
+        max_sim = torch.maximum(max_sim, v @ v[pick])
+    return torch.sort(kept).values
 
 
 @torch.no_grad()
@@ -172,5 +274,7 @@ def keep_indices_for_image(
     """End-to-end per-image selection. Returns ascending token indices."""
     if not cfg.enabled or cfg.keep_ratio >= 1.0:
         return torch.arange(visual.shape[0], device=visual.device)
-    scores = cross_target_scores(visual, event_embeds, cfg)
+    scores = combined_scores(visual, event_embeds, cfg)
+    if cfg.mmr_lambda > 0.0:
+        return select_mmr(scores, visual, cfg.keep_ratio, cfg.mmr_lambda)
     return select_diverse(scores, visual, cfg.keep_ratio, cfg.diversity_frac)
