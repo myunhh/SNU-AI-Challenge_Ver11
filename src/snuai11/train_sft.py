@@ -57,13 +57,18 @@ def dist_env() -> tuple[int, int, int]:
 
 
 def init_distributed() -> tuple[int, int, int]:
-    """world_size>1이면 NCCL 프로세스그룹 초기화 + 이 프로세스의 GPU 고정."""
+    """world_size>1이면 NCCL 프로세스그룹 초기화 + 이 프로세스의 GPU 고정.
+
+    timeout 30분: 첫 스텝 전 32B 모델 로딩(캐시 미스 시 다운로드 포함)이 rank마다
+    편차가 있어 먼저 끝난 rank가 첫 collective에서 대기할 수 있다. 기본 10분보다
+    넉넉히 잡되, 진짜 교착은 30분이면 드러난다."""
     rank, local_rank, world_size = dist_env()
     if world_size > 1:
         import torch.distributed as dist
+        from datetime import timedelta
         torch.cuda.set_device(local_rank)
         if not dist.is_initialized():
-            dist.init_process_group(backend="nccl")
+            dist.init_process_group(backend="nccl", timeout=timedelta(minutes=30))
     return rank, local_rank, world_size
 
 
