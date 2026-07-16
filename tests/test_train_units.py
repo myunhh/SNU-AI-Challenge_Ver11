@@ -1,7 +1,33 @@
+import pytest
 import torch
 
 from snuai11 import perm
-from snuai11.train_sft import LORA_SUFFIXES, margin_dpo_loss
+from snuai11.train_sft import LORA_SUFFIXES, dist_env, local_accum_for, margin_dpo_loss
+
+
+def test_dist_env_defaults_to_single_process(monkeypatch):
+    monkeypatch.delenv("WORLD_SIZE", raising=False)
+    assert dist_env() == (0, 0, 1)
+
+
+def test_dist_env_reads_torchrun_vars(monkeypatch):
+    monkeypatch.setenv("WORLD_SIZE", "2")
+    monkeypatch.setenv("RANK", "1")
+    monkeypatch.setenv("LOCAL_RANK", "1")
+    assert dist_env() == (1, 1, 2)
+
+
+def test_local_accum_for_single_process_unchanged():
+    assert local_accum_for(4, world_size=1) == 4
+
+
+def test_local_accum_for_splits_evenly_across_ranks():
+    assert local_accum_for(4, world_size=2) == 2
+
+
+def test_local_accum_for_rejects_indivisible_accum():
+    with pytest.raises(ValueError):
+        local_accum_for(5, world_size=2)
 
 
 def test_margin_dpo_loss_decreases_with_gt_margin():

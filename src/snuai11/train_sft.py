@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 import time
 from pathlib import Path
@@ -41,6 +42,54 @@ from .vlm import (
 )
 
 LORA_SUFFIXES = ("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj")
+
+
+# ===========================================================================
+# DDP 헬퍼 (Ver10/grpo.py와 같은 패턴) — torchrun의 RANK/LOCAL_RANK/WORLD_SIZE 기준
+# ===========================================================================
+
+def dist_env() -> tuple[int, int, int]:
+    """(rank, local_rank, world_size). torchrun 없이 단일 프로세스면 (0, 0, 1)."""
+    ws = int(os.environ.get("WORLD_SIZE", "1"))
+    if ws <= 1:
+        return 0, 0, 1
+    return int(os.environ["RANK"]), int(os.environ["LOCAL_RANK"]), ws
+
+
+def init_distributed() -> tuple[int, int, int]:
+    """world_size>1이면 NCCL 프로세스그룹 초기화 + 이 프로세스의 GPU 고정."""
+    rank, local_rank, world_size = dist_env()
+    if world_size > 1:
+        import torch.distributed as dist
+        torch.cuda.set_device(local_rank)
+        if not dist.is_initialized():
+            dist.init_process_group(backend="nccl")
+    return rank, local_rank, world_size
+
+
+def sync_grads_sum(params, world_size: int) -> None:
+    """스텝당 1회, opt.step() 직전 all-reduce(SUM, 나누기 없음).
+
+    (loss/args.accum)로 이미 전체(global) accum 기준 스케일이라, rank들의 부분합을
+    그냥 더하면 단일GPU 직렬실행과 동일한 그래디언트가 된다(world_size로 다시
+    나누면 과소평가). DDP wrapper를 안 쓰는 건 Ver10/grpo.py와 같은 이유는 아니고
+    (여기는 backward 호출횟수가 매 스텝 항상 local_accum으로 고정, 조건부 스킵
+    없음) 단순히 두 트레이너의 DDP 방식을 통일해 관리 부담을 줄이기 위함.
+    """
+    if world_size <= 1:
+        return
+    import torch.distributed as dist
+    for p in params:
+        if p.requires_grad and p.grad is not None:
+            dist.all_reduce(p.grad, op=dist.ReduceOp.SUM)
+
+
+def local_accum_for(accum: int, world_size: int) -> int:
+    """--accum을 world_size로 나눈 rank당 몫. 나누어떨어지지 않으면 즉시 에러."""
+    if world_size > 1 and accum % world_size != 0:
+        raise ValueError(f"--accum({accum})은 world_size({world_size})로 나누어떨어져야 함 "
+                         "(rank마다 동일한 수의 샘플을 처리)")
+    return accum // world_size if world_size > 1 else accum
 
 
 def lora_target_modules(model) -> list[str]:
@@ -125,6 +174,9 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--dpo-ce-weight", type=float, default=0.2)
     args = ap.parse_args(argv)
 
+    rank, local_rank, world_size = init_distributed()
+    is_main = rank == 0
+
     if args.model_id is None:
         from run_common import resolve_model_id
 
@@ -135,10 +187,17 @@ def main(argv: list[str] | None = None) -> None:
         args.steps = 2000 if args.phase == "sft" else 400
     if args.body_lr is None:
         args.body_lr = 2e-4 if args.phase == "sft" else 5e-5
+    try:
+        local_accum = local_accum_for(args.accum, world_size)
+    except ValueError as e:
+        raise SystemExit(str(e)) from e
     out = Path(args.out or f"runs/{'sft' if args.phase == 'sft' else 'dpo'}32b_v11")
     out.mkdir(parents=True, exist_ok=True)
-    write_env_report(out)
+    if is_main:
+        write_env_report(out)
 
+    # body/head 파라미터 초기화(fresh LoRA 시 랜덤)가 rank 간 동일하도록 전역 시드 고정.
+    # --adapter로 로드하는 경우는 파일이 이미 결정적이라 무해.
     random.seed(args.seed)
     torch.manual_seed(args.seed)
 
@@ -147,10 +206,14 @@ def main(argv: list[str] | None = None) -> None:
     # against the Ver4/Ver10 track; Ver11 trains on the full train set and
     # the design is judged via LB slots (see CLAUDE.md).
     train_samples = load_samples(args.data_root, "train")
-    print(f"[data] train {len(train_samples)} (100%, no local holdout)")
+    if is_main:
+        print(f"[data] train {len(train_samples)} (100%, no local holdout)")
+        if world_size > 1:
+            print(f"[dist] world_size={world_size} — accum={args.accum}는 rank당 {local_accum}개로 분할")
 
     # ---- model ---------------------------------------------------------
-    model, processor = load_model_and_processor(args.model_id, four_bit=args.four_bit)
+    model, processor = load_model_and_processor(
+        args.model_id, four_bit=args.four_bit, device_map={"": local_rank})
     model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
     peft_model = attach_lora(model, args.lora_r, args.lora_alpha, args.lora_dropout, args.adapter)
 
@@ -183,27 +246,35 @@ def main(argv: list[str] | None = None) -> None:
     optimizer = build_optimizer(groups, scfg)
     scheduler = build_scheduler(optimizer, scfg, total_steps=args.steps)
     n_body = sum(p.numel() for p in body_params)
-    print(f"[stackelberg] body {n_body/1e6:.1f}M @ {scfg.body_lr:g} | head {sum(p.numel() for p in head.parameters())} @ {scfg.head_lr:g} (wd {scfg.head_weight_decay})")
+    if is_main:
+        print(f"[stackelberg] body {n_body/1e6:.1f}M @ {scfg.body_lr:g} | head {sum(p.numel() for p in head.parameters())} @ {scfg.head_lr:g} (wd {scfg.head_weight_decay})")
 
     # ---- loop ------------------------------------------------------------
     peft_model.train()
-    rng = random.Random(args.seed)
+    # rank마다 다른 데이터를 보게 시드를 갈라친다(전역 random.seed와는 별개 인스턴스 —
+    # 위쪽 model/LoRA 초기화 동기화용 전역 시드는 이미 다 쓰고 지나온 뒤라 여기서 갈라도 무해).
+    rng = random.Random(args.seed + rank)
     log_path = out / "train_log.jsonl"
     pool: list[int] = []
     running: list[float] = []
     hits: list[float] = []
     t0 = time.time()
+    all_params = body_params + list(head.parameters())
 
     def save(tag: str) -> None:
-        ckpt = out / tag
-        peft_model.save_pretrained(str(ckpt / "adapter"))
-        head.save(ckpt / "head.pt")
-        (ckpt / "train_args.json").write_text(json.dumps(vars(args), indent=2, default=str))
+        if is_main:
+            ckpt = out / tag
+            peft_model.save_pretrained(str(ckpt / "adapter"))
+            head.save(ckpt / "head.pt")
+            (ckpt / "train_args.json").write_text(json.dumps(vars(args), indent=2, default=str))
+        if world_size > 1:
+            import torch.distributed as dist
+            dist.barrier()   # rank0 저장 끝날 때까지 다른 rank 대기
 
     for step in range(1, args.steps + 1):
         optimizer.zero_grad(set_to_none=True)
         step_loss = 0.0
-        for _ in range(args.accum):
+        for _ in range(local_accum):
             if not pool:
                 pool = list(range(len(train_samples)))
                 rng.shuffle(pool)
@@ -219,12 +290,24 @@ def main(argv: list[str] | None = None) -> None:
             (loss / args.accum).backward()
             step_loss += float(loss.detach()) / args.accum
             hits.append(float(logits.argmax(dim=-1).item() == sample.label))
-        torch.nn.utils.clip_grad_norm_(body_params + list(head.parameters()), 1.0)
+        sync_grads_sum(all_params, world_size)
+        torch.nn.utils.clip_grad_norm_(all_params, 1.0)
         optimizer.step()
         scheduler.step()
         running.append(step_loss)
 
-        if step % 10 == 0 or step == 1:
+        if world_size > 1:
+            import torch.distributed as dist
+            gathered_running: list[object] = [None] * world_size
+            dist.all_gather_object(gathered_running, running)
+            gathered_hits: list[object] = [None] * world_size
+            dist.all_gather_object(gathered_hits, hits)
+            if is_main:
+                running = [x for part in gathered_running for x in part]
+                hits = [x for part in gathered_hits for x in part]
+
+        log_boundary = step % 10 == 0 or step == 1
+        if log_boundary and is_main:
             lrs = {g["name"]: g["lr"] for g in optimizer.param_groups}
             rec = {
                 "step": step,
@@ -238,6 +321,9 @@ def main(argv: list[str] | None = None) -> None:
                 f.write(json.dumps(rec) + "\n")
             print(f"[{args.phase} {step}/{args.steps}] loss {rec['loss']:.4f} acc {rec['acc']:.3f} "
                   f"lr {rec['lr_body']:.2e}/{rec['lr_head']:.2e} ({rec['elapsed_s']:.0f}s)")
+        if log_boundary:
+            # rank0가 아니어도 로컬 윈도우를 비워야 all_gather 크기가 매 스텝 재사용됨
+            # (rank0와 같은 10스텝 윈도우 경계에서 함께 리셋).
             running.clear()
             hits.clear()
         if step % args.save_steps == 0:
@@ -245,8 +331,9 @@ def main(argv: list[str] | None = None) -> None:
 
     peft_model.eval()
     save("adapter_final")
-    head.save(out / "head.pt")
-    print(f"[done] {args.phase} -> {out}")
+    if is_main:
+        head.save(out / "head.pt")
+        print(f"[done] {args.phase} -> {out}")
 
 
 if __name__ == "__main__":
