@@ -19,6 +19,7 @@ import time
 from pathlib import Path
 
 import torch
+from tqdm import tqdm
 
 from . import perm
 from .data import load_samples
@@ -137,9 +138,11 @@ def main(argv: list[str] | None = None) -> None:
     engine = load_engine(args)
     (out / "config.json").write_text(json.dumps(vars(args), indent=2, default=str))
 
-    n_esc, t_start = 0, time.time()
+    n_esc = 0
+    # 이미 완료된 샘플은 스킵만 하므로 재개 시 진행바가 그 지점까지 빨리감기된다.
+    pbar = tqdm(samples, desc=f"infer:{args.split}", dynamic_ncols=True, mininterval=5.0)
     with open(progress_path, "a") as f:
-        for i, sample in enumerate(samples):
+        for sample in pbar:
             if sample.id in done:
                 continue
             t0 = time.time()
@@ -152,9 +155,7 @@ def main(argv: list[str] | None = None) -> None:
             f.flush()
             done[sample.id] = rec
             n_esc += int(rec["escalated"])
-            if (i + 1) % 25 == 0:
-                rate = (time.time() - t_start) / max(1, len(done))
-                print(f"[{len(done)}/{len(samples)}] {rec['elapsed_s']:.1f}s/sample, escalated {n_esc}")
+            pbar.set_postfix(esc=n_esc, s_per=f"{rec['elapsed_s']:.1f}", refresh=False)
 
     records = [done[s.id] for s in samples if s.id in done]
 

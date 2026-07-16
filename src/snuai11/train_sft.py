@@ -26,6 +26,7 @@ from pathlib import Path
 
 import torch
 import torch.nn.functional as F
+from tqdm import tqdm
 
 from . import perm
 from .data import load_samples, uniform_augment
@@ -276,7 +277,11 @@ def main(argv: list[str] | None = None) -> None:
             import torch.distributed as dist
             dist.barrier()   # rank0 저장 끝날 때까지 다른 rank 대기
 
-    for step in range(1, args.steps + 1):
+    # 진행바는 rank0만 그린다. tee 파이프(비-tty)에서는 갱신마다 한 줄씩 남으므로
+    # mininterval을 크게 잡아 로그 스팸을 막는다 (스텝당 수십 초라 사실상 스텝마다 1줄).
+    pbar = tqdm(range(1, args.steps + 1), desc=args.phase, disable=not is_main,
+                dynamic_ncols=True, mininterval=10.0)
+    for step in pbar:
         optimizer.zero_grad(set_to_none=True)
         step_loss = 0.0
         for _ in range(local_accum):
@@ -327,8 +332,10 @@ def main(argv: list[str] | None = None) -> None:
             }
             with open(log_path, "a") as f:
                 f.write(json.dumps(rec) + "\n")
-            print(f"[{args.phase} {step}/{args.steps}] loss {rec['loss']:.4f} acc {rec['acc']:.3f} "
-                  f"lr {rec['lr_body']:.2e}/{rec['lr_head']:.2e} ({rec['elapsed_s']:.0f}s)")
+            pbar.set_postfix(loss=f"{rec['loss']:.4f}", acc=f"{rec['acc']:.3f}",
+                             lr=f"{rec['lr_body']:.1e}/{rec['lr_head']:.1e}", refresh=False)
+            pbar.write(f"[{args.phase} {step}/{args.steps}] loss {rec['loss']:.4f} acc {rec['acc']:.3f} "
+                       f"lr {rec['lr_body']:.2e}/{rec['lr_head']:.2e} ({rec['elapsed_s']:.0f}s)")
         if log_boundary:
             # rank0가 아니어도 로컬 윈도우를 비워야 all_gather 크기가 매 스텝 재사용됨
             # (rank0와 같은 10스텝 윈도우 경계에서 함께 리셋).
