@@ -75,3 +75,16 @@ def test_adjacent_swap_neighbors():
 
 def test_all_perms_is_lexicographic():
     assert perm.ALL_PERMS == list(itertools.permutations(range(4)))
+
+
+def test_kendall_matrix_matches_pairwise_distances():
+    m = perm.kendall_matrix()
+    assert len(m) == 24 and all(len(row) == 24 for row in m)
+    for a in range(24):
+        assert m[a][a] == 0
+        for b in range(24):
+            assert m[a][b] == m[b][a]
+            assert m[a][b] == perm.kendall_distance(perm.ALL_PERMS[a], perm.ALL_PERMS[b])
+    # S4 distance distribution from any fixed rank: 1/3/5/6/5/3/1 -> mean 3
+    for a in range(24):
+        assert sum(m[a]) == 72

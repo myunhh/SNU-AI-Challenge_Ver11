@@ -2,7 +2,14 @@ import pytest
 import torch
 
 from snuai11 import perm
-from snuai11.train_sft import LORA_SUFFIXES, dist_env, local_accum_for, margin_dpo_loss
+from snuai11.train_sft import (
+    LORA_SUFFIXES,
+    dist_env,
+    expected_kt,
+    kendall_norm_matrix,
+    local_accum_for,
+    margin_dpo_loss,
+)
 
 
 def test_dist_env_defaults_to_single_process(monkeypatch):
@@ -67,3 +74,46 @@ def test_margin_dpo_loss_grad_flows():
 def test_lora_suffixes_language_only_conventions():
     assert "q_proj" in LORA_SUFFIXES and "down_proj" in LORA_SUFFIXES
     assert "lm_head" not in LORA_SUFFIXES and "embed_tokens" not in LORA_SUFFIXES
+
+
+def test_expected_kt_zero_at_onehot_gt():
+    kt_norm = kendall_norm_matrix()
+    logits = torch.zeros(1, 24)
+    logits[0, 7] = 40.0
+    assert float(expected_kt(logits, 7, kt_norm)) < 1e-6
+
+
+def test_expected_kt_uniform_is_half():
+    # mean KT distance from any fixed rank over S4 is 3 -> normalized 0.5
+    kt_norm = kendall_norm_matrix()
+    logits = torch.zeros(1, 24)
+    for label in (0, 5, 23):
+        assert float(expected_kt(logits, label, kt_norm)) == pytest.approx(0.5)
+
+
+def test_expected_kt_prefers_near_miss_over_reversal():
+    # confidently wrong on a KT=1 neighbor must cost far less than on the
+    # KT=6 reversal — the partial-credit geometry the aux loss encodes
+    kt_norm = kendall_norm_matrix()
+    label = perm.index_of((0, 1, 2, 3))
+    neighbor = perm.index_of(perm.adjacent_swap_neighbors((0, 1, 2, 3))[0])
+    reversal = perm.index_of((3, 2, 1, 0))
+    near = torch.zeros(1, 24)
+    near[0, neighbor] = 40.0
+    far = torch.zeros(1, 24)
+    far[0, reversal] = 40.0
+    e_near = float(expected_kt(near, label, kt_norm))
+    e_far = float(expected_kt(far, label, kt_norm))
+    assert e_near == pytest.approx(1 / 6, abs=1e-4)
+    assert e_far == pytest.approx(1.0, abs=1e-4)
+    assert e_near < e_far
+
+
+def test_expected_kt_grad_flows_and_pushes_gt_up():
+    kt_norm = kendall_norm_matrix()
+    logits = torch.zeros(1, 24, requires_grad=True)
+    loss = expected_kt(logits, 3, kt_norm)
+    loss.backward()
+    assert logits.grad is not None and torch.isfinite(logits.grad).all()
+    # minimizing the loss must INCREASE the GT logit (negative gradient)
+    assert float(logits.grad[0, 3]) < 0

@@ -146,6 +146,24 @@ def margin_dpo_loss(logits24: torch.Tensor, label: int, beta: float, ce_weight: 
     return loss
 
 
+def kendall_norm_matrix(device=None) -> torch.Tensor:
+    """[24, 24] fp32 tensor of KendallTau(a, b)/6 — row = GT class."""
+    return torch.tensor(perm.kendall_matrix(), dtype=torch.float32, device=device) / 6.0
+
+
+def expected_kt(logits24: torch.Tensor, label: int, kt_norm: torch.Tensor) -> torch.Tensor:
+    """E_{c~softmax(logits)}[KendallTau(c, label)/6] = 1 - expected pairwise
+    score — a differentiable surrogate of the LB's suspected partial-credit
+    metric. Zero exactly at the one-hot GT (never fights CE at the optimum);
+    off the optimum it moves wrong-class mass from far permutations toward
+    low-KT neighbors — the same error geometry the Ver8 adjacent-swap DPO
+    validated on the LB (0.90226 -> 0.90401), preserved here so plain-CE SFT
+    does not wash it out of the warm-started weights. Uniform logits give
+    exactly 0.5 (mean KT distance in S4 is 3)."""
+    p = F.softmax(logits24.float(), dim=-1)[0]
+    return (p * kt_norm[label]).sum()
+
+
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--model-id", default=None)
@@ -180,6 +198,9 @@ def main(argv: list[str] | None = None) -> None:
     # DPO
     ap.add_argument("--dpo-beta", type=float, default=1.0)
     ap.add_argument("--dpo-ce-weight", type=float, default=0.2)
+    # metric-aligned aux loss (both phases)
+    ap.add_argument("--kt-weight", type=float, default=0.5,
+                    help="expected-Kendall aux loss weight (0 = pre-2026-07-17 pure CE/DPO)")
     args = ap.parse_args(argv)
 
     rank, local_rank, world_size = init_distributed()
@@ -264,10 +285,18 @@ def main(argv: list[str] | None = None) -> None:
     # rank마다 다른 데이터를 보게 시드를 갈라친다(전역 random.seed와는 별개 인스턴스 —
     # 위쪽 model/LoRA 초기화 동기화용 전역 시드는 이미 다 쓰고 지나온 뒤라 여기서 갈라도 무해).
     rng = random.Random(args.seed + rank)
+    kt_norm = kendall_norm_matrix(device=head.linear.weight.device) if args.kt_weight > 0 else None
     log_path = out / "train_log.jsonl"
     pool: list[int] = []
-    running: list[float] = []
-    hits: list[float] = []
+
+    # 로그 윈도우는 샘플 단위 값으로 쌓는다. 이전 코드는 rank당 step_loss(=Σ loss/accum,
+    # rank 몫만)를 쌓아서 DDP에서 로그 loss가 실제의 1/world_size로 찍혔다 — ws8 전이
+    # 게이트(threshold 3.0 vs ln24=3.178)가 2-GPU에서 무전이도 통과시키는 버그(2026-07-17 수정).
+    # 그래디언트/가중치는 무관(스케일링은 backward 쪽에서 이미 올발랐음), 로그 의미만 교정.
+    def fresh_window() -> dict[str, list[float]]:
+        return {"loss": [], "ce": [], "kt": [], "hits": []}
+
+    window = fresh_window()
     t0 = time.time()
     all_params = body_params + list(head.parameters())
 
@@ -287,7 +316,6 @@ def main(argv: list[str] | None = None) -> None:
                 dynamic_ncols=True, mininterval=10.0)
     for step in pbar:
         optimizer.zero_grad(set_to_none=True)
-        step_loss = 0.0
         for _ in range(local_accum):
             if not pool:
                 pool = list(range(len(train_samples)))
@@ -298,42 +326,50 @@ def main(argv: list[str] | None = None) -> None:
             keep = engine.keep_mask(prep, sample.caption, prune_cfg) if use_prune else None
             logits = engine.forward_prepared(prep, keep)
             if args.phase == "sft":
-                loss = F.cross_entropy(logits, torch.tensor([sample.label], device=logits.device))
+                base = F.cross_entropy(logits, torch.tensor([sample.label], device=logits.device))
+                window["ce"].append(float(base.detach()))
             else:
-                loss = margin_dpo_loss(logits, sample.label, args.dpo_beta, args.dpo_ce_weight)
+                base = margin_dpo_loss(logits, sample.label, args.dpo_beta, args.dpo_ce_weight)
+            loss = base
+            if kt_norm is not None:
+                kt = expected_kt(logits, sample.label, kt_norm)
+                loss = loss + args.kt_weight * kt
+                window["kt"].append(float(kt.detach()))
             (loss / args.accum).backward()
-            step_loss += float(loss.detach()) / args.accum
-            hits.append(float(logits.argmax(dim=-1).item() == sample.label))
+            window["loss"].append(float(loss.detach()))
+            window["hits"].append(float(logits.argmax(dim=-1).item() == sample.label))
         sync_grads_sum(all_params, world_size)
         torch.nn.utils.clip_grad_norm_(all_params, 1.0)
         optimizer.step()
         scheduler.step()
-        running.append(step_loss)
 
         log_boundary = step % 10 == 0 or step == 1
         if log_boundary and world_size > 1:
-            # gather는 로그 시점(윈도우당 1회)에만 — 매 스텝 부르면 rank0의 running이
+            # gather는 로그 시점(윈도우당 1회)에만 — 매 스텝 부르면 rank0의 윈도우가
             # 매번 다른 rank의 "그 시점까지 누적된 로컬 리스트" 전체를 다시 흡수해
             # O(n^2)로 부풀며 초반 값이 중복 반영되는 버그가 있었다(2026-07-16 발견).
             import torch.distributed as dist
-            gathered_running: list[object] = [None] * world_size
-            dist.all_gather_object(gathered_running, running)
-            gathered_hits: list[object] = [None] * world_size
-            dist.all_gather_object(gathered_hits, hits)
+            gathered: list[object] = [None] * world_size
+            dist.all_gather_object(gathered, window)
             if is_main:
-                running = [x for part in gathered_running for x in part]
-                hits = [x for part in gathered_hits for x in part]
+                window = {k: [x for part in gathered for x in part[k]] for k in window}
 
         if log_boundary and is_main:
             lrs = {g["name"]: g["lr"] for g in optimizer.param_groups}
             rec = {
                 "step": step,
-                "loss": sum(running) / len(running),
-                "acc": sum(hits) / max(1, len(hits)),
+                "loss": sum(window["loss"]) / max(1, len(window["loss"])),
+                "acc": sum(window["hits"]) / max(1, len(window["hits"])),
                 "lr_body": lrs["body"],
                 "lr_head": lrs["head"],
                 "elapsed_s": round(time.time() - t0, 1),
             }
+            # 성분 분리: ce는 KT 보조항을 뺀 순수 CE(sft만) — ws8 전이 게이트가 읽는 값,
+            # ln(24)=3.178 플래토 판독도 이 값 기준. kt는 기대 정규화 Kendall 거리(균등=0.5).
+            if window["ce"]:
+                rec["ce"] = sum(window["ce"]) / len(window["ce"])
+            if window["kt"]:
+                rec["kt"] = sum(window["kt"]) / len(window["kt"])
             with open(log_path, "a") as f:
                 f.write(json.dumps(rec) + "\n")
             pbar.set_postfix(loss=f"{rec['loss']:.4f}", acc=f"{rec['acc']:.3f}",
@@ -341,10 +377,9 @@ def main(argv: list[str] | None = None) -> None:
             pbar.write(f"[{args.phase} {step}/{args.steps}] loss {rec['loss']:.4f} acc {rec['acc']:.3f} "
                        f"lr {rec['lr_body']:.2e}/{rec['lr_head']:.2e} ({rec['elapsed_s']:.0f}s)")
         if log_boundary:
-            # rank0가 아니어도 로컬 윈도우를 비워야 all_gather 크기가 매 스텝 재사용됨
-            # (rank0와 같은 10스텝 윈도우 경계에서 함께 리셋).
-            running.clear()
-            hits.clear()
+            # 모든 rank가 같은 10스텝 경계에서 새 윈도우로 교체(rank0의 병합 결과 별칭이
+            # 다음 윈도우로 새어들지 않도록 clear 대신 fresh dict).
+            window = fresh_window()
         if step % args.save_steps == 0:
             save(f"checkpoint-{step}")
 

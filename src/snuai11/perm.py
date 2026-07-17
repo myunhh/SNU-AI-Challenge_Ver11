@@ -101,6 +101,16 @@ def pairwise_score(pred: Perm, truth: Perm) -> float:
     return 1.0 - kendall_distance(pred, truth) / 6.0
 
 
+def kendall_matrix() -> list[list[int]]:
+    """KENDALL[a][b] = kendall_distance(ALL_PERMS[a], ALL_PERMS[b]).
+
+    Symmetric, zero diagonal; row mean is 3 (S4 distance distribution
+    1/3/5/6/5/3/1 over d=0..6). Used to build the expected-Kendall
+    training loss tensor.
+    """
+    return [[kendall_distance(a, b) for b in ALL_PERMS] for a in ALL_PERMS]
+
+
 def adjacent_swap_neighbors(rank: Perm) -> list[Perm]:
     """The 3 rank tuples at Kendall distance 1 (swap chronological steps t,t+1).
 

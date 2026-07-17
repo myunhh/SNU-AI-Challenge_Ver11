@@ -52,6 +52,8 @@ STAGE="${1:-auto}"
 # lr-ratio 5(기본) -> head peak 2.5e-4: 1차 본런 실측 플래토-탈출 임계(2.87e-4) 바로 아래
 # accum 16: 유효배치 4->16, 플래토 근본 원인(그래디언트 노이즈) 직접 해결
 # cosine(기본): poly는 총 LR 예산을 body 기준 ~20x 깎는 것으로 확정되어 기각
+# kt-weight 0.5(기본, 2026-07-17): 기대-Kendall 보조항 — LB 쌍순서 부분점수 정렬 +
+#   Ver8 DPO가 심어둔 인접스왑 마진 구조를 SFT가 씻어내지 않게 유지. 끄려면 --kt-weight 0.
 WS8_ADAPTER="${SNUAI_WS8_ADAPTER:-../Ver8/runs/checkpoint-200-Ver8 DPO}"
 WS8_RECIPE=(--adapter "$WS8_ADAPTER" --body-lr 5e-5 --accum 16 --schedule cosine)
 WS8_OUT="runs/sft32b_v11_ws8"
@@ -77,9 +79,11 @@ run_ws8() {
     python - <<'PY'
 import json, sys
 rows = [json.loads(l) for l in open("runs/ws8_gate/train_log.jsonl")]
-loss = sum(r["loss"] for r in rows) / len(rows)
+# "ce"(KT 보조항 제외한 순수 CE)로 판정해야 ln(24)=3.178 기준이 유지된다.
+# 구 로그(ce 필드 없음) 호환으로 loss 폴백.
+loss = sum(r.get("ce", r["loss"]) for r in rows) / len(rows)
 ok = loss < 3.0
-print(f"[ws8-gate] mean initial loss = {loss:.3f} -> {'PASS' if ok else 'FAIL'} (threshold 3.0)")
+print(f"[ws8-gate] mean initial CE = {loss:.3f} -> {'PASS' if ok else 'FAIL'} (threshold 3.0)")
 if not ok:
     print("[ws8-gate] warm-start가 전이되지 않음 (ln24=3.178 근방 = 무전이).")
     print("[ws8-gate] 1순위 용의자는 해상도 이동 — --max-pixels 602112 (Ver8 원 해상도)로 게이트 재시도 권장.")
