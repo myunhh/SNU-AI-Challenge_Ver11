@@ -14,7 +14,7 @@ LB 0.90401(`../TODO.md` 참고). Ver11은 대체가 아니라 초과 도전.
 ## 진입점
 
 ```bash
-pytest tests/ -q                                    # CPU 안전망 (47개)
+pytest tests/ -q                                    # CPU 안전망 (82개)
 python scripts/smoke_gpu.py --train                 # GPU 스모크: parity·프루닝·back>0 게이트
 bash scripts/run_a100.sh ws8                        # ★ 확정 레시피: Ver8 warm-start SFT
                                                     #   (전이 게이트 10스텝 → 1500스텝, DDP 자동)
@@ -30,7 +30,9 @@ torchrun --nproc_per_node=2 run_fit.py --phase dpo \
   --adapter runs/sft32b_v11_ddp/adapter_final/adapter --out runs/dpo32b_v11_ddp
 ```
 
-플래그: `--no-prune` · `--keep-ratio 0.5` · `--diversity-frac 0.2` · `--tta 3` · `--tau 0.10` ·
+플래그: `--no-prune` · `--keep-ratio 0.5` · `--diversity-frac 0.2` · `--tta 4`(기본, 균형 Klein 세트;
+`3`=구 시드셔플) · `--stage2 {always,cascade,off}`(추론 풀토큰 2단계 정책, 기본 always) ·
+`--tau 0.10`(cascade 모드에서만) · `--kt-weight 0.5`(기대-Kendall 보조손실, 0=순수 CE/DPO) ·
 `--uniform-lr`(Stackelberg ablation 대조군).
 
 ## 검증 현황 (2026-07-15, RTX 4090 — 로컬 검증 전부 완료)
@@ -40,6 +42,34 @@ back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escala
 남은 건 A100 SFT 본런 → (선택)DPO → test → LB 슬롯뿐.
 
 ## 이 버전 고유 함정
+
+- **2026-07-17 A100 본런 전 정확도 개선 4건 + DDP 로그 버그 수정** (CPU 테스트 82개 전부 통과,
+  이전 파이프라인은 아래 플래그로 재현 가능):
+  - **🔴 DDP 로그 loss 스케일 버그 수정(본런 전 필수였음)**: 이전 코드는 rank당
+    step_loss(=Σ loss/accum, 자기 rank 몫만)를 로그 윈도우에 쌓아 **2-GPU에서 train_log.jsonl의
+    loss가 실제의 1/world_size로 찍혔다**. 이대로면 ws8 전이 게이트(threshold 3.0)가 무전이
+    (ln24≈3.178 → 로그 ~1.59)도 **거짓 PASS**시키고, "플래토 탈출 시점" 판독도 전부 왜곡됐을 것.
+    샘플 단위 기록으로 교체(단일 GPU 로그 값은 수학적으로 동일 — 그래디언트/가중치는 원래 무관).
+    게이트는 이제 `"ce"` 필드(KT 보조항 제외 순수 CE, 구 로그는 loss 폴백)로 판정.
+  - **기대-Kendall 보조 손실(`--kt-weight`, 기본 0.5, SFT·DPO 공통)**: `loss += λ·E_{c~p}[KT(c,GT)/6]`.
+    LB가 쌍순서(1−KT/6) 부분점수라는 정황(Ver7 포렌식)에 학습목표를 직접 정렬하고, Ver8 DPO(현
+    챔피언, 0.90226→0.90401이 정확히 인접스왑 마진 학습의 이득)가 심어둔 오류 기하를 순수 CE
+    SFT가 씻어내지 않게 유지. one-hot GT에서 정확히 0이라 CE 최적점과 충돌 없음, 균등분포에서
+    정확히 0.5(S4 평균 KT=3). train_log에 `loss`(총)/`ce`/`kt` 분리 기록 — **ln(24) 플래토 판독은
+    ce 기준**. `--kt-weight 0`이면 이전 손실과 완전 동일.
+  - **균형 TTA4(추론 기본 `--tta 4`)**: Klein 4원군 {e,(01)(23),(02)(13),(03)(12)} — 4뷰에 걸쳐
+    각 입력이 각 슬롯을 **정확히 1회씩** 방문(sharply transitive)해 슬롯-위치 편향이 기대값이
+    아니라 정확히 상쇄. TTA 자체는 홀드아웃 +3.81pp로 검증된 메커니즘(Ver3)의 강화이며 샘플 무관
+    고정 세트라 완전 결정적. `--tta 3`은 구 시드셔플 경로와 바이트 동일하게 보존.
+  - **stage-2 정책(추론 `--stage2`, 기본 always)**: 풀토큰 forward 집계를 저마진 캐스케이드에서
+    전 샘플로 확장 — 풀토큰 패스는 프루닝이 버린 증거를 되살리는 정보 추가이고(τ 게이트는 원래
+    효율 장치), test 819건 기준 시간 ~1.7×(4090 ~50분 추정)로 24h 예산 대비 무료에 가까움.
+    `--stage2 cascade`가 기존 τ=0.10 캐스케이드와 동작 동일(진행 기록의 `margin`은 계속 stage-1
+    마진으로 τ 포렌식 호환, `margin_final` 필드 신설). `--no-prune`이면 stage-2 자동 생략.
+  - **(옵션) `scripts/avg_adapters.py`**: 동일 런 tail 체크포인트 균등 평균(SWA류 soup). 러너
+    비연결 사후 도구 — in-sample 평가로 raw 최종본 대비 우위 확인 후에만 고려. 단일 모델 산출이라
+    출력-앙상블 금지 조항과는 무관하지만, 쓸 경우 재현성 검증 대비 설명 준비(독립 런 간 평균 금지,
+    같은 trajectory만).
 
 - **transformers==5.12.1 고정** — 프루닝은 `Qwen3VLTextModel`을 직접 호출하는 수술 경로
   (`Qwen3VLModel.forward`는 deepstack 인자를 안 받음). 버전을 올리면 `smoke_gpu.py`의 parity
