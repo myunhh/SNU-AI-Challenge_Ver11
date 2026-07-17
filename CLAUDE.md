@@ -5,8 +5,10 @@
 
 구성: Cross-Targeted FitPrune(4×4 캡션-교차 50% 토큰 컷) + one-pass score24 헤드
 (lm_head 글자행 초기화) + Stackelberg 두-시간축 QLoRA(body 2e-4 / head 1e-3, head wd 0.1)
-+ TTA3 + 마진 캐스케이드(τ 미만이면 풀토큰 재검). 설계 근거·논문 매핑·하이퍼파라미터 전체는
-`../PROJECT_SUMMARY.md`의 "Ver11 설계 상세" 절, 공통 규정·전 버전 함정은 `../CLAUDE.md` 참고.
++ 기대-Kendall 보조손실(`--kt-weight 0.5`, 07-17) + 균형 TTA4(Klein 세트) + 풀토큰 stage-2
+(기본 always — `--stage2 cascade`가 구 τ=0.10 마진 캐스케이드). 설계 근거·논문 매핑·하이퍼
+파라미터 전체는 `../PROJECT_SUMMARY.md`의 "Ver11 설계 상세"~"본런 전 정확도 개선(07-17)" 절,
+공통 규정·전 버전 함정은 `../CLAUDE.md` 참고.
 
 안전 하한 = **Ver4 32B-4bit ckpt1600+TTA3, LB 0.90226** — 단 현재 대회 전체 챔피언은 Ver8 DPO
 LB 0.90401(`../TODO.md` 참고). Ver11은 대체가 아니라 초과 도전.
@@ -38,7 +40,8 @@ torchrun --nproc_per_node=2 run_fit.py --phase dpo \
 ## 검증 현황 (2026-07-15, RTX 4090 — 로컬 검증 전부 완료)
 
 parity(스톡 forward 대비 max|diff|=0, 8B·32B) · 프루닝 50% 컷 정상(VRAM 피크 19.9GiB) ·
-back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escalate, 819건 4090 ~29분).
+back>0(학습 신호) · E2E 캐스케이드 정상 발동(margin<0.10만 escalate, 819건 4090 ~29분 —
+구 TTA3+cascade 기준 실측; 07-17 신규 기본값 TTA4+stage2 always는 ~1.7×인 ~50분 추정).
 남은 건 A100 SFT 본런 → (선택)DPO → test → LB 슬롯뿐.
 
 ## 이 버전 고유 함정
