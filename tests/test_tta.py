@@ -1,7 +1,7 @@
 import torch
 
 from snuai11 import perm
-from snuai11.tta import aggregate_logprobs, margin_of, normalize, remap_scores, tta_views
+from snuai11.tta import BALANCED4, aggregate_logprobs, margin_of, normalize, remap_scores, tta_views
 
 
 def test_views_deterministic_and_distinct():
@@ -11,6 +11,39 @@ def test_views_deterministic_and_distinct():
     assert v1[0] == perm.IDENTITY
     assert len(set(v1)) == 3
     assert tta_views(3, "other-id") != v1 or True  # different ids may differ
+
+
+def test_balanced4_is_sharply_transitive():
+    # every input sits at every slot exactly once across the 4 views — the
+    # property that makes slot-position bias cancel exactly in the aggregate
+    views = tta_views(4, "whatever")
+    assert views == list(BALANCED4)
+    assert views[0] == perm.IDENTITY
+    assert len(set(views)) == 4
+    for inp in range(4):
+        slots = sorted(v.index(inp) for v in views)  # v[j] == inp -> input at slot j
+        assert slots == [0, 1, 2, 3]
+    for slot in range(4):
+        inputs = sorted(v[slot] for v in views)
+        assert inputs == [0, 1, 2, 3]
+
+
+def test_balanced4_sample_independent_and_involutive():
+    assert tta_views(4, "a") == tta_views(4, "b")  # fixed set, no per-sample RNG
+    for v in BALANCED4:
+        assert perm.invert(v) == v  # Klein group: every element self-inverse
+    # closed under composition (a group), so remaps compose consistently
+    for a in BALANCED4:
+        for b in BALANCED4:
+            assert perm.compose(a, b) in BALANCED4
+
+
+def test_non4_counts_keep_legacy_seeded_behavior():
+    for n in (1, 2, 3, 5):
+        v = tta_views(n, "sample-abc")
+        assert v[0] == perm.IDENTITY
+        assert len(v) == n and len(set(v)) == n
+        assert v == tta_views(n, "sample-abc")
 
 
 def test_remap_identity_is_noop():

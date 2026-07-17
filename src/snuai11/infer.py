@@ -1,9 +1,15 @@
-"""Inference CLI — one-pass score24 + TTA + margin cascade.
+"""Inference CLI — one-pass score24 + TTA + full-token stage 2.
 
-Stage 1 (fast): Cross-Targeted FitPrune tokens (~50%) -> score24 head ->
-24-class probs per TTA view -> remap to original space -> aggregate.
-Stage 2 (escalation, margin < tau): FULL-token forwards on the SAME prepared
-tensors (vision tower is not recomputed) -> aggregate stages together.
+Stage 1: Cross-Targeted FitPrune tokens (~50%) -> score24 head -> 24-class
+probs per TTA view -> remap to original space -> aggregate.
+Stage 2: FULL-token forwards on the SAME prepared tensors (vision tower is
+not recomputed) -> aggregate stages together. Policy via --stage2:
+  always  (default) every sample — under the 24h budget the extra forwards
+          are nearly free, and the full pass adds the pruned-away evidence
+          for everyone, not just low-margin samples;
+  cascade only when the stage-1 margin < tau (the validated efficiency
+          path — byte-compatible with the pre-2026-07-17 pipeline);
+  off     never (stage-1 only).
 
 Unlike Ver5's rejected "re-ask the same model the same information" cascade,
 stage 2 adds information (the pruned-away tokens) rather than re-phrasing.
@@ -63,8 +69,13 @@ def load_engine(args) -> Engine:
 
 
 @torch.no_grad()
-def predict_sample(engine: Engine, sample, n_tta: int, tau: float) -> dict:
-    """Returns dict with pred rank, probs, margin, escalation flag."""
+def predict_sample(engine: Engine, sample, n_tta: int, tau: float, stage2: str = "always") -> dict:
+    """Returns dict with pred rank, probs, margins, escalation flag.
+
+    stage2 in {"always", "cascade", "off"} — see module docstring. Stage 2 is
+    skipped whenever pruning is disabled (stage 1 already saw full tokens, a
+    second identical pass would only duplicate the same evidence).
+    """
     views = tta_views(n_tta, sample.id)
     preps, view_probs = [], []
     for sigma in views:
@@ -77,11 +88,12 @@ def predict_sample(engine: Engine, sample, n_tta: int, tau: float) -> dict:
 
     agg = aggregate_logprobs(view_probs)
     probs = normalize(agg)
-    margin = margin_of(probs)
-    escalated = False
+    margin1 = margin_of(probs)  # stage-1 margin — tau 포렌식용 (semantics 불변)
 
-    if engine.prune_cfg.enabled and margin < tau:
-        escalated = True
+    escalated = engine.prune_cfg.enabled and stage2 != "off" and (
+        stage2 == "always" or margin1 < tau
+    )
+    if escalated:
         for sigma, prep in preps:
             logits = engine.forward_prepared(prep, keep=None)[0]  # full tokens
             view_probs.append(remap_scores(normalize(logits), sigma))
@@ -93,8 +105,9 @@ def predict_sample(engine: Engine, sample, n_tta: int, tau: float) -> dict:
         "pred_class": pred_class,
         "rank": list(perm.rank_of_index(pred_class)),
         "probs": [round(float(p), 6) for p in probs],
-        "margin": round(margin, 6),
-        "escalated": escalated,
+        "margin": round(margin1, 6),
+        "margin_final": round(margin_of(probs), 6),
+        "escalated": bool(escalated),
     }
 
 
@@ -107,8 +120,12 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--head", default=None)
     ap.add_argument("--four-bit", action="store_true")
     ap.add_argument("--out", default=None)
-    ap.add_argument("--tta", type=int, default=3)
-    ap.add_argument("--tau", type=float, default=0.10)
+    ap.add_argument("--tta", type=int, default=4,
+                    help="4 = balanced Klein set (exact position-bias cancellation); "
+                         "other n = identity + (n-1) seeded shuffles (legacy, e.g. 3)")
+    ap.add_argument("--stage2", choices=["always", "cascade", "off"], default="always",
+                    help="full-token stage-2 policy (cascade reproduces the pre-2026-07-17 pipeline)")
+    ap.add_argument("--tau", type=float, default=0.10, help="cascade escalation margin (--stage2 cascade)")
     ap.add_argument("--keep-ratio", type=float, default=0.5)
     ap.add_argument("--diversity-frac", type=float, default=0.2)
     ap.add_argument("--objectness-weight", type=float, default=0.3)
@@ -150,7 +167,7 @@ def main(argv: list[str] | None = None) -> None:
             if sample.id in done:
                 continue
             t0 = time.time()
-            rec = predict_sample(engine, sample, args.tta, args.tau)
+            rec = predict_sample(engine, sample, args.tta, args.tau, stage2=args.stage2)
             rec["id"] = sample.id
             rec["elapsed_s"] = round(time.time() - t0, 2)
             if sample.rank is not None:

@@ -16,8 +16,24 @@ import torch
 from . import perm
 
 
+# Klein four-group — a sharply transitive set: across the 4 views every
+# original input sits at every slot EXACTLY once (a Latin square over
+# positions), so slot-position bias cancels exactly in the aggregate, not
+# just in expectation like random extra views. All non-identity elements are
+# fixed-point-free involutions and the set is closed under composition.
+BALANCED4: tuple[perm.Perm, ...] = ((0, 1, 2, 3), (1, 0, 3, 2), (2, 3, 0, 1), (3, 2, 1, 0))
+
+
 def tta_views(n_views: int, sample_id: str) -> list[perm.Perm]:
-    """Deterministic per-sample views: identity + (n-1) seeded shuffles."""
+    """Deterministic views for one sample.
+
+    n_views == 4 -> the balanced Klein set (identity included), identical for
+    every sample: exact position-bias cancellation (2026-07-17 default).
+    Any other n -> identity + (n-1) per-sample seeded shuffles — byte-exact
+    legacy behavior, kept so earlier pipelines (e.g. TTA3) stay reproducible.
+    """
+    if n_views == 4:
+        return list(BALANCED4)
     views: list[perm.Perm] = [perm.IDENTITY]
     rng = random.Random(f"tta:{sample_id}")
     pool = [p for p in perm.ALL_PERMS if p != perm.IDENTITY]
