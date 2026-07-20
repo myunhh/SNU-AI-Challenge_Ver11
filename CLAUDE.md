@@ -10,8 +10,72 @@
 파라미터 전체는 `../PROJECT_SUMMARY.md`의 "Ver11 설계 상세"~"본런 전 정확도 개선(07-17)" 절,
 공통 규정·전 버전 함정은 `../CLAUDE.md` 참고.
 
-안전 하한 = **Ver4 32B-4bit ckpt1600+TTA3, LB 0.90226** — 단 현재 대회 전체 챔피언은 Ver8 DPO
-LB 0.90401(`../TODO.md` 참고). Ver11은 대체가 아니라 초과 도전.
+안전 하한 = **Ver4 32B-4bit ckpt1600+TTA3, LB 0.90226** — 단 현재 대회 전체 챔피언은 **Ver8 DPO
+checkpoint-600, LB 0.91099**(2026-07-18 승격). Ver11은 대체가 아니라 초과 도전.
+
+## 🚀 A100 박스 임무 지시서 (2026-07-20 — 이 박스의 Claude가 처음 읽을 것)
+
+VESSL A100 박스(2×A100 기준)에서 이 절만 따라가면 본런 전 과정이 완료된다. 이 저장소는
+독립 clone이라 **`../CLAUDE.md`·`../TODO.md`·`../Ver8` 같은 상위 참조는 이 박스에 없다** —
+필요한 결정·규정은 전부 이 절에 요약돼 있고, 없는 파일을 찾아 헤매지 말 것.
+
+### 확정 결정사항 (dev box에서 2026-07-20 사용자 확정)
+
+- **warm-start 어댑터 = Ver8 DPO checkpoint-600 (현 챔피언, LB 0.91099).** 아래 07-16 절의
+  ckpt200(0.90401) 언급은 당시 챔피언 기준의 옛 기록이다. 같은 DPO 궤적이라 LoRA 구성 동일
+  (r16/α32/7proj·언어 64층, peft 0.19.1) — 전이 실패는 어차피 10스텝 게이트가 걸러준다.
+  dev box에서 scp로 들어온 `DPO-checkpoint-600/`(adapter_model.safetensors +
+  adapter_config.json)를 `export SNUAI_WS8_ADAPTER=$PWD/DPO-checkpoint-600`으로 지정.
+- **레시피는 러너 기본값 그대로** (body-lr 5e-5 / accum 16 / cosine / steps 1500 /
+  kt-weight 0.5 / out `runs/sft32b_v11_ws8`). **하이퍼파라미터 임의 변경 금지** — 전부
+  1차 본런 실측 진단에서 유도된 값이다(아래 07-16 절).
+
+### 실행 순서
+
+```bash
+# 0) 준비물 점검 — 하나라도 없으면 진행하지 말고 사용자에게 요청
+ls data/train.csv data/test.csv DPO-checkpoint-600/adapter_model.safetensors
+bash scripts/setup_a100.sh            # deps + base 모델은 HF hub 자동(unsloth 32B bnb-4bit)
+
+# 1) 본런 (tmux 'snuai11'로 detach — SSH 끊겨도 유지)
+export SNUAI_WS8_ADAPTER=$PWD/DPO-checkpoint-600   # tmux 첫 실행 전에 export해야 상속됨
+bash scripts/run_a100.sh              # auto: smoke_gpu → 10스텝 전이 게이트 → 1500스텝
+
+# 2) 완료 후
+bash scripts/run_a100.sh test         # test 819 → submission.csv 생성 (LB 제출은 하지 말 것)
+```
+
+### 게이트·모니터링 판정 기준
+
+- **전이 게이트(10스텝, `runs/ws8_gate.log`)**: `train_log.jsonl`의 **`ce` 필드**(총 loss 아님 —
+  kt 보조항 포함된 `loss`로 판정 금지) 평균 **< 3.0** 필수. ln24≈3.178 근방이면 무전이 —
+  `bash scripts/run_a100.sh ws8 --max-pixels 602112`로 게이트만 1회 재시도해 해상도 이동 원인을
+  분리하고, **그래도 ≥3.0이면 즉시 중단하고 사용자 보고**(과금 중이다 — 임기응변으로 레시피를
+  바꿔가며 재시도하지 말 것).
+- **DDP 첫 실검증이 이 박스에서 일어난다**(2×A100에서 돌려본 적 없음, 아래 함정 절 참고).
+  게이트 10스텝이 곧 스모크다 — `train_log.jsonl`에 loss/ce/kt가 정상 스케일로 찍히는지,
+  워닝·NCCL 에러가 없는지 확인하고 본런 진입을 지켜본 뒤 자리를 떠라.
+- **본런 중**: ce가 시작부터 3.0 훨씬 아래(warm-start 효과)여야 정상. 체크포인트는 200스텝마다
+  `runs/sft32b_v11_ws8/`에 저장. 오래(수십 분) 멈춘 것 같으면 rank0 생존 확인 — rank0가
+  체크포인트 저장 중 죽으면 나머지가 NCCL barrier에서 무한대기한다(아래 함정 절). 죽었으면
+  전체 kill 후 재개하되, **재개 방법은 즉흥 조합하지 말고 `run_fit.py` 코드에서 resume 시맨틱을
+  확인한 뒤** 진행(불명확하면 사용자 보고).
+
+### 금지사항 (대회 규정 + 트랙 원칙 요약 — 위반 시 실격 소지)
+
+- **LB 제출 금지** — submission.csv 생성까지만. 제출 슬롯(1일 2회)은 사용자가 dev box에서 조율.
+- **자기(Claude) 생성 텍스트를 학습 데이터에 넣지 말 것** — 외부 상용 API 산출물의 학습 투입은
+  규정 3.2 위반. 코드 작성·로그 판독은 무관.
+- 홀드아웃 분할 재도입 금지(이 트랙은 07-15부로 전량 학습 + LB 판정) · test.csv 라벨 추정/분석
+  금지(규정 3.4) · 다른 모델과의 출력 앙상블 금지 · transformers==5.12.1 업그레이드 금지(parity
+  재통과 없이는).
+- 학습·추론 실행에는 항상 진행바가 보이게 유지(기존 코드에 있음 — 새 스크립트를 짜게 되면 동일 적용).
+
+### 완료 보고 (사용자에게 전달할 것)
+
+① 게이트 ce 평균과 판정 ② 본런 loss/ce 곡선 요약(플래토 없이 하강했는지, 최종 windowed acc)
+③ 총 소요 시간(과금 판단용) ④ `submission.csv` 경로 ⑤ 이상 징후 전부. 이후의 (선택) DPO
+400스텝·`avg_adapters.py` 소프·S3 paired A/B는 **사용자 지시가 있을 때만** 진행.
 
 ## 진입점
 
