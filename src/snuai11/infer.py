@@ -63,6 +63,7 @@ def load_engine(args) -> Engine:
         diversity_frac=args.diversity_frac,
         objectness_weight=args.objectness_weight,
         mmr_lambda=args.mmr_lambda,
+        motion_weight=args.motion_weight,
         enabled=not args.no_prune,
     )
     return Engine(model, processor, head, prune_cfg, max_pixels=args.max_pixels)
@@ -121,7 +122,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--four-bit", action="store_true")
     ap.add_argument("--out", default=None)
     ap.add_argument("--tta", type=int, default=4,
-                    help="4 = balanced Klein set (exact position-bias cancellation); "
+                    help="4 = balanced Klein set; 8 = balanced D4 set (2x views, same "
+                         "exact cancellation, Ver8 champion recipe); "
                          "other n = identity + (n-1) seeded shuffles (legacy, e.g. 3)")
     ap.add_argument("--stage2", choices=["always", "cascade", "off"], default="always",
                     help="full-token stage-2 policy (cascade reproduces the pre-2026-07-17 pipeline)")
@@ -130,6 +132,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--diversity-frac", type=float, default=0.2)
     ap.add_argument("--objectness-weight", type=float, default=0.3)
     ap.add_argument("--mmr-lambda", type=float, default=0.5)
+    ap.add_argument("--motion-weight", type=float, default=0.0,
+                    help="cross-frame residual-norm blend weight (0 = pre-motion behavior)")
     ap.add_argument("--no-prune", action="store_true")
     ap.add_argument("--max-pixels", type=int, default=DEFAULT_MAX_PIXELS)
     ap.add_argument("--limit", type=int, default=None)

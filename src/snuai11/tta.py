@@ -23,17 +23,36 @@ from . import perm
 # fixed-point-free involutions and the set is closed under composition.
 BALANCED4: tuple[perm.Perm, ...] = ((0, 1, 2, 3), (1, 0, 3, 2), (2, 3, 0, 1), (3, 2, 1, 0))
 
+# Balanced 8-view set (ported from Ver8, 2026-07-22 — same champion serving
+# recipe: Ver8 DPO checkpoint-600 + TTA8 balanced, ~0.93 LB). BALANCED4 plus
+# one inverse-closed coset (a 4-cycle pair + two involutions): every input
+# visits every slot exactly TWICE across the 8 views, so BALANCED4's exact
+# position-bias cancellation is preserved at double the views (unlike a
+# generic "identity + 7 random shuffles" TTA8, which only cancels bias in
+# expectation). The full set is the dihedral group D4 — the Sylow-2 subgroup
+# of S4 (|S4|=24=8x3) — i.e. this is the next rung of the same algebraic
+# ladder as BALANCED4 (Klein four-group -> D4); the ladder's only remaining
+# rung is all of S4 (24 views). Ver8 measured TTA4->TTA8 balanced at
+# +1.22pp real LB (../PROJECT_SUMMARY.md champion history).
+BALANCED8: tuple[perm.Perm, ...] = BALANCED4 + (
+    (1, 2, 3, 0), (0, 3, 2, 1), (3, 0, 1, 2), (2, 1, 0, 3))
+
 
 def tta_views(n_views: int, sample_id: str) -> list[perm.Perm]:
     """Deterministic views for one sample.
 
     n_views == 4 -> the balanced Klein set (identity included), identical for
     every sample: exact position-bias cancellation (2026-07-17 default).
+    n_views == 8 -> the balanced D4 set (BALANCED8 above, 2026-07-22): same
+    exact-cancellation property at 2x the views, matching the Ver8 champion
+    serving recipe (TTA8 balanced).
     Any other n -> identity + (n-1) per-sample seeded shuffles — byte-exact
     legacy behavior, kept so earlier pipelines (e.g. TTA3) stay reproducible.
     """
     if n_views == 4:
         return list(BALANCED4)
+    if n_views == 8:
+        return list(BALANCED8)
     views: list[perm.Perm] = [perm.IDENTITY]
     rng = random.Random(f"tta:{sample_id}")
     pool = [p for p in perm.ALL_PERMS if p != perm.IDENTITY]

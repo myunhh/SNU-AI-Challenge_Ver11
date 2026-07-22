@@ -1,7 +1,7 @@
 import torch
 
 from snuai11 import perm
-from snuai11.tta import BALANCED4, aggregate_logprobs, margin_of, normalize, remap_scores, tta_views
+from snuai11.tta import BALANCED4, BALANCED8, aggregate_logprobs, margin_of, normalize, remap_scores, tta_views
 
 
 def test_views_deterministic_and_distinct():
@@ -36,6 +36,32 @@ def test_balanced4_sample_independent_and_involutive():
     for a in BALANCED4:
         for b in BALANCED4:
             assert perm.compose(a, b) in BALANCED4
+
+
+def test_balanced8_visits_every_slot_exactly_twice():
+    # BALANCED8 = BALANCED4 + one inverse-closed coset: each input visits
+    # each slot exactly 2x (8 views / 4 slots) — the D4 analogue of TTA4's
+    # sharply-transitive Latin square, at double the views.
+    views = tta_views(8, "whatever")
+    assert views == list(BALANCED8)
+    assert views[0] == perm.IDENTITY
+    assert len(set(views)) == 8
+    assert set(BALANCED4) <= set(BALANCED8)
+    for inp in range(4):
+        slots = sorted(v.index(inp) for v in views)
+        assert slots == [0, 0, 1, 1, 2, 2, 3, 3]
+    for slot in range(4):
+        inputs = sorted(v[slot] for v in views)
+        assert inputs == [0, 0, 1, 1, 2, 2, 3, 3]
+
+
+def test_balanced8_sample_independent_and_is_a_group():
+    assert tta_views(8, "a") == tta_views(8, "b")  # fixed set, no per-sample RNG
+    for v in BALANCED8:
+        assert perm.invert(v) in BALANCED8  # inverse-closed
+    for a in BALANCED8:  # closed under composition (D4, the Sylow-2 subgroup of S4)
+        for b in BALANCED8:
+            assert perm.compose(a, b) in BALANCED8
 
 
 def test_non4_counts_keep_legacy_seeded_behavior():

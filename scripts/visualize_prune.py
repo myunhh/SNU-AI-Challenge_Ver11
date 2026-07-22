@@ -232,6 +232,8 @@ def main() -> None:
     ap.add_argument("--diversity-frac", type=float, default=0.2)
     ap.add_argument("--objectness-weight", type=float, default=0.3)
     ap.add_argument("--mmr-lambda", type=float, default=0.5)
+    ap.add_argument("--motion-weight", type=float, default=0.0,
+                    help="cross-frame residual-norm blend weight (0 = pre-motion behavior)")
     ap.add_argument("--max-pixels", type=int, default=None)
     ap.add_argument("--out", default="runs/prune_viz")
     args = ap.parse_args()
@@ -253,7 +255,8 @@ def main() -> None:
     letter_ids = letter_token_ids(processor.tokenizer)
     head = Score24Head.init_from_lm_head(model, letter_ids).to(model.lm_head.weight.device).eval()
     cfg = PruneConfig(keep_ratio=args.keep_ratio, diversity_frac=args.diversity_frac,
-                      objectness_weight=args.objectness_weight, mmr_lambda=args.mmr_lambda)
+                      objectness_weight=args.objectness_weight, mmr_lambda=args.mmr_lambda,
+                      motion_weight=args.motion_weight)
     engine = Engine(model, processor, head, cfg, max_pixels=args.max_pixels or DEFAULT_MAX_PIXELS)
 
     font = load_font(16)
@@ -300,6 +303,21 @@ def main() -> None:
             ov = draw_grid_lines(overlay(resized, obj, None), h2, w2)
             ov.thumbnail((260, 260))
             panels.append(make_panel(f"img{img_i+1} OBJ (w={cfg.objectness_weight})", ov, font))
+
+            if cfg.motion_weight > 0.0:
+                from snuai11.fitprune import motion_scores
+
+                mot = motion_scores(prep.per_image_embeds, img_i)
+                if mot is not None:
+                    mot = mot.cpu().numpy().reshape(h2, w2)
+                    mot = (mot - mot.min()) / (mot.max() - mot.min() + 1e-8)
+                    ov = draw_grid_lines(overlay(resized, mot, None), h2, w2)
+                    ov.thumbnail((260, 260))
+                    panels.append(make_panel(f"img{img_i+1} MOTION (w={cfg.motion_weight})", ov, font))
+                else:
+                    blank = Image.new("RGB", (resized.width, resized.height), FADE_GRAY)
+                    blank.thumbnail((260, 260))
+                    panels.append(make_panel(f"img{img_i+1} MOTION (grid 불일치, 폴백)", blank, font))
 
             final = draw_grid_lines(overlay(resized, np.ones((h2, w2)), kept_grid), h2, w2, kept_mask=kept_grid)
             final.thumbnail((260, 260))
