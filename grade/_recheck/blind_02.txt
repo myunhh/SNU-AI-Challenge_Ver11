@@ -1,0 +1,195 @@
+### Id: 6vIK5i
+Input_1: C:/vsc/data/test/6vIK5i/6vIK5i_bce.jpg
+Input_2: C:/vsc/data/test/6vIK5i/6vIK5i_frf.jpg
+Input_3: C:/vsc/data/test/6vIK5i/6vIK5i_mdi.jpg
+Input_4: C:/vsc/data/test/6vIK5i/6vIK5i_ziu.jpg
+Sentence:  Chocolate chips are added to the dough.
+
+### Id: eWhkQO
+Input_1: C:/vsc/data/test/eWhkQO/eWhkQO_dae.jpg
+Input_2: C:/vsc/data/test/eWhkQO/eWhkQO_nti.jpg
+Input_3: C:/vsc/data/test/eWhkQO/eWhkQO_ytf.jpg
+Input_4: C:/vsc/data/test/eWhkQO/eWhkQO_zpx.jpg
+Sentence: A person works on a bicycle frame, then adjusts the handlebars, before interacting with another person outside, who is holding the completed bike.
+
+### Id: HXeI8w
+Input_1: C:/vsc/data/test/HXeI8w/HXeI8w_buc.jpg
+Input_2: C:/vsc/data/test/HXeI8w/HXeI8w_emh.jpg
+Input_3: C:/vsc/data/test/HXeI8w/HXeI8w_rkg.jpg
+Input_4: C:/vsc/data/test/HXeI8w/HXeI8w_yvd.jpg
+Sentence:  A women representing The Daily news channel is talking about the sweater and then she wears it.
+
+### Id: DM56Di
+Input_1: C:/vsc/data/test/DM56Di/DM56Di_akm.jpg
+Input_2: C:/vsc/data/test/DM56Di/DM56Di_kzr.jpg
+Input_3: C:/vsc/data/test/DM56Di/DM56Di_oqq.jpg
+Input_4: C:/vsc/data/test/DM56Di/DM56Di_zps.jpg
+Sentence: The object moves downward and closer to the center as the camera zooms out slightly, then the fish moves upward and slightly to the right as it is held in both hands, with the knife now resting on the ground.
+
+### Id: cowNGM
+Input_1: C:/vsc/data/test/cowNGM/cowNGM_bjv.jpg
+Input_2: C:/vsc/data/test/cowNGM/cowNGM_igy.jpg
+Input_3: C:/vsc/data/test/cowNGM/cowNGM_ixk.jpg
+Input_4: C:/vsc/data/test/cowNGM/cowNGM_tnq.jpg
+Sentence: The person transitions from standing to sitting on a couch while eating a sandwich, then the woman moves from stirring a pot to squeezing a lemon over the counter.
+
+### Id: 10aJKj
+Input_1: C:/vsc/data/test/10aJKj/10aJKj_kme.jpg
+Input_2: C:/vsc/data/test/10aJKj/10aJKj_vbc.jpg
+Input_3: C:/vsc/data/test/10aJKj/10aJKj_vyr.jpg
+Input_4: C:/vsc/data/test/10aJKj/10aJKj_zbv.jpg
+Sentence:  She rolls the dough in plastic wrap before spreading it back out and cutting into shapes with cookie cutters.
+
+### Id: 2IL2RO
+Input_1: C:/vsc/data/test/2IL2RO/2IL2RO_kev.jpg
+Input_2: C:/vsc/data/test/2IL2RO/2IL2RO_lkb.jpg
+Input_3: C:/vsc/data/test/2IL2RO/2IL2RO_ril.jpg
+Input_4: C:/vsc/data/test/2IL2RO/2IL2RO_wxg.jpg
+Sentence: The yellow tool descends onto the ski, grasped by gloved hands, then the machine cuts printed material, followed by a person trimming edges along the base.
+
+### Id: S3E8Td
+Input_1: C:/vsc/data/test/S3E8Td/S3E8Td_eev.jpg
+Input_2: C:/vsc/data/test/S3E8Td/S3E8Td_icu.jpg
+Input_3: C:/vsc/data/test/S3E8Td/S3E8Td_kgj.jpg
+Input_4: C:/vsc/data/test/S3E8Td/S3E8Td_qxz.jpg
+Sentence: The scene transitions from a title screen to a person rising from a mat, then shifts to a woman in blue kneeling as another gestures beside her, with a slight downward camera tilt.
+
+### Id: VAhS2V
+Input_1: C:/vsc/data/test/VAhS2V/VAhS2V_nnb.jpg
+Input_2: C:/vsc/data/test/VAhS2V/VAhS2V_phw.jpg
+Input_3: C:/vsc/data/test/VAhS2V/VAhS2V_wiv.jpg
+Input_4: C:/vsc/data/test/VAhS2V/VAhS2V_xuu.jpg
+Sentence: The view opens with a truck ahead, then shifts to a skateboarder gaining speed, followed by the road ahead, and finally shows a person looking back at the camera.
+
+### Id: lPGKJD
+Input_1: C:/vsc/data/test/lPGKJD/lPGKJD_cti.jpg
+Input_2: C:/vsc/data/test/lPGKJD/lPGKJD_gla.jpg
+Input_3: C:/vsc/data/test/lPGKJD/lPGKJD_lgd.jpg
+Input_4: C:/vsc/data/test/lPGKJD/lPGKJD_xjs.jpg
+Sentence:  She throws a javelin onto the field.
+
+### Id: Q8AcuC
+Input_1: C:/vsc/data/test/Q8AcuC/Q8AcuC_htl.jpg
+Input_2: C:/vsc/data/test/Q8AcuC/Q8AcuC_qch.jpg
+Input_3: C:/vsc/data/test/Q8AcuC/Q8AcuC_sco.jpg
+Input_4: C:/vsc/data/test/Q8AcuC/Q8AcuC_sdu.jpg
+Sentence: A man pushes a mower forward, veering slightly right near the house, then the scene shifts to a close-up of someone applying wood finish, ending with a view of painting supplies on a wooden surface.
+
+### Id: MCI2id
+Input_1: C:/vsc/data/test/MCI2id/MCI2id_idg.jpg
+Input_2: C:/vsc/data/test/MCI2id/MCI2id_knm.jpg
+Input_3: C:/vsc/data/test/MCI2id/MCI2id_lvq.jpg
+Input_4: C:/vsc/data/test/MCI2id/MCI2id_uai.jpg
+Sentence: A person washes clothes in a basin, then the camera tilts up to reveal clothes hanging on a line; next, another person jumps off a tall structure, falling through the air toward a soft landing surface.
+
+### Id: neLENZ
+Input_1: C:/vsc/data/test/neLENZ/neLENZ_jlh.jpg
+Input_2: C:/vsc/data/test/neLENZ/neLENZ_kso.jpg
+Input_3: C:/vsc/data/test/neLENZ/neLENZ_lqv.jpg
+Input_4: C:/vsc/data/test/neLENZ/neLENZ_vnh.jpg
+Sentence: Hands secure sections of hair into an updo, then the camera zooms out and pans left to reveal text overlay about a DIY updo tutorial.
+
+### Id: MHsw72
+Input_1: C:/vsc/data/test/MHsw72/MHsw72_bmq.jpg
+Input_2: C:/vsc/data/test/MHsw72/MHsw72_swj.jpg
+Input_3: C:/vsc/data/test/MHsw72/MHsw72_wey.jpg
+Input_4: C:/vsc/data/test/MHsw72/MHsw72_yho.jpg
+Sentence: The person lowers a tool into the sink, then pulls it out with debris attached, followed by rinsing the tool under running water as the sink remains dirty.
+
+### Id: YZuSuG
+Input_1: C:/vsc/data/test/YZuSuG/YZuSuG_fyn.jpg
+Input_2: C:/vsc/data/test/YZuSuG/YZuSuG_hgs.jpg
+Input_3: C:/vsc/data/test/YZuSuG/YZuSuG_oxc.jpg
+Input_4: C:/vsc/data/test/YZuSuG/YZuSuG_soy.jpg
+Sentence:  We see the person carve a drawing on a pumpkin.
+
+### Id: 74rmTZ
+Input_1: C:/vsc/data/test/74rmTZ/74rmTZ_bqb.jpg
+Input_2: C:/vsc/data/test/74rmTZ/74rmTZ_cgk.jpg
+Input_3: C:/vsc/data/test/74rmTZ/74rmTZ_gqf.jpg
+Input_4: C:/vsc/data/test/74rmTZ/74rmTZ_unk.jpg
+Sentence: The person moves from the left to center, raising their hands as the camera slightly zooms in, then the woman transitions from holding a cream jar to applying cream on her face with a smooth motion.
+
+### Id: 9ImWhU
+Input_1: C:/vsc/data/test/9ImWhU/9ImWhU_nlb.jpg
+Input_2: C:/vsc/data/test/9ImWhU/9ImWhU_nqn.jpg
+Input_3: C:/vsc/data/test/9ImWhU/9ImWhU_wyw.jpg
+Input_4: C:/vsc/data/test/9ImWhU/9ImWhU_xik.jpg
+Sentence: The snowboarder exits the ski lift, gliding down the slope to the left, as the skier shifts right, crouching and accelerating away from the camera, which pans left to reveal a shadow on the snow.
+
+### Id: 5gnTuG
+Input_1: C:/vsc/data/test/5gnTuG/5gnTuG_clp.jpg
+Input_2: C:/vsc/data/test/5gnTuG/5gnTuG_dva.jpg
+Input_3: C:/vsc/data/test/5gnTuG/5gnTuG_gyt.jpg
+Input_4: C:/vsc/data/test/5gnTuG/5gnTuG_omn.jpg
+Sentence: A gymnast is seen standing ready before a beam and then jumping on to perform a routine.
+
+### Id: HwXvor
+Input_1: C:/vsc/data/test/HwXvor/HwXvor_ayu.jpg
+Input_2: C:/vsc/data/test/HwXvor/HwXvor_jtf.jpg
+Input_3: C:/vsc/data/test/HwXvor/HwXvor_mdd.jpg
+Input_4: C:/vsc/data/test/HwXvor/HwXvor_omg.jpg
+Sentence: The front wheel of the wheelchair moves closer and rotates slightly as the camera zooms in, then the spatula glides right across the ornate table surface, revealing more of the intricate design.
+
+### Id: XOdJXa
+Input_1: C:/vsc/data/test/XOdJXa/XOdJXa_blm.jpg
+Input_2: C:/vsc/data/test/XOdJXa/XOdJXa_gbi.jpg
+Input_3: C:/vsc/data/test/XOdJXa/XOdJXa_hvl.jpg
+Input_4: C:/vsc/data/test/XOdJXa/XOdJXa_rji.jpg
+Sentence:  She shows off her natural hair, then demonstrates how to style it using a blow out.
+
+### Id: ko74ge
+Input_1: C:/vsc/data/test/ko74ge/ko74ge_xdh.jpg
+Input_2: C:/vsc/data/test/ko74ge/ko74ge_xhk.jpg
+Input_3: C:/vsc/data/test/ko74ge/ko74ge_yig.jpg
+Input_4: C:/vsc/data/test/ko74ge/ko74ge_zlc.jpg
+Sentence:  He is using a red can of spray paint to demonstrate how to paints a cream colored sofa with red paint.
+
+### Id: Odqs9J
+Input_1: C:/vsc/data/test/Odqs9J/Odqs9J_aja.jpg
+Input_2: C:/vsc/data/test/Odqs9J/Odqs9J_bla.jpg
+Input_3: C:/vsc/data/test/Odqs9J/Odqs9J_fzs.jpg
+Input_4: C:/vsc/data/test/Odqs9J/Odqs9J_wce.jpg
+Sentence: The person begins to apply wallpaper in the first frame, then uses a cutting tool in the second, moves to adjust the wallpaper in the third, and finally the video ends with a logo.
+
+### Id: No4L4n
+Input_1: C:/vsc/data/test/No4L4n/No4L4n_ezf.jpg
+Input_2: C:/vsc/data/test/No4L4n/No4L4n_lej.jpg
+Input_3: C:/vsc/data/test/No4L4n/No4L4n_nie.jpg
+Input_4: C:/vsc/data/test/No4L4n/No4L4n_qhv.jpg
+Sentence:  He melts wax onto the bottom of the ski and irons it.
+
+### Id: 1Rm6xE
+Input_1: C:/vsc/data/test/1Rm6xE/1Rm6xE_jxb.jpg
+Input_2: C:/vsc/data/test/1Rm6xE/1Rm6xE_mvz.jpg
+Input_3: C:/vsc/data/test/1Rm6xE/1Rm6xE_nat.jpg
+Input_4: C:/vsc/data/test/1Rm6xE/1Rm6xE_ntx.jpg
+Sentence:  She hops in the water with the man and climbs back into the boat talking to the camera.
+
+### Id: aHcW5I
+Input_1: C:/vsc/data/test/aHcW5I/aHcW5I_aeb.jpg
+Input_2: C:/vsc/data/test/aHcW5I/aHcW5I_bbs.jpg
+Input_3: C:/vsc/data/test/aHcW5I/aHcW5I_fvg.jpg
+Input_4: C:/vsc/data/test/aHcW5I/aHcW5I_hfq.jpg
+Sentence: A person's feet are show followed by a woman putting shoes over her socks and bending forward.
+
+### Id: ALfz6z
+Input_1: C:/vsc/data/test/ALfz6z/ALfz6z_ank.jpg
+Input_2: C:/vsc/data/test/ALfz6z/ALfz6z_mdl.jpg
+Input_3: C:/vsc/data/test/ALfz6z/ALfz6z_rxw.jpg
+Input_4: C:/vsc/data/test/ALfz6z/ALfz6z_sou.jpg
+Sentence: An athlete bends over and exits the frame as the camera shifts to seated competitors; simultaneously, a person sprays a roof, moves right to another section while standing, and the camera pans slightly downward.
+
+### Id: 5zb7Ro
+Input_1: C:/vsc/data/test/5zb7Ro/5zb7Ro_akn.jpg
+Input_2: C:/vsc/data/test/5zb7Ro/5zb7Ro_fjw.jpg
+Input_3: C:/vsc/data/test/5zb7Ro/5zb7Ro_git.jpg
+Input_4: C:/vsc/data/test/5zb7Ro/5zb7Ro_hln.jpg
+Sentence: The athlete lifts the barbell from the ground to waist level as the coach points, then another athlete lowers a barbell from overhead to the ground while a new lifter prepares to begin.
+
+### Id: jgGdOF
+Input_1: C:/vsc/data/test/jgGdOF/jgGdOF_mbe.jpg
+Input_2: C:/vsc/data/test/jgGdOF/jgGdOF_opc.jpg
+Input_3: C:/vsc/data/test/jgGdOF/jgGdOF_orj.jpg
+Input_4: C:/vsc/data/test/jgGdOF/jgGdOF_qud.jpg
+Sentence: The wooden furniture moves along the track towards the platform, while the yellow tool lowers onto the ski and is pressed down as the camera zooms in slightly.

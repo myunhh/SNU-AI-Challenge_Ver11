@@ -1,0 +1,139 @@
+### Id: TcU0s2
+Input_1: C:/vsc/data/test/TcU0s2/TcU0s2_bfo.jpg
+Input_2: C:/vsc/data/test/TcU0s2/TcU0s2_ipl.jpg
+Input_3: C:/vsc/data/test/TcU0s2/TcU0s2_jsn.jpg
+Input_4: C:/vsc/data/test/TcU0s2/TcU0s2_qag.jpg
+Sentence: Thalia begins inside a ruined conservatory cradling a glass-lattice terrarium of miniature galaxies, then walks down a moss-choked corridor still holding it, after which she lowers it onto a carved stone pedestal in a circular courtyard as her copper tendrils graft it in place, and finally climbs to a ruined rooftop at first light to hold the terrarium aloft while its tiny stars unfurl and her tendrils conduct them skyward, seeding new growth on the ruins.
+
+### Id: qWFU9V
+Input_1: C:/vsc/data/test/qWFU9V/qWFU9V_izs.jpg
+Input_2: C:/vsc/data/test/qWFU9V/qWFU9V_khd.jpg
+Input_3: C:/vsc/data/test/qWFU9V/qWFU9V_mre.jpg
+Input_4: C:/vsc/data/test/qWFU9V/qWFU9V_tcw.jpg
+Sentence: A salt___treaked octopus, the Tidal Cartographer, begins by clinging to a half___uried shipwreck tidepool to probe a barnacled brass compass and exhale a small stream of bubble___rchives, then unfurls on a driftwood chart beneath swaying kelp to redraw fading maps and send a larger bloom of bubbles, after which it steers a kelp-and-plank raft around a ruined lighthouse through a storm, trailing frantic ribbons of bubble___rchives, and finally rests on a low sandbar to exhale a slow cascade of dissolving bubble___rchives that sink into the sand.
+
+### Id: lbgewI
+Input_1: C:/vsc/data/test/lbgewI/lbgewI_aqv.jpg
+Input_2: C:/vsc/data/test/lbgewI/lbgewI_kft.jpg
+Input_3: C:/vsc/data/test/lbgewI/lbgewI_maz.jpg
+Input_4: C:/vsc/data/test/lbgewI/lbgewI_vzi.jpg
+Sentence: The Echo Harvester begins by stepping onto a fog-shrouded pier at midnight with a satchel of humming ceramic vials and a whale-bone scoop-tipped cane, then crouches in a derelict lighthouse's lantern room to draw a captured echo into a vial, after which he moves through a dawn market and uncorks a vial to release a vendor's memory, and finally sits on a windswept ridge at sunrise to uncork the last vial as its memory dissolves into the air before he rises to continue on.
+
+### Id: J7bCpm
+Input_1: C:/vsc/data/test/J7bCpm/J7bCpm_evv.jpg
+Input_2: C:/vsc/data/test/J7bCpm/J7bCpm_gcg.jpg
+Input_3: C:/vsc/data/test/J7bCpm/J7bCpm_lxm.jpg
+Input_4: C:/vsc/data/test/J7bCpm/J7bCpm_wko.jpg
+Sentence: The Loomwright begins by striding down a snow___usted cobblestone lane as its brass lantern exhales tiny mechanical saplings, then kneels at the threshold of a ruined glass conservatory to study a withered mechanical stump and lift a sapling, after which it plants a seedling in thawing courtyard soil and winds a brass key to set its root mechanism, and finally months later sits in a sunlit grove of slender mechanical trees as its lantern releases fully formed saplings that lift and scatter to take root while animals and a child look on.
+
+### Id: F7Ddd7
+Input_1: C:/vsc/data/test/F7Ddd7/F7Ddd7_cqc.jpg
+Input_2: C:/vsc/data/test/F7Ddd7/F7Ddd7_dzc.jpg
+Input_3: C:/vsc/data/test/F7Ddd7/F7Ddd7_nxx.jpg
+Input_4: C:/vsc/data/test/F7Ddd7/F7Ddd7_xlz.jpg
+Sentence: Oriana begins by standing on the gangplank of her tethered pocket-watch brig at a dawn skyport, tightening a line as she prepares to depart, then pilots the brig upward through a corridor of thunderclouds, after which, in the storm___ eye, she plucks a soaked fragment of parchment from the air to examine, and finally drifts into twilight to pin the salvaged fragment to a circular brass chart in her navigation alcove.
+
+### Id: wK1e9B
+Input_1: C:/vsc/data/test/wK1e9B/wK1e9B_mwj.jpg
+Input_2: C:/vsc/data/test/wK1e9B/wK1e9B_xtc.jpg
+Input_3: C:/vsc/data/test/wK1e9B/wK1e9B_xtt.jpg
+Input_4: C:/vsc/data/test/wK1e9B/wK1e9B_zwb.jpg
+Sentence: The Nebula Tailor begins on a crystalline cliff, plucking auroral shreds and winding strands of time from a battered pocket-watch into a spool; then in a lunar workshop they weave those aurora___ime threads into a luminous garment, after which they sell and mend the finished piece at a drifting comet bazaar, and finally drape and stitch it onto a newborn star as the watch's last tick spills moments into a ribbon of nebula that knits the star into being.
+
+### Id: jtVqZO
+Input_1: C:/vsc/data/test/jtVqZO/jtVqZO_ewz.jpg
+Input_2: C:/vsc/data/test/jtVqZO/jtVqZO_ifi.jpg
+Input_3: C:/vsc/data/test/jtVqZO/jtVqZO_qaj.jpg
+Input_4: C:/vsc/data/test/jtVqZO/jtVqZO_twv.jpg
+Sentence: Mirella, the Cartographer of Falling Stars, begins by tracing a new line on a rooftop star-chart, then strides along the shore with her hovering compasses aimed at a faint rising star, after which she stands on a mountain ridge and uses those compasses to guide a falling meteor into her vial, and finally returns to her studio to pin the condensed light onto her sky map.
+
+### Id: 0xGuYd
+Input_1: C:/vsc/data/test/0xGuYd/0xGuYd_bxh.jpg
+Input_2: C:/vsc/data/test/0xGuYd/0xGuYd_lln.jpg
+Input_3: C:/vsc/data/test/0xGuYd/0xGuYd_sze.jpg
+Input_4: C:/vsc/data/test/0xGuYd/0xGuYd_xej.jpg
+Sentence: The Astral Stitcher begins in a midnight attic workshop hunched over a tattered cloak with its comet___hard needle, then climbs to a moonlit rooftop observatory to draw constellations from the sky and thread them into the fabric, after which it kneels at dawn in a ruined cobblestone square to drape the studded mantle over a weary traveler and kindle its stars, and finally stands on a twilight balcony as the living star___eeds lift from the cloak to rejoin the heavens.
+
+### Id: JiRqol
+Input_1: C:/vsc/data/test/JiRqol/JiRqol_auq.jpg
+Input_2: C:/vsc/data/test/JiRqol/JiRqol_nmx.jpg
+Input_3: C:/vsc/data/test/JiRqol/JiRqol_utg.jpg
+Input_4: C:/vsc/data/test/JiRqol/JiRqol_ysm.jpg
+Sentence: Azar begins by cradling a small wooden seedbox of ticking, sprouting gears inside an old glass conservatory at midnight, then walks onto a windswept hill at dawn to plant a ticking gear-seed in the soil, after which he tends young orchard saplings in mid-morning, transferring a cog-sprout from the box into a growing tree, and finally at twilight sits beneath his matured Clockwork Orchard cradling the now-empty seedbox with a single glowing seed remaining.
+
+### Id: DlWpxE
+Input_1: C:/vsc/data/test/DlWpxE/DlWpxE_foi.jpg
+Input_2: C:/vsc/data/test/DlWpxE/DlWpxE_gbe.jpg
+Input_3: C:/vsc/data/test/DlWpxE/DlWpxE_tnm.jpg
+Input_4: C:/vsc/data/test/DlWpxE/DlWpxE_yto.jpg
+Sentence: A barnacled lighthouse automaton with a trembling glass lantern-heart begins on a windswept basalt cliff at dusk peering over the sea, then moves to a fogbound pier at midnight to shepherd a weathered brigantine, after which it wades through a storm on jagged shoals to haul a stranded barque free, and finally kneels in a sheltered dawn cove to cradle a dinghy as translucent memory-figures step ashore and return to the villagers.
+
+### Id: dUGoOh
+Input_1: C:/vsc/data/test/dUGoOh/dUGoOh_aib.jpg
+Input_2: C:/vsc/data/test/dUGoOh/dUGoOh_amm.jpg
+Input_3: C:/vsc/data/test/dUGoOh/dUGoOh_bvk.jpg
+Input_4: C:/vsc/data/test/dUGoOh/dUGoOh_iwj.jpg
+Sentence: Nox begins in a rain___lick alley prowling with a whispering mercury compass and a satchel of stitched___ogether star___aps, then climbs to a rooftop to follow the compass toward a constellation, after which he kneels in a ruined observatory to unfurl his maps around the quivering compass, and finally stands on a ruined hill as the maps lift into the dawn and the compass lies empty.
+
+### Id: doCtX6
+Input_1: C:/vsc/data/test/doCtX6/doCtX6_ebn.jpg
+Input_2: C:/vsc/data/test/doCtX6/doCtX6_soa.jpg
+Input_3: C:/vsc/data/test/doCtX6/doCtX6_xvr.jpg
+Input_4: C:/vsc/data/test/doCtX6/doCtX6_yld.jpg
+Sentence: A small ash___ray stitched fox begins by studying a tiny brass key beside its lantern___ote in a lanternwright's workshop, then slips across foggy cobbles with the mote lighting its way, after which it climbs the clocktower and aligns its clockwork tails' prisms to focus beams that awaken the mechanism, and finally returns at dawn to sit content in the village square as the repaired lamps burn on the mote's light with the lanternwright's hand on its back.
+
+### Id: MHmoRZ
+Input_1: C:/vsc/data/test/MHmoRZ/MHmoRZ_erp.jpg
+Input_2: C:/vsc/data/test/MHmoRZ/MHmoRZ_nkz.jpg
+Input_3: C:/vsc/data/test/MHmoRZ/MHmoRZ_xua.jpg
+Input_4: C:/vsc/data/test/MHmoRZ/MHmoRZ_yfc.jpg
+Sentence: Galewright, the Stormtailor, begins in his cliffside atelier by threading a crackling lightning-needle through a brass spool, then on a rain-swept mountain pass he mends a traveler's torn cloak with that needle, where small protective tempests spin from the stitches, after which he walks across a clearing moor beside the now-mended traveler whose humming seams shelter them, and finally he stands on a lonely headland to stitch a seam into the horizon and release the last bottled wind toward the sky.
+
+### Id: CzAQDw
+Input_1: C:/vsc/data/test/CzAQDw/CzAQDw_cmc.jpg
+Input_2: C:/vsc/data/test/CzAQDw/CzAQDw_geb.jpg
+Input_3: C:/vsc/data/test/CzAQDw/CzAQDw_gun.jpg
+Input_4: C:/vsc/data/test/CzAQDw/CzAQDw_zki.jpg
+Sentence: Beginning on a crumbling rooftop where the Midnight Cartographer, a bioluminescent fox, tips its bottled-moon lantern to spill a silver drop that unfurls into the first ephemeral street, it then slips into a rain-slick alley and inks a guiding lane across puddles, after which it descends into a subterranean canal to sweep the moonlight into floating stepping-paths across the water, and finally climbs a hill at sunrise to close the lantern and raise a paw as a last mote of moonlight ascends to seal the city's stitched map.
+
+### Id: XaZUZY
+Input_1: C:/vsc/data/test/XaZUZY/XaZUZY_dxc.jpg
+Input_2: C:/vsc/data/test/XaZUZY/XaZUZY_nhg.jpg
+Input_3: C:/vsc/data/test/XaZUZY/XaZUZY_nkq.jpg
+Input_4: C:/vsc/data/test/XaZUZY/XaZUZY_tju.jpg
+Sentence: Aurora Vane, the Clockwork Mariner, begins by drifting alone through silver fog with barnacle___ncrusted sails stitched with star___aps and a tide___ight lantern, then leans close to trace a route sewn into a sail, after which she battles a sudden rift in the mist___xtending her gear___rm to hold the lantern and bracing against snapping rigging___nd finally emerges at dawn to moor in a calm harbor beside a tide___culpted pier and a stone spire engraved with those constellations.
+
+### Id: c71Uch
+Input_1: C:/vsc/data/test/c71Uch/c71Uch_laf.jpg
+Input_2: C:/vsc/data/test/c71Uch/c71Uch_vbx.jpg
+Input_3: C:/vsc/data/test/c71Uch/c71Uch_vtw.jpg
+Input_4: C:/vsc/data/test/c71Uch/c71Uch_yvr.jpg
+Sentence: Orin begins by adjusting a steaming pocket-compass at his attic workbench that sculpts miniature clouds, then carries it to a coastal promontory and releases a puff into the wind, after which he climbs a lighthouse scaffold in a squall to steer thunderheads and protect the village, and finally walks away down a cobbled street at twilight with the compass trailing whimsical cloud shapes above grateful villagers.
+
+### Id: siZhmn
+Input_1: C:/vsc/data/test/siZhmn/siZhmn_gri.jpg
+Input_2: C:/vsc/data/test/siZhmn/siZhmn_swn.jpg
+Input_3: C:/vsc/data/test/siZhmn/siZhmn_yck.jpg
+Input_4: C:/vsc/data/test/siZhmn/siZhmn_yel.jpg
+Sentence: Marin, the Cartographer of Lost Tides, begins by kneeling at a mist-shrouded tidal cove to ink fading shoreline lines with phosphorescent tide-ink, then crouches on an exposed reef at low tide to trace those glowing contours onto wet stone, after which, aboard a small skiff as a storm approaches, they rapidly chart the retreating shore, and finally pin the completed glowing shore-map inside a cavern archive hollowed from a sea stack.
+
+### Id: VuyL8j
+Input_1: C:/vsc/data/test/VuyL8j/VuyL8j_awg.jpg
+Input_2: C:/vsc/data/test/VuyL8j/VuyL8j_ebc.jpg
+Input_3: C:/vsc/data/test/VuyL8j/VuyL8j_jgw.jpg
+Input_4: C:/vsc/data/test/VuyL8j/VuyL8j_raz.jpg
+Sentence: The Tideborne Cartographer begins in a kelp___alled cove kneeling over a sea___kin chart and consulting a whale___ertebra astrolabe, then cuts through open sea in a patched skiff steering toward a distant smudge of land, after which he mounts a jagged rock at night to align the astrolabe with the stars and his bottled tides, and finally steps onto a reclaimed shore and pours a vial into the incoming tide to trace old breakwaters and reveal the lost harbor.
+
+### Id: Ye9eU3
+Input_1: C:/vsc/data/test/Ye9eU3/Ye9eU3_huo.jpg
+Input_2: C:/vsc/data/test/Ye9eU3/Ye9eU3_ksm.jpg
+Input_3: C:/vsc/data/test/Ye9eU3/Ye9eU3_qlp.jpg
+Input_4: C:/vsc/data/test/Ye9eU3/Ye9eU3_wdf.jpg
+Sentence: Aurelian the clockwork heron begins by stalking the shallow edge of the Sundial Marsh with ledger___atched wings and a ticking hourglass that trails a ribbon of shadow, then moves into a collapsed clocktower to perch on a submerged gear as the shadow threads toward a sunk sundial, after which it prowls a flooded library courtyard and presses its beak as the shadow curls onto a damp map while the hourglass nears empty, and finally stands atop a small island sundial at dawn where the last grain of sand hangs poised and the shadow stretches upward, concluding its journey.
+
+### Id: cMVR1R
+Input_1: C:/vsc/data/test/cMVR1R/cMVR1R_bmi.jpg
+Input_2: C:/vsc/data/test/cMVR1R/cMVR1R_gzu.jpg
+Input_3: C:/vsc/data/test/cMVR1R/cMVR1R_uir.jpg
+Input_4: C:/vsc/data/test/cMVR1R/cMVR1R_yll.jpg
+Sentence: The archivist begins in a dust-drenched attic by uncorking a bottle to hear captured city-sounds, then in a bustling twilight plaza listens and records street-melodies while clutching a weathered sign, after which on a moonlit rooftop they unfurl a luminous quill and draw glowing roads across the sleeping city, and finally at dawn in a narrow cobblestone alley those traced paths guide waking citizens as the archivist releases the bottled sounds and restores the signs.

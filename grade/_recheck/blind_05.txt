@@ -1,0 +1,195 @@
+### Id: Xd2THk
+Input_1: C:/vsc/data/test/Xd2THk/Xd2THk_cjs.jpg
+Input_2: C:/vsc/data/test/Xd2THk/Xd2THk_nvd.jpg
+Input_3: C:/vsc/data/test/Xd2THk/Xd2THk_rrk.jpg
+Input_4: C:/vsc/data/test/Xd2THk/Xd2THk_wps.jpg
+Sentence: The person transitions from standing on a dock to wakeboarding behind a boat with friends, then stands up on a makeshift board, raises the tow handle, and glides closer as the camera tilts slightly upward.
+
+### Id: tsTiss
+Input_1: C:/vsc/data/test/tsTiss/tsTiss_ccb.jpg
+Input_2: C:/vsc/data/test/tsTiss/tsTiss_enm.jpg
+Input_3: C:/vsc/data/test/tsTiss/tsTiss_rsm.jpg
+Input_4: C:/vsc/data/test/tsTiss/tsTiss_tlw.jpg
+Sentence: The camera transitions from cheering fans to a wide shot of players on the sand, then focuses on a player in blue striking the ball towards the goal as the goalkeeper shifts slightly right.
+
+### Id: xhhhpg
+Input_1: C:/vsc/data/test/xhhhpg/xhhhpg_eot.jpg
+Input_2: C:/vsc/data/test/xhhhpg/xhhhpg_ivv.jpg
+Input_3: C:/vsc/data/test/xhhhpg/xhhhpg_ocm.jpg
+Input_4: C:/vsc/data/test/xhhhpg/xhhhpg_ulc.jpg
+Sentence:  An ice cleaner is now riding on an ice rink, and then people on wheelchairs start wheeling onto the rink.
+
+### Id: QXoo96
+Input_1: C:/vsc/data/test/QXoo96/QXoo96_jcd.jpg
+Input_2: C:/vsc/data/test/QXoo96/QXoo96_kgo.jpg
+Input_3: C:/vsc/data/test/QXoo96/QXoo96_ubj.jpg
+Input_4: C:/vsc/data/test/QXoo96/QXoo96_xlg.jpg
+Sentence: The boot on the right rotates slightly counter-clockwise as the brush moves upward, then the camera shifts from hands cutting green onions to a woman speaking in the kitchen.
+
+### Id: 8K3UvY
+Input_1: C:/vsc/data/test/8K3UvY/8K3UvY_bcd.jpg
+Input_2: C:/vsc/data/test/8K3UvY/8K3UvY_cwn.jpg
+Input_3: C:/vsc/data/test/8K3UvY/8K3UvY_ihf.jpg
+Input_4: C:/vsc/data/test/8K3UvY/8K3UvY_sqp.jpg
+Sentence: The shingle moves down over the flashing, partially covering it as the pipe remains centered, then the hand exits the frame while the camera slightly zooms in on the shingles for closer inspection.
+
+### Id: GaMkxc
+Input_1: C:/vsc/data/test/GaMkxc/GaMkxc_adi.jpg
+Input_2: C:/vsc/data/test/GaMkxc/GaMkxc_aje.jpg
+Input_3: C:/vsc/data/test/GaMkxc/GaMkxc_dyf.jpg
+Input_4: C:/vsc/data/test/GaMkxc/GaMkxc_zhd.jpg
+Sentence: The pink flower on the arm transitions to a black screen with text, then the stage lights fade as the camera pans left to reveal a seated performer and musician.
+
+### Id: fTwwl1
+Input_1: C:/vsc/data/test/fTwwl1/fTwwl1_hqq.jpg
+Input_2: C:/vsc/data/test/fTwwl1/fTwwl1_pop.jpg
+Input_3: C:/vsc/data/test/fTwwl1/fTwwl1_sfj.jpg
+Input_4: C:/vsc/data/test/fTwwl1/fTwwl1_tya.jpg
+Sentence: The chef spreads the mixture into a flat shape on the cooking surface, then transitions to serving pasta from the pan onto a plate as the camera zooms in to showcase the finished dish.
+
+### Id: jXyZQN
+Input_1: C:/vsc/data/test/jXyZQN/jXyZQN_afg.jpg
+Input_2: C:/vsc/data/test/jXyZQN/jXyZQN_hoo.jpg
+Input_3: C:/vsc/data/test/jXyZQN/jXyZQN_pzs.jpg
+Input_4: C:/vsc/data/test/jXyZQN/jXyZQN_url.jpg
+Sentence: A person begins to clear snow from a red vehicle, then humorously comments about not using the tool on a Mustang, before moving away as a truck and excavator work nearby. The video closes with a message thanking viewers.
+
+### Id: Gk8nrS
+Input_1: C:/vsc/data/test/Gk8nrS/Gk8nrS_mjx.jpg
+Input_2: C:/vsc/data/test/Gk8nrS/Gk8nrS_nxd.jpg
+Input_3: C:/vsc/data/test/Gk8nrS/Gk8nrS_roa.jpg
+Input_4: C:/vsc/data/test/Gk8nrS/Gk8nrS_zza.jpg
+Sentence: A woman tries to eat ice cream to a child, but the child refuses to eat the ice cream, then the woman eats the ice cream in the spoon.
+
+### Id: Ev7aBz
+Input_1: C:/vsc/data/test/Ev7aBz/Ev7aBz_azf.jpg
+Input_2: C:/vsc/data/test/Ev7aBz/Ev7aBz_fyy.jpg
+Input_3: C:/vsc/data/test/Ev7aBz/Ev7aBz_jtq.jpg
+Input_4: C:/vsc/data/test/Ev7aBz/Ev7aBz_viv.jpg
+Sentence:  She draws a face on the outside before using a knife to begin carving out the face of her pumpkin.
+
+### Id: w4j3St
+Input_1: C:/vsc/data/test/w4j3St/w4j3St_fhm.jpg
+Input_2: C:/vsc/data/test/w4j3St/w4j3St_kui.jpg
+Input_3: C:/vsc/data/test/w4j3St/w4j3St_muj.jpg
+Input_4: C:/vsc/data/test/w4j3St/w4j3St_ugr.jpg
+Sentence: The child___ wrapped hand moves closer to the adult during an object exchange as the camera tilts up, then hands assemble and adjust a ribbon flower, with the camera zooming in slightly on the expanding flower.
+
+### Id: peQe6S
+Input_1: C:/vsc/data/test/peQe6S/peQe6S_cxh.jpg
+Input_2: C:/vsc/data/test/peQe6S/peQe6S_ere.jpg
+Input_3: C:/vsc/data/test/peQe6S/peQe6S_rcd.jpg
+Input_4: C:/vsc/data/test/peQe6S/peQe6S_ujl.jpg
+Sentence: From a boat's perspective on water to indoors where medals are placed on a person's neck, then a woman organizes items on a table, stands upright, holding two rolls and a decorative item as the camera zooms out slightly.
+
+### Id: l89v4Z
+Input_1: C:/vsc/data/test/l89v4Z/l89v4Z_arg.jpg
+Input_2: C:/vsc/data/test/l89v4Z/l89v4Z_mvk.jpg
+Input_3: C:/vsc/data/test/l89v4Z/l89v4Z_wyx.jpg
+Input_4: C:/vsc/data/test/l89v4Z/l89v4Z_zwh.jpg
+Sentence: The skier descends the slope, turning slightly right as the camera zooms out, then stands still to demonstrate a technique before moving right again, with the camera slightly tilting down.
+
+### Id: 0mXRr8
+Input_1: C:/vsc/data/test/0mXRr8/0mXRr8_ezj.jpg
+Input_2: C:/vsc/data/test/0mXRr8/0mXRr8_hjn.jpg
+Input_3: C:/vsc/data/test/0mXRr8/0mXRr8_tmt.jpg
+Input_4: C:/vsc/data/test/0mXRr8/0mXRr8_wqt.jpg
+Sentence:  She pours oil into a hot pan and begins mixing ingredients together in the pan.
+
+### Id: OgtnmS
+Input_1: C:/vsc/data/test/OgtnmS/OgtnmS_apo.jpg
+Input_2: C:/vsc/data/test/OgtnmS/OgtnmS_ggi.jpg
+Input_3: C:/vsc/data/test/OgtnmS/OgtnmS_kah.jpg
+Input_4: C:/vsc/data/test/OgtnmS/OgtnmS_lma.jpg
+Sentence:  The man then leaps into the air and jumps into a sand pit.
+
+### Id: caEr5P
+Input_1: C:/vsc/data/test/caEr5P/caEr5P_ade.jpg
+Input_2: C:/vsc/data/test/caEr5P/caEr5P_ljf.jpg
+Input_3: C:/vsc/data/test/caEr5P/caEr5P_mmm.jpg
+Input_4: C:/vsc/data/test/caEr5P/caEr5P_zid.jpg
+Sentence: Starting with a left side part, the woman takes a small section of hair, then moves to arranging it with bobby pins, before finally admiring her hairstyle while holding flowers. The video concludes with the Mae B. Films logo.
+
+### Id: 4L1L0O
+Input_1: C:/vsc/data/test/4L1L0O/4L1L0O_hcc.jpg
+Input_2: C:/vsc/data/test/4L1L0O/4L1L0O_ior.jpg
+Input_3: C:/vsc/data/test/4L1L0O/4L1L0O_lkg.jpg
+Input_4: C:/vsc/data/test/4L1L0O/4L1L0O_nuh.jpg
+Sentence:  someone assists the two in getting up from the ground.
+
+### Id: mBDCs9
+Input_1: C:/vsc/data/test/mBDCs9/mBDCs9_cdk.jpg
+Input_2: C:/vsc/data/test/mBDCs9/mBDCs9_gfq.jpg
+Input_3: C:/vsc/data/test/mBDCs9/mBDCs9_mfn.jpg
+Input_4: C:/vsc/data/test/mBDCs9/mBDCs9_qqc.jpg
+Sentence: A person clears snow from a car, then another person scrapes snow off a windshield, followed by a woman using a stick to remove snow from her vehicle, before driving down a snowy road.
+
+### Id: 706QNR
+Input_1: C:/vsc/data/test/706QNR/706QNR_aac.jpg
+Input_2: C:/vsc/data/test/706QNR/706QNR_dkw.jpg
+Input_3: C:/vsc/data/test/706QNR/706QNR_ifn.jpg
+Input_4: C:/vsc/data/test/706QNR/706QNR_nns.jpg
+Sentence:  The next man simply runs and dives while flipping into the water.
+
+### Id: 29f8H7
+Input_1: C:/vsc/data/test/29f8H7/29f8H7_plc.jpg
+Input_2: C:/vsc/data/test/29f8H7/29f8H7_pvh.jpg
+Input_3: C:/vsc/data/test/29f8H7/29f8H7_tyr.jpg
+Input_4: C:/vsc/data/test/29f8H7/29f8H7_znw.jpg
+Sentence: A skateboard rests on a table as the camera shifts to three people celebrating with trophies, then two children paint a fence before the camera pans right, revealing a path leading to a pool area.
+
+### Id: HPk5qW
+Input_1: C:/vsc/data/test/HPk5qW/HPk5qW_env.jpg
+Input_2: C:/vsc/data/test/HPk5qW/HPk5qW_hos.jpg
+Input_3: C:/vsc/data/test/HPk5qW/HPk5qW_kqy.jpg
+Input_4: C:/vsc/data/test/HPk5qW/HPk5qW_tdi.jpg
+Sentence:  Eventually some of them go down the hill.
+
+### Id: Ui6d91
+Input_1: C:/vsc/data/test/Ui6d91/Ui6d91_ajb.jpg
+Input_2: C:/vsc/data/test/Ui6d91/Ui6d91_hbm.jpg
+Input_3: C:/vsc/data/test/Ui6d91/Ui6d91_nod.jpg
+Input_4: C:/vsc/data/test/Ui6d91/Ui6d91_wgc.jpg
+Sentence: The person begins to frost the cake, then moves it into the freezer, after which they add decorative piping, and finally, a message of thanks appears on the screen.
+
+### Id: pVJTEs
+Input_1: C:/vsc/data/test/pVJTEs/pVJTEs_kca.jpg
+Input_2: C:/vsc/data/test/pVJTEs/pVJTEs_kcf.jpg
+Input_3: C:/vsc/data/test/pVJTEs/pVJTEs_khh.jpg
+Input_4: C:/vsc/data/test/pVJTEs/pVJTEs_vvp.jpg
+Sentence: Two participants move toward the calf, engaging it at the center of the arena, followed by a scene shift from rodeo spectators to a close-up of the "Triple Threat Feed" text.
+
+### Id: PIcWhY
+Input_1: C:/vsc/data/test/PIcWhY/PIcWhY_hpl.jpg
+Input_2: C:/vsc/data/test/PIcWhY/PIcWhY_jzq.jpg
+Input_3: C:/vsc/data/test/PIcWhY/PIcWhY_mqj.jpg
+Input_4: C:/vsc/data/test/PIcWhY/PIcWhY_ttw.jpg
+Sentence:  Now he is going to go down the slide once again.
+
+### Id: FOraJM
+Input_1: C:/vsc/data/test/FOraJM/FOraJM_aur.jpg
+Input_2: C:/vsc/data/test/FOraJM/FOraJM_ecn.jpg
+Input_3: C:/vsc/data/test/FOraJM/FOraJM_wvp.jpg
+Input_4: C:/vsc/data/test/FOraJM/FOraJM_zqt.jpg
+Sentence:  A woman in shorts is running down the street.
+
+### Id: uAVQ46
+Input_1: C:/vsc/data/test/uAVQ46/uAVQ46_foc.jpg
+Input_2: C:/vsc/data/test/uAVQ46/uAVQ46_wpp.jpg
+Input_3: C:/vsc/data/test/uAVQ46/uAVQ46_xrm.jpg
+Input_4: C:/vsc/data/test/uAVQ46/uAVQ46_xrs.jpg
+Sentence: The man unrolls the wallpaper from the top while on a ladder, then kneels to smooth it near the floor; afterward, he trims the excess at the top edge of another wall.
+
+### Id: tRqDPl
+Input_1: C:/vsc/data/test/tRqDPl/tRqDPl_gwp.jpg
+Input_2: C:/vsc/data/test/tRqDPl/tRqDPl_lgl.jpg
+Input_3: C:/vsc/data/test/tRqDPl/tRqDPl_rlw.jpg
+Input_4: C:/vsc/data/test/tRqDPl/tRqDPl_zos.jpg
+Sentence:  The men let go of the rope, one man falls and claps.
+
+### Id: PdQMSG
+Input_1: C:/vsc/data/test/PdQMSG/PdQMSG_bhe.jpg
+Input_2: C:/vsc/data/test/PdQMSG/PdQMSG_hcq.jpg
+Input_3: C:/vsc/data/test/PdQMSG/PdQMSG_nla.jpg
+Input_4: C:/vsc/data/test/PdQMSG/PdQMSG_yrz.jpg
+Sentence: The boy that is kicked falls out on the ground and his mother rushes out to make sure he is okay as the other boy takes a knee.

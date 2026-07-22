@@ -187,6 +187,8 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--diversity-frac", type=float, default=0.2, help="legacy path only (--mmr-lambda 0)")
     ap.add_argument("--objectness-weight", type=float, default=0.3, help="centroid-residual-norm blend weight (0 = pure cosine)")
     ap.add_argument("--mmr-lambda", type=float, default=0.5, help="MMR redundancy penalty (0 = legacy top-k + diversity fill)")
+    ap.add_argument("--motion-weight", type=float, default=0.0,
+                    help="cross-frame residual-norm blend weight (0 = pre-motion behavior)")
     ap.add_argument("--prune-prob", type=float, default=0.75, help="per-sample prob of training with pruning on")
     ap.add_argument("--no-prune", action="store_true")
     ap.add_argument("--max-pixels", type=int, default=DEFAULT_MAX_PIXELS)
@@ -260,6 +262,7 @@ def main(argv: list[str] | None = None) -> None:
         diversity_frac=args.diversity_frac,
         objectness_weight=args.objectness_weight,
         mmr_lambda=args.mmr_lambda,
+        motion_weight=args.motion_weight,
         enabled=not args.no_prune,
     )
     engine = Engine(model, processor, head, prune_cfg, max_pixels=args.max_pixels)

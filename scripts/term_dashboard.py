@@ -7,6 +7,8 @@
   python3 scripts/term_dashboard.py --no-color
   python3 scripts/term_dashboard.py --run runs/sft32b_v11_ws8_reheat --total-steps 300 \
       --log runs/sft_v11_ws8_reheat.log   # point at a different run (e.g. a resume/reheat)
+  python3 scripts/term_dashboard.py --watch --infer-out runs/test_v11_ckpt1200
+      # test/train INFERENCE progress instead of training (progress.jsonl-based)
 
 Reads the same on-disk sources as runs/dashboard.html (train_log.jsonl,
 vram_log.jsonl, checkpoints, sweep/test artifacts) — always live, never
@@ -186,7 +188,7 @@ def has_errors() -> str | None:
     return matches[-1].strip() if matches else None
 
 
-def session_alive() -> bool:
+def session_alive(proc_pattern: str = "run_fit.py", tag: str | None = None) -> bool:
     try:
         if subprocess.run(
             ["tmux", "has-session", "-t", "snuai11"], capture_output=True, timeout=5
@@ -195,10 +197,10 @@ def session_alive() -> bool:
     except Exception:
         pass
     # tmux-less path (e.g. harness-tracked background task): look for a live
-    # run_fit.py process writing into this dashboard's --run directory.
+    # process (training or inference) writing into this dashboard's target dir.
     try:
-        out = subprocess.run(["pgrep", "-af", "run_fit.py"], capture_output=True, text=True, timeout=5).stdout
-        return RUN.name in out
+        out = subprocess.run(["pgrep", "-af", proc_pattern], capture_output=True, text=True, timeout=5).stdout
+        return (tag or RUN.name) in out
     except Exception:
         return False
 
@@ -372,6 +374,108 @@ def render(width: int) -> str:
     return "\n".join(out)
 
 
+def render_infer(width: int, infer_dir: Path, total: int) -> str:
+    """Test/train inference progress — reads <infer_dir>/progress.jsonl
+    (one line appended per completed sample, resumable/idempotent — see
+    infer.py). Separate from render() since a serving run has no
+    steps/LR/checkpoints, only a sample counter and per-sample cost."""
+    out: list[str] = []
+    W = width
+
+    recs = read_jsonl(infer_dir / "progress.jsonl")
+    done = len(recs)
+    launch_ts = (infer_dir / "config.json").stat().st_mtime if (infer_dir / "config.json").exists() else None
+    vram_all = read_jsonl(VRAM_LOG)
+    vram = [r for r in vram_all if launch_ts is None or r["ts"] >= launch_ts] if vram_all else vram_all
+    err = has_errors()
+    alive = session_alive(proc_pattern="snuai11.infer", tag=infer_dir.name)
+    sub_done = (infer_dir / "submission.csv").exists()
+
+    if err:
+        phase, pcolor = "오류 감지", CRIT
+    elif sub_done:
+        phase, pcolor = "완료 — submission.csv 있음", GOOD
+    elif not alive and done < total:
+        phase, pcolor = "세션 종료(비정상?)", CRIT
+    elif not recs:
+        phase, pcolor = "기동 중", WARN
+    else:
+        phase, pcolor = "추론 중", ACCENT
+
+    title = f"{BOLD()}{ACCENT()}Ver11 test 추론{RESET()} {MUTED()}{infer_dir.name}{RESET()}"
+    pill = f"{pcolor()}{BOLD()} {phase} {RESET()}"
+    out.append(box_top("●", W))
+    out.append(box_line(f"{title}   {pill}", W))
+    out.append(box_rule(W))
+
+    rate_txt, eta_txt = "—", "—"
+    tail = recs[-20:]
+    if tail:
+        rate = sum(r.get("elapsed_s", 0.0) for r in tail) / len(tail)
+        rate_txt = f"{rate:.1f}s/샘플"
+        if not sub_done:
+            eta_txt = fmt_kst(time.time() + (total - done) * rate)
+    n_esc = sum(1 for r in recs if r.get("escalated"))
+
+    cfg = json.loads((infer_dir / "config.json").read_text()) if (infer_dir / "config.json").exists() else {}
+    adapter_path = Path(cfg["adapter"]) if cfg.get("adapter") else None
+    # adapter dirs are always named "adapter" (the parent, e.g. checkpoint-1200
+    # or adapter_final, is the identifying part) — show that instead.
+    adapter_txt = truncate(adapter_path.parent.name, 20) if adapter_path else "—"
+
+    col1 = [
+        ("샘플", f"{done} / {total}"),
+        ("속도", rate_txt),
+        ("이스컬레이션", f"{n_esc} ({n_esc*100//max(1, done)}%)" if done else "—"),
+    ]
+    col2 = [
+        ("종료 ETA", eta_txt),
+        ("어댑터", adapter_txt),
+        ("TTA", str(cfg.get("tta", "—"))),
+    ]
+    half = W // 2 - 2
+    if half >= 34:
+        for (k1, v1), (k2, v2) in zip(col1, col2):
+            left = f"{MUTED()}{pad(k1, 13)}{RESET()}{INK()}{v1}{RESET()}"
+            right = f"{MUTED()}{pad(k2, 11)}{RESET()}{INK()}{v2}{RESET()}"
+            out.append(box_line(pad(left, half) + " " + right, W))
+    else:
+        for k, v in col1 + col2:
+            out.append(box_line(f"{MUTED()}{pad(k, 14)}{RESET()}{INK()}{v}{RESET()}", W))
+
+    out.append(box_line(bar(done / max(1, total), W - 14) + f"  {done*100//max(1, total):3d}%", W))
+
+    sess_txt = f"{GOOD()}세션 생존{RESET()}" if alive else f"{CRIT()}세션 없음{RESET()}"
+    err_budget = W - 3 - vlen("세션 생존") - 3
+    err_txt = f"{CRIT()}{truncate(err, err_budget)}{RESET()}" if err else f"{GOOD()}에러 0{RESET()}"
+    out.append(box_line(f"{sess_txt}   {err_txt}", W))
+
+    if recs:
+        out.append(box_rule(W))
+        margins = [r.get("margin_final", r.get("margin", 0.0)) for r in recs]
+        out.append(box_line(f"{MUTED()}margin{RESET()} " + sparkline(margins, W - 17) +
+                             f" {INK()}{margins[-1]:.2f}{RESET()}", W))
+        out.append(box_line(f"{MUTED()}최근 샘플{RESET()} " + ", ".join(
+            f"{r['id']}({r.get('margin_final', r.get('margin', 0.0)):.2f})" for r in recs[-3:]), W))
+
+    if vram:
+        peak = max(r["mib"] for r in vram) / 1024
+        cur = vram[-1]["mib"] / 1024
+        vcolor = CRIT if peak > 23 else GOOD
+        out.append(box_rule(W))
+        out.append(box_line(
+            f"{MUTED()}VRAM{RESET()} 현재 {INK()}{cur:.1f}{RESET()} GiB   "
+            f"피크 {vcolor()}{peak:.1f}{RESET()} GiB   {MUTED()}(23GiB=3090 기준선){RESET()}",
+            W))
+
+    launch_txt = fmt_kst(launch_ts) if launch_ts is not None else "—"
+    out.append(box_rule(W))
+    out.append(box_line(f"{MUTED()}갱신 {fmt_kst(time.time())} · launch {launch_txt} · "
+                         f"1×A100 · Ctrl-C로 종료{RESET()}", W))
+    out.append(box_bottom(W))
+    return "\n".join(out)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--watch", nargs="?", const=20, type=int, default=None, metavar="SECONDS")
@@ -380,6 +484,10 @@ def main() -> None:
     ap.add_argument("--total-steps", type=int, default=None)
     ap.add_argument("--tripwire-step", type=int, default=None)
     ap.add_argument("--log", default=None, help="sft stdout log, relative to repo root (for the error scan)")
+    ap.add_argument("--infer-out", default=None,
+                     help="switch to inference-progress mode: a runs/... dir with progress.jsonl "
+                          "(e.g. runs/test_v11_ckpt1200), instead of the training dashboard")
+    ap.add_argument("--infer-total", type=int, default=819, help="sample count for --infer-out (819 = test split)")
     args = ap.parse_args()
     if args.no_color:
         C.set(False)
@@ -396,8 +504,16 @@ def main() -> None:
 
     width = min(max(shutil.get_terminal_size((100, 24)).columns, 64), 96)
 
+    if args.infer_out:
+        infer_dir = ROOT / args.infer_out
+        if not args.log:  # e.g. runs/test_v11_ckpt1200 -> runs/test_v11_ckpt1200.log
+            SFT_LOG = infer_dir.with_suffix(".log")
+        render_fn = lambda w: render_infer(w, infer_dir, args.infer_total)  # noqa: E731
+    else:
+        render_fn = render
+
     if args.watch is None:
-        print(render(width))
+        print(render_fn(width))
         return
 
     # --watch is an explicit request to redraw in place, independent of
@@ -417,7 +533,7 @@ def main() -> None:
     try:
         while True:
             ctrl("\x1b[H\x1b[J")  # cursor home, erase to end — redraw in place
-            print(render(width))
+            print(render_fn(width))
             sys.stdout.flush()
             time.sleep(args.watch)
     except KeyboardInterrupt:

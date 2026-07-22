@@ -1,0 +1,195 @@
+### Id: JwI2O1
+Input_1: C:/vsc/data/test/JwI2O1/JwI2O1_mhe.jpg
+Input_2: C:/vsc/data/test/JwI2O1/JwI2O1_txn.jpg
+Input_3: C:/vsc/data/test/JwI2O1/JwI2O1_utb.jpg
+Input_4: C:/vsc/data/test/JwI2O1/JwI2O1_wnx.jpg
+Sentence:  The girl then begins climbing across the set of monkey bars.
+
+### Id: 9fwwT6
+Input_1: C:/vsc/data/test/9fwwT6/9fwwT6_osd.jpg
+Input_2: C:/vsc/data/test/9fwwT6/9fwwT6_qve.jpg
+Input_3: C:/vsc/data/test/9fwwT6/9fwwT6_sav.jpg
+Input_4: C:/vsc/data/test/9fwwT6/9fwwT6_zoq.jpg
+Sentence: A man mounts a beam in front of the judges.
+
+### Id: v8OJ1q
+Input_1: C:/vsc/data/test/v8OJ1q/v8OJ1q_hwa.jpg
+Input_2: C:/vsc/data/test/v8OJ1q/v8OJ1q_lxg.jpg
+Input_3: C:/vsc/data/test/v8OJ1q/v8OJ1q_tbo.jpg
+Input_4: C:/vsc/data/test/v8OJ1q/v8OJ1q_uxh.jpg
+Sentence:  Dough is measured out by spoonful, rolled up and placed on baking sheet.
+
+### Id: enJCzv
+Input_1: C:/vsc/data/test/enJCzv/enJCzv_gei.jpg
+Input_2: C:/vsc/data/test/enJCzv/enJCzv_kbe.jpg
+Input_3: C:/vsc/data/test/enJCzv/enJCzv_kuh.jpg
+Input_4: C:/vsc/data/test/enJCzv/enJCzv_nwv.jpg
+Sentence: The musician shifts right and leans back with the guitar as the camera zooms in slightly, then stage lights fade, revealing a seated performer with a band member as the camera zooms out.
+
+### Id: eHIceq
+Input_1: C:/vsc/data/test/eHIceq/eHIceq_aox.jpg
+Input_2: C:/vsc/data/test/eHIceq/eHIceq_gve.jpg
+Input_3: C:/vsc/data/test/eHIceq/eHIceq_ltt.jpg
+Input_4: C:/vsc/data/test/eHIceq/eHIceq_set.jpg
+Sentence: The chef layers cheese and ham on bread, then the camera shifts to his face; next, he prepares an omelet in a pan, which moves out of frame as the camera zooms out to reveal more of the kitchen.
+
+### Id: qy92Ty
+Input_1: C:/vsc/data/test/qy92Ty/qy92Ty_pgd.jpg
+Input_2: C:/vsc/data/test/qy92Ty/qy92Ty_vxv.jpg
+Input_3: C:/vsc/data/test/qy92Ty/qy92Ty_zbr.jpg
+Input_4: C:/vsc/data/test/qy92Ty/qy92Ty_znt.jpg
+Sentence: The woman moves from stirring a pot to squeezing lemons, then transitions to filling a jar with layered ingredients and secures it with a lid.
+
+### Id: ryRBAt
+Input_1: C:/vsc/data/test/ryRBAt/ryRBAt_aym.jpg
+Input_2: C:/vsc/data/test/ryRBAt/ryRBAt_duq.jpg
+Input_3: C:/vsc/data/test/ryRBAt/ryRBAt_hxp.jpg
+Input_4: C:/vsc/data/test/ryRBAt/ryRBAt_wbj.jpg
+Sentence:  The man stop raking, walks toward a tree, and hangs the rake on the tree.
+
+### Id: NGEcEv
+Input_1: C:/vsc/data/test/NGEcEv/NGEcEv_cxm.jpg
+Input_2: C:/vsc/data/test/NGEcEv/NGEcEv_mit.jpg
+Input_3: C:/vsc/data/test/NGEcEv/NGEcEv_ymh.jpg
+Input_4: C:/vsc/data/test/NGEcEv/NGEcEv_zme.jpg
+Sentence:  An athlete approaches the field area.
+
+### Id: 8WEGwa
+Input_1: C:/vsc/data/test/8WEGwa/8WEGwa_fwi.jpg
+Input_2: C:/vsc/data/test/8WEGwa/8WEGwa_gez.jpg
+Input_3: C:/vsc/data/test/8WEGwa/8WEGwa_hyc.jpg
+Input_4: C:/vsc/data/test/8WEGwa/8WEGwa_kwz.jpg
+Sentence:  The gets off the rope and walks on the mats off the floor and towards his group.
+
+### Id: lmOtxf
+Input_1: C:/vsc/data/test/lmOtxf/lmOtxf_bmw.jpg
+Input_2: C:/vsc/data/test/lmOtxf/lmOtxf_bnl.jpg
+Input_3: C:/vsc/data/test/lmOtxf/lmOtxf_hdq.jpg
+Input_4: C:/vsc/data/test/lmOtxf/lmOtxf_heh.jpg
+Sentence:  The man and child ride down a river over waterfall.
+
+### Id: UwdDWd
+Input_1: C:/vsc/data/test/UwdDWd/UwdDWd_aqk.jpg
+Input_2: C:/vsc/data/test/UwdDWd/UwdDWd_mop.jpg
+Input_3: C:/vsc/data/test/UwdDWd/UwdDWd_oiy.jpg
+Input_4: C:/vsc/data/test/UwdDWd/UwdDWd_yzk.jpg
+Sentence:  She puts it in a glass pan and puts the pan in the oven.
+
+### Id: 3nNvh9
+Input_1: C:/vsc/data/test/3nNvh9/3nNvh9_azu.jpg
+Input_2: C:/vsc/data/test/3nNvh9/3nNvh9_cpn.jpg
+Input_3: C:/vsc/data/test/3nNvh9/3nNvh9_hix.jpg
+Input_4: C:/vsc/data/test/3nNvh9/3nNvh9_neb.jpg
+Sentence: The dough is hand-worked until it forms, then transferred onto plastic wrap, frozen or refrigerated to firm up, and finally cut into squares about 1 cm apart.
+
+### Id: bJTQKa
+Input_1: C:/vsc/data/test/bJTQKa/bJTQKa_bzx.jpg
+Input_2: C:/vsc/data/test/bJTQKa/bJTQKa_cqa.jpg
+Input_3: C:/vsc/data/test/bJTQKa/bJTQKa_hgj.jpg
+Input_4: C:/vsc/data/test/bJTQKa/bJTQKa_yph.jpg
+Sentence:  The girl jumps off the diving board into the swimming pool.
+
+### Id: a90lEu
+Input_1: C:/vsc/data/test/a90lEu/a90lEu_bhn.jpg
+Input_2: C:/vsc/data/test/a90lEu/a90lEu_hbz.jpg
+Input_3: C:/vsc/data/test/a90lEu/a90lEu_qrb.jpg
+Input_4: C:/vsc/data/test/a90lEu/a90lEu_xpu.jpg
+Sentence:  Then she lightly twists the braiding hair and uses as many bobby pins as she needs.
+
+### Id: CYVEDi
+Input_1: C:/vsc/data/test/CYVEDi/CYVEDi_coz.jpg
+Input_2: C:/vsc/data/test/CYVEDi/CYVEDi_sie.jpg
+Input_3: C:/vsc/data/test/CYVEDi/CYVEDi_vco.jpg
+Input_4: C:/vsc/data/test/CYVEDi/CYVEDi_ysg.jpg
+Sentence: The athlete raises the javelin, then moves into the throwing position, follows through with the throw, and finally walks away after achieving a distance of 87.17 meters.
+
+### Id: uQE4mF
+Input_1: C:/vsc/data/test/uQE4mF/uQE4mF_epq.jpg
+Input_2: C:/vsc/data/test/uQE4mF/uQE4mF_guh.jpg
+Input_3: C:/vsc/data/test/uQE4mF/uQE4mF_gwe.jpg
+Input_4: C:/vsc/data/test/uQE4mF/uQE4mF_nud.jpg
+Sentence:  A woman is helping the boy down a slide and the same person in the red vest catches them.
+
+### Id: yiYiRW
+Input_1: C:/vsc/data/test/yiYiRW/yiYiRW_axa.jpg
+Input_2: C:/vsc/data/test/yiYiRW/yiYiRW_bnn.jpg
+Input_3: C:/vsc/data/test/yiYiRW/yiYiRW_cai.jpg
+Input_4: C:/vsc/data/test/yiYiRW/yiYiRW_esp.jpg
+Sentence: However,the ball doesn't make it over the net,rolls back and he goes to get it.
+
+### Id: f7JwiT
+Input_1: C:/vsc/data/test/f7JwiT/f7JwiT_bgj.jpg
+Input_2: C:/vsc/data/test/f7JwiT/f7JwiT_buv.jpg
+Input_3: C:/vsc/data/test/f7JwiT/f7JwiT_pno.jpg
+Input_4: C:/vsc/data/test/f7JwiT/f7JwiT_qws.jpg
+Sentence: A toddler goes down on a slide in a playground full of people, when the toddler touches the floor, she stand and run.
+
+### Id: S0cFZA
+Input_1: C:/vsc/data/test/S0cFZA/S0cFZA_pfw.jpg
+Input_2: C:/vsc/data/test/S0cFZA/S0cFZA_sjq.jpg
+Input_3: C:/vsc/data/test/S0cFZA/S0cFZA_udi.jpg
+Input_4: C:/vsc/data/test/S0cFZA/S0cFZA_yeb.jpg
+Sentence:  A woman puts a baby in the swimming pool, and the baby swims fast to reach the border of the swimming pool.
+
+### Id: IDP7Oc
+Input_1: C:/vsc/data/test/IDP7Oc/IDP7Oc_diy.jpg
+Input_2: C:/vsc/data/test/IDP7Oc/IDP7Oc_fyp.jpg
+Input_3: C:/vsc/data/test/IDP7Oc/IDP7Oc_izu.jpg
+Input_4: C:/vsc/data/test/IDP7Oc/IDP7Oc_xgh.jpg
+Sentence: The man forms a cupped shape around the harmonica as it moves closer to the camera, then the scene shifts to a tattoo artist's hand working on an arm, zooming out to reveal the tattooed wrist.
+
+### Id: G9Rbhf
+Input_1: C:/vsc/data/test/G9Rbhf/G9Rbhf_bhd.jpg
+Input_2: C:/vsc/data/test/G9Rbhf/G9Rbhf_hhc.jpg
+Input_3: C:/vsc/data/test/G9Rbhf/G9Rbhf_ruy.jpg
+Input_4: C:/vsc/data/test/G9Rbhf/G9Rbhf_ybk.jpg
+Sentence: The worker begins by layering meats in the sandwich, then adds vegetables, follows with sauce options, and finally wraps the completed sandwich for serving.
+
+### Id: bhC2Jx
+Input_1: C:/vsc/data/test/bhC2Jx/bhC2Jx_nrw.jpg
+Input_2: C:/vsc/data/test/bhC2Jx/bhC2Jx_rgf.jpg
+Input_3: C:/vsc/data/test/bhC2Jx/bhC2Jx_whl.jpg
+Input_4: C:/vsc/data/test/bhC2Jx/bhC2Jx_wme.jpg
+Sentence: The bartender begins to prepare a drink, then garnishes it with a lemon slice, and finally presents the finished cocktail to the camera.
+
+### Id: K6UGYA
+Input_1: C:/vsc/data/test/K6UGYA/K6UGYA_cye.jpg
+Input_2: C:/vsc/data/test/K6UGYA/K6UGYA_nos.jpg
+Input_3: C:/vsc/data/test/K6UGYA/K6UGYA_tlr.jpg
+Input_4: C:/vsc/data/test/K6UGYA/K6UGYA_urx.jpg
+Sentence: The man secures the carpet on the stairs with tools, then a person uses a roller to paint the ceiling, moving from a close-up to a wider view as they smooth the surface.
+
+### Id: MNpR1e
+Input_1: C:/vsc/data/test/MNpR1e/MNpR1e_eoy.jpg
+Input_2: C:/vsc/data/test/MNpR1e/MNpR1e_qfs.jpg
+Input_3: C:/vsc/data/test/MNpR1e/MNpR1e_tso.jpg
+Input_4: C:/vsc/data/test/MNpR1e/MNpR1e_xne.jpg
+Sentence:  A person's hands draws on the pumpkin while holding up a stencil.
+
+### Id: kMO5fC
+Input_1: C:/vsc/data/test/kMO5fC/kMO5fC_gxy.jpg
+Input_2: C:/vsc/data/test/kMO5fC/kMO5fC_jtg.jpg
+Input_3: C:/vsc/data/test/kMO5fC/kMO5fC_ono.jpg
+Input_4: C:/vsc/data/test/kMO5fC/kMO5fC_vtp.jpg
+Sentence:  The man leads the camel out of the pen as he smokes a cigarette.
+
+### Id: 1Vk7eD
+Input_1: C:/vsc/data/test/1Vk7eD/1Vk7eD_ltb.jpg
+Input_2: C:/vsc/data/test/1Vk7eD/1Vk7eD_oax.jpg
+Input_3: C:/vsc/data/test/1Vk7eD/1Vk7eD_qcu.jpg
+Input_4: C:/vsc/data/test/1Vk7eD/1Vk7eD_qjk.jpg
+Sentence:  The group of men put the carpet on the floor, they measure it, cut it and taped it.
+
+### Id: ipvuxh
+Input_1: C:/vsc/data/test/ipvuxh/ipvuxh_cxb.jpg
+Input_2: C:/vsc/data/test/ipvuxh/ipvuxh_mzv.jpg
+Input_3: C:/vsc/data/test/ipvuxh/ipvuxh_pcl.jpg
+Input_4: C:/vsc/data/test/ipvuxh/ipvuxh_skr.jpg
+Sentence: The hair is blow-dried and styled into intricate braids, then a person continues braiding their hair, shifting focus to the right as the braid becomes more defined, with the camera zooming out slightly.
+
+### Id: nzLplh
+Input_1: C:/vsc/data/test/nzLplh/nzLplh_naw.jpg
+Input_2: C:/vsc/data/test/nzLplh/nzLplh_qlg.jpg
+Input_3: C:/vsc/data/test/nzLplh/nzLplh_spi.jpg
+Input_4: C:/vsc/data/test/nzLplh/nzLplh_tao.jpg
+Sentence: The chef moves endive towards the bin with a rightward camera tilt, then transitions to peeling a potato, which is placed peeled beside a peeler, accompanied by a label appearing above.

@@ -1,0 +1,590 @@
+### [00] 0AezL1  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@2-3  audited=N
+  Input_1: C:/vsc/data/test/0AezL1/0AezL1_cpk.jpg
+  Input_2: C:/vsc/data/test/0AezL1/0AezL1_dwv.jpg
+  Input_3: C:/vsc/data/test/0AezL1/0AezL1_fdj.jpg
+  Input_4: C:/vsc/data/test/0AezL1/0AezL1_wvs.jpg
+  caption: The athlete transitions from mid-air near the pole to sitting on the mat, as the height marker changes from 4.41 to 4.70 metres; then, the camera pans to another athlete celebrating with raised arms after a successful jump.
+  model temporal seq : 3-2-1-4   (ranks [3, 2, 1, 4])
+  key   temporal seq : 3-1-2-4   (ranks [2, 3, 1, 4])
+  sft1600 [2, 3, 1, 4]  ver4 [2, 3, 1, 4]  dpo-traj =X==
+
+### [01] 151Vxf  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@2-3  audited=N
+  Input_1: C:/vsc/data/test/151Vxf/151Vxf_avz.jpg
+  Input_2: C:/vsc/data/test/151Vxf/151Vxf_bxy.jpg
+  Input_3: C:/vsc/data/test/151Vxf/151Vxf_hqb.jpg
+  Input_4: C:/vsc/data/test/151Vxf/151Vxf_xof.jpg
+  caption:  kid kneels and grabs a dry leaf to put it in the trash bin.
+  model temporal seq : 2-1-4-3   (ranks [2, 1, 4, 3])
+  key   temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  sft1600 [3, 1, 4, 2]  ver4 [3, 1, 4, 2]  dpo-traj ====
+
+### [02] 706QNR  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@1-2  audited=N
+  Input_1: C:/vsc/data/test/706QNR/706QNR_aac.jpg
+  Input_2: C:/vsc/data/test/706QNR/706QNR_dkw.jpg
+  Input_3: C:/vsc/data/test/706QNR/706QNR_ifn.jpg
+  Input_4: C:/vsc/data/test/706QNR/706QNR_nns.jpg
+  caption:  The next man simply runs and dives while flipping into the water.
+  model temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 2, 3, 4]  ver4 [2, 1, 3, 4]  dpo-traj ====
+
+### [03] CbgVj3  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@1-2  audited=N
+  Input_1: C:/vsc/data/test/CbgVj3/CbgVj3_bid.jpg
+  Input_2: C:/vsc/data/test/CbgVj3/CbgVj3_lxi.jpg
+  Input_3: C:/vsc/data/test/CbgVj3/CbgVj3_ppv.jpg
+  Input_4: C:/vsc/data/test/CbgVj3/CbgVj3_xaj.jpg
+  caption: The female dancer turns away, showcasing her back as the camera zooms out, then lowers her leg and moves right into a close embrace with her partner, as the camera pans out to reveal the stage.
+  model temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 2, 3, 4]  ver4 [1, 2, 3, 4]  dpo-traj ====
+
+### [04] Ev7aBz  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@1-2  audited=N
+  Input_1: C:/vsc/data/test/Ev7aBz/Ev7aBz_azf.jpg
+  Input_2: C:/vsc/data/test/Ev7aBz/Ev7aBz_fyy.jpg
+  Input_3: C:/vsc/data/test/Ev7aBz/Ev7aBz_jtq.jpg
+  Input_4: C:/vsc/data/test/Ev7aBz/Ev7aBz_viv.jpg
+  caption:  She draws a face on the outside before using a knife to begin carving out the face of her pumpkin.
+  model temporal seq : 1-4-2-3   (ranks [1, 3, 4, 2])
+  key   temporal seq : 4-1-2-3   (ranks [2, 3, 4, 1])
+  sft1600 [2, 3, 4, 1]  ver4 [2, 3, 4, 1]  dpo-traj ====
+
+### [05] NkMj3t  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@2-3  audited=N
+  Input_1: C:/vsc/data/test/NkMj3t/NkMj3t_hzl.jpg
+  Input_2: C:/vsc/data/test/NkMj3t/NkMj3t_vsh.jpg
+  Input_3: C:/vsc/data/test/NkMj3t/NkMj3t_wov.jpg
+  Input_4: C:/vsc/data/test/NkMj3t/NkMj3t_xxx.jpg
+  caption: Aurelle, cartographer of lost doors, begins by drifting down a fog-drowned alley with a patchwork map coat and a brass compass welded to her wrist, then kneels before a half-hidden threshold and extracts a key-shaped seed from her satchel to trace the seam, after which she plants the seed and watches bioluminescent tendrils unfurl, and finally steps through the opened door into a luminous, maplike realm.
+  model temporal seq : 3-2-1-4   (ranks [3, 2, 1, 4])
+  key   temporal seq : 3-1-2-4   (ranks [2, 3, 1, 4])
+  sft1600 [2, 3, 1, 4]  ver4 [2, 3, 1, 4]  dpo-traj =X==
+
+### [06] S0cFZA  origin=dpo-introduced(sft-was-right)  type=one-moved(d=3)  audited=N
+  Input_1: C:/vsc/data/test/S0cFZA/S0cFZA_pfw.jpg
+  Input_2: C:/vsc/data/test/S0cFZA/S0cFZA_sjq.jpg
+  Input_3: C:/vsc/data/test/S0cFZA/S0cFZA_udi.jpg
+  Input_4: C:/vsc/data/test/S0cFZA/S0cFZA_yeb.jpg
+  caption:  A woman puts a baby in the swimming pool, and the baby swims fast to reach the border of the swimming pool.
+  model temporal seq : 3-4-2-1   (ranks [4, 3, 1, 2])
+  key   temporal seq : 1-3-4-2   (ranks [1, 4, 2, 3])
+  sft1600 [1, 4, 2, 3]  ver4 [1, 4, 2, 3]  dpo-traj =X==
+
+### [07] UwdDWd  origin=dpo-introduced(sft-was-right)  type=one-moved(d=3)  audited=N
+  Input_1: C:/vsc/data/test/UwdDWd/UwdDWd_aqk.jpg
+  Input_2: C:/vsc/data/test/UwdDWd/UwdDWd_mop.jpg
+  Input_3: C:/vsc/data/test/UwdDWd/UwdDWd_oiy.jpg
+  Input_4: C:/vsc/data/test/UwdDWd/UwdDWd_yzk.jpg
+  caption:  She puts it in a glass pan and puts the pan in the oven.
+  model temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [3, 1, 2, 4]  ver4 [3, 1, 2, 4]  dpo-traj ====
+
+### [08] vh0wEB  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@2-3  audited=N
+  Input_1: C:/vsc/data/test/vh0wEB/vh0wEB_ilo.jpg
+  Input_2: C:/vsc/data/test/vh0wEB/vh0wEB_jpx.jpg
+  Input_3: C:/vsc/data/test/vh0wEB/vh0wEB_tda.jpg
+  Input_4: C:/vsc/data/test/vh0wEB/vh0wEB_vcy.jpg
+  caption: The worker raises the tire above the wheel, then positions it onto the rim, adjusting it carefully as they prepare to secure it in place.
+  model temporal seq : 1-2-4-3   (ranks [1, 2, 4, 3])
+  key   temporal seq : 1-4-2-3   (ranks [1, 3, 4, 2])
+  sft1600 [1, 3, 4, 2]  ver4 [1, 3, 4, 2]  dpo-traj ==XX
+
+### [09] ynzxgr  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@2-3  audited=N
+  Input_1: C:/vsc/data/test/ynzxgr/ynzxgr_fwd.jpg
+  Input_2: C:/vsc/data/test/ynzxgr/ynzxgr_hey.jpg
+  Input_3: C:/vsc/data/test/ynzxgr/ynzxgr_ogg.jpg
+  Input_4: C:/vsc/data/test/ynzxgr/ynzxgr_yuj.jpg
+  caption: The person begins to carve the pumpkin, then cuts out the eyes and mouth, and finally reveals the completed design with a smile.
+  model temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [3, 1, 2, 4]  ver4 [3, 1, 2, 4]  dpo-traj =X==
+
+### [10] Kk83WO  origin=dpo-introduced(sft-was-right)  type=scramble(d=3)  audited=Y
+  Input_1: C:/vsc/data/test/Kk83WO/Kk83WO_grs.jpg
+  Input_2: C:/vsc/data/test/Kk83WO/Kk83WO_kqe.jpg
+  Input_3: C:/vsc/data/test/Kk83WO/Kk83WO_mex.jpg
+  Input_4: C:/vsc/data/test/Kk83WO/Kk83WO_vch.jpg
+  caption: A climber begins to ascend the wall, then a trainer explains techniques, followed by a demonstration of climbing moves, and finally, the climber executes the techniques shown.
+  model temporal seq : 3-4-2-1   (ranks [4, 3, 1, 2])
+  key   temporal seq : 2-4-3-1   (ranks [4, 1, 3, 2])
+  sft1600 [4, 1, 3, 2]  ver4 [4, 3, 1, 2]  dpo-traj ====
+
+### [11] PnykTd  origin=dpo-introduced(sft-was-right)  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/PnykTd/PnykTd_kqa.jpg
+  Input_2: C:/vsc/data/test/PnykTd/PnykTd_kwo.jpg
+  Input_3: C:/vsc/data/test/PnykTd/PnykTd_sni.jpg
+  Input_4: C:/vsc/data/test/PnykTd/PnykTd_vso.jpg
+  caption: The woman puts the razor handle back in her mouth and tries to shave again but it falls out of her mouth and she drops her head in frustration then leans back on the bed, laughs, and then crosses her arms.
+  model temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  key   temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  sft1600 [2, 1, 3, 4]  ver4 [3, 1, 4, 2]  dpo-traj ====
+
+### [12] aPKUZi  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/aPKUZi/aPKUZi_elk.jpg
+  Input_2: C:/vsc/data/test/aPKUZi/aPKUZi_hun.jpg
+  Input_3: C:/vsc/data/test/aPKUZi/aPKUZi_idi.jpg
+  Input_4: C:/vsc/data/test/aPKUZi/aPKUZi_zfo.jpg
+  caption: The swimmer begins with an easy effort, then gradually increases pace and stroke rate, moving into a steady effort by the final frame. The progression shows enhanced speed and efficiency.
+  model temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 2, 3, 4]  ver4 [2, 1, 3, 4]  dpo-traj ====
+
+### [13] eEcInl  origin=dpo-introduced(sft-was-right)  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/eEcInl/eEcInl_fud.jpg
+  Input_2: C:/vsc/data/test/eEcInl/eEcInl_lhe.jpg
+  Input_3: C:/vsc/data/test/eEcInl/eEcInl_tfq.jpg
+  Input_4: C:/vsc/data/test/eEcInl/eEcInl_yaw.jpg
+  caption:  With other people in canoes going by the person in their canoe passes under a bridge.
+  model temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  key   temporal seq : 1-3-2-4   (ranks [1, 3, 2, 4])
+  sft1600 [1, 3, 2, 4]  ver4 [1, 3, 2, 4]  dpo-traj ====
+
+### [14] qkSjok  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/qkSjok/qkSjok_aat.jpg
+  Input_2: C:/vsc/data/test/qkSjok/qkSjok_czy.jpg
+  Input_3: C:/vsc/data/test/qkSjok/qkSjok_gui.jpg
+  Input_4: C:/vsc/data/test/qkSjok/qkSjok_wlf.jpg
+  caption: The cat's paw approaches the clippers with a slight camera zoom, transitioning to a kitchen scene where a person cuts green onions before speaking in a medium shot.
+  model temporal seq : 4-3-2-1   (ranks [4, 3, 2, 1])
+  key   temporal seq : 3-4-2-1   (ranks [4, 3, 1, 2])
+  sft1600 [4, 3, 1, 2]  ver4 [4, 3, 2, 1]  dpo-traj ====
+
+### [15] vIO9v9  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/vIO9v9/vIO9v9_abr.jpg
+  Input_2: C:/vsc/data/test/vIO9v9/vIO9v9_gou.jpg
+  Input_3: C:/vsc/data/test/vIO9v9/vIO9v9_tlo.jpg
+  Input_4: C:/vsc/data/test/vIO9v9/vIO9v9_xeq.jpg
+  caption:  He runs up to the basketball hoop and makes a shot.
+  model temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  key   temporal seq : 4-2-1-3   (ranks [3, 2, 4, 1])
+  sft1600 [3, 2, 4, 1]  ver4 [3, 2, 4, 1]  dpo-traj ====
+
+### [16] xhhhpg  origin=dpo-introduced(sft-was-right)  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/xhhhpg/xhhhpg_eot.jpg
+  Input_2: C:/vsc/data/test/xhhhpg/xhhhpg_ivv.jpg
+  Input_3: C:/vsc/data/test/xhhhpg/xhhhpg_ocm.jpg
+  Input_4: C:/vsc/data/test/xhhhpg/xhhhpg_ulc.jpg
+  caption:  An ice cleaner is now riding on an ice rink, and then people on wheelchairs start wheeling onto the rink.
+  model temporal seq : 1-3-4-2   (ranks [1, 4, 2, 3])
+  key   temporal seq : 1-4-3-2   (ranks [1, 4, 3, 2])
+  sft1600 [1, 4, 3, 2]  ver4 [1, 4, 3, 2]  dpo-traj X===
+
+### [17] 6fko8F  origin=both-wrong-diff  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/6fko8F/6fko8F_hts.jpg
+  Input_2: C:/vsc/data/test/6fko8F/6fko8F_nce.jpg
+  Input_3: C:/vsc/data/test/6fko8F/6fko8F_xhg.jpg
+  Input_4: C:/vsc/data/test/6fko8F/6fko8F_yph.jpg
+  caption: The player leans over the table to take a shot, then shifts to an overhead view as he prepares to strike. Finally, he stands and gestures while another player lines up their shot.
+  model temporal seq : 1-4-2-3   (ranks [1, 3, 4, 2])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [3, 2, 4, 1]  ver4 [3, 2, 4, 1]  dpo-traj ====
+
+### [18] 8L7TfG  origin=both-wrong-diff  type=one-moved(d=3)  audited=Y
+  Input_1: C:/vsc/data/test/8L7TfG/8L7TfG_dkq.jpg
+  Input_2: C:/vsc/data/test/8L7TfG/8L7TfG_frh.jpg
+  Input_3: C:/vsc/data/test/8L7TfG/8L7TfG_hxa.jpg
+  Input_4: C:/vsc/data/test/8L7TfG/8L7TfG_hyt.jpg
+  caption:  The boy climbs across on the monkey bars.
+  model temporal seq : 4-1-2-3   (ranks [2, 3, 4, 1])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [3, 2, 1, 4]  ver4 [2, 3, 4, 1]  dpo-traj ====
+
+### [19] Qv2g53  origin=both-wrong-diff  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/Qv2g53/Qv2g53_doe.jpg
+  Input_2: C:/vsc/data/test/Qv2g53/Qv2g53_kdd.jpg
+  Input_3: C:/vsc/data/test/Qv2g53/Qv2g53_umb.jpg
+  Input_4: C:/vsc/data/test/Qv2g53/Qv2g53_zpw.jpg
+  caption: A man covers a wall with cement using a hose.
+  model temporal seq : 4-2-1-3   (ranks [3, 2, 4, 1])
+  key   temporal seq : 4-1-2-3   (ranks [2, 3, 4, 1])
+  sft1600 [4, 2, 3, 1]  ver4 [4, 2, 3, 1]  dpo-traj =o==
+
+### [20] YZuSuG  origin=both-wrong-diff  type=scramble(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/YZuSuG/YZuSuG_fyn.jpg
+  Input_2: C:/vsc/data/test/YZuSuG/YZuSuG_hgs.jpg
+  Input_3: C:/vsc/data/test/YZuSuG/YZuSuG_oxc.jpg
+  Input_4: C:/vsc/data/test/YZuSuG/YZuSuG_soy.jpg
+  caption:  We see the person carve a drawing on a pumpkin.
+  model temporal seq : 1-4-2-3   (ranks [1, 3, 4, 2])
+  key   temporal seq : 4-1-3-2   (ranks [2, 4, 3, 1])
+  sft1600 [2, 3, 4, 1]  ver4 [1, 3, 4, 2]  dpo-traj ====
+
+### [21] Z9CdGI  origin=both-wrong-diff  type=one-moved(d=3)  audited=Y
+  Input_1: C:/vsc/data/test/Z9CdGI/Z9CdGI_cfo.jpg
+  Input_2: C:/vsc/data/test/Z9CdGI/Z9CdGI_ffh.jpg
+  Input_3: C:/vsc/data/test/Z9CdGI/Z9CdGI_ssy.jpg
+  Input_4: C:/vsc/data/test/Z9CdGI/Z9CdGI_tfh.jpg
+  caption: The climber begins to balance on the slackline, then raises his arms for stability, moves forward confidently, and finally appears to leap toward the next rock.
+  model temporal seq : 4-1-3-2   (ranks [2, 4, 3, 1])
+  key   temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  sft1600 [1, 3, 2, 4]  ver4 [2, 4, 3, 1]  dpo-traj ====
+
+### [22] a90lEu  origin=both-wrong-diff  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/a90lEu/a90lEu_bhn.jpg
+  Input_2: C:/vsc/data/test/a90lEu/a90lEu_hbz.jpg
+  Input_3: C:/vsc/data/test/a90lEu/a90lEu_qrb.jpg
+  Input_4: C:/vsc/data/test/a90lEu/a90lEu_xpu.jpg
+  caption:  Then she lightly twists the braiding hair and uses as many bobby pins as she needs.
+  model temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  key   temporal seq : 2-4-3-1   (ranks [4, 1, 3, 2])
+  sft1600 [4, 1, 2, 3]  ver4 [4, 1, 2, 3]  dpo-traj ==oo
+
+### [23] b44PjE  origin=both-wrong-diff  type=scramble(d=5)  audited=Y
+  Input_1: C:/vsc/data/test/b44PjE/b44PjE_ano.jpg
+  Input_2: C:/vsc/data/test/b44PjE/b44PjE_chg.jpg
+  Input_3: C:/vsc/data/test/b44PjE/b44PjE_iwk.jpg
+  Input_4: C:/vsc/data/test/b44PjE/b44PjE_sbf.jpg
+  caption:  She climbs her way back on the bars and jumps down mid way through.
+  model temporal seq : 3-1-4-2   (ranks [2, 4, 1, 3])
+  key   temporal seq : 2-1-4-3   (ranks [2, 1, 4, 3])
+  sft1600 [3, 4, 1, 2]  ver4 [3, 4, 1, 2]  dpo-traj ====
+
+### [24] 1pCMCL  origin=inherited-same  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/1pCMCL/1pCMCL_gfq.jpg
+  Input_2: C:/vsc/data/test/1pCMCL/1pCMCL_hdo.jpg
+  Input_3: C:/vsc/data/test/1pCMCL/1pCMCL_vrz.jpg
+  Input_4: C:/vsc/data/test/1pCMCL/1pCMCL_zuq.jpg
+  caption:  They use tubes to slide down a steep hill.
+  model temporal seq : 1-4-3-2   (ranks [1, 4, 3, 2])
+  key   temporal seq : 1-3-2-4   (ranks [1, 3, 2, 4])
+  sft1600 [1, 4, 3, 2]  ver4 [1, 4, 3, 2]  dpo-traj ====
+
+### [25] 2Dhhti  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/2Dhhti/2Dhhti_bsw.jpg
+  Input_2: C:/vsc/data/test/2Dhhti/2Dhhti_cnq.jpg
+  Input_3: C:/vsc/data/test/2Dhhti/2Dhhti_ylo.jpg
+  Input_4: C:/vsc/data/test/2Dhhti/2Dhhti_zhs.jpg
+  caption: The dog sprints across the field with a frisbee, as the camera pans, then stands in the bath, moving towards the water spray and turning its head to the faucet.
+  model temporal seq : 2-3-4-1   (ranks [4, 1, 2, 3])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [4, 1, 2, 3]  ver4 [4, 1, 2, 3]  dpo-traj ====
+
+### [26] 4cxe0W  origin=inherited-same  type=scramble(d=3)  audited=Y
+  Input_1: C:/vsc/data/test/4cxe0W/4cxe0W_bdf.jpg
+  Input_2: C:/vsc/data/test/4cxe0W/4cxe0W_brj.jpg
+  Input_3: C:/vsc/data/test/4cxe0W/4cxe0W_rvg.jpg
+  Input_4: C:/vsc/data/test/4cxe0W/4cxe0W_xyj.jpg
+  caption: A young man puts lipstick on his lips.
+  model temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [3, 1, 4, 2]  ver4 [3, 1, 4, 2]  dpo-traj ====
+
+### [27] At6xwk  origin=inherited-same  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/At6xwk/At6xwk_ada.jpg
+  Input_2: C:/vsc/data/test/At6xwk/At6xwk_dud.jpg
+  Input_3: C:/vsc/data/test/At6xwk/At6xwk_fgp.jpg
+  Input_4: C:/vsc/data/test/At6xwk/At6xwk_vpr.jpg
+  caption:  Wearing gloves, he applies a stain to the table.
+  model temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  key   temporal seq : 4-3-2-1   (ranks [4, 3, 2, 1])
+  sft1600 [4, 2, 3, 1]  ver4 [4, 2, 3, 1]  dpo-traj ====
+
+### [28] BECRdM  origin=inherited-same  type=scramble(d=3)  audited=Y
+  Input_1: C:/vsc/data/test/BECRdM/BECRdM_diw.jpg
+  Input_2: C:/vsc/data/test/BECRdM/BECRdM_hwq.jpg
+  Input_3: C:/vsc/data/test/BECRdM/BECRdM_iis.jpg
+  Input_4: C:/vsc/data/test/BECRdM/BECRdM_nhy.jpg
+  caption:   The man simultaneously throws a rope around the calfs neck and dismounts the horse, while the horse is in motion.
+  model temporal seq : 1-3-2-4   (ranks [1, 3, 2, 4])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [1, 3, 2, 4]  ver4 [1, 3, 2, 4]  dpo-traj =oo=
+
+### [29] CzkRiH  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/CzkRiH/CzkRiH_kwh.jpg
+  Input_2: C:/vsc/data/test/CzkRiH/CzkRiH_odn.jpg
+  Input_3: C:/vsc/data/test/CzkRiH/CzkRiH_qnw.jpg
+  Input_4: C:/vsc/data/test/CzkRiH/CzkRiH_vqx.jpg
+  caption: A little girl is crossing the monkey bars.
+  model temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  key   temporal seq : 2-4-3-1   (ranks [4, 1, 3, 2])
+  sft1600 [3, 1, 4, 2]  ver4 [3, 1, 4, 2]  dpo-traj XX==
+
+### [30] DXGh2V  origin=inherited-same  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/DXGh2V/DXGh2V_agr.jpg
+  Input_2: C:/vsc/data/test/DXGh2V/DXGh2V_bpi.jpg
+  Input_3: C:/vsc/data/test/DXGh2V/DXGh2V_ilr.jpg
+  Input_4: C:/vsc/data/test/DXGh2V/DXGh2V_jdl.jpg
+  caption: A sandwich slice is placed on a plate with fries, followed by a close-up, then a tomato slice is added to a sandwich with bacon and lettuce, topped with bread, and cut in half with a knife.
+  model temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  key   temporal seq : 2-4-3-1   (ranks [4, 1, 3, 2])
+  sft1600 [4, 2, 3, 1]  ver4 [4, 2, 3, 1]  dpo-traj ====
+
+### [31] EIzKAQ  origin=inherited-same  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/EIzKAQ/EIzKAQ_ate.jpg
+  Input_2: C:/vsc/data/test/EIzKAQ/EIzKAQ_gwd.jpg
+  Input_3: C:/vsc/data/test/EIzKAQ/EIzKAQ_jch.jpg
+  Input_4: C:/vsc/data/test/EIzKAQ/EIzKAQ_spq.jpg
+  caption: The person begins by placing a box on the table, then wraps it with decorative paper, folds the edges, and finally presents the neatly wrapped gift.
+  model temporal seq : 1-3-2-4   (ranks [1, 3, 2, 4])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 3, 2, 4]  ver4 [1, 3, 2, 4]  dpo-traj ====
+
+### [32] FM1CAt  origin=inherited-same  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/FM1CAt/FM1CAt_dgy.jpg
+  Input_2: C:/vsc/data/test/FM1CAt/FM1CAt_dox.jpg
+  Input_3: C:/vsc/data/test/FM1CAt/FM1CAt_mmz.jpg
+  Input_4: C:/vsc/data/test/FM1CAt/FM1CAt_skj.jpg
+  caption: The performer transitions from spinning a flaming hula hoop to twirling fire staffs while moving left, then the musician leans forward and slightly left, tilting the saxophone downward, with a dynamic stage presence.
+  model temporal seq : 3-2-1-4   (ranks [3, 2, 1, 4])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [3, 2, 1, 4]  ver4 [3, 2, 1, 4]  dpo-traj ====
+
+### [33] FOraJM  origin=inherited-same  type=scramble(d=5)  audited=Y
+  Input_1: C:/vsc/data/test/FOraJM/FOraJM_aur.jpg
+  Input_2: C:/vsc/data/test/FOraJM/FOraJM_ecn.jpg
+  Input_3: C:/vsc/data/test/FOraJM/FOraJM_wvp.jpg
+  Input_4: C:/vsc/data/test/FOraJM/FOraJM_zqt.jpg
+  caption:  A woman in shorts is running down the street.
+  model temporal seq : 4-3-1-2   (ranks [3, 4, 2, 1])
+  key   temporal seq : 2-1-4-3   (ranks [2, 1, 4, 3])
+  sft1600 [3, 4, 2, 1]  ver4 [3, 4, 2, 1]  dpo-traj ====
+
+### [34] KJZBsJ  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/KJZBsJ/KJZBsJ_erz.jpg
+  Input_2: C:/vsc/data/test/KJZBsJ/KJZBsJ_jen.jpg
+  Input_3: C:/vsc/data/test/KJZBsJ/KJZBsJ_ttl.jpg
+  Input_4: C:/vsc/data/test/KJZBsJ/KJZBsJ_ygg.jpg
+  caption: The sailboat moves left, splashing water as another boat enters from the right; meanwhile, a skier recedes from a boat, moving further away, while the camera pans slightly right, capturing spectators watching and photographing the scene.
+  model temporal seq : 2-1-3-4   (ranks [2, 1, 3, 4])
+  key   temporal seq : 2-1-4-3   (ranks [2, 1, 4, 3])
+  sft1600 [2, 1, 3, 4]  ver4 [2, 1, 3, 4]  dpo-traj ====
+
+### [35] L5OyYw  origin=inherited-same  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/L5OyYw/L5OyYw_aai.jpg
+  Input_2: C:/vsc/data/test/L5OyYw/L5OyYw_cru.jpg
+  Input_3: C:/vsc/data/test/L5OyYw/L5OyYw_eno.jpg
+  Input_4: C:/vsc/data/test/L5OyYw/L5OyYw_jhw.jpg
+  caption: A man cuts into a piece of wood with an ax.
+  model temporal seq : 4-3-1-2   (ranks [3, 4, 2, 1])
+  key   temporal seq : 4-1-3-2   (ranks [2, 4, 3, 1])
+  sft1600 [3, 4, 2, 1]  ver4 [3, 4, 2, 1]  dpo-traj ====
+
+### [36] P1zBxy  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/P1zBxy/P1zBxy_cwx.jpg
+  Input_2: C:/vsc/data/test/P1zBxy/P1zBxy_gsm.jpg
+  Input_3: C:/vsc/data/test/P1zBxy/P1zBxy_kwd.jpg
+  Input_4: C:/vsc/data/test/P1zBxy/P1zBxy_xyv.jpg
+  caption: The hands begin to smooth the wrapping paper, then fold the edges inward, followed by tying a ribbon around the gift, and finally tightening the bow.
+  model temporal seq : 3-1-4-2   (ranks [2, 4, 1, 3])
+  key   temporal seq : 3-1-2-4   (ranks [2, 3, 1, 4])
+  sft1600 [2, 4, 1, 3]  ver4 [2, 4, 1, 3]  dpo-traj ====
+
+### [37] PbTFue  origin=inherited-same  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/PbTFue/PbTFue_kln.jpg
+  Input_2: C:/vsc/data/test/PbTFue/PbTFue_saq.jpg
+  Input_3: C:/vsc/data/test/PbTFue/PbTFue_upz.jpg
+  Input_4: C:/vsc/data/test/PbTFue/PbTFue_xkc.jpg
+  caption:  Another child from a taller foosball table walks over to the child sized table sticks his hands on the table.
+  model temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [3, 1, 2, 4]  ver4 [1, 3, 4, 2]  dpo-traj ====
+
+### [38] ReMk67  origin=inherited-same  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/ReMk67/ReMk67_bhe.jpg
+  Input_2: C:/vsc/data/test/ReMk67/ReMk67_fkx.jpg
+  Input_3: C:/vsc/data/test/ReMk67/ReMk67_txr.jpg
+  Input_4: C:/vsc/data/test/ReMk67/ReMk67_xgc.jpg
+  caption:  He stops mopping and speaks to the camera.
+  model temporal seq : 3-2-1-4   (ranks [3, 2, 1, 4])
+  key   temporal seq : 3-4-2-1   (ranks [4, 3, 1, 2])
+  sft1600 [3, 2, 1, 4]  ver4 [4, 3, 1, 2]  dpo-traj ====
+
+### [39] RzY1Pc  origin=inherited-same  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/RzY1Pc/RzY1Pc_ajr.jpg
+  Input_2: C:/vsc/data/test/RzY1Pc/RzY1Pc_pmn.jpg
+  Input_3: C:/vsc/data/test/RzY1Pc/RzY1Pc_sam.jpg
+  Input_4: C:/vsc/data/test/RzY1Pc/RzY1Pc_yom.jpg
+  caption:  He demonstrates how to make a gyro sandwich.
+  model temporal seq : 4-1-2-3   (ranks [2, 3, 4, 1])
+  key   temporal seq : 1-4-2-3   (ranks [1, 3, 4, 2])
+  sft1600 [2, 3, 4, 1]  ver4 [2, 3, 4, 1]  dpo-traj ====
+
+### [40] TTkzP5  origin=inherited-same  type=scramble(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/TTkzP5/TTkzP5_ikv.jpg
+  Input_2: C:/vsc/data/test/TTkzP5/TTkzP5_nsg.jpg
+  Input_3: C:/vsc/data/test/TTkzP5/TTkzP5_sem.jpg
+  Input_4: C:/vsc/data/test/TTkzP5/TTkzP5_wjq.jpg
+  caption: The man on the left approaches the roses as the camera tilts left, then the person on the tractor advances towards the hedge trimmer, moving forward while trimming continues.
+  model temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  key   temporal seq : 2-4-1-3   (ranks [3, 1, 4, 2])
+  sft1600 [4, 2, 3, 1]  ver4 [4, 2, 3, 1]  dpo-traj ====
+
+### [41] XFNFS2  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/XFNFS2/XFNFS2_bki.jpg
+  Input_2: C:/vsc/data/test/XFNFS2/XFNFS2_byd.jpg
+  Input_3: C:/vsc/data/test/XFNFS2/XFNFS2_nwj.jpg
+  Input_4: C:/vsc/data/test/XFNFS2/XFNFS2_wkf.jpg
+  caption:  A child in green jacket gets into an intertube.
+  model temporal seq : 4-2-1-3   (ranks [3, 2, 4, 1])
+  key   temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  sft1600 [3, 2, 4, 1]  ver4 [3, 2, 4, 1]  dpo-traj X===
+
+### [42] Xd2THk  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/Xd2THk/Xd2THk_cjs.jpg
+  Input_2: C:/vsc/data/test/Xd2THk/Xd2THk_nvd.jpg
+  Input_3: C:/vsc/data/test/Xd2THk/Xd2THk_rrk.jpg
+  Input_4: C:/vsc/data/test/Xd2THk/Xd2THk_wps.jpg
+  caption: The person transitions from standing on a dock to wakeboarding behind a boat with friends, then stands up on a makeshift board, raises the tow handle, and glides closer as the camera tilts slightly upward.
+  model temporal seq : 4-3-1-2   (ranks [3, 4, 2, 1])
+  key   temporal seq : 4-3-2-1   (ranks [4, 3, 2, 1])
+  sft1600 [3, 4, 2, 1]  ver4 [3, 4, 2, 1]  dpo-traj ====
+
+### [43] aTrFXQ  origin=inherited-same  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/aTrFXQ/aTrFXQ_bdk.jpg
+  Input_2: C:/vsc/data/test/aTrFXQ/aTrFXQ_cjn.jpg
+  Input_3: C:/vsc/data/test/aTrFXQ/aTrFXQ_dgi.jpg
+  Input_4: C:/vsc/data/test/aTrFXQ/aTrFXQ_ywf.jpg
+  caption:   The man tries to open his trunk again, this time the opening is easier and the man climbs into the trunk of the car to the front of the car to open the drivers door from the inside drivers seat.
+  model temporal seq : 3-2-4-1   (ranks [4, 2, 1, 3])
+  key   temporal seq : 4-3-2-1   (ranks [4, 3, 2, 1])
+  sft1600 [4, 2, 1, 3]  ver4 [4, 2, 1, 3]  dpo-traj ====
+
+### [44] bhC2Jx  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/bhC2Jx/bhC2Jx_nrw.jpg
+  Input_2: C:/vsc/data/test/bhC2Jx/bhC2Jx_rgf.jpg
+  Input_3: C:/vsc/data/test/bhC2Jx/bhC2Jx_whl.jpg
+  Input_4: C:/vsc/data/test/bhC2Jx/bhC2Jx_wme.jpg
+  caption: The bartender begins to prepare a drink, then garnishes it with a lemon slice, and finally presents the finished cocktail to the camera.
+  model temporal seq : 1-2-4-3   (ranks [1, 2, 4, 3])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 2, 4, 3]  ver4 [1, 2, 4, 3]  dpo-traj ====
+
+### [45] br97AP  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/br97AP/br97AP_ahx.jpg
+  Input_2: C:/vsc/data/test/br97AP/br97AP_dts.jpg
+  Input_3: C:/vsc/data/test/br97AP/br97AP_gfq.jpg
+  Input_4: C:/vsc/data/test/br97AP/br97AP_yfm.jpg
+  caption: The camera transitions from a coral reef to two divers interacting underwater, then shifts to a skier moving closer, holding a rope, and finally receding slightly leftward while maintaining balance on the water.
+  model temporal seq : 1-2-4-3   (ranks [1, 2, 4, 3])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 2, 4, 3]  ver4 [1, 2, 4, 3]  dpo-traj ====
+
+### [46] fUOpAZ  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/fUOpAZ/fUOpAZ_iie.jpg
+  Input_2: C:/vsc/data/test/fUOpAZ/fUOpAZ_oiu.jpg
+  Input_3: C:/vsc/data/test/fUOpAZ/fUOpAZ_rcy.jpg
+  Input_4: C:/vsc/data/test/fUOpAZ/fUOpAZ_tcb.jpg
+  caption: The red ribbons lower as the man's arm moves down and his body tilts right, then the red tape is pressed onto the bike handlebar and extended towards the handle's end.
+  model temporal seq : 2-3-4-1   (ranks [4, 1, 2, 3])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [4, 1, 2, 3]  ver4 [4, 1, 2, 3]  dpo-traj ====
+
+### [47] g1MHrL  origin=inherited-same  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/g1MHrL/g1MHrL_fqk.jpg
+  Input_2: C:/vsc/data/test/g1MHrL/g1MHrL_rdf.jpg
+  Input_3: C:/vsc/data/test/g1MHrL/g1MHrL_vck.jpg
+  Input_4: C:/vsc/data/test/g1MHrL/g1MHrL_xjn.jpg
+  caption:  The woman continues carving the face of the pumpkin to turn it into a jack-o-lantern.
+  model temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  key   temporal seq : 3-1-2-4   (ranks [2, 3, 1, 4])
+  sft1600 [1, 2, 3, 4]  ver4 [1, 2, 3, 4]  dpo-traj ====
+
+### [48] gdVqg4  origin=inherited-same  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/gdVqg4/gdVqg4_bxq.jpg
+  Input_2: C:/vsc/data/test/gdVqg4/gdVqg4_idj.jpg
+  Input_3: C:/vsc/data/test/gdVqg4/gdVqg4_jyk.jpg
+  Input_4: C:/vsc/data/test/gdVqg4/gdVqg4_kxg.jpg
+  caption: A man jumps backward and flips four times in the air and dives in the swimming pool.
+  model temporal seq : 1-3-2-4   (ranks [1, 3, 2, 4])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [1, 3, 2, 4]  ver4 [1, 3, 2, 4]  dpo-traj ====
+
+### [49] hHJkXc  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/hHJkXc/hHJkXc_ftu.jpg
+  Input_2: C:/vsc/data/test/hHJkXc/hHJkXc_tpo.jpg
+  Input_3: C:/vsc/data/test/hHJkXc/hHJkXc_wcj.jpg
+  Input_4: C:/vsc/data/test/hHJkXc/hHJkXc_xll.jpg
+  caption: The gymnast in red rotates counter-clockwise on the beam, raising her arms higher, then another gymnast in pink moves slightly forward on the beam, maintaining her raised arm position, as the camera remains steady throughout.
+  model temporal seq : 3-2-4-1   (ranks [4, 2, 1, 3])
+  key   temporal seq : 3-2-1-4   (ranks [3, 2, 1, 4])
+  sft1600 [4, 2, 1, 3]  ver4 [4, 2, 1, 3]  dpo-traj ====
+
+### [50] iaxPKk  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/iaxPKk/iaxPKk_eaq.jpg
+  Input_2: C:/vsc/data/test/iaxPKk/iaxPKk_lyr.jpg
+  Input_3: C:/vsc/data/test/iaxPKk/iaxPKk_qvf.jpg
+  Input_4: C:/vsc/data/test/iaxPKk/iaxPKk_tlg.jpg
+  caption:  The guy walks through a door he opened.
+  model temporal seq : 2-3-4-1   (ranks [4, 1, 2, 3])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [4, 1, 2, 3]  ver4 [4, 1, 2, 3]  dpo-traj ====
+
+### [51] jgGdOF  origin=inherited-same  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/jgGdOF/jgGdOF_mbe.jpg
+  Input_2: C:/vsc/data/test/jgGdOF/jgGdOF_opc.jpg
+  Input_3: C:/vsc/data/test/jgGdOF/jgGdOF_orj.jpg
+  Input_4: C:/vsc/data/test/jgGdOF/jgGdOF_qud.jpg
+  caption: The wooden furniture moves along the track towards the platform, while the yellow tool lowers onto the ski and is pressed down as the camera zooms in slightly.
+  model temporal seq : 3-4-2-1   (ranks [4, 3, 1, 2])
+  key   temporal seq : 4-3-2-1   (ranks [4, 3, 2, 1])
+  sft1600 [4, 3, 1, 2]  ver4 [4, 3, 1, 2]  dpo-traj ====
+
+### [52] lPGKJD  origin=inherited-same  type=one-moved(d=2)  audited=Y
+  Input_1: C:/vsc/data/test/lPGKJD/lPGKJD_cti.jpg
+  Input_2: C:/vsc/data/test/lPGKJD/lPGKJD_gla.jpg
+  Input_3: C:/vsc/data/test/lPGKJD/lPGKJD_lgd.jpg
+  Input_4: C:/vsc/data/test/lPGKJD/lPGKJD_xjs.jpg
+  caption:  She throws a javelin onto the field.
+  model temporal seq : 2-1-4-3   (ranks [2, 1, 4, 3])
+  key   temporal seq : 2-3-1-4   (ranks [3, 1, 2, 4])
+  sft1600 [2, 1, 4, 3]  ver4 [2, 1, 4, 3]  dpo-traj ====
+
+### [53] lmOtxf  origin=inherited-same  type=scramble(d=5)  audited=Y
+  Input_1: C:/vsc/data/test/lmOtxf/lmOtxf_bmw.jpg
+  Input_2: C:/vsc/data/test/lmOtxf/lmOtxf_bnl.jpg
+  Input_3: C:/vsc/data/test/lmOtxf/lmOtxf_hdq.jpg
+  Input_4: C:/vsc/data/test/lmOtxf/lmOtxf_heh.jpg
+  caption:  The man and child ride down a river over waterfall.
+  model temporal seq : 3-1-2-4   (ranks [2, 3, 1, 4])
+  key   temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  sft1600 [2, 3, 1, 4]  ver4 [2, 3, 1, 4]  dpo-traj ====
+
+### [54] mjbEPe  origin=inherited-same  type=adjacent-swap@1-2  audited=Y
+  Input_1: C:/vsc/data/test/mjbEPe/mjbEPe_fhj.jpg
+  Input_2: C:/vsc/data/test/mjbEPe/mjbEPe_hdd.jpg
+  Input_3: C:/vsc/data/test/mjbEPe/mjbEPe_kau.jpg
+  Input_4: C:/vsc/data/test/mjbEPe/mjbEPe_ptd.jpg
+  caption:  A man puts a gold medal around the neck of the first javelin thrower and shakes his hand.
+  model temporal seq : 4-2-3-1   (ranks [4, 2, 3, 1])
+  key   temporal seq : 2-4-3-1   (ranks [4, 1, 3, 2])
+  sft1600 [4, 2, 3, 1]  ver4 [4, 2, 3, 1]  dpo-traj ====
+
+### [55] uQE4mF  origin=inherited-same  type=adjacent-swap@3-4  audited=Y
+  Input_1: C:/vsc/data/test/uQE4mF/uQE4mF_epq.jpg
+  Input_2: C:/vsc/data/test/uQE4mF/uQE4mF_guh.jpg
+  Input_3: C:/vsc/data/test/uQE4mF/uQE4mF_gwe.jpg
+  Input_4: C:/vsc/data/test/uQE4mF/uQE4mF_nud.jpg
+  caption:  A woman is helping the boy down a slide and the same person in the red vest catches them.
+  model temporal seq : 3-2-4-1   (ranks [4, 2, 1, 3])
+  key   temporal seq : 3-2-1-4   (ranks [3, 2, 1, 4])
+  sft1600 [4, 2, 1, 3]  ver4 [4, 2, 1, 3]  dpo-traj ====
+
+### [56] uyWtdf  origin=inherited-same  type=scramble(d=4)  audited=Y
+  Input_1: C:/vsc/data/test/uyWtdf/uyWtdf_acz.jpg
+  Input_2: C:/vsc/data/test/uyWtdf/uyWtdf_fyv.jpg
+  Input_3: C:/vsc/data/test/uyWtdf/uyWtdf_oqq.jpg
+  Input_4: C:/vsc/data/test/uyWtdf/uyWtdf_tjs.jpg
+  caption: The woman lowers her gaze to apply a yellow contact lens, then the girl moves her hand away from her eye as her head turns slightly left.
+  model temporal seq : 2-3-4-1   (ranks [4, 1, 2, 3])
+  key   temporal seq : 1-2-4-3   (ranks [1, 2, 4, 3])
+  sft1600 [4, 1, 2, 3]  ver4 [4, 1, 2, 3]  dpo-traj ====
+
+### [57] yx3vew  origin=inherited-same  type=full-reversal  audited=Y
+  Input_1: C:/vsc/data/test/yx3vew/yx3vew_coz.jpg
+  Input_2: C:/vsc/data/test/yx3vew/yx3vew_lun.jpg
+  Input_3: C:/vsc/data/test/yx3vew/yx3vew_nsx.jpg
+  Input_4: C:/vsc/data/test/yx3vew/yx3vew_vmm.jpg
+  caption: A girl is crossing the monkey bars.
+  model temporal seq : 4-3-2-1   (ranks [4, 3, 2, 1])
+  key   temporal seq : 1-2-3-4   (ranks [1, 2, 3, 4])
+  sft1600 [4, 3, 2, 1]  ver4 [4, 3, 2, 1]  dpo-traj oo==
+
+### [58] zVUWuP  origin=inherited-same  type=adjacent-swap@2-3  audited=Y
+  Input_1: C:/vsc/data/test/zVUWuP/zVUWuP_blg.jpg
+  Input_2: C:/vsc/data/test/zVUWuP/zVUWuP_hsb.jpg
+  Input_3: C:/vsc/data/test/zVUWuP/zVUWuP_ogm.jpg
+  Input_4: C:/vsc/data/test/zVUWuP/zVUWuP_pci.jpg
+  caption:  The two girls remove the baking sheet from the oven.
+  model temporal seq : 1-2-4-3   (ranks [1, 2, 4, 3])
+  key   temporal seq : 1-4-2-3   (ranks [1, 3, 4, 2])
+  sft1600 [1, 2, 4, 3]  ver4 [1, 3, 4, 2]  dpo-traj ====
+

@@ -1,0 +1,195 @@
+### Id: Qv2g53
+Input_1: C:/vsc/data/test/Qv2g53/Qv2g53_doe.jpg
+Input_2: C:/vsc/data/test/Qv2g53/Qv2g53_kdd.jpg
+Input_3: C:/vsc/data/test/Qv2g53/Qv2g53_umb.jpg
+Input_4: C:/vsc/data/test/Qv2g53/Qv2g53_zpw.jpg
+Sentence: A man covers a wall with cement using a hose.
+
+### Id: eEcInl
+Input_1: C:/vsc/data/test/eEcInl/eEcInl_fud.jpg
+Input_2: C:/vsc/data/test/eEcInl/eEcInl_lhe.jpg
+Input_3: C:/vsc/data/test/eEcInl/eEcInl_tfq.jpg
+Input_4: C:/vsc/data/test/eEcInl/eEcInl_yaw.jpg
+Sentence:  With other people in canoes going by the person in their canoe passes under a bridge.
+
+### Id: r1tyTm
+Input_1: C:/vsc/data/test/r1tyTm/r1tyTm_jfp.jpg
+Input_2: C:/vsc/data/test/r1tyTm/r1tyTm_ros.jpg
+Input_3: C:/vsc/data/test/r1tyTm/r1tyTm_sjs.jpg
+Input_4: C:/vsc/data/test/r1tyTm/r1tyTm_wwa.jpg
+Sentence:  One of the female weight lifters is shown on the screen as she goes through several increasing levels of lifts one by one.
+
+### Id: bkmCpC
+Input_1: C:/vsc/data/test/bkmCpC/bkmCpC_iuy.jpg
+Input_2: C:/vsc/data/test/bkmCpC/bkmCpC_lyv.jpg
+Input_3: C:/vsc/data/test/bkmCpC/bkmCpC_qbx.jpg
+Input_4: C:/vsc/data/test/bkmCpC/bkmCpC_ytp.jpg
+Sentence: The camera focuses on a man standing, then zooms in as he strikes the drum with sticks; next, a drummer strikes a conga with his right hand while raising his left hand, creating a dynamic rhythm.
+
+### Id: 3fnRMI
+Input_1: C:/vsc/data/test/3fnRMI/3fnRMI_ebi.jpg
+Input_2: C:/vsc/data/test/3fnRMI/3fnRMI_jri.jpg
+Input_3: C:/vsc/data/test/3fnRMI/3fnRMI_nqj.jpg
+Input_4: C:/vsc/data/test/3fnRMI/3fnRMI_qoe.jpg
+Sentence:  The man falls on the mat.
+
+### Id: Kzwalc
+Input_1: C:/vsc/data/test/Kzwalc/Kzwalc_ias.jpg
+Input_2: C:/vsc/data/test/Kzwalc/Kzwalc_jhp.jpg
+Input_3: C:/vsc/data/test/Kzwalc/Kzwalc_npr.jpg
+Input_4: C:/vsc/data/test/Kzwalc/Kzwalc_srp.jpg
+Sentence: The person begins to apply a protective covering to the drawer, then moves to paint the front of the cabinet, gradually progressing to cover more areas.
+
+### Id: kDEAsv
+Input_1: C:/vsc/data/test/kDEAsv/kDEAsv_fwn.jpg
+Input_2: C:/vsc/data/test/kDEAsv/kDEAsv_htl.jpg
+Input_3: C:/vsc/data/test/kDEAsv/kDEAsv_jto.jpg
+Input_4: C:/vsc/data/test/kDEAsv/kDEAsv_sfi.jpg
+Sentence: The performer lowers her arms as the hula hoops descend and she turns slightly left; meanwhile, a girl in orange arm floaties turns right, walking away from the woman handing out toys to gathered children on the beach.
+
+### Id: JBEkNK
+Input_1: C:/vsc/data/test/JBEkNK/JBEkNK_axl.jpg
+Input_2: C:/vsc/data/test/JBEkNK/JBEkNK_ehr.jpg
+Input_3: C:/vsc/data/test/JBEkNK/JBEkNK_nfi.jpg
+Input_4: C:/vsc/data/test/JBEkNK/JBEkNK_wuq.jpg
+Sentence: The skier begins by looking down at the camera, then moves into a downhill position, continues skiing past trees, and finally approaches a crowd at the base area.
+
+### Id: 1pDHcT
+Input_1: C:/vsc/data/test/1pDHcT/1pDHcT_eei.jpg
+Input_2: C:/vsc/data/test/1pDHcT/1pDHcT_oik.jpg
+Input_3: C:/vsc/data/test/1pDHcT/1pDHcT_rjk.jpg
+Input_4: C:/vsc/data/test/1pDHcT/1pDHcT_wws.jpg
+Sentence: The man in gray shirt is running towards the end of the track field.
+
+### Id: vMVwsj
+Input_1: C:/vsc/data/test/vMVwsj/vMVwsj_gnj.jpg
+Input_2: C:/vsc/data/test/vMVwsj/vMVwsj_kzc.jpg
+Input_3: C:/vsc/data/test/vMVwsj/vMVwsj_vwt.jpg
+Input_4: C:/vsc/data/test/vMVwsj/vMVwsj_xkb.jpg
+Sentence: A man wearing a blue shirt is throwing the shot put.
+
+### Id: hUAYQe
+Input_1: C:/vsc/data/test/hUAYQe/hUAYQe_fba.jpg
+Input_2: C:/vsc/data/test/hUAYQe/hUAYQe_hnw.jpg
+Input_3: C:/vsc/data/test/hUAYQe/hUAYQe_ohk.jpg
+Input_4: C:/vsc/data/test/hUAYQe/hUAYQe_vgf.jpg
+Sentence: The boy stands with two basketballs, then moves away while dribbling towards chairs, approaches the far side of the gym, and the video ends with a request to subscribe and donate.
+
+### Id: UohAA6
+Input_1: C:/vsc/data/test/UohAA6/UohAA6_asx.jpg
+Input_2: C:/vsc/data/test/UohAA6/UohAA6_clv.jpg
+Input_3: C:/vsc/data/test/UohAA6/UohAA6_vqa.jpg
+Input_4: C:/vsc/data/test/UohAA6/UohAA6_wzg.jpg
+Sentence: A spoon moves left as egg whites are added to the bowl, then an egg is cracked into a mug followed by butter, with a spoon approaching from above.
+
+### Id: 0EWLYZ
+Input_1: C:/vsc/data/test/0EWLYZ/0EWLYZ_cdp.jpg
+Input_2: C:/vsc/data/test/0EWLYZ/0EWLYZ_ekg.jpg
+Input_3: C:/vsc/data/test/0EWLYZ/0EWLYZ_hsp.jpg
+Input_4: C:/vsc/data/test/0EWLYZ/0EWLYZ_vjo.jpg
+Sentence:  The guy steps off the tight rope and smiles.
+
+### Id: mjbEPe
+Input_1: C:/vsc/data/test/mjbEPe/mjbEPe_fhj.jpg
+Input_2: C:/vsc/data/test/mjbEPe/mjbEPe_hdd.jpg
+Input_3: C:/vsc/data/test/mjbEPe/mjbEPe_kau.jpg
+Input_4: C:/vsc/data/test/mjbEPe/mjbEPe_ptd.jpg
+Sentence:  A man puts a gold medal around the neck of the first javelin thrower and shakes his hand.
+
+### Id: yHzXd8
+Input_1: C:/vsc/data/test/yHzXd8/yHzXd8_elj.jpg
+Input_2: C:/vsc/data/test/yHzXd8/yHzXd8_hyh.jpg
+Input_3: C:/vsc/data/test/yHzXd8/yHzXd8_lbd.jpg
+Input_4: C:/vsc/data/test/yHzXd8/yHzXd8_xkd.jpg
+Sentence: The chef begins to cut pieces of food on the board, then moves to a bowl to prepare another ingredient, before returning to the cutting board to continue.
+
+### Id: vh0wEB
+Input_1: C:/vsc/data/test/vh0wEB/vh0wEB_ilo.jpg
+Input_2: C:/vsc/data/test/vh0wEB/vh0wEB_jpx.jpg
+Input_3: C:/vsc/data/test/vh0wEB/vh0wEB_tda.jpg
+Input_4: C:/vsc/data/test/vh0wEB/vh0wEB_vcy.jpg
+Sentence: The worker raises the tire above the wheel, then positions it onto the rim, adjusting it carefully as they prepare to secure it in place.
+
+### Id: P6SNfA
+Input_1: C:/vsc/data/test/P6SNfA/P6SNfA_ibp.jpg
+Input_2: C:/vsc/data/test/P6SNfA/P6SNfA_kfl.jpg
+Input_3: C:/vsc/data/test/P6SNfA/P6SNfA_xhr.jpg
+Input_4: C:/vsc/data/test/P6SNfA/P6SNfA_xmv.jpg
+Sentence: A gymnast mounts a low beam in a gym.
+
+### Id: L5OyYw
+Input_1: C:/vsc/data/test/L5OyYw/L5OyYw_aai.jpg
+Input_2: C:/vsc/data/test/L5OyYw/L5OyYw_cru.jpg
+Input_3: C:/vsc/data/test/L5OyYw/L5OyYw_eno.jpg
+Input_4: C:/vsc/data/test/L5OyYw/L5OyYw_jhw.jpg
+Sentence: A man cuts into a piece of wood with an ax.
+
+### Id: FPHh6p
+Input_1: C:/vsc/data/test/FPHh6p/FPHh6p_lsg.jpg
+Input_2: C:/vsc/data/test/FPHh6p/FPHh6p_sjl.jpg
+Input_3: C:/vsc/data/test/FPHh6p/FPHh6p_srm.jpg
+Input_4: C:/vsc/data/test/FPHh6p/FPHh6p_zfe.jpg
+Sentence: The person begins to clear snow from the car's roof, then moves to the side, and finally stands back, surveying the snowy scene.
+
+### Id: Kk83WO
+Input_1: C:/vsc/data/test/Kk83WO/Kk83WO_grs.jpg
+Input_2: C:/vsc/data/test/Kk83WO/Kk83WO_kqe.jpg
+Input_3: C:/vsc/data/test/Kk83WO/Kk83WO_mex.jpg
+Input_4: C:/vsc/data/test/Kk83WO/Kk83WO_vch.jpg
+Sentence: A climber begins to ascend the wall, then a trainer explains techniques, followed by a demonstration of climbing moves, and finally, the climber executes the techniques shown.
+
+### Id: fUOpAZ
+Input_1: C:/vsc/data/test/fUOpAZ/fUOpAZ_iie.jpg
+Input_2: C:/vsc/data/test/fUOpAZ/fUOpAZ_oiu.jpg
+Input_3: C:/vsc/data/test/fUOpAZ/fUOpAZ_rcy.jpg
+Input_4: C:/vsc/data/test/fUOpAZ/fUOpAZ_tcb.jpg
+Sentence: The red ribbons lower as the man's arm moves down and his body tilts right, then the red tape is pressed onto the bike handlebar and extended towards the handle's end.
+
+### Id: LRHWnG
+Input_1: C:/vsc/data/test/LRHWnG/LRHWnG_elg.jpg
+Input_2: C:/vsc/data/test/LRHWnG/LRHWnG_jfk.jpg
+Input_3: C:/vsc/data/test/LRHWnG/LRHWnG_pal.jpg
+Input_4: C:/vsc/data/test/LRHWnG/LRHWnG_yeu.jpg
+Sentence:  Then, a boy puts on roller skaters and performs in the gym.
+
+### Id: LcVOMS
+Input_1: C:/vsc/data/test/LcVOMS/LcVOMS_bvk.jpg
+Input_2: C:/vsc/data/test/LcVOMS/LcVOMS_hpl.jpg
+Input_3: C:/vsc/data/test/LcVOMS/LcVOMS_oww.jpg
+Input_4: C:/vsc/data/test/LcVOMS/LcVOMS_tds.jpg
+Sentence: The person begins to assemble the bike, then moves to adjust the handlebars, and finally rides the bike before the screen fades to black with a website link.
+
+### Id: aPKUZi
+Input_1: C:/vsc/data/test/aPKUZi/aPKUZi_elk.jpg
+Input_2: C:/vsc/data/test/aPKUZi/aPKUZi_hun.jpg
+Input_3: C:/vsc/data/test/aPKUZi/aPKUZi_idi.jpg
+Input_4: C:/vsc/data/test/aPKUZi/aPKUZi_zfo.jpg
+Sentence: The swimmer begins with an easy effort, then gradually increases pace and stroke rate, moving into a steady effort by the final frame. The progression shows enhanced speed and efficiency.
+
+### Id: mvmfF1
+Input_1: C:/vsc/data/test/mvmfF1/mvmfF1_gbz.jpg
+Input_2: C:/vsc/data/test/mvmfF1/mvmfF1_glq.jpg
+Input_3: C:/vsc/data/test/mvmfF1/mvmfF1_utz.jpg
+Input_4: C:/vsc/data/test/mvmfF1/mvmfF1_xsr.jpg
+Sentence: The group slides down the snowy hill on inflatable tubes, transitioning to a GoPro logo, then the scene shifts from a black screen to a woman vacuuming a rug around a coffee table.
+
+### Id: E9O1Yk
+Input_1: C:/vsc/data/test/E9O1Yk/E9O1Yk_fps.jpg
+Input_2: C:/vsc/data/test/E9O1Yk/E9O1Yk_gil.jpg
+Input_3: C:/vsc/data/test/E9O1Yk/E9O1Yk_uss.jpg
+Input_4: C:/vsc/data/test/E9O1Yk/E9O1Yk_zdv.jpg
+Sentence: The cookies are arranged on a tray and then stacked inside a closed container; meanwhile, a girl mixes ingredients in a bowl as another girl enters from the right, helping to pour water into the mixture.
+
+### Id: wit5As
+Input_1: C:/vsc/data/test/wit5As/wit5As_bkm.jpg
+Input_2: C:/vsc/data/test/wit5As/wit5As_fib.jpg
+Input_3: C:/vsc/data/test/wit5As/wit5As_mdq.jpg
+Input_4: C:/vsc/data/test/wit5As/wit5As_olt.jpg
+Sentence: The cleanser transfers from the doctor's hand to the patient___ face as she applies it, while the doctor gestures, then the woman organizes items, lifts two rolls from the table, and holds them up while speaking.
+
+### Id: fufIXJ
+Input_1: C:/vsc/data/test/fufIXJ/fufIXJ_esz.jpg
+Input_2: C:/vsc/data/test/fufIXJ/fufIXJ_ilt.jpg
+Input_3: C:/vsc/data/test/fufIXJ/fufIXJ_yik.jpg
+Input_4: C:/vsc/data/test/fufIXJ/fufIXJ_zty.jpg
+Sentence: A woman waves while holding a pole, then a man clears snow from the red vehicle, followed by a shot of someone inside the car, and finally, the man continues to shovel snow.

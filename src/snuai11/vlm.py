@@ -286,8 +286,7 @@ class Engine:
             return keep
         events = self.event_embeds(caption)
         for img_i in range(len(prep.per_image_embeds)):
-            vis = prep.per_image_embeds[img_i]
-            kept_local = keep_indices_for_image(vis, events, cfg)
+            kept_local = keep_indices_for_image(prep.per_image_embeds, img_i, events, cfg)
             positions = prep.image_positions[img_i]
             keep[0, positions] = False
             keep[0, positions[kept_local]] = True

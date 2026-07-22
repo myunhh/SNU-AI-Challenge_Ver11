@@ -1,0 +1,215 @@
+### Id: cQOmJj
+Input_1: C:/vsc/data/test/cQOmJj/cQOmJj_blb.jpg
+Input_2: C:/vsc/data/test/cQOmJj/cQOmJj_ktw.jpg
+Input_3: C:/vsc/data/test/cQOmJj/cQOmJj_nlr.jpg
+Input_4: C:/vsc/data/test/cQOmJj/cQOmJj_tcf.jpg
+Sentence: A person arranges tools on a carpet as a message invites YouTube subscriptions, then a lid descends onto meat and shifts right while a hand moves left.
+Candidates: [[3, 4, 2, 1], [4, 3, 2, 1], [1, 2, 4, 3]]
+
+### Id: yx3vew
+Input_1: C:/vsc/data/test/yx3vew/yx3vew_coz.jpg
+Input_2: C:/vsc/data/test/yx3vew/yx3vew_lun.jpg
+Input_3: C:/vsc/data/test/yx3vew/yx3vew_nsx.jpg
+Input_4: C:/vsc/data/test/yx3vew/yx3vew_vmm.jpg
+Sentence: A girl is crossing the monkey bars.
+Candidates: [[1, 2, 3, 4], [4, 3, 1, 2], [1, 4, 3, 2], [4, 3, 2, 1], [1, 3, 2, 4]]
+
+### Id: zVUWuP
+Input_1: C:/vsc/data/test/zVUWuP/zVUWuP_blg.jpg
+Input_2: C:/vsc/data/test/zVUWuP/zVUWuP_hsb.jpg
+Input_3: C:/vsc/data/test/zVUWuP/zVUWuP_ogm.jpg
+Input_4: C:/vsc/data/test/zVUWuP/zVUWuP_pci.jpg
+Sentence:  The two girls remove the baking sheet from the oven.
+Candidates: [[1, 3, 4, 2], [1, 2, 4, 3]]
+
+### Id: Sl4f9t
+Input_1: C:/vsc/data/test/Sl4f9t/Sl4f9t_jbx.jpg
+Input_2: C:/vsc/data/test/Sl4f9t/Sl4f9t_jqt.jpg
+Input_3: C:/vsc/data/test/Sl4f9t/Sl4f9t_lec.jpg
+Input_4: C:/vsc/data/test/Sl4f9t/Sl4f9t_vls.jpg
+Sentence: The camera zooms in on the man playing the piano, then shifts to the performer leaning in to engage closely with the boy holding a flute, maintaining eye contact.
+Candidates: [[2, 1, 4, 3], [1, 2, 4, 3]]
+
+### Id: YPBG8e
+Input_1: C:/vsc/data/test/YPBG8e/YPBG8e_ekd.jpg
+Input_2: C:/vsc/data/test/YPBG8e/YPBG8e_kyj.jpg
+Input_3: C:/vsc/data/test/YPBG8e/YPBG8e_rrp.jpg
+Input_4: C:/vsc/data/test/YPBG8e/YPBG8e_ynf.jpg
+Sentence: The process begins with placing a spare tire, then the person moves in a star pattern to secure the bolts, followed by tightening them thoroughly.
+Candidates: [[1, 3, 2, 4], [1, 4, 2, 3], [1, 2, 3, 4]]
+
+### Id: YtHlYo
+Input_1: C:/vsc/data/test/YtHlYo/YtHlYo_dum.jpg
+Input_2: C:/vsc/data/test/YtHlYo/YtHlYo_euy.jpg
+Input_3: C:/vsc/data/test/YtHlYo/YtHlYo_lwh.jpg
+Input_4: C:/vsc/data/test/YtHlYo/YtHlYo_wzf.jpg
+Sentence: The jar is wrapped and paper is gathered at the top with scissors poised to cut, then tissue paper is adjusted inside a green bag and secured with a ribbon tied around the handles.
+Candidates: [[3, 1, 2, 4], [3, 2, 1, 4], [4, 1, 2, 3], [2, 3, 4, 1]]
+
+### Id: 8L7TfG
+Input_1: C:/vsc/data/test/8L7TfG/8L7TfG_dkq.jpg
+Input_2: C:/vsc/data/test/8L7TfG/8L7TfG_frh.jpg
+Input_3: C:/vsc/data/test/8L7TfG/8L7TfG_hxa.jpg
+Input_4: C:/vsc/data/test/8L7TfG/8L7TfG_hyt.jpg
+Sentence:  The boy climbs across on the monkey bars.
+Candidates: [[3, 4, 1, 2], [2, 3, 4, 1], [2, 4, 3, 1], [4, 3, 1, 2], [3, 1, 2, 4]]
+
+### Id: b44PjE
+Input_1: C:/vsc/data/test/b44PjE/b44PjE_ano.jpg
+Input_2: C:/vsc/data/test/b44PjE/b44PjE_chg.jpg
+Input_3: C:/vsc/data/test/b44PjE/b44PjE_iwk.jpg
+Input_4: C:/vsc/data/test/b44PjE/b44PjE_sbf.jpg
+Sentence:  She climbs her way back on the bars and jumps down mid way through.
+Candidates: [[2, 4, 1, 3], [2, 1, 4, 3], [2, 3, 4, 1], [3, 4, 2, 1], [3, 2, 4, 1]]
+
+### Id: RkBgHm
+Input_1: C:/vsc/data/test/RkBgHm/RkBgHm_hdc.jpg
+Input_2: C:/vsc/data/test/RkBgHm/RkBgHm_iks.jpg
+Input_3: C:/vsc/data/test/RkBgHm/RkBgHm_jjh.jpg
+Input_4: C:/vsc/data/test/RkBgHm/RkBgHm_txm.jpg
+Sentence: A runner is interviewed indoors at a bar, transitioning to another runner outdoors as the camera pans right, followed by a man preparing a colorful kite, smiling and holding the string while the kite is absent.
+Candidates: [[1, 2, 3, 4], [1, 2, 4, 3]]
+
+### Id: 1pCMCL
+Input_1: C:/vsc/data/test/1pCMCL/1pCMCL_gfq.jpg
+Input_2: C:/vsc/data/test/1pCMCL/1pCMCL_hdo.jpg
+Input_3: C:/vsc/data/test/1pCMCL/1pCMCL_vrz.jpg
+Input_4: C:/vsc/data/test/1pCMCL/1pCMCL_zuq.jpg
+Sentence:  They use tubes to slide down a steep hill.
+Candidates: [[1, 2, 3, 4], [1, 4, 3, 2]]
+
+### Id: XFNFS2
+Input_1: C:/vsc/data/test/XFNFS2/XFNFS2_bki.jpg
+Input_2: C:/vsc/data/test/XFNFS2/XFNFS2_byd.jpg
+Input_3: C:/vsc/data/test/XFNFS2/XFNFS2_nwj.jpg
+Input_4: C:/vsc/data/test/XFNFS2/XFNFS2_wkf.jpg
+Sentence:  A child in green jacket gets into an intertube.
+Candidates: [[4, 2, 3, 1], [3, 1, 4, 2], [2, 4, 3, 1], [3, 2, 4, 1]]
+
+### Id: PbTFue
+Input_1: C:/vsc/data/test/PbTFue/PbTFue_kln.jpg
+Input_2: C:/vsc/data/test/PbTFue/PbTFue_saq.jpg
+Input_3: C:/vsc/data/test/PbTFue/PbTFue_upz.jpg
+Input_4: C:/vsc/data/test/PbTFue/PbTFue_xkc.jpg
+Sentence:  Another child from a taller foosball table walks over to the child sized table sticks his hands on the table.
+Candidates: [[4, 1, 2, 3], [1, 2, 3, 4], [1, 2, 4, 3], [2, 1, 3, 4]]
+
+### Id: Q5tsaU
+Input_1: C:/vsc/data/test/Q5tsaU/Q5tsaU_hoa.jpg
+Input_2: C:/vsc/data/test/Q5tsaU/Q5tsaU_ifa.jpg
+Input_3: C:/vsc/data/test/Q5tsaU/Q5tsaU_ndo.jpg
+Input_4: C:/vsc/data/test/Q5tsaU/Q5tsaU_onf.jpg
+Sentence:  He peels off the layers and begins rubbing down the carpet.
+Candidates: [[3, 4, 2, 1], [4, 1, 2, 3], [2, 4, 1, 3], [3, 4, 1, 2], [4, 1, 3, 2]]
+
+### Id: 7QxQMw
+Input_1: C:/vsc/data/test/7QxQMw/7QxQMw_cry.jpg
+Input_2: C:/vsc/data/test/7QxQMw/7QxQMw_jpk.jpg
+Input_3: C:/vsc/data/test/7QxQMw/7QxQMw_ocq.jpg
+Input_4: C:/vsc/data/test/7QxQMw/7QxQMw_ooh.jpg
+Sentence: a girl glides down a slide.
+Candidates: [[2, 3, 4, 1], [1, 2, 3, 4], [3, 2, 4, 1], [2, 1, 4, 3]]
+
+### Id: BfquZq
+Input_1: C:/vsc/data/test/BfquZq/BfquZq_bvf.jpg
+Input_2: C:/vsc/data/test/BfquZq/BfquZq_eok.jpg
+Input_3: C:/vsc/data/test/BfquZq/BfquZq_kbb.jpg
+Input_4: C:/vsc/data/test/BfquZq/BfquZq_kco.jpg
+Sentence: The woman begins by gesturing with pruning shears, then kneels to trim the top of the rounded plant, focusing closely on her work as she continues to prune.
+Candidates: [[4, 2, 3, 1], [3, 2, 4, 1]]
+
+### Id: 9uf8Mn
+Input_1: C:/vsc/data/test/9uf8Mn/9uf8Mn_iwn.jpg
+Input_2: C:/vsc/data/test/9uf8Mn/9uf8Mn_nsu.jpg
+Input_3: C:/vsc/data/test/9uf8Mn/9uf8Mn_uqu.jpg
+Input_4: C:/vsc/data/test/9uf8Mn/9uf8Mn_wto.jpg
+Sentence:  A woman attempts to stop the child then retrieves his intertube.
+Candidates: [[4, 3, 2, 1], [4, 2, 1, 3], [3, 4, 1, 2], [4, 1, 3, 2], [4, 1, 2, 3], [2, 4, 3, 1]]
+
+### Id: nXIQ7U
+Input_1: C:/vsc/data/test/nXIQ7U/nXIQ7U_ilf.jpg
+Input_2: C:/vsc/data/test/nXIQ7U/nXIQ7U_ivt.jpg
+Input_3: C:/vsc/data/test/nXIQ7U/nXIQ7U_ppg.jpg
+Input_4: C:/vsc/data/test/nXIQ7U/nXIQ7U_tui.jpg
+Sentence: The gardener trims the bushes, then raises the trimmer to shape the taller plants, before the screen transitions to a solid orange background, concluding with the company information.
+Candidates: [[2, 3, 1, 4], [1, 3, 2, 4]]
+
+### Id: QXoo96
+Input_1: C:/vsc/data/test/QXoo96/QXoo96_jcd.jpg
+Input_2: C:/vsc/data/test/QXoo96/QXoo96_kgo.jpg
+Input_3: C:/vsc/data/test/QXoo96/QXoo96_ubj.jpg
+Input_4: C:/vsc/data/test/QXoo96/QXoo96_xlg.jpg
+Sentence: The boot on the right rotates slightly counter-clockwise as the brush moves upward, then the camera shifts from hands cutting green onions to a woman speaking in the kitchen.
+Candidates: [[1, 2, 4, 3], [2, 1, 4, 3]]
+
+### Id: 8K3UvY
+Input_1: C:/vsc/data/test/8K3UvY/8K3UvY_bcd.jpg
+Input_2: C:/vsc/data/test/8K3UvY/8K3UvY_cwn.jpg
+Input_3: C:/vsc/data/test/8K3UvY/8K3UvY_ihf.jpg
+Input_4: C:/vsc/data/test/8K3UvY/8K3UvY_sqp.jpg
+Sentence: The shingle moves down over the flashing, partially covering it as the pipe remains centered, then the hand exits the frame while the camera slightly zooms in on the shingles for closer inspection.
+Candidates: [[2, 3, 4, 1], [1, 3, 4, 2], [2, 4, 3, 1]]
+
+### Id: GaMkxc
+Input_1: C:/vsc/data/test/GaMkxc/GaMkxc_adi.jpg
+Input_2: C:/vsc/data/test/GaMkxc/GaMkxc_aje.jpg
+Input_3: C:/vsc/data/test/GaMkxc/GaMkxc_dyf.jpg
+Input_4: C:/vsc/data/test/GaMkxc/GaMkxc_zhd.jpg
+Sentence: The pink flower on the arm transitions to a black screen with text, then the stage lights fade as the camera pans left to reveal a seated performer and musician.
+Candidates: [[3, 2, 1, 4], [4, 2, 1, 3], [1, 4, 2, 3]]
+
+### Id: fTwwl1
+Input_1: C:/vsc/data/test/fTwwl1/fTwwl1_hqq.jpg
+Input_2: C:/vsc/data/test/fTwwl1/fTwwl1_pop.jpg
+Input_3: C:/vsc/data/test/fTwwl1/fTwwl1_sfj.jpg
+Input_4: C:/vsc/data/test/fTwwl1/fTwwl1_tya.jpg
+Sentence: The chef spreads the mixture into a flat shape on the cooking surface, then transitions to serving pasta from the pan onto a plate as the camera zooms in to showcase the finished dish.
+Candidates: [[1, 3, 2, 4], [2, 3, 1, 4], [2, 1, 3, 4]]
+
+### Id: Gk8nrS
+Input_1: C:/vsc/data/test/Gk8nrS/Gk8nrS_mjx.jpg
+Input_2: C:/vsc/data/test/Gk8nrS/Gk8nrS_nxd.jpg
+Input_3: C:/vsc/data/test/Gk8nrS/Gk8nrS_roa.jpg
+Input_4: C:/vsc/data/test/Gk8nrS/Gk8nrS_zza.jpg
+Sentence: A woman tries to eat ice cream to a child, but the child refuses to eat the ice cream, then the woman eats the ice cream in the spoon.
+Candidates: [[4, 1, 3, 2], [4, 1, 2, 3], [4, 3, 2, 1], [3, 4, 2, 1]]
+
+### Id: 0Xx9Fy
+Input_1: C:/vsc/data/test/0Xx9Fy/0Xx9Fy_jtz.jpg
+Input_2: C:/vsc/data/test/0Xx9Fy/0Xx9Fy_shv.jpg
+Input_3: C:/vsc/data/test/0Xx9Fy/0Xx9Fy_utp.jpg
+Input_4: C:/vsc/data/test/0Xx9Fy/0Xx9Fy_uzm.jpg
+Sentence: The video begins with a view of the ocean, then shifts to the navigation screen, followed by a woman relaxing in a tub, and finally shows another woman reading on a couch.
+Candidates: [[1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: qzdzUs
+Input_1: C:/vsc/data/test/qzdzUs/qzdzUs_kpj.jpg
+Input_2: C:/vsc/data/test/qzdzUs/qzdzUs_nxj.jpg
+Input_3: C:/vsc/data/test/qzdzUs/qzdzUs_oue.jpg
+Input_4: C:/vsc/data/test/qzdzUs/qzdzUs_wur.jpg
+Sentence:  A third man throws a javelin so hard that he falls.
+Candidates: [[1, 3, 2, 4], [1, 2, 3, 4], [2, 3, 1, 4]]
+
+### Id: N9kNUd
+Input_1: C:/vsc/data/test/N9kNUd/N9kNUd_akq.jpg
+Input_2: C:/vsc/data/test/N9kNUd/N9kNUd_cgw.jpg
+Input_3: C:/vsc/data/test/N9kNUd/N9kNUd_syw.jpg
+Input_4: C:/vsc/data/test/N9kNUd/N9kNUd_xld.jpg
+Sentence: The text "Coaching and Technique" fades as an individual kneels on a blue platform with one arm raised holding a rod, then transitions to standing and kneeling while raising a resistance band overhead on the platform.
+Candidates: [[1, 4, 2, 3], [1, 2, 3, 4], [1, 3, 2, 4]]
+
+### Id: l89v4Z
+Input_1: C:/vsc/data/test/l89v4Z/l89v4Z_arg.jpg
+Input_2: C:/vsc/data/test/l89v4Z/l89v4Z_mvk.jpg
+Input_3: C:/vsc/data/test/l89v4Z/l89v4Z_wyx.jpg
+Input_4: C:/vsc/data/test/l89v4Z/l89v4Z_zwh.jpg
+Sentence: The skier descends the slope, turning slightly right as the camera zooms out, then stands still to demonstrate a technique before moving right again, with the camera slightly tilting down.
+Candidates: [[4, 3, 1, 2], [3, 4, 1, 2], [3, 4, 2, 1]]
+
+### Id: 0mXRr8
+Input_1: C:/vsc/data/test/0mXRr8/0mXRr8_ezj.jpg
+Input_2: C:/vsc/data/test/0mXRr8/0mXRr8_hjn.jpg
+Input_3: C:/vsc/data/test/0mXRr8/0mXRr8_tmt.jpg
+Input_4: C:/vsc/data/test/0mXRr8/0mXRr8_wqt.jpg
+Sentence:  She pours oil into a hot pan and begins mixing ingredients together in the pan.
+Candidates: [[3, 4, 2, 1], [4, 2, 3, 1], [4, 3, 2, 1]]

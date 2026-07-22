@@ -1,0 +1,195 @@
+### Id: S4QoRB
+Input_1: C:/vsc/data/test/S4QoRB/S4QoRB_ggj.jpg
+Input_2: C:/vsc/data/test/S4QoRB/S4QoRB_gxx.jpg
+Input_3: C:/vsc/data/test/S4QoRB/S4QoRB_miy.jpg
+Input_4: C:/vsc/data/test/S4QoRB/S4QoRB_otl.jpg
+Sentence: The box shifts back on the counter as the camera slightly zooms out, then the knife retracts from the sharpening stone as the chef___ hand moves away from the cutting board.
+
+### Id: XqmQTD
+Input_1: C:/vsc/data/test/XqmQTD/XqmQTD_ivo.jpg
+Input_2: C:/vsc/data/test/XqmQTD/XqmQTD_qns.jpg
+Input_3: C:/vsc/data/test/XqmQTD/XqmQTD_saw.jpg
+Input_4: C:/vsc/data/test/XqmQTD/XqmQTD_txv.jpg
+Sentence:   He pulls out an arrow and and sets it in his bow.
+
+### Id: khtCHL
+Input_1: C:/vsc/data/test/khtCHL/khtCHL_bzi.jpg
+Input_2: C:/vsc/data/test/khtCHL/khtCHL_fhk.jpg
+Input_3: C:/vsc/data/test/khtCHL/khtCHL_iji.jpg
+Input_4: C:/vsc/data/test/khtCHL/khtCHL_uvb.jpg
+Sentence: A hand adds twigs to burning paper as the camera zooms in slightly, then shifts focus from stacked wood in a fire pit to a hand sanitizer bottle in the foreground.
+
+### Id: CzkRiH
+Input_1: C:/vsc/data/test/CzkRiH/CzkRiH_kwh.jpg
+Input_2: C:/vsc/data/test/CzkRiH/CzkRiH_odn.jpg
+Input_3: C:/vsc/data/test/CzkRiH/CzkRiH_qnw.jpg
+Input_4: C:/vsc/data/test/CzkRiH/CzkRiH_vqx.jpg
+Sentence: A little girl is crossing the monkey bars.
+
+### Id: NsfjW8
+Input_1: C:/vsc/data/test/NsfjW8/NsfjW8_bwc.jpg
+Input_2: C:/vsc/data/test/NsfjW8/NsfjW8_fpb.jpg
+Input_3: C:/vsc/data/test/NsfjW8/NsfjW8_gng.jpg
+Input_4: C:/vsc/data/test/NsfjW8/NsfjW8_qpr.jpg
+Sentence: A man in a gym walks over to a barbell.
+
+### Id: xSCukT
+Input_1: C:/vsc/data/test/xSCukT/xSCukT_cpw.jpg
+Input_2: C:/vsc/data/test/xSCukT/xSCukT_lea.jpg
+Input_3: C:/vsc/data/test/xSCukT/xSCukT_wbg.jpg
+Input_4: C:/vsc/data/test/xSCukT/xSCukT_xlj.jpg
+Sentence: The dancers lift one leg and open their fans as the camera zooms in, followed by a marching band receding into the distance, moving away from the camera as the scene shifts rightward.
+
+### Id: ccwsKK
+Input_1: C:/vsc/data/test/ccwsKK/ccwsKK_mmp.jpg
+Input_2: C:/vsc/data/test/ccwsKK/ccwsKK_snz.jpg
+Input_3: C:/vsc/data/test/ccwsKK/ccwsKK_zom.jpg
+Input_4: C:/vsc/data/test/ccwsKK/ccwsKK_zxz.jpg
+Sentence: The man raises his hand as the woman lowers hers during a conversation, then the scene shifts to a woman standing in a dining room speaking, followed by another woman sitting on a bed putting on shoes.
+
+### Id: iefIZE
+Input_1: C:/vsc/data/test/iefIZE/iefIZE_buh.jpg
+Input_2: C:/vsc/data/test/iefIZE/iefIZE_jgv.jpg
+Input_3: C:/vsc/data/test/iefIZE/iefIZE_ljd.jpg
+Input_4: C:/vsc/data/test/iefIZE/iefIZE_ucr.jpg
+Sentence:  A man gets hit by a rope while chasing a calf.
+
+### Id: TTkzP5
+Input_1: C:/vsc/data/test/TTkzP5/TTkzP5_ikv.jpg
+Input_2: C:/vsc/data/test/TTkzP5/TTkzP5_nsg.jpg
+Input_3: C:/vsc/data/test/TTkzP5/TTkzP5_sem.jpg
+Input_4: C:/vsc/data/test/TTkzP5/TTkzP5_wjq.jpg
+Sentence: The man on the left approaches the roses as the camera tilts left, then the person on the tractor advances towards the hedge trimmer, moving forward while trimming continues.
+
+### Id: Z9CdGI
+Input_1: C:/vsc/data/test/Z9CdGI/Z9CdGI_cfo.jpg
+Input_2: C:/vsc/data/test/Z9CdGI/Z9CdGI_ffh.jpg
+Input_3: C:/vsc/data/test/Z9CdGI/Z9CdGI_ssy.jpg
+Input_4: C:/vsc/data/test/Z9CdGI/Z9CdGI_tfh.jpg
+Sentence: The climber begins to balance on the slackline, then raises his arms for stability, moves forward confidently, and finally appears to leap toward the next rock.
+
+### Id: 9XMfvj
+Input_1: C:/vsc/data/test/9XMfvj/9XMfvj_lhc.jpg
+Input_2: C:/vsc/data/test/9XMfvj/9XMfvj_ozo.jpg
+Input_3: C:/vsc/data/test/9XMfvj/9XMfvj_siv.jpg
+Input_4: C:/vsc/data/test/9XMfvj/9XMfvj_vfj.jpg
+Sentence:  People take the sail down off the boat.
+
+### Id: 8CEiq5
+Input_1: C:/vsc/data/test/8CEiq5/8CEiq5_kto.jpg
+Input_2: C:/vsc/data/test/8CEiq5/8CEiq5_vvs.jpg
+Input_3: C:/vsc/data/test/8CEiq5/8CEiq5_vxy.jpg
+Input_4: C:/vsc/data/test/8CEiq5/8CEiq5_xqc.jpg
+Sentence: A young girl climbs on top of a camel while others walk around her.
+
+### Id: fKG1HH
+Input_1: C:/vsc/data/test/fKG1HH/fKG1HH_alz.jpg
+Input_2: C:/vsc/data/test/fKG1HH/fKG1HH_gcz.jpg
+Input_3: C:/vsc/data/test/fKG1HH/fKG1HH_jpi.jpg
+Input_4: C:/vsc/data/test/fKG1HH/fKG1HH_qnj.jpg
+Sentence: The skier in red descends the slope and approaches the lift area with more buildings visible, then another skier glides downhill through snowy trees as the camera zooms out, showing the expansive landscape.
+
+### Id: 2eRouT
+Input_1: C:/vsc/data/test/2eRouT/2eRouT_fcn.jpg
+Input_2: C:/vsc/data/test/2eRouT/2eRouT_jtp.jpg
+Input_3: C:/vsc/data/test/2eRouT/2eRouT_tcn.jpg
+Input_4: C:/vsc/data/test/2eRouT/2eRouT_wgy.jpg
+Sentence: A hand polishes the right boot, rotating it slightly clockwise, then the scene shifts to a close-up of a tool on eyelashes before revealing a wider view of a person speaking in front of a mirror.
+
+### Id: xhTETe
+Input_1: C:/vsc/data/test/xhTETe/xhTETe_gcg.jpg
+Input_2: C:/vsc/data/test/xhTETe/xhTETe_kad.jpg
+Input_3: C:/vsc/data/test/xhTETe/xhTETe_nrr.jpg
+Input_4: C:/vsc/data/test/xhTETe/xhTETe_uqn.jpg
+Sentence:   We see a beer poured in a glass.
+
+### Id: 3G4J9K
+Input_1: C:/vsc/data/test/3G4J9K/3G4J9K_iza.jpg
+Input_2: C:/vsc/data/test/3G4J9K/3G4J9K_kiv.jpg
+Input_3: C:/vsc/data/test/3G4J9K/3G4J9K_nvg.jpg
+Input_4: C:/vsc/data/test/3G4J9K/3G4J9K_wgy.jpg
+Sentence:  A man picks up a shoe and puts it on his foot.
+
+### Id: abzkll
+Input_1: C:/vsc/data/test/abzkll/abzkll_hpi.jpg
+Input_2: C:/vsc/data/test/abzkll/abzkll_kmz.jpg
+Input_3: C:/vsc/data/test/abzkll/abzkll_tvy.jpg
+Input_4: C:/vsc/data/test/abzkll/abzkll_zog.jpg
+Sentence:  He peels the sticky side from the backing paper.
+
+### Id: RzY1Pc
+Input_1: C:/vsc/data/test/RzY1Pc/RzY1Pc_ajr.jpg
+Input_2: C:/vsc/data/test/RzY1Pc/RzY1Pc_pmn.jpg
+Input_3: C:/vsc/data/test/RzY1Pc/RzY1Pc_sam.jpg
+Input_4: C:/vsc/data/test/RzY1Pc/RzY1Pc_yom.jpg
+Sentence:  He demonstrates how to make a gyro sandwich.
+
+### Id: 6XzqrF
+Input_1: C:/vsc/data/test/6XzqrF/6XzqrF_drn.jpg
+Input_2: C:/vsc/data/test/6XzqrF/6XzqrF_lvn.jpg
+Input_3: C:/vsc/data/test/6XzqrF/6XzqrF_unn.jpg
+Input_4: C:/vsc/data/test/6XzqrF/6XzqrF_ura.jpg
+Sentence: The person begins by crossing sections of hair over the center, then pulls the remaining hair around their shoulder to finish with a regular braid.
+
+### Id: OCAYKz
+Input_1: C:/vsc/data/test/OCAYKz/OCAYKz_bia.jpg
+Input_2: C:/vsc/data/test/OCAYKz/OCAYKz_bkt.jpg
+Input_3: C:/vsc/data/test/OCAYKz/OCAYKz_isx.jpg
+Input_4: C:/vsc/data/test/OCAYKz/OCAYKz_sfj.jpg
+Sentence: The performer lowers her arms and smiles as the hula hoops descend, then dancers in blue dresses twirl closer together, moving slightly to the right while maintaining their synchronized motion on the gym floor.
+
+### Id: ZpREGE
+Input_1: C:/vsc/data/test/ZpREGE/ZpREGE_gnq.jpg
+Input_2: C:/vsc/data/test/ZpREGE/ZpREGE_gxn.jpg
+Input_3: C:/vsc/data/test/ZpREGE/ZpREGE_kbn.jpg
+Input_4: C:/vsc/data/test/ZpREGE/ZpREGE_olq.jpg
+Sentence: The child glides down the snowy slope, moving into the distance as the camera captures a wider landscape, then the skier navigates from an open slope into a narrow, tree-lined trail with a slight camera pan downward.
+
+### Id: EpfspO
+Input_1: C:/vsc/data/test/EpfspO/EpfspO_icn.jpg
+Input_2: C:/vsc/data/test/EpfspO/EpfspO_pgt.jpg
+Input_3: C:/vsc/data/test/EpfspO/EpfspO_shc.jpg
+Input_4: C:/vsc/data/test/EpfspO/EpfspO_ykt.jpg
+Sentence: The scene opens with feet sliding down a snowy slope, then transitions to a close-up of the feet on a tube, followed by a child being pulled on a tube, and finally shows multiple tubes being towed away.
+
+### Id: ReMk67
+Input_1: C:/vsc/data/test/ReMk67/ReMk67_bhe.jpg
+Input_2: C:/vsc/data/test/ReMk67/ReMk67_fkx.jpg
+Input_3: C:/vsc/data/test/ReMk67/ReMk67_txr.jpg
+Input_4: C:/vsc/data/test/ReMk67/ReMk67_xgc.jpg
+Sentence:  He stops mopping and speaks to the camera.
+
+### Id: iaxPKk
+Input_1: C:/vsc/data/test/iaxPKk/iaxPKk_eaq.jpg
+Input_2: C:/vsc/data/test/iaxPKk/iaxPKk_lyr.jpg
+Input_3: C:/vsc/data/test/iaxPKk/iaxPKk_qvf.jpg
+Input_4: C:/vsc/data/test/iaxPKk/iaxPKk_tlg.jpg
+Sentence:  The guy walks through a door he opened.
+
+### Id: N7odo1
+Input_1: C:/vsc/data/test/N7odo1/N7odo1_lks.jpg
+Input_2: C:/vsc/data/test/N7odo1/N7odo1_vwo.jpg
+Input_3: C:/vsc/data/test/N7odo1/N7odo1_wpj.jpg
+Input_4: C:/vsc/data/test/N7odo1/N7odo1_xey.jpg
+Sentence: A man in a foil blanket is interviewed in a bar, then the scene shifts to a street with runners, transitioning to a person adjusting a bike seat in a gym, leaning forward to grip the handles.
+
+### Id: 8ERA5k
+Input_1: C:/vsc/data/test/8ERA5k/8ERA5k_dkx.jpg
+Input_2: C:/vsc/data/test/8ERA5k/8ERA5k_hmq.jpg
+Input_3: C:/vsc/data/test/8ERA5k/8ERA5k_jef.jpg
+Input_4: C:/vsc/data/test/8ERA5k/8ERA5k_tev.jpg
+Sentence: A girl walks up to a slide, sits down, then goes down the slide.
+
+### Id: g1MHrL
+Input_1: C:/vsc/data/test/g1MHrL/g1MHrL_fqk.jpg
+Input_2: C:/vsc/data/test/g1MHrL/g1MHrL_rdf.jpg
+Input_3: C:/vsc/data/test/g1MHrL/g1MHrL_vck.jpg
+Input_4: C:/vsc/data/test/g1MHrL/g1MHrL_xjn.jpg
+Sentence:  The woman continues carving the face of the pumpkin to turn it into a jack-o-lantern.
+
+### Id: FM1CAt
+Input_1: C:/vsc/data/test/FM1CAt/FM1CAt_dgy.jpg
+Input_2: C:/vsc/data/test/FM1CAt/FM1CAt_dox.jpg
+Input_3: C:/vsc/data/test/FM1CAt/FM1CAt_mmz.jpg
+Input_4: C:/vsc/data/test/FM1CAt/FM1CAt_skj.jpg
+Sentence: The performer transitions from spinning a flaming hula hoop to twirling fire staffs while moving left, then the musician leans forward and slightly left, tilting the saxophone downward, with a dynamic stage presence.

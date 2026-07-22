@@ -44,7 +44,7 @@ def main() -> None:
             visual = r["per_image_embeds"][img_i]
             keep = {}
             for name, cfg in CONFIGS.items():
-                idx = keep_indices_for_image(visual, r["event_embeds"], cfg)
+                idx = keep_indices_for_image(r["per_image_embeds"], img_i, r["event_embeds"], cfg)
                 keep[name] = set(idx.tolist())
             n = visual.shape[0]
             for a, b in combinations(names, 2):

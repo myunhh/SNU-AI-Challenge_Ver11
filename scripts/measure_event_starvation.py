@@ -42,7 +42,7 @@ def best_token_survival(records, cfg: PruneConfig, desc: str):
         for img_i in range(4):
             visual = r["per_image_embeds"][img_i]
             pe = per_event_scores(visual, r["event_embeds"], cfg)  # [4, N]
-            keep = set(keep_indices_for_image(visual, r["event_embeds"], cfg).tolist())
+            keep = set(keep_indices_for_image(r["per_image_embeds"], img_i, r["event_embeds"], cfg).tolist())
             discards_here = 0
             for e in range(4):
                 best = int(pe[e].argmax())

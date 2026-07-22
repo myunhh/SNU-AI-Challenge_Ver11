@@ -1,0 +1,195 @@
+### Id: 4QSIII
+Input_1: C:/vsc/data/test/4QSIII/4QSIII_ayw.jpg
+Input_2: C:/vsc/data/test/4QSIII/4QSIII_jqa.jpg
+Input_3: C:/vsc/data/test/4QSIII/4QSIII_mqo.jpg
+Input_4: C:/vsc/data/test/4QSIII/4QSIII_sto.jpg
+Sentence: The players on the beach court move forward and right as the camera zooms in slightly; in the pool, players swim towards the center while one prepares to pass the ball, and the camera zooms in slightly.
+
+### Id: Alriqb
+Input_1: C:/vsc/data/test/Alriqb/Alriqb_cpi.jpg
+Input_2: C:/vsc/data/test/Alriqb/Alriqb_mxq.jpg
+Input_3: C:/vsc/data/test/Alriqb/Alriqb_rug.jpg
+Input_4: C:/vsc/data/test/Alriqb/Alriqb_usw.jpg
+Sentence: The person in the white hoodie raises the bat towards the left-moving pumpkin piñata, then the child in the red shirt hops forward on the chalk hopscotch as another child joins from the right.
+
+### Id: efbPzU
+Input_1: C:/vsc/data/test/efbPzU/efbPzU_fuq.jpg
+Input_2: C:/vsc/data/test/efbPzU/efbPzU_sne.jpg
+Input_3: C:/vsc/data/test/efbPzU/efbPzU_uuu.jpg
+Input_4: C:/vsc/data/test/efbPzU/efbPzU_wap.jpg
+Sentence: A person approaches a snow-covered car, opens its door, and then the scene shifts to two people clearing snow from a blue car, with one person exiting the frame and the other standing smiling near the car's front.
+
+### Id: RkWmtR
+Input_1: C:/vsc/data/test/RkWmtR/RkWmtR_axk.jpg
+Input_2: C:/vsc/data/test/RkWmtR/RkWmtR_ien.jpg
+Input_3: C:/vsc/data/test/RkWmtR/RkWmtR_sfc.jpg
+Input_4: C:/vsc/data/test/RkWmtR/RkWmtR_tjn.jpg
+Sentence: The cookies are arranged on a tray before being stacked in a container, then the mixer blades rotate, blending chocolate chips into a smoother batter.
+
+### Id: rrspy3
+Input_1: C:/vsc/data/test/rrspy3/rrspy3_avc.jpg
+Input_2: C:/vsc/data/test/rrspy3/rrspy3_svi.jpg
+Input_3: C:/vsc/data/test/rrspy3/rrspy3_ual.jpg
+Input_4: C:/vsc/data/test/rrspy3/rrspy3_uwt.jpg
+Sentence: The camera zooms in as water sprays across the roof, then shifts to a wall where a worker smooths plaster with a trowel, finishing with a sponge for a refined surface.
+
+### Id: XBy4YM
+Input_1: C:/vsc/data/test/XBy4YM/XBy4YM_hhx.jpg
+Input_2: C:/vsc/data/test/XBy4YM/XBy4YM_ouj.jpg
+Input_3: C:/vsc/data/test/XBy4YM/XBy4YM_ptk.jpg
+Input_4: C:/vsc/data/test/XBy4YM/XBy4YM_vny.jpg
+Sentence: The windsurfing sail disappears underwater, transitioning to a skier carving down a snowy slope, moving from the distant center to the closer right as the camera zooms in.
+
+### Id: 6T4ZkA
+Input_1: C:/vsc/data/test/6T4ZkA/6T4ZkA_nou.jpg
+Input_2: C:/vsc/data/test/6T4ZkA/6T4ZkA_ulk.jpg
+Input_3: C:/vsc/data/test/6T4ZkA/6T4ZkA_usx.jpg
+Input_4: C:/vsc/data/test/6T4ZkA/6T4ZkA_xdi.jpg
+Sentence: A person is pulled up a snowy slope, followed by a view of the slope, then a snowboarder glides toward a snowmobile, pulling someone on a sled, with the camera tilting down and to the right.
+
+### Id: B39anE
+Input_1: C:/vsc/data/test/B39anE/B39anE_knq.jpg
+Input_2: C:/vsc/data/test/B39anE/B39anE_nhl.jpg
+Input_3: C:/vsc/data/test/B39anE/B39anE_pha.jpg
+Input_4: C:/vsc/data/test/B39anE/B39anE_vmk.jpg
+Sentence: The canvas rotates counter-clockwise as the woman raises her brush to paint; the wrapping paper is pulled closer and cut, with a slight camera zoom highlighting the action.
+
+### Id: wXasLQ
+Input_1: C:/vsc/data/test/wXasLQ/wXasLQ_obz.jpg
+Input_2: C:/vsc/data/test/wXasLQ/wXasLQ_vxc.jpg
+Input_3: C:/vsc/data/test/wXasLQ/wXasLQ_wmj.jpg
+Input_4: C:/vsc/data/test/wXasLQ/wXasLQ_xlt.jpg
+Sentence: The man on the left smiles and lifts his head while the man on the right lowers his, then the person bends down, raises their leg onto the tub, and stands with one leg extended on it.
+
+### Id: qkSjok
+Input_1: C:/vsc/data/test/qkSjok/qkSjok_aat.jpg
+Input_2: C:/vsc/data/test/qkSjok/qkSjok_czy.jpg
+Input_3: C:/vsc/data/test/qkSjok/qkSjok_gui.jpg
+Input_4: C:/vsc/data/test/qkSjok/qkSjok_wlf.jpg
+Sentence: The cat's paw approaches the clippers with a slight camera zoom, transitioning to a kitchen scene where a person cuts green onions before speaking in a medium shot.
+
+### Id: 60Ggwj
+Input_1: C:/vsc/data/test/60Ggwj/60Ggwj_exs.jpg
+Input_2: C:/vsc/data/test/60Ggwj/60Ggwj_ncq.jpg
+Input_3: C:/vsc/data/test/60Ggwj/60Ggwj_pwz.jpg
+Input_4: C:/vsc/data/test/60Ggwj/60Ggwj_xjg.jpg
+Sentence: The dancer opens a colorful bag, reaching inside to sort its contents, while the man transitions from lying with his feet on the ground to curling upward, bringing his torso closer to his knees.
+
+### Id: OPEuBo
+Input_1: C:/vsc/data/test/OPEuBo/OPEuBo_ehe.jpg
+Input_2: C:/vsc/data/test/OPEuBo/OPEuBo_hgr.jpg
+Input_3: C:/vsc/data/test/OPEuBo/OPEuBo_ozv.jpg
+Input_4: C:/vsc/data/test/OPEuBo/OPEuBo_xvi.jpg
+Sentence: The iron glides from right to left, resting as the scene widens to show a person adjusting a shirt, then a shoe moves closer as the camera zooms in, transitioning from a cloth to a sponge for scrubbing.
+
+### Id: J2OzNp
+Input_1: C:/vsc/data/test/J2OzNp/J2OzNp_nfg.jpg
+Input_2: C:/vsc/data/test/J2OzNp/J2OzNp_qbc.jpg
+Input_3: C:/vsc/data/test/J2OzNp/J2OzNp_rxz.jpg
+Input_4: C:/vsc/data/test/J2OzNp/J2OzNp_swh.jpg
+Sentence: A box exits as a partially assembled green bike appears on the floor, followed by red tape moving from the top of the handlebar to being held below, with a slight camera zoom out.
+
+### Id: WNlfM8
+Input_1: C:/vsc/data/test/WNlfM8/WNlfM8_dzn.jpg
+Input_2: C:/vsc/data/test/WNlfM8/WNlfM8_jwu.jpg
+Input_3: C:/vsc/data/test/WNlfM8/WNlfM8_naq.jpg
+Input_4: C:/vsc/data/test/WNlfM8/WNlfM8_qaq.jpg
+Sentence: The camera tilts down and zooms in on the bike's rear wheel, then shifts to a tool smoothing the ceiling, transitioning from a close-up to a wider view.
+
+### Id: wTnEOc
+Input_1: C:/vsc/data/test/wTnEOc/wTnEOc_ufp.jpg
+Input_2: C:/vsc/data/test/wTnEOc/wTnEOc_urk.jpg
+Input_3: C:/vsc/data/test/wTnEOc/wTnEOc_yrw.jpg
+Input_4: C:/vsc/data/test/wTnEOc/wTnEOc_ysn.jpg
+Sentence: A smiling boy shifts out of view as the camera pans left to a girl applying makeup on another boy, then a man holding a pumpkin on his head has it taken by a woman moving leftward with it in her hands.
+
+### Id: 15ntwe
+Input_1: C:/vsc/data/test/15ntwe/15ntwe_ghs.jpg
+Input_2: C:/vsc/data/test/15ntwe/15ntwe_ivd.jpg
+Input_3: C:/vsc/data/test/15ntwe/15ntwe_ltw.jpg
+Input_4: C:/vsc/data/test/15ntwe/15ntwe_xko.jpg
+Sentence: The microwave door opens as a bowl is placed inside, then a hand with a wooden spoon moves downwards as egg whites enter from the top right.
+
+### Id: rlNPMl
+Input_1: C:/vsc/data/test/rlNPMl/rlNPMl_bku.jpg
+Input_2: C:/vsc/data/test/rlNPMl/rlNPMl_cve.jpg
+Input_3: C:/vsc/data/test/rlNPMl/rlNPMl_mqs.jpg
+Input_4: C:/vsc/data/test/rlNPMl/rlNPMl_vmh.jpg
+Sentence: The children move from riding an elephant to a camel, which walks leftward behind palm trees, then a rider on a brown horse moves away from the camera toward the arena's far wall.
+
+### Id: NtBt60
+Input_1: C:/vsc/data/test/NtBt60/NtBt60_frn.jpg
+Input_2: C:/vsc/data/test/NtBt60/NtBt60_jwz.jpg
+Input_3: C:/vsc/data/test/NtBt60/NtBt60_yfe.jpg
+Input_4: C:/vsc/data/test/NtBt60/NtBt60_zbf.jpg
+Sentence: The artist turns from his easel to face the camera as it zooms in, then a person examines a small object before bringing a harmonica closer to their mouth.
+
+### Id: A2ihgQ
+Input_1: C:/vsc/data/test/A2ihgQ/A2ihgQ_gfm.jpg
+Input_2: C:/vsc/data/test/A2ihgQ/A2ihgQ_opb.jpg
+Input_3: C:/vsc/data/test/A2ihgQ/A2ihgQ_rki.jpg
+Input_4: C:/vsc/data/test/A2ihgQ/A2ihgQ_sfl.jpg
+Sentence: The person clears snow from the windshield, revealing the glass beneath, then moves to the car's side with a shovel, starting to remove snow from the roof.
+
+### Id: TcX8RT
+Input_1: C:/vsc/data/test/TcX8RT/TcX8RT_fox.jpg
+Input_2: C:/vsc/data/test/TcX8RT/TcX8RT_rdj.jpg
+Input_3: C:/vsc/data/test/TcX8RT/TcX8RT_ssi.jpg
+Input_4: C:/vsc/data/test/TcX8RT/TcX8RT_vnv.jpg
+Sentence: A skateboarder moves further along the curve, receding from the camera as spectators watch, followed by a skier shifting left while navigating the course, with the camera angle revealing more details as they approach the finish line.
+
+### Id: cyA948
+Input_1: C:/vsc/data/test/cyA948/cyA948_lfm.jpg
+Input_2: C:/vsc/data/test/cyA948/cyA948_nza.jpg
+Input_3: C:/vsc/data/test/cyA948/cyA948_pjw.jpg
+Input_4: C:/vsc/data/test/cyA948/cyA948_vme.jpg
+Sentence: The skier navigates from a tree-lined trail to an open slope with other skiers visible, then continues down the snowy slope as the camera tilts slightly left, moving from the center to the right.
+
+### Id: AiyCxG
+Input_1: C:/vsc/data/test/AiyCxG/AiyCxG_boz.jpg
+Input_2: C:/vsc/data/test/AiyCxG/AiyCxG_uwb.jpg
+Input_3: C:/vsc/data/test/AiyCxG/AiyCxG_xnp.jpg
+Input_4: C:/vsc/data/test/AiyCxG/AiyCxG_zeb.jpg
+Sentence: A Pikachu cake is decorated on a table, then lifted up proudly, followed by a pink object moving closer to the camera and being used on the person's hair.
+
+### Id: XGuH3q
+Input_1: C:/vsc/data/test/XGuH3q/XGuH3q_csb.jpg
+Input_2: C:/vsc/data/test/XGuH3q/XGuH3q_gql.jpg
+Input_3: C:/vsc/data/test/XGuH3q/XGuH3q_iqe.jpg
+Input_4: C:/vsc/data/test/XGuH3q/XGuH3q_ljq.jpg
+Sentence: A person on Skyrunner jumps higher and moves left, captured by an upward camera angle, then a child in a red shirt hops forward on a chalk hopscotch as another child joins from the right.
+
+### Id: fdwlot
+Input_1: C:/vsc/data/test/fdwlot/fdwlot_fty.jpg
+Input_2: C:/vsc/data/test/fdwlot/fdwlot_oqe.jpg
+Input_3: C:/vsc/data/test/fdwlot/fdwlot_pkb.jpg
+Input_4: C:/vsc/data/test/fdwlot/fdwlot_rsn.jpg
+Sentence: The person transitions from brushing the horse's mane to rinsing its leg with a bucket, then shifts focus to applying makeup near the eye with a pen, followed by using scissors for further detailing.
+
+### Id: da2MIM
+Input_1: C:/vsc/data/test/da2MIM/da2MIM_fwb.jpg
+Input_2: C:/vsc/data/test/da2MIM/da2MIM_igh.jpg
+Input_3: C:/vsc/data/test/da2MIM/da2MIM_kqg.jpg
+Input_4: C:/vsc/data/test/da2MIM/da2MIM_tgm.jpg
+Sentence: Cheerleaders are lifted high and descend into a synchronized line, followed by dancers entering and bending forward over step platforms in perfect unison.
+
+### Id: b3CnWj
+Input_1: C:/vsc/data/test/b3CnWj/b3CnWj_hhx.jpg
+Input_2: C:/vsc/data/test/b3CnWj/b3CnWj_itr.jpg
+Input_3: C:/vsc/data/test/b3CnWj/b3CnWj_qrw.jpg
+Input_4: C:/vsc/data/test/b3CnWj/b3CnWj_ukm.jpg
+Sentence: The gymnast swings upward to hang upside down on the bar, then transitions to a beam, rotating from an upside-down position to a seated pose.
+
+### Id: 75Z57K
+Input_1: C:/vsc/data/test/75Z57K/75Z57K_fkg.jpg
+Input_2: C:/vsc/data/test/75Z57K/75Z57K_hdx.jpg
+Input_3: C:/vsc/data/test/75Z57K/75Z57K_wer.jpg
+Input_4: C:/vsc/data/test/75Z57K/75Z57K_wvb.jpg
+Sentence: The person in the hooded coat exits as another shovels snow from the car, then shifts to clearing the windshield, revealing glass as they move leftward.
+
+### Id: k3FK79
+Input_1: C:/vsc/data/test/k3FK79/k3FK79_ata.jpg
+Input_2: C:/vsc/data/test/k3FK79/k3FK79_exe.jpg
+Input_3: C:/vsc/data/test/k3FK79/k3FK79_mms.jpg
+Input_4: C:/vsc/data/test/k3FK79/k3FK79_xoi.jpg
+Sentence: Stephanie Brown Trafton transitions to Song Aimin in a steady frame, then an athlete moves from standing behind a podium to squatting with hands on a barbell as the camera zooms out.

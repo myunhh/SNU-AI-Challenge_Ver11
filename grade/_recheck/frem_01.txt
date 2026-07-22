@@ -1,0 +1,119 @@
+### Id: YSPJJW
+Input_1: C:/vsc/data/test/YSPJJW/YSPJJW_soz.jpg
+Input_2: C:/vsc/data/test/YSPJJW/YSPJJW_wpx.jpg
+Input_3: C:/vsc/data/test/YSPJJW/YSPJJW_wsg.jpg
+Input_4: C:/vsc/data/test/YSPJJW/YSPJJW_xpb.jpg
+Sentence: A woman in a white dress starts a lawn mower.
+Candidates: [[3, 2, 1, 4], [2, 4, 1, 3], [4, 3, 2, 1], [2, 3, 1, 4], [2, 4, 3, 1]]
+
+### Id: pJETr3
+Input_1: C:/vsc/data/test/pJETr3/pJETr3_cqh.jpg
+Input_2: C:/vsc/data/test/pJETr3/pJETr3_fbt.jpg
+Input_3: C:/vsc/data/test/pJETr3/pJETr3_luk.jpg
+Input_4: C:/vsc/data/test/pJETr3/pJETr3_ric.jpg
+Sentence:  The individual puts the shoes on his feet.
+Candidates: [[3, 4, 1, 2], [4, 3, 1, 2]]
+
+### Id: BECRdM
+Input_1: C:/vsc/data/test/BECRdM/BECRdM_diw.jpg
+Input_2: C:/vsc/data/test/BECRdM/BECRdM_hwq.jpg
+Input_3: C:/vsc/data/test/BECRdM/BECRdM_iis.jpg
+Input_4: C:/vsc/data/test/BECRdM/BECRdM_nhy.jpg
+Sentence:   The man simultaneously throws a rope around the calfs neck and dismounts the horse, while the horse is in motion.
+Candidates: [[3, 1, 2, 4], [4, 3, 2, 1], [2, 3, 1, 4], [3, 4, 1, 2]]
+
+### Id: pR1lov
+Input_1: C:/vsc/data/test/pR1lov/pR1lov_fbv.jpg
+Input_2: C:/vsc/data/test/pR1lov/pR1lov_qfk.jpg
+Input_3: C:/vsc/data/test/pR1lov/pR1lov_rns.jpg
+Input_4: C:/vsc/data/test/pR1lov/pR1lov_yor.jpg
+Sentence: The child moves right, swings the racket, and the camera slightly pans, followed by the player in the yellow shirt moving forward with another player following, both approaching the center of the court.
+Candidates: [[2, 3, 1, 4], [2, 4, 1, 3]]
+
+### Id: gv6DET
+Input_1: C:/vsc/data/test/gv6DET/gv6DET_shc.jpg
+Input_2: C:/vsc/data/test/gv6DET/gv6DET_vkj.jpg
+Input_3: C:/vsc/data/test/gv6DET/gv6DET_xae.jpg
+Input_4: C:/vsc/data/test/gv6DET/gv6DET_xjv.jpg
+Sentence: The person kneels and organizes tools on tiled flooring, then applies wood finish to a fence, followed by a close-up of painting tools on a wooden surface.
+Candidates: [[3, 1, 4, 2], [3, 2, 4, 1]]
+
+### Id: Sl4f9t
+Input_1: C:/vsc/data/test/Sl4f9t/Sl4f9t_jbx.jpg
+Input_2: C:/vsc/data/test/Sl4f9t/Sl4f9t_jqt.jpg
+Input_3: C:/vsc/data/test/Sl4f9t/Sl4f9t_lec.jpg
+Input_4: C:/vsc/data/test/Sl4f9t/Sl4f9t_vls.jpg
+Sentence: The camera zooms in on the man playing the piano, then shifts to the performer leaning in to engage closely with the boy holding a flute, maintaining eye contact.
+Candidates: [[1, 2, 4, 3], [2, 1, 4, 3]]
+
+### Id: 8L7TfG
+Input_1: C:/vsc/data/test/8L7TfG/8L7TfG_dkq.jpg
+Input_2: C:/vsc/data/test/8L7TfG/8L7TfG_frh.jpg
+Input_3: C:/vsc/data/test/8L7TfG/8L7TfG_hxa.jpg
+Input_4: C:/vsc/data/test/8L7TfG/8L7TfG_hyt.jpg
+Sentence:  The boy climbs across on the monkey bars.
+Candidates: [[4, 3, 1, 2], [3, 4, 1, 2], [2, 3, 4, 1], [2, 4, 3, 1], [3, 1, 2, 4]]
+
+### Id: Q5tsaU
+Input_1: C:/vsc/data/test/Q5tsaU/Q5tsaU_hoa.jpg
+Input_2: C:/vsc/data/test/Q5tsaU/Q5tsaU_ifa.jpg
+Input_3: C:/vsc/data/test/Q5tsaU/Q5tsaU_ndo.jpg
+Input_4: C:/vsc/data/test/Q5tsaU/Q5tsaU_onf.jpg
+Sentence:  He peels off the layers and begins rubbing down the carpet.
+Candidates: [[3, 4, 1, 2], [3, 4, 2, 1], [4, 1, 2, 3], [2, 4, 1, 3], [4, 1, 3, 2]]
+
+### Id: 7QxQMw
+Input_1: C:/vsc/data/test/7QxQMw/7QxQMw_cry.jpg
+Input_2: C:/vsc/data/test/7QxQMw/7QxQMw_jpk.jpg
+Input_3: C:/vsc/data/test/7QxQMw/7QxQMw_ocq.jpg
+Input_4: C:/vsc/data/test/7QxQMw/7QxQMw_ooh.jpg
+Sentence: a girl glides down a slide.
+Candidates: [[1, 2, 3, 4], [2, 3, 4, 1], [3, 2, 4, 1], [2, 1, 4, 3]]
+
+### Id: BfquZq
+Input_1: C:/vsc/data/test/BfquZq/BfquZq_bvf.jpg
+Input_2: C:/vsc/data/test/BfquZq/BfquZq_eok.jpg
+Input_3: C:/vsc/data/test/BfquZq/BfquZq_kbb.jpg
+Input_4: C:/vsc/data/test/BfquZq/BfquZq_kco.jpg
+Sentence: The woman begins by gesturing with pruning shears, then kneels to trim the top of the rounded plant, focusing closely on her work as she continues to prune.
+Candidates: [[3, 2, 4, 1], [4, 2, 3, 1]]
+
+### Id: 9uf8Mn
+Input_1: C:/vsc/data/test/9uf8Mn/9uf8Mn_iwn.jpg
+Input_2: C:/vsc/data/test/9uf8Mn/9uf8Mn_nsu.jpg
+Input_3: C:/vsc/data/test/9uf8Mn/9uf8Mn_uqu.jpg
+Input_4: C:/vsc/data/test/9uf8Mn/9uf8Mn_wto.jpg
+Sentence:  A woman attempts to stop the child then retrieves his intertube.
+Candidates: [[3, 4, 1, 2], [4, 3, 2, 1], [4, 2, 1, 3], [4, 1, 3, 2], [4, 1, 2, 3], [2, 4, 3, 1]]
+
+### Id: nXIQ7U
+Input_1: C:/vsc/data/test/nXIQ7U/nXIQ7U_ilf.jpg
+Input_2: C:/vsc/data/test/nXIQ7U/nXIQ7U_ivt.jpg
+Input_3: C:/vsc/data/test/nXIQ7U/nXIQ7U_ppg.jpg
+Input_4: C:/vsc/data/test/nXIQ7U/nXIQ7U_tui.jpg
+Sentence: The gardener trims the bushes, then raises the trimmer to shape the taller plants, before the screen transitions to a solid orange background, concluding with the company information.
+Candidates: [[1, 3, 2, 4], [2, 3, 1, 4]]
+
+### Id: Gk8nrS
+Input_1: C:/vsc/data/test/Gk8nrS/Gk8nrS_mjx.jpg
+Input_2: C:/vsc/data/test/Gk8nrS/Gk8nrS_nxd.jpg
+Input_3: C:/vsc/data/test/Gk8nrS/Gk8nrS_roa.jpg
+Input_4: C:/vsc/data/test/Gk8nrS/Gk8nrS_zza.jpg
+Sentence: A woman tries to eat ice cream to a child, but the child refuses to eat the ice cream, then the woman eats the ice cream in the spoon.
+Candidates: [[4, 1, 2, 3], [4, 1, 3, 2], [4, 3, 2, 1], [3, 4, 2, 1]]
+
+### Id: N9kNUd
+Input_1: C:/vsc/data/test/N9kNUd/N9kNUd_akq.jpg
+Input_2: C:/vsc/data/test/N9kNUd/N9kNUd_cgw.jpg
+Input_3: C:/vsc/data/test/N9kNUd/N9kNUd_syw.jpg
+Input_4: C:/vsc/data/test/N9kNUd/N9kNUd_xld.jpg
+Sentence: The text "Coaching and Technique" fades as an individual kneels on a blue platform with one arm raised holding a rod, then transitions to standing and kneeling while raising a resistance band overhead on the platform.
+Candidates: [[1, 4, 2, 3], [1, 3, 2, 4], [1, 2, 3, 4]]
+
+### Id: l89v4Z
+Input_1: C:/vsc/data/test/l89v4Z/l89v4Z_arg.jpg
+Input_2: C:/vsc/data/test/l89v4Z/l89v4Z_mvk.jpg
+Input_3: C:/vsc/data/test/l89v4Z/l89v4Z_wyx.jpg
+Input_4: C:/vsc/data/test/l89v4Z/l89v4Z_zwh.jpg
+Sentence: The skier descends the slope, turning slightly right as the camera zooms out, then stands still to demonstrate a technique before moving right again, with the camera slightly tilting down.
+Candidates: [[3, 4, 1, 2], [4, 3, 1, 2], [3, 4, 2, 1]]

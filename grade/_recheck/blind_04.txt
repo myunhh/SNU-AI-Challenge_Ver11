@@ -1,0 +1,195 @@
+### Id: dlc4bj
+Input_1: C:/vsc/data/test/dlc4bj/dlc4bj_eub.jpg
+Input_2: C:/vsc/data/test/dlc4bj/dlc4bj_fwk.jpg
+Input_3: C:/vsc/data/test/dlc4bj/dlc4bj_jnu.jpg
+Input_4: C:/vsc/data/test/dlc4bj/dlc4bj_zom.jpg
+Sentence: A camera pans around a fenced in are and leads into a woman holding a paint brush.
+
+### Id: mi92Px
+Input_1: C:/vsc/data/test/mi92Px/mi92Px_djb.jpg
+Input_2: C:/vsc/data/test/mi92Px/mi92Px_khl.jpg
+Input_3: C:/vsc/data/test/mi92Px/mi92Px_wgw.jpg
+Input_4: C:/vsc/data/test/mi92Px/mi92Px_ycp.jpg
+Sentence: A boy picks up a rake off the ground and carries it.
+
+### Id: CWj5q0
+Input_1: C:/vsc/data/test/CWj5q0/CWj5q0_hzo.jpg
+Input_2: C:/vsc/data/test/CWj5q0/CWj5q0_nst.jpg
+Input_3: C:/vsc/data/test/CWj5q0/CWj5q0_yxx.jpg
+Input_4: C:/vsc/data/test/CWj5q0/CWj5q0_zsn.jpg
+Sentence: A girl joins another in brushing the horse as the camera zooms out, then a woman moves from brushing the horse's side to grooming its mane with a comb, with the camera zooming in on the neck.
+
+### Id: VKd5q4
+Input_1: C:/vsc/data/test/VKd5q4/VKd5q4_fdt.jpg
+Input_2: C:/vsc/data/test/VKd5q4/VKd5q4_onr.jpg
+Input_3: C:/vsc/data/test/VKd5q4/VKd5q4_vpb.jpg
+Input_4: C:/vsc/data/test/VKd5q4/VKd5q4_xph.jpg
+Sentence: The artist begins by sketching a hair strand, then gradually adds more details to the hair, moving into the facial features, and finally refining the overall portrait.
+
+### Id: TywXp9
+Input_1: C:/vsc/data/test/TywXp9/TywXp9_ink.jpg
+Input_2: C:/vsc/data/test/TywXp9/TywXp9_jti.jpg
+Input_3: C:/vsc/data/test/TywXp9/TywXp9_pkd.jpg
+Input_4: C:/vsc/data/test/TywXp9/TywXp9_ycf.jpg
+Sentence: A snowboarder moves down the slope, then the "Shred Bots" logo appears, followed by a glitchy version of the same logo, and finally, a close-up of a person on a ski lift.
+
+### Id: YPBG8e
+Input_1: C:/vsc/data/test/YPBG8e/YPBG8e_ekd.jpg
+Input_2: C:/vsc/data/test/YPBG8e/YPBG8e_kyj.jpg
+Input_3: C:/vsc/data/test/YPBG8e/YPBG8e_rrp.jpg
+Input_4: C:/vsc/data/test/YPBG8e/YPBG8e_ynf.jpg
+Sentence: The process begins with placing a spare tire, then the person moves in a star pattern to secure the bolts, followed by tightening them thoroughly.
+
+### Id: CbgVj3
+Input_1: C:/vsc/data/test/CbgVj3/CbgVj3_bid.jpg
+Input_2: C:/vsc/data/test/CbgVj3/CbgVj3_lxi.jpg
+Input_3: C:/vsc/data/test/CbgVj3/CbgVj3_ppv.jpg
+Input_4: C:/vsc/data/test/CbgVj3/CbgVj3_xaj.jpg
+Sentence: The female dancer turns away, showcasing her back as the camera zooms out, then lowers her leg and moves right into a close embrace with her partner, as the camera pans out to reveal the stage.
+
+### Id: zftnD9
+Input_1: C:/vsc/data/test/zftnD9/zftnD9_abb.jpg
+Input_2: C:/vsc/data/test/zftnD9/zftnD9_lne.jpg
+Input_3: C:/vsc/data/test/zftnD9/zftnD9_qsz.jpg
+Input_4: C:/vsc/data/test/zftnD9/zftnD9_xvt.jpg
+Sentence: A woman brushes the horse's side and mane as the camera zooms in, then another person sprays the horse, which turns away as they move to the right.
+
+### Id: dfeGHU
+Input_1: C:/vsc/data/test/dfeGHU/dfeGHU_alq.jpg
+Input_2: C:/vsc/data/test/dfeGHU/dfeGHU_deb.jpg
+Input_3: C:/vsc/data/test/dfeGHU/dfeGHU_jiy.jpg
+Input_4: C:/vsc/data/test/dfeGHU/dfeGHU_mtb.jpg
+Sentence: The toaster releases bread, which moves left as cream cheese is spread on it near a banana; meanwhile, a spoon moves left away from the center while a hand approaches a bowl to incorporate egg whites into the mixture.
+
+### Id: YtHlYo
+Input_1: C:/vsc/data/test/YtHlYo/YtHlYo_dum.jpg
+Input_2: C:/vsc/data/test/YtHlYo/YtHlYo_euy.jpg
+Input_3: C:/vsc/data/test/YtHlYo/YtHlYo_lwh.jpg
+Input_4: C:/vsc/data/test/YtHlYo/YtHlYo_wzf.jpg
+Sentence: The jar is wrapped and paper is gathered at the top with scissors poised to cut, then tissue paper is adjusted inside a green bag and secured with a ribbon tied around the handles.
+
+### Id: 4cxe0W
+Input_1: C:/vsc/data/test/4cxe0W/4cxe0W_bdf.jpg
+Input_2: C:/vsc/data/test/4cxe0W/4cxe0W_brj.jpg
+Input_3: C:/vsc/data/test/4cxe0W/4cxe0W_rvg.jpg
+Input_4: C:/vsc/data/test/4cxe0W/4cxe0W_xyj.jpg
+Sentence: A young man puts lipstick on his lips.
+
+### Id: 8L7TfG
+Input_1: C:/vsc/data/test/8L7TfG/8L7TfG_dkq.jpg
+Input_2: C:/vsc/data/test/8L7TfG/8L7TfG_frh.jpg
+Input_3: C:/vsc/data/test/8L7TfG/8L7TfG_hxa.jpg
+Input_4: C:/vsc/data/test/8L7TfG/8L7TfG_hyt.jpg
+Sentence:  The boy climbs across on the monkey bars.
+
+### Id: b44PjE
+Input_1: C:/vsc/data/test/b44PjE/b44PjE_ano.jpg
+Input_2: C:/vsc/data/test/b44PjE/b44PjE_chg.jpg
+Input_3: C:/vsc/data/test/b44PjE/b44PjE_iwk.jpg
+Input_4: C:/vsc/data/test/b44PjE/b44PjE_sbf.jpg
+Sentence:  She climbs her way back on the bars and jumps down mid way through.
+
+### Id: 7MeCko
+Input_1: C:/vsc/data/test/7MeCko/7MeCko_amr.jpg
+Input_2: C:/vsc/data/test/7MeCko/7MeCko_pqc.jpg
+Input_3: C:/vsc/data/test/7MeCko/7MeCko_vne.jpg
+Input_4: C:/vsc/data/test/7MeCko/7MeCko_yww.jpg
+Sentence: The toast pops from the toaster, spreads with cream cheese beside a banana, then the scene shifts to bread being layered with cheese and meat, forming a towering sandwich as hands move away.
+
+### Id: nALyDx
+Input_1: C:/vsc/data/test/nALyDx/nALyDx_hke.jpg
+Input_2: C:/vsc/data/test/nALyDx/nALyDx_jmj.jpg
+Input_3: C:/vsc/data/test/nALyDx/nALyDx_lrk.jpg
+Input_4: C:/vsc/data/test/nALyDx/nALyDx_mjl.jpg
+Sentence: The chef chops broccoli on the cutting board, spreading it slightly, then a person leans closer to a plate, moving hands from the left side to directly over the food, focusing intently as they break it apart.
+
+### Id: RkBgHm
+Input_1: C:/vsc/data/test/RkBgHm/RkBgHm_hdc.jpg
+Input_2: C:/vsc/data/test/RkBgHm/RkBgHm_iks.jpg
+Input_3: C:/vsc/data/test/RkBgHm/RkBgHm_jjh.jpg
+Input_4: C:/vsc/data/test/RkBgHm/RkBgHm_txm.jpg
+Sentence: A runner is interviewed indoors at a bar, transitioning to another runner outdoors as the camera pans right, followed by a man preparing a colorful kite, smiling and holding the string while the kite is absent.
+
+### Id: khj1uc
+Input_1: C:/vsc/data/test/khj1uc/khj1uc_abz.jpg
+Input_2: C:/vsc/data/test/khj1uc/khj1uc_eeb.jpg
+Input_3: C:/vsc/data/test/khj1uc/khj1uc_ikg.jpg
+Input_4: C:/vsc/data/test/khj1uc/khj1uc_qqs.jpg
+Sentence: The text fades to reveal a neem tree with green and yellow fruits, then the camera tilts up to show a deer in the distance as a hunter raises a bow.
+
+### Id: VWdZB7
+Input_1: C:/vsc/data/test/VWdZB7/VWdZB7_mjh.jpg
+Input_2: C:/vsc/data/test/VWdZB7/VWdZB7_sxu.jpg
+Input_3: C:/vsc/data/test/VWdZB7/VWdZB7_wrd.jpg
+Input_4: C:/vsc/data/test/VWdZB7/VWdZB7_zbh.jpg
+Sentence: The word "CHOW" fades as the camera pans to Laura Werlin in a kitchen, then shifts focus to a close-up of shredded cheese being layered on bread.
+
+### Id: tF6VNu
+Input_1: C:/vsc/data/test/tF6VNu/tF6VNu_apm.jpg
+Input_2: C:/vsc/data/test/tF6VNu/tF6VNu_oat.jpg
+Input_3: C:/vsc/data/test/tF6VNu/tF6VNu_qkj.jpg
+Input_4: C:/vsc/data/test/tF6VNu/tF6VNu_ukg.jpg
+Sentence:  The mans catch finally reaches the surface.
+
+### Id: 1pCMCL
+Input_1: C:/vsc/data/test/1pCMCL/1pCMCL_gfq.jpg
+Input_2: C:/vsc/data/test/1pCMCL/1pCMCL_hdo.jpg
+Input_3: C:/vsc/data/test/1pCMCL/1pCMCL_vrz.jpg
+Input_4: C:/vsc/data/test/1pCMCL/1pCMCL_zuq.jpg
+Sentence:  They use tubes to slide down a steep hill.
+
+### Id: PbTFue
+Input_1: C:/vsc/data/test/PbTFue/PbTFue_kln.jpg
+Input_2: C:/vsc/data/test/PbTFue/PbTFue_saq.jpg
+Input_3: C:/vsc/data/test/PbTFue/PbTFue_upz.jpg
+Input_4: C:/vsc/data/test/PbTFue/PbTFue_xkc.jpg
+Sentence:  Another child from a taller foosball table walks over to the child sized table sticks his hands on the table.
+
+### Id: Q5tsaU
+Input_1: C:/vsc/data/test/Q5tsaU/Q5tsaU_hoa.jpg
+Input_2: C:/vsc/data/test/Q5tsaU/Q5tsaU_ifa.jpg
+Input_3: C:/vsc/data/test/Q5tsaU/Q5tsaU_ndo.jpg
+Input_4: C:/vsc/data/test/Q5tsaU/Q5tsaU_onf.jpg
+Sentence:  He peels off the layers and begins rubbing down the carpet.
+
+### Id: 7QxQMw
+Input_1: C:/vsc/data/test/7QxQMw/7QxQMw_cry.jpg
+Input_2: C:/vsc/data/test/7QxQMw/7QxQMw_jpk.jpg
+Input_3: C:/vsc/data/test/7QxQMw/7QxQMw_ocq.jpg
+Input_4: C:/vsc/data/test/7QxQMw/7QxQMw_ooh.jpg
+Sentence: a girl glides down a slide.
+
+### Id: BfquZq
+Input_1: C:/vsc/data/test/BfquZq/BfquZq_bvf.jpg
+Input_2: C:/vsc/data/test/BfquZq/BfquZq_eok.jpg
+Input_3: C:/vsc/data/test/BfquZq/BfquZq_kbb.jpg
+Input_4: C:/vsc/data/test/BfquZq/BfquZq_kco.jpg
+Sentence: The woman begins by gesturing with pruning shears, then kneels to trim the top of the rounded plant, focusing closely on her work as she continues to prune.
+
+### Id: 9uf8Mn
+Input_1: C:/vsc/data/test/9uf8Mn/9uf8Mn_iwn.jpg
+Input_2: C:/vsc/data/test/9uf8Mn/9uf8Mn_nsu.jpg
+Input_3: C:/vsc/data/test/9uf8Mn/9uf8Mn_uqu.jpg
+Input_4: C:/vsc/data/test/9uf8Mn/9uf8Mn_wto.jpg
+Sentence:  A woman attempts to stop the child then retrieves his intertube.
+
+### Id: nXIQ7U
+Input_1: C:/vsc/data/test/nXIQ7U/nXIQ7U_ilf.jpg
+Input_2: C:/vsc/data/test/nXIQ7U/nXIQ7U_ivt.jpg
+Input_3: C:/vsc/data/test/nXIQ7U/nXIQ7U_ppg.jpg
+Input_4: C:/vsc/data/test/nXIQ7U/nXIQ7U_tui.jpg
+Sentence: The gardener trims the bushes, then raises the trimmer to shape the taller plants, before the screen transitions to a solid orange background, concluding with the company information.
+
+### Id: Xk1RJ7
+Input_1: C:/vsc/data/test/Xk1RJ7/Xk1RJ7_oby.jpg
+Input_2: C:/vsc/data/test/Xk1RJ7/Xk1RJ7_qsp.jpg
+Input_3: C:/vsc/data/test/Xk1RJ7/Xk1RJ7_ulz.jpg
+Input_4: C:/vsc/data/test/Xk1RJ7/Xk1RJ7_zrx.jpg
+Sentence: The man stands from kneeling and steps back as others gather around curling stones, then the person lifts a fish upward triumphantly against the snowy backdrop, maintaining the same camera angle throughout.
+
+### Id: X9G8Qr
+Input_1: C:/vsc/data/test/X9G8Qr/X9G8Qr_jdt.jpg
+Input_2: C:/vsc/data/test/X9G8Qr/X9G8Qr_lve.jpg
+Input_3: C:/vsc/data/test/X9G8Qr/X9G8Qr_urk.jpg
+Input_4: C:/vsc/data/test/X9G8Qr/X9G8Qr_zol.jpg
+Sentence: The performer exits as two students approach the seated instructor from the right, then another performer bows with a sword, moves forward, and shifts into a low stance with the sword angled backward.

@@ -1,0 +1,119 @@
+### Id: Kk83WO
+Input_1: C:/vsc/data/test/Kk83WO/Kk83WO_grs.jpg
+Input_2: C:/vsc/data/test/Kk83WO/Kk83WO_kqe.jpg
+Input_3: C:/vsc/data/test/Kk83WO/Kk83WO_mex.jpg
+Input_4: C:/vsc/data/test/Kk83WO/Kk83WO_vch.jpg
+Sentence: A climber begins to ascend the wall, then a trainer explains techniques, followed by a demonstration of climbing moves, and finally, the climber executes the techniques shown.
+Candidates: [[4, 1, 3, 2], [4, 3, 1, 2], [1, 3, 4, 2], [1, 2, 4, 3]]
+
+### Id: LRHWnG
+Input_1: C:/vsc/data/test/LRHWnG/LRHWnG_elg.jpg
+Input_2: C:/vsc/data/test/LRHWnG/LRHWnG_jfk.jpg
+Input_3: C:/vsc/data/test/LRHWnG/LRHWnG_pal.jpg
+Input_4: C:/vsc/data/test/LRHWnG/LRHWnG_yeu.jpg
+Sentence:  Then, a boy puts on roller skaters and performs in the gym.
+Candidates: [[4, 1, 2, 3], [3, 1, 4, 2], [4, 1, 3, 2]]
+
+### Id: aPKUZi
+Input_1: C:/vsc/data/test/aPKUZi/aPKUZi_elk.jpg
+Input_2: C:/vsc/data/test/aPKUZi/aPKUZi_hun.jpg
+Input_3: C:/vsc/data/test/aPKUZi/aPKUZi_idi.jpg
+Input_4: C:/vsc/data/test/aPKUZi/aPKUZi_zfo.jpg
+Sentence: The swimmer begins with an easy effort, then gradually increases pace and stroke rate, moving into a steady effort by the final frame. The progression shows enhanced speed and efficiency.
+Candidates: [[1, 2, 3, 4], [2, 1, 3, 4], [1, 2, 4, 3]]
+
+### Id: VrYJLb
+Input_1: C:/vsc/data/test/VrYJLb/VrYJLb_bne.jpg
+Input_2: C:/vsc/data/test/VrYJLb/VrYJLb_ocm.jpg
+Input_3: C:/vsc/data/test/VrYJLb/VrYJLb_qsw.jpg
+Input_4: C:/vsc/data/test/VrYJLb/VrYJLb_uuj.jpg
+Sentence: The installation guide appears, then the boxes are shown, followed by a person raising the window frame on the roof.
+Candidates: [[1, 3, 4, 2], [2, 3, 4, 1]]
+
+### Id: CzkRiH
+Input_1: C:/vsc/data/test/CzkRiH/CzkRiH_kwh.jpg
+Input_2: C:/vsc/data/test/CzkRiH/CzkRiH_odn.jpg
+Input_3: C:/vsc/data/test/CzkRiH/CzkRiH_qnw.jpg
+Input_4: C:/vsc/data/test/CzkRiH/CzkRiH_vqx.jpg
+Sentence: A little girl is crossing the monkey bars.
+Candidates: [[1, 3, 2, 4], [2, 4, 3, 1], [4, 1, 3, 2], [2, 4, 1, 3]]
+
+### Id: iefIZE
+Input_1: C:/vsc/data/test/iefIZE/iefIZE_buh.jpg
+Input_2: C:/vsc/data/test/iefIZE/iefIZE_jgv.jpg
+Input_3: C:/vsc/data/test/iefIZE/iefIZE_ljd.jpg
+Input_4: C:/vsc/data/test/iefIZE/iefIZE_ucr.jpg
+Sentence:  A man gets hit by a rope while chasing a calf.
+Candidates: [[1, 4, 3, 2], [1, 3, 4, 2], [1, 2, 3, 4], [3, 1, 2, 4]]
+
+### Id: Z9CdGI
+Input_1: C:/vsc/data/test/Z9CdGI/Z9CdGI_cfo.jpg
+Input_2: C:/vsc/data/test/Z9CdGI/Z9CdGI_ffh.jpg
+Input_3: C:/vsc/data/test/Z9CdGI/Z9CdGI_ssy.jpg
+Input_4: C:/vsc/data/test/Z9CdGI/Z9CdGI_tfh.jpg
+Sentence: The climber begins to balance on the slackline, then raises his arms for stability, moves forward confidently, and finally appears to leap toward the next rock.
+Candidates: [[1, 4, 2, 3], [2, 4, 3, 1], [3, 4, 1, 2], [1, 2, 3, 4], [3, 4, 2, 1]]
+
+### Id: 8CEiq5
+Input_1: C:/vsc/data/test/8CEiq5/8CEiq5_kto.jpg
+Input_2: C:/vsc/data/test/8CEiq5/8CEiq5_vvs.jpg
+Input_3: C:/vsc/data/test/8CEiq5/8CEiq5_vxy.jpg
+Input_4: C:/vsc/data/test/8CEiq5/8CEiq5_xqc.jpg
+Sentence: A young girl climbs on top of a camel while others walk around her.
+Candidates: [[3, 1, 4, 2], [1, 2, 4, 3], [2, 1, 3, 4], [2, 1, 4, 3], [4, 1, 3, 2]]
+
+### Id: 2eRouT
+Input_1: C:/vsc/data/test/2eRouT/2eRouT_fcn.jpg
+Input_2: C:/vsc/data/test/2eRouT/2eRouT_jtp.jpg
+Input_3: C:/vsc/data/test/2eRouT/2eRouT_tcn.jpg
+Input_4: C:/vsc/data/test/2eRouT/2eRouT_wgy.jpg
+Sentence: A hand polishes the right boot, rotating it slightly clockwise, then the scene shifts to a close-up of a tool on eyelashes before revealing a wider view of a person speaking in front of a mirror.
+Candidates: [[1, 4, 3, 2], [2, 4, 3, 1]]
+
+### Id: ynzxgr
+Input_1: C:/vsc/data/test/ynzxgr/ynzxgr_fwd.jpg
+Input_2: C:/vsc/data/test/ynzxgr/ynzxgr_hey.jpg
+Input_3: C:/vsc/data/test/ynzxgr/ynzxgr_ogg.jpg
+Input_4: C:/vsc/data/test/ynzxgr/ynzxgr_yuj.jpg
+Sentence: The person begins to carve the pumpkin, then cuts out the eyes and mouth, and finally reveals the completed design with a smile.
+Candidates: [[3, 1, 2, 4], [2, 1, 3, 4], [1, 2, 3, 4], [2, 3, 1, 4]]
+
+### Id: 3G4J9K
+Input_1: C:/vsc/data/test/3G4J9K/3G4J9K_iza.jpg
+Input_2: C:/vsc/data/test/3G4J9K/3G4J9K_kiv.jpg
+Input_3: C:/vsc/data/test/3G4J9K/3G4J9K_nvg.jpg
+Input_4: C:/vsc/data/test/3G4J9K/3G4J9K_wgy.jpg
+Sentence:  A man picks up a shoe and puts it on his foot.
+Candidates: [[3, 4, 1, 2], [2, 4, 1, 3], [4, 3, 1, 2], [3, 4, 2, 1]]
+
+### Id: abzkll
+Input_1: C:/vsc/data/test/abzkll/abzkll_hpi.jpg
+Input_2: C:/vsc/data/test/abzkll/abzkll_kmz.jpg
+Input_3: C:/vsc/data/test/abzkll/abzkll_tvy.jpg
+Input_4: C:/vsc/data/test/abzkll/abzkll_zog.jpg
+Sentence:  He peels the sticky side from the backing paper.
+Candidates: [[1, 3, 2, 4], [1, 2, 3, 4], [2, 3, 1, 4], [3, 1, 2, 4]]
+
+### Id: OCAYKz
+Input_1: C:/vsc/data/test/OCAYKz/OCAYKz_bia.jpg
+Input_2: C:/vsc/data/test/OCAYKz/OCAYKz_bkt.jpg
+Input_3: C:/vsc/data/test/OCAYKz/OCAYKz_isx.jpg
+Input_4: C:/vsc/data/test/OCAYKz/OCAYKz_sfj.jpg
+Sentence: The performer lowers her arms and smiles as the hula hoops descend, then dancers in blue dresses twirl closer together, moving slightly to the right while maintaining their synchronized motion on the gym floor.
+Candidates: [[2, 1, 3, 4], [2, 1, 4, 3]]
+
+### Id: a94blB
+Input_1: C:/vsc/data/test/a94blB/a94blB_nly.jpg
+Input_2: C:/vsc/data/test/a94blB/a94blB_umq.jpg
+Input_3: C:/vsc/data/test/a94blB/a94blB_vcq.jpg
+Input_4: C:/vsc/data/test/a94blB/a94blB_ydr.jpg
+Sentence: Aurelia the Cartographer Moth begins by sketching constellations at her attic drafting table, then launches from a mossy rooftop garden into the night trailing a glowing thread, after which she ascends above a chasm to anchor a luminous stitch into a suspended spire, and finally perches in a cliffside observatory to complete the last stitch on a vast stitched star-map at dawn.
+Candidates: [[3, 1, 2, 4], [4, 2, 3, 1], [4, 1, 3, 2]]
+
+### Id: jtVqZO
+Input_1: C:/vsc/data/test/jtVqZO/jtVqZO_ewz.jpg
+Input_2: C:/vsc/data/test/jtVqZO/jtVqZO_ifi.jpg
+Input_3: C:/vsc/data/test/jtVqZO/jtVqZO_qaj.jpg
+Input_4: C:/vsc/data/test/jtVqZO/jtVqZO_twv.jpg
+Sentence: Mirella, the Cartographer of Falling Stars, begins by tracing a new line on a rooftop star-chart, then strides along the shore with her hovering compasses aimed at a faint rising star, after which she stands on a mountain ridge and uses those compasses to guide a falling meteor into her vial, and finally returns to her studio to pin the condensed light onto her sky map.
+Candidates: [[3, 1, 4, 2], [4, 1, 2, 3], [4, 3, 2, 1], [4, 3, 1, 2], [4, 2, 1, 3], [4, 1, 3, 2]]

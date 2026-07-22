@@ -1,0 +1,223 @@
+### Id: RifI6f
+Input_1: C:/vsc/data/test/RifI6f/RifI6f_fyc.jpg
+Input_2: C:/vsc/data/test/RifI6f/RifI6f_lfe.jpg
+Input_3: C:/vsc/data/test/RifI6f/RifI6f_rdt.jpg
+Input_4: C:/vsc/data/test/RifI6f/RifI6f_rnr.jpg
+Sentence: The woman begins to wrap a box with paper, then folds the edges neatly, before placing it back on the counter, completing the gift-wrapping process.
+Candidates: [[2, 4, 1, 3], [3, 4, 2, 1], [2, 3, 1, 4]]
+
+### Id: kMO5fC
+Input_1: C:/vsc/data/test/kMO5fC/kMO5fC_gxy.jpg
+Input_2: C:/vsc/data/test/kMO5fC/kMO5fC_jtg.jpg
+Input_3: C:/vsc/data/test/kMO5fC/kMO5fC_ono.jpg
+Input_4: C:/vsc/data/test/kMO5fC/kMO5fC_vtp.jpg
+Sentence:  The man leads the camel out of the pen as he smokes a cigarette.
+Candidates: [[1, 2, 3, 4], [2, 1, 3, 4], [2, 1, 4, 3]]
+
+### Id: 1Vk7eD
+Input_1: C:/vsc/data/test/1Vk7eD/1Vk7eD_ltb.jpg
+Input_2: C:/vsc/data/test/1Vk7eD/1Vk7eD_oax.jpg
+Input_3: C:/vsc/data/test/1Vk7eD/1Vk7eD_qcu.jpg
+Input_4: C:/vsc/data/test/1Vk7eD/1Vk7eD_qjk.jpg
+Sentence:  The group of men put the carpet on the floor, they measure it, cut it and taped it.
+Candidates: [[2, 3, 1, 4], [1, 2, 3, 4], [1, 3, 2, 4], [3, 4, 2, 1], [3, 1, 2, 4]]
+
+### Id: 6vIK5i
+Input_1: C:/vsc/data/test/6vIK5i/6vIK5i_bce.jpg
+Input_2: C:/vsc/data/test/6vIK5i/6vIK5i_frf.jpg
+Input_3: C:/vsc/data/test/6vIK5i/6vIK5i_mdi.jpg
+Input_4: C:/vsc/data/test/6vIK5i/6vIK5i_ziu.jpg
+Sentence:  Chocolate chips are added to the dough.
+Candidates: [[1, 3, 2, 4], [1, 2, 3, 4], [1, 4, 2, 3]]
+
+### Id: eWhkQO
+Input_1: C:/vsc/data/test/eWhkQO/eWhkQO_dae.jpg
+Input_2: C:/vsc/data/test/eWhkQO/eWhkQO_nti.jpg
+Input_3: C:/vsc/data/test/eWhkQO/eWhkQO_ytf.jpg
+Input_4: C:/vsc/data/test/eWhkQO/eWhkQO_zpx.jpg
+Sentence: A person works on a bicycle frame, then adjusts the handlebars, before interacting with another person outside, who is holding the completed bike.
+Candidates: [[4, 2, 1, 3], [4, 3, 1, 2], [4, 1, 2, 3]]
+
+### Id: HXeI8w
+Input_1: C:/vsc/data/test/HXeI8w/HXeI8w_buc.jpg
+Input_2: C:/vsc/data/test/HXeI8w/HXeI8w_emh.jpg
+Input_3: C:/vsc/data/test/HXeI8w/HXeI8w_rkg.jpg
+Input_4: C:/vsc/data/test/HXeI8w/HXeI8w_yvd.jpg
+Sentence:  A women representing The Daily news channel is talking about the sweater and then she wears it.
+Candidates: [[2, 4, 3, 1], [1, 4, 3, 2]]
+
+### Id: DM56Di
+Input_1: C:/vsc/data/test/DM56Di/DM56Di_akm.jpg
+Input_2: C:/vsc/data/test/DM56Di/DM56Di_kzr.jpg
+Input_3: C:/vsc/data/test/DM56Di/DM56Di_oqq.jpg
+Input_4: C:/vsc/data/test/DM56Di/DM56Di_zps.jpg
+Sentence: The object moves downward and closer to the center as the camera zooms out slightly, then the fish moves upward and slightly to the right as it is held in both hands, with the knife now resting on the ground.
+Candidates: [[4, 1, 3, 2], [3, 1, 2, 4], [4, 3, 2, 1], [4, 1, 2, 3], [4, 3, 1, 2]]
+
+### Id: 5IemZK
+Input_1: C:/vsc/data/test/5IemZK/5IemZK_gbl.jpg
+Input_2: C:/vsc/data/test/5IemZK/5IemZK_jbc.jpg
+Input_3: C:/vsc/data/test/5IemZK/5IemZK_sfr.jpg
+Input_4: C:/vsc/data/test/5IemZK/5IemZK_yqf.jpg
+Sentence:  The man adds more sugar to the glasses and ice water from the bucket under the fruit.
+Candidates: [[2, 1, 3, 4], [2, 3, 1, 4], [2, 1, 4, 3], [3, 4, 1, 2]]
+
+### Id: cowNGM
+Input_1: C:/vsc/data/test/cowNGM/cowNGM_bjv.jpg
+Input_2: C:/vsc/data/test/cowNGM/cowNGM_igy.jpg
+Input_3: C:/vsc/data/test/cowNGM/cowNGM_ixk.jpg
+Input_4: C:/vsc/data/test/cowNGM/cowNGM_tnq.jpg
+Sentence: The person transitions from standing to sitting on a couch while eating a sandwich, then the woman moves from stirring a pot to squeezing a lemon over the counter.
+Candidates: [[1, 3, 2, 4], [1, 4, 2, 3]]
+
+### Id: S3E8Td
+Input_1: C:/vsc/data/test/S3E8Td/S3E8Td_eev.jpg
+Input_2: C:/vsc/data/test/S3E8Td/S3E8Td_icu.jpg
+Input_3: C:/vsc/data/test/S3E8Td/S3E8Td_kgj.jpg
+Input_4: C:/vsc/data/test/S3E8Td/S3E8Td_qxz.jpg
+Sentence: The scene transitions from a title screen to a person rising from a mat, then shifts to a woman in blue kneeling as another gestures beside her, with a slight downward camera tilt.
+Candidates: [[3, 4, 2, 1], [4, 3, 2, 1]]
+
+### Id: VAhS2V
+Input_1: C:/vsc/data/test/VAhS2V/VAhS2V_nnb.jpg
+Input_2: C:/vsc/data/test/VAhS2V/VAhS2V_phw.jpg
+Input_3: C:/vsc/data/test/VAhS2V/VAhS2V_wiv.jpg
+Input_4: C:/vsc/data/test/VAhS2V/VAhS2V_xuu.jpg
+Sentence: The view opens with a truck ahead, then shifts to a skateboarder gaining speed, followed by the road ahead, and finally shows a person looking back at the camera.
+Candidates: [[2, 4, 3, 1], [3, 4, 2, 1], [1, 4, 2, 3]]
+
+### Id: 4xk66H
+Input_1: C:/vsc/data/test/4xk66H/4xk66H_avc.jpg
+Input_2: C:/vsc/data/test/4xk66H/4xk66H_kdu.jpg
+Input_3: C:/vsc/data/test/4xk66H/4xk66H_ufo.jpg
+Input_4: C:/vsc/data/test/4xk66H/4xk66H_zej.jpg
+Sentence: The woman walks her dog down the sidewalk, pausing to gesture, then continues as the dog moves from left to center; she then brushes another dog's back, moving her hand to its neck, while the dog stands calmly.
+Candidates: [[2, 4, 1, 3], [1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: Q8AcuC
+Input_1: C:/vsc/data/test/Q8AcuC/Q8AcuC_htl.jpg
+Input_2: C:/vsc/data/test/Q8AcuC/Q8AcuC_qch.jpg
+Input_3: C:/vsc/data/test/Q8AcuC/Q8AcuC_sco.jpg
+Input_4: C:/vsc/data/test/Q8AcuC/Q8AcuC_sdu.jpg
+Sentence: A man pushes a mower forward, veering slightly right near the house, then the scene shifts to a close-up of someone applying wood finish, ending with a view of painting supplies on a wooden surface.
+Candidates: [[2, 1, 3, 4], [1, 2, 3, 4]]
+
+### Id: neLENZ
+Input_1: C:/vsc/data/test/neLENZ/neLENZ_jlh.jpg
+Input_2: C:/vsc/data/test/neLENZ/neLENZ_kso.jpg
+Input_3: C:/vsc/data/test/neLENZ/neLENZ_lqv.jpg
+Input_4: C:/vsc/data/test/neLENZ/neLENZ_vnh.jpg
+Sentence: Hands secure sections of hair into an updo, then the camera zooms out and pans left to reveal text overlay about a DIY updo tutorial.
+Candidates: [[2, 1, 4, 3], [3, 1, 4, 2], [3, 2, 4, 1]]
+
+### Id: YZuSuG
+Input_1: C:/vsc/data/test/YZuSuG/YZuSuG_fyn.jpg
+Input_2: C:/vsc/data/test/YZuSuG/YZuSuG_hgs.jpg
+Input_3: C:/vsc/data/test/YZuSuG/YZuSuG_oxc.jpg
+Input_4: C:/vsc/data/test/YZuSuG/YZuSuG_soy.jpg
+Sentence:  We see the person carve a drawing on a pumpkin.
+Candidates: [[1, 4, 3, 2], [2, 3, 4, 1], [1, 2, 4, 3], [1, 3, 4, 2]]
+
+### Id: XOdJXa
+Input_1: C:/vsc/data/test/XOdJXa/XOdJXa_blm.jpg
+Input_2: C:/vsc/data/test/XOdJXa/XOdJXa_gbi.jpg
+Input_3: C:/vsc/data/test/XOdJXa/XOdJXa_hvl.jpg
+Input_4: C:/vsc/data/test/XOdJXa/XOdJXa_rji.jpg
+Sentence:  She shows off her natural hair, then demonstrates how to style it using a blow out.
+Candidates: [[1, 3, 4, 2], [1, 4, 3, 2], [4, 2, 3, 1], [4, 3, 2, 1], [2, 4, 3, 1]]
+
+### Id: ko74ge
+Input_1: C:/vsc/data/test/ko74ge/ko74ge_xdh.jpg
+Input_2: C:/vsc/data/test/ko74ge/ko74ge_xhk.jpg
+Input_3: C:/vsc/data/test/ko74ge/ko74ge_yig.jpg
+Input_4: C:/vsc/data/test/ko74ge/ko74ge_zlc.jpg
+Sentence:  He is using a red can of spray paint to demonstrate how to paints a cream colored sofa with red paint.
+Candidates: [[1, 2, 3, 4], [4, 1, 3, 2], [3, 4, 2, 1], [1, 4, 3, 2], [2, 3, 4, 1]]
+
+### Id: Odqs9J
+Input_1: C:/vsc/data/test/Odqs9J/Odqs9J_aja.jpg
+Input_2: C:/vsc/data/test/Odqs9J/Odqs9J_bla.jpg
+Input_3: C:/vsc/data/test/Odqs9J/Odqs9J_fzs.jpg
+Input_4: C:/vsc/data/test/Odqs9J/Odqs9J_wce.jpg
+Sentence: The person begins to apply wallpaper in the first frame, then uses a cutting tool in the second, moves to adjust the wallpaper in the third, and finally the video ends with a logo.
+Candidates: [[2, 3, 1, 4], [1, 2, 3, 4], [1, 3, 2, 4]]
+
+### Id: No4L4n
+Input_1: C:/vsc/data/test/No4L4n/No4L4n_ezf.jpg
+Input_2: C:/vsc/data/test/No4L4n/No4L4n_lej.jpg
+Input_3: C:/vsc/data/test/No4L4n/No4L4n_nie.jpg
+Input_4: C:/vsc/data/test/No4L4n/No4L4n_qhv.jpg
+Sentence:  He melts wax onto the bottom of the ski and irons it.
+Candidates: [[2, 4, 3, 1], [3, 4, 2, 1]]
+
+### Id: aHcW5I
+Input_1: C:/vsc/data/test/aHcW5I/aHcW5I_aeb.jpg
+Input_2: C:/vsc/data/test/aHcW5I/aHcW5I_bbs.jpg
+Input_3: C:/vsc/data/test/aHcW5I/aHcW5I_fvg.jpg
+Input_4: C:/vsc/data/test/aHcW5I/aHcW5I_hfq.jpg
+Sentence: A person's feet are show followed by a woman putting shoes over her socks and bending forward.
+Candidates: [[1, 3, 2, 4], [1, 2, 3, 4], [1, 4, 3, 2], [2, 3, 4, 1]]
+
+### Id: ALfz6z
+Input_1: C:/vsc/data/test/ALfz6z/ALfz6z_ank.jpg
+Input_2: C:/vsc/data/test/ALfz6z/ALfz6z_mdl.jpg
+Input_3: C:/vsc/data/test/ALfz6z/ALfz6z_rxw.jpg
+Input_4: C:/vsc/data/test/ALfz6z/ALfz6z_sou.jpg
+Sentence: An athlete bends over and exits the frame as the camera shifts to seated competitors; simultaneously, a person sprays a roof, moves right to another section while standing, and the camera pans slightly downward.
+Candidates: [[3, 1, 4, 2], [4, 1, 3, 2], [2, 1, 3, 4]]
+
+### Id: 5zb7Ro
+Input_1: C:/vsc/data/test/5zb7Ro/5zb7Ro_akn.jpg
+Input_2: C:/vsc/data/test/5zb7Ro/5zb7Ro_fjw.jpg
+Input_3: C:/vsc/data/test/5zb7Ro/5zb7Ro_git.jpg
+Input_4: C:/vsc/data/test/5zb7Ro/5zb7Ro_hln.jpg
+Sentence: The athlete lifts the barbell from the ground to waist level as the coach points, then another athlete lowers a barbell from overhead to the ground while a new lifter prepares to begin.
+Candidates: [[4, 3, 2, 1], [3, 1, 2, 4], [3, 4, 2, 1], [4, 1, 3, 2]]
+
+### Id: Imn9yG
+Input_1: C:/vsc/data/test/Imn9yG/Imn9yG_bwm.jpg
+Input_2: C:/vsc/data/test/Imn9yG/Imn9yG_fmq.jpg
+Input_3: C:/vsc/data/test/Imn9yG/Imn9yG_mqf.jpg
+Input_4: C:/vsc/data/test/Imn9yG/Imn9yG_oye.jpg
+Sentence:  A man in a white shirt is showing applying plaster to a room.
+Candidates: [[4, 1, 3, 2], [3, 1, 4, 2], [2, 4, 1, 3], [4, 3, 1, 2], [2, 1, 4, 3]]
+
+### Id: 79TdaG
+Input_1: C:/vsc/data/test/79TdaG/79TdaG_fzr.jpg
+Input_2: C:/vsc/data/test/79TdaG/79TdaG_ksh.jpg
+Input_3: C:/vsc/data/test/79TdaG/79TdaG_oxo.jpg
+Input_4: C:/vsc/data/test/79TdaG/79TdaG_zpe.jpg
+Sentence: A man takes off his shirt.
+Candidates: [[1, 2, 3, 4], [1, 2, 4, 3], [2, 1, 4, 3]]
+
+### Id: 6fko8F
+Input_1: C:/vsc/data/test/6fko8F/6fko8F_hts.jpg
+Input_2: C:/vsc/data/test/6fko8F/6fko8F_nce.jpg
+Input_3: C:/vsc/data/test/6fko8F/6fko8F_xhg.jpg
+Input_4: C:/vsc/data/test/6fko8F/6fko8F_yph.jpg
+Sentence: The player leans over the table to take a shot, then shifts to an overhead view as he prepares to strike. Finally, he stands and gestures while another player lines up their shot.
+Candidates: [[1, 2, 4, 3], [1, 3, 4, 2], [1, 2, 3, 4], [2, 3, 4, 1]]
+
+### Id: kb6PX7
+Input_1: C:/vsc/data/test/kb6PX7/kb6PX7_ddx.jpg
+Input_2: C:/vsc/data/test/kb6PX7/kb6PX7_twv.jpg
+Input_3: C:/vsc/data/test/kb6PX7/kb6PX7_weo.jpg
+Input_4: C:/vsc/data/test/kb6PX7/kb6PX7_zwo.jpg
+Sentence: The man raises and tilts the bow while smiling, then a bike component is adjusted left and secured with a tool as the camera slightly zooms in.
+Candidates: [[1, 3, 4, 2], [2, 3, 4, 1], [1, 4, 3, 2], [2, 4, 3, 1]]
+
+### Id: uyWtdf
+Input_1: C:/vsc/data/test/uyWtdf/uyWtdf_acz.jpg
+Input_2: C:/vsc/data/test/uyWtdf/uyWtdf_fyv.jpg
+Input_3: C:/vsc/data/test/uyWtdf/uyWtdf_oqq.jpg
+Input_4: C:/vsc/data/test/uyWtdf/uyWtdf_tjs.jpg
+Sentence: The woman lowers her gaze to apply a yellow contact lens, then the girl moves her hand away from her eye as her head turns slightly left.
+Candidates: [[4, 2, 1, 3], [1, 2, 4, 3], [3, 1, 2, 4], [4, 1, 2, 3], [3, 2, 1, 4]]
+
+### Id: 72JETK
+Input_1: C:/vsc/data/test/72JETK/72JETK_bij.jpg
+Input_2: C:/vsc/data/test/72JETK/72JETK_btb.jpg
+Input_3: C:/vsc/data/test/72JETK/72JETK_miu.jpg
+Input_4: C:/vsc/data/test/72JETK/72JETK_ogn.jpg
+Sentence: The cat lies on the couch, then is held with a nail clipper approaching; next, wrapped in a towel, its paw is inspected as the camera tilts slightly upward.
+Candidates: [[4, 2, 3, 1], [3, 2, 4, 1], [3, 1, 4, 2]]

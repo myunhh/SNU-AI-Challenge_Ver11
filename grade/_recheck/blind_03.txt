@@ -1,0 +1,195 @@
+### Id: 8HQUl8
+Input_1: C:/vsc/data/test/8HQUl8/8HQUl8_cbc.jpg
+Input_2: C:/vsc/data/test/8HQUl8/8HQUl8_dvg.jpg
+Input_3: C:/vsc/data/test/8HQUl8/8HQUl8_ixo.jpg
+Input_4: C:/vsc/data/test/8HQUl8/8HQUl8_tno.jpg
+Sentence: The bowling ball rolls down the lane toward the pins, while two men discuss techniques beside the lanes, and the man on the right raises a green bowling ball.
+
+### Id: Imn9yG
+Input_1: C:/vsc/data/test/Imn9yG/Imn9yG_bwm.jpg
+Input_2: C:/vsc/data/test/Imn9yG/Imn9yG_fmq.jpg
+Input_3: C:/vsc/data/test/Imn9yG/Imn9yG_mqf.jpg
+Input_4: C:/vsc/data/test/Imn9yG/Imn9yG_oye.jpg
+Sentence:  A man in a white shirt is showing applying plaster to a room.
+
+### Id: yvDfXh
+Input_1: C:/vsc/data/test/yvDfXh/yvDfXh_eza.jpg
+Input_2: C:/vsc/data/test/yvDfXh/yvDfXh_mvt.jpg
+Input_3: C:/vsc/data/test/yvDfXh/yvDfXh_ove.jpg
+Input_4: C:/vsc/data/test/yvDfXh/yvDfXh_zch.jpg
+Sentence: A finger points at a wallpaper seam as the camera zooms out to reveal a patterned wall with text; then a cloth wipes shoe polish, revealing two polished shoes side by side on a wooden surface.
+
+### Id: LtR74Q
+Input_1: C:/vsc/data/test/LtR74Q/LtR74Q_kka.jpg
+Input_2: C:/vsc/data/test/LtR74Q/LtR74Q_qff.jpg
+Input_3: C:/vsc/data/test/LtR74Q/LtR74Q_wov.jpg
+Input_4: C:/vsc/data/test/LtR74Q/LtR74Q_ykc.jpg
+Sentence: The skier descends the snowy slope, then moves into a chairlift scene, followed by a relaxing moment in a hot tub, closing the day with leisure.
+
+### Id: 79TdaG
+Input_1: C:/vsc/data/test/79TdaG/79TdaG_fzr.jpg
+Input_2: C:/vsc/data/test/79TdaG/79TdaG_ksh.jpg
+Input_3: C:/vsc/data/test/79TdaG/79TdaG_oxo.jpg
+Input_4: C:/vsc/data/test/79TdaG/79TdaG_zpe.jpg
+Sentence: A man takes off his shirt.
+
+### Id: 6fko8F
+Input_1: C:/vsc/data/test/6fko8F/6fko8F_hts.jpg
+Input_2: C:/vsc/data/test/6fko8F/6fko8F_nce.jpg
+Input_3: C:/vsc/data/test/6fko8F/6fko8F_xhg.jpg
+Input_4: C:/vsc/data/test/6fko8F/6fko8F_yph.jpg
+Sentence: The player leans over the table to take a shot, then shifts to an overhead view as he prepares to strike. Finally, he stands and gestures while another player lines up their shot.
+
+### Id: yRN9JF
+Input_1: C:/vsc/data/test/yRN9JF/yRN9JF_oeh.jpg
+Input_2: C:/vsc/data/test/yRN9JF/yRN9JF_rta.jpg
+Input_3: C:/vsc/data/test/yRN9JF/yRN9JF_wqr.jpg
+Input_4: C:/vsc/data/test/yRN9JF/yRN9JF_xso.jpg
+Sentence:   A man bowls two bowling balls at once.
+
+### Id: kb6PX7
+Input_1: C:/vsc/data/test/kb6PX7/kb6PX7_ddx.jpg
+Input_2: C:/vsc/data/test/kb6PX7/kb6PX7_twv.jpg
+Input_3: C:/vsc/data/test/kb6PX7/kb6PX7_weo.jpg
+Input_4: C:/vsc/data/test/kb6PX7/kb6PX7_zwo.jpg
+Sentence: The man raises and tilts the bow while smiling, then a bike component is adjusted left and secured with a tool as the camera slightly zooms in.
+
+### Id: uyWtdf
+Input_1: C:/vsc/data/test/uyWtdf/uyWtdf_acz.jpg
+Input_2: C:/vsc/data/test/uyWtdf/uyWtdf_fyv.jpg
+Input_3: C:/vsc/data/test/uyWtdf/uyWtdf_oqq.jpg
+Input_4: C:/vsc/data/test/uyWtdf/uyWtdf_tjs.jpg
+Sentence: The woman lowers her gaze to apply a yellow contact lens, then the girl moves her hand away from her eye as her head turns slightly left.
+
+### Id: 72JETK
+Input_1: C:/vsc/data/test/72JETK/72JETK_bij.jpg
+Input_2: C:/vsc/data/test/72JETK/72JETK_btb.jpg
+Input_3: C:/vsc/data/test/72JETK/72JETK_miu.jpg
+Input_4: C:/vsc/data/test/72JETK/72JETK_ogn.jpg
+Sentence: The cat lies on the couch, then is held with a nail clipper approaching; next, wrapped in a towel, its paw is inspected as the camera tilts slightly upward.
+
+### Id: KJZBsJ
+Input_1: C:/vsc/data/test/KJZBsJ/KJZBsJ_erz.jpg
+Input_2: C:/vsc/data/test/KJZBsJ/KJZBsJ_jen.jpg
+Input_3: C:/vsc/data/test/KJZBsJ/KJZBsJ_ttl.jpg
+Input_4: C:/vsc/data/test/KJZBsJ/KJZBsJ_ygg.jpg
+Sentence: The sailboat moves left, splashing water as another boat enters from the right; meanwhile, a skier recedes from a boat, moving further away, while the camera pans slightly right, capturing spectators watching and photographing the scene.
+
+### Id: 56gtZd
+Input_1: C:/vsc/data/test/56gtZd/56gtZd_cwx.jpg
+Input_2: C:/vsc/data/test/56gtZd/56gtZd_dvd.jpg
+Input_3: C:/vsc/data/test/56gtZd/56gtZd_eiv.jpg
+Input_4: C:/vsc/data/test/56gtZd/56gtZd_zww.jpg
+Sentence: The text disappears as the camera zooms in on the accordion player against a snowy backdrop, then the accordion shifts slightly upward while the camera remains steady, capturing the musician's smile as he continues performing.
+
+### Id: cieCUR
+Input_1: C:/vsc/data/test/cieCUR/cieCUR_bbq.jpg
+Input_2: C:/vsc/data/test/cieCUR/cieCUR_dzr.jpg
+Input_3: C:/vsc/data/test/cieCUR/cieCUR_iru.jpg
+Input_4: C:/vsc/data/test/cieCUR/cieCUR_lcs.jpg
+Sentence: The camera zooms in on the dresser's drawers as the person checks for missed spots, then the scene shifts to a person applying a protective covering to a drawer and painting the cabinet front.
+
+### Id: XN8XTY
+Input_1: C:/vsc/data/test/XN8XTY/XN8XTY_awz.jpg
+Input_2: C:/vsc/data/test/XN8XTY/XN8XTY_gwg.jpg
+Input_3: C:/vsc/data/test/XN8XTY/XN8XTY_hwj.jpg
+Input_4: C:/vsc/data/test/XN8XTY/XN8XTY_yby.jpg
+Sentence: The camera pans from two seated men to a guitarist strumming intently, then zooms in on a man bringing a harmonica closer as his hands form a cupped shape around it.
+
+### Id: ZAc3al
+Input_1: C:/vsc/data/test/ZAc3al/ZAc3al_dta.jpg
+Input_2: C:/vsc/data/test/ZAc3al/ZAc3al_tsl.jpg
+Input_3: C:/vsc/data/test/ZAc3al/ZAc3al_uny.jpg
+Input_4: C:/vsc/data/test/ZAc3al/ZAc3al_uud.jpg
+Sentence:  A woman with a baby strapped to her chest bowls a ball down a lane.
+
+### Id: PnykTd
+Input_1: C:/vsc/data/test/PnykTd/PnykTd_kqa.jpg
+Input_2: C:/vsc/data/test/PnykTd/PnykTd_kwo.jpg
+Input_3: C:/vsc/data/test/PnykTd/PnykTd_sni.jpg
+Input_4: C:/vsc/data/test/PnykTd/PnykTd_vso.jpg
+Sentence: The woman puts the razor handle back in her mouth and tries to shave again but it falls out of her mouth and she drops her head in frustration then leans back on the bed, laughs, and then crosses her arms.
+
+### Id: FrNHna
+Input_1: C:/vsc/data/test/FrNHna/FrNHna_kkd.jpg
+Input_2: C:/vsc/data/test/FrNHna/FrNHna_prc.jpg
+Input_3: C:/vsc/data/test/FrNHna/FrNHna_qcf.jpg
+Input_4: C:/vsc/data/test/FrNHna/FrNHna_ztl.jpg
+Sentence:  The boy runs into the room and jumps on the bed.
+
+### Id: o0kimD
+Input_1: C:/vsc/data/test/o0kimD/o0kimD_ebh.jpg
+Input_2: C:/vsc/data/test/o0kimD/o0kimD_iai.jpg
+Input_3: C:/vsc/data/test/o0kimD/o0kimD_jqz.jpg
+Input_4: C:/vsc/data/test/o0kimD/o0kimD_yvr.jpg
+Sentence: The bicycle frame exits as "Tool kit" text zooms in, then a vacuum enters, moving diagonally across the rug from left to right.
+
+### Id: 1ywjl3
+Input_1: C:/vsc/data/test/1ywjl3/1ywjl3_efu.jpg
+Input_2: C:/vsc/data/test/1ywjl3/1ywjl3_eig.jpg
+Input_3: C:/vsc/data/test/1ywjl3/1ywjl3_gvz.jpg
+Input_4: C:/vsc/data/test/1ywjl3/1ywjl3_tyk.jpg
+Sentence: Hands decorate a cake by placing a pink figure on top, then unwrap a gift and position it among other wrapped presents on a table.
+
+### Id: YSPJJW
+Input_1: C:/vsc/data/test/YSPJJW/YSPJJW_soz.jpg
+Input_2: C:/vsc/data/test/YSPJJW/YSPJJW_wpx.jpg
+Input_3: C:/vsc/data/test/YSPJJW/YSPJJW_wsg.jpg
+Input_4: C:/vsc/data/test/YSPJJW/YSPJJW_xpb.jpg
+Sentence: A woman in a white dress starts a lawn mower.
+
+### Id: pJETr3
+Input_1: C:/vsc/data/test/pJETr3/pJETr3_cqh.jpg
+Input_2: C:/vsc/data/test/pJETr3/pJETr3_fbt.jpg
+Input_3: C:/vsc/data/test/pJETr3/pJETr3_luk.jpg
+Input_4: C:/vsc/data/test/pJETr3/pJETr3_ric.jpg
+Sentence:  The individual puts the shoes on his feet.
+
+### Id: yqWbVb
+Input_1: C:/vsc/data/test/yqWbVb/yqWbVb_dvw.jpg
+Input_2: C:/vsc/data/test/yqWbVb/yqWbVb_vec.jpg
+Input_3: C:/vsc/data/test/yqWbVb/yqWbVb_wvd.jpg
+Input_4: C:/vsc/data/test/yqWbVb/yqWbVb_ytp.jpg
+Sentence: A male gymnast walks up to the parallel bars and uses a spring board to jump up.
+
+### Id: 68VVFd
+Input_1: C:/vsc/data/test/68VVFd/68VVFd_bpo.jpg
+Input_2: C:/vsc/data/test/68VVFd/68VVFd_vfk.jpg
+Input_3: C:/vsc/data/test/68VVFd/68VVFd_vpb.jpg
+Input_4: C:/vsc/data/test/68VVFd/68VVFd_znt.jpg
+Sentence: The person begins by putting on a yellow sock, then moves to adjust their other sock, and finally prepares to put on a shoe.
+
+### Id: bvzEsD
+Input_1: C:/vsc/data/test/bvzEsD/bvzEsD_bfh.jpg
+Input_2: C:/vsc/data/test/bvzEsD/bvzEsD_htt.jpg
+Input_3: C:/vsc/data/test/bvzEsD/bvzEsD_lcj.jpg
+Input_4: C:/vsc/data/test/bvzEsD/bvzEsD_mnk.jpg
+Sentence:  The man stacks the buckets and begins putting sand around it and sculpting it into a castle.
+
+### Id: rBuAQi
+Input_1: C:/vsc/data/test/rBuAQi/rBuAQi_mww.jpg
+Input_2: C:/vsc/data/test/rBuAQi/rBuAQi_qmn.jpg
+Input_3: C:/vsc/data/test/rBuAQi/rBuAQi_uca.jpg
+Input_4: C:/vsc/data/test/rBuAQi/rBuAQi_wfv.jpg
+Sentence: man says goodbye and leaves the shop and get home where man carry the bike and put it in a living room.
+
+### Id: pR1lov
+Input_1: C:/vsc/data/test/pR1lov/pR1lov_fbv.jpg
+Input_2: C:/vsc/data/test/pR1lov/pR1lov_qfk.jpg
+Input_3: C:/vsc/data/test/pR1lov/pR1lov_rns.jpg
+Input_4: C:/vsc/data/test/pR1lov/pR1lov_yor.jpg
+Sentence: The child moves right, swings the racket, and the camera slightly pans, followed by the player in the yellow shirt moving forward with another player following, both approaching the center of the court.
+
+### Id: gv6DET
+Input_1: C:/vsc/data/test/gv6DET/gv6DET_shc.jpg
+Input_2: C:/vsc/data/test/gv6DET/gv6DET_vkj.jpg
+Input_3: C:/vsc/data/test/gv6DET/gv6DET_xae.jpg
+Input_4: C:/vsc/data/test/gv6DET/gv6DET_xjv.jpg
+Sentence: The person kneels and organizes tools on tiled flooring, then applies wood finish to a fence, followed by a close-up of painting tools on a wooden surface.
+
+### Id: yx3vew
+Input_1: C:/vsc/data/test/yx3vew/yx3vew_coz.jpg
+Input_2: C:/vsc/data/test/yx3vew/yx3vew_lun.jpg
+Input_3: C:/vsc/data/test/yx3vew/yx3vew_nsx.jpg
+Input_4: C:/vsc/data/test/yx3vew/yx3vew_vmm.jpg
+Sentence: A girl is crossing the monkey bars.

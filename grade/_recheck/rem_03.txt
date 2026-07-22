@@ -1,0 +1,215 @@
+### Id: 4L1L0O
+Input_1: C:/vsc/data/test/4L1L0O/4L1L0O_hcc.jpg
+Input_2: C:/vsc/data/test/4L1L0O/4L1L0O_ior.jpg
+Input_3: C:/vsc/data/test/4L1L0O/4L1L0O_lkg.jpg
+Input_4: C:/vsc/data/test/4L1L0O/4L1L0O_nuh.jpg
+Sentence:  someone assists the two in getting up from the ground.
+Candidates: [[1, 2, 3, 4], [4, 1, 2, 3], [4, 2, 1, 3], [3, 2, 1, 4], [3, 1, 2, 4]]
+
+### Id: 706QNR
+Input_1: C:/vsc/data/test/706QNR/706QNR_aac.jpg
+Input_2: C:/vsc/data/test/706QNR/706QNR_dkw.jpg
+Input_3: C:/vsc/data/test/706QNR/706QNR_ifn.jpg
+Input_4: C:/vsc/data/test/706QNR/706QNR_nns.jpg
+Sentence:  The next man simply runs and dives while flipping into the water.
+Candidates: [[1, 2, 3, 4], [2, 1, 3, 4]]
+
+### Id: HPk5qW
+Input_1: C:/vsc/data/test/HPk5qW/HPk5qW_env.jpg
+Input_2: C:/vsc/data/test/HPk5qW/HPk5qW_hos.jpg
+Input_3: C:/vsc/data/test/HPk5qW/HPk5qW_kqy.jpg
+Input_4: C:/vsc/data/test/HPk5qW/HPk5qW_tdi.jpg
+Sentence:  Eventually some of them go down the hill.
+Candidates: [[1, 2, 3, 4], [1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: PIcWhY
+Input_1: C:/vsc/data/test/PIcWhY/PIcWhY_hpl.jpg
+Input_2: C:/vsc/data/test/PIcWhY/PIcWhY_jzq.jpg
+Input_3: C:/vsc/data/test/PIcWhY/PIcWhY_mqj.jpg
+Input_4: C:/vsc/data/test/PIcWhY/PIcWhY_ttw.jpg
+Sentence:  Now he is going to go down the slide once again.
+Candidates: [[3, 1, 4, 2], [4, 1, 3, 2], [2, 4, 3, 1], [3, 4, 2, 1], [4, 2, 3, 1]]
+
+### Id: Xl0Pjo
+Input_1: C:/vsc/data/test/Xl0Pjo/Xl0Pjo_fkk.jpg
+Input_2: C:/vsc/data/test/Xl0Pjo/Xl0Pjo_nop.jpg
+Input_3: C:/vsc/data/test/Xl0Pjo/Xl0Pjo_sns.jpg
+Input_4: C:/vsc/data/test/Xl0Pjo/Xl0Pjo_ulx.jpg
+Sentence:  The woman uses a chalk line then tape to mark the floor.
+Candidates: [[3, 2, 4, 1], [4, 1, 3, 2], [2, 4, 3, 1]]
+
+### Id: FOraJM
+Input_1: C:/vsc/data/test/FOraJM/FOraJM_aur.jpg
+Input_2: C:/vsc/data/test/FOraJM/FOraJM_ecn.jpg
+Input_3: C:/vsc/data/test/FOraJM/FOraJM_wvp.jpg
+Input_4: C:/vsc/data/test/FOraJM/FOraJM_zqt.jpg
+Sentence:  A woman in shorts is running down the street.
+Candidates: [[2, 1, 4, 3], [1, 2, 3, 4], [1, 2, 4, 3], [4, 1, 3, 2]]
+
+### Id: uAVQ46
+Input_1: C:/vsc/data/test/uAVQ46/uAVQ46_foc.jpg
+Input_2: C:/vsc/data/test/uAVQ46/uAVQ46_wpp.jpg
+Input_3: C:/vsc/data/test/uAVQ46/uAVQ46_xrm.jpg
+Input_4: C:/vsc/data/test/uAVQ46/uAVQ46_xrs.jpg
+Sentence: The man unrolls the wallpaper from the top while on a ladder, then kneels to smooth it near the floor; afterward, he trims the excess at the top edge of another wall.
+Candidates: [[3, 2, 4, 1], [2, 4, 3, 1], [2, 4, 1, 3]]
+
+### Id: PdQMSG
+Input_1: C:/vsc/data/test/PdQMSG/PdQMSG_bhe.jpg
+Input_2: C:/vsc/data/test/PdQMSG/PdQMSG_hcq.jpg
+Input_3: C:/vsc/data/test/PdQMSG/PdQMSG_nla.jpg
+Input_4: C:/vsc/data/test/PdQMSG/PdQMSG_yrz.jpg
+Sentence: The boy that is kicked falls out on the ground and his mother rushes out to make sure he is okay as the other boy takes a knee.
+Candidates: [[3, 1, 2, 4], [2, 1, 3, 4], [3, 1, 4, 2]]
+
+### Id: Qv2g53
+Input_1: C:/vsc/data/test/Qv2g53/Qv2g53_doe.jpg
+Input_2: C:/vsc/data/test/Qv2g53/Qv2g53_kdd.jpg
+Input_3: C:/vsc/data/test/Qv2g53/Qv2g53_umb.jpg
+Input_4: C:/vsc/data/test/Qv2g53/Qv2g53_zpw.jpg
+Sentence: A man covers a wall with cement using a hose.
+Candidates: [[3, 4, 2, 1], [2, 3, 4, 1], [4, 3, 2, 1], [4, 2, 3, 1], [2, 4, 3, 1]]
+
+### Id: r1tyTm
+Input_1: C:/vsc/data/test/r1tyTm/r1tyTm_jfp.jpg
+Input_2: C:/vsc/data/test/r1tyTm/r1tyTm_ros.jpg
+Input_3: C:/vsc/data/test/r1tyTm/r1tyTm_sjs.jpg
+Input_4: C:/vsc/data/test/r1tyTm/r1tyTm_wwa.jpg
+Sentence:  One of the female weight lifters is shown on the screen as she goes through several increasing levels of lifts one by one.
+Candidates: [[1, 2, 3, 4], [1, 3, 2, 4], [1, 4, 3, 2], [4, 1, 3, 2]]
+
+### Id: bkmCpC
+Input_1: C:/vsc/data/test/bkmCpC/bkmCpC_iuy.jpg
+Input_2: C:/vsc/data/test/bkmCpC/bkmCpC_lyv.jpg
+Input_3: C:/vsc/data/test/bkmCpC/bkmCpC_qbx.jpg
+Input_4: C:/vsc/data/test/bkmCpC/bkmCpC_ytp.jpg
+Sentence: The camera focuses on a man standing, then zooms in as he strikes the drum with sticks; next, a drummer strikes a conga with his right hand while raising his left hand, creating a dynamic rhythm.
+Candidates: [[3, 1, 2, 4], [4, 1, 2, 3]]
+
+### Id: 3fnRMI
+Input_1: C:/vsc/data/test/3fnRMI/3fnRMI_ebi.jpg
+Input_2: C:/vsc/data/test/3fnRMI/3fnRMI_jri.jpg
+Input_3: C:/vsc/data/test/3fnRMI/3fnRMI_nqj.jpg
+Input_4: C:/vsc/data/test/3fnRMI/3fnRMI_qoe.jpg
+Sentence:  The man falls on the mat.
+Candidates: [[1, 3, 2, 4], [1, 4, 2, 3], [4, 2, 1, 3], [2, 3, 1, 4], [3, 2, 1, 4]]
+
+### Id: mjbEPe
+Input_1: C:/vsc/data/test/mjbEPe/mjbEPe_fhj.jpg
+Input_2: C:/vsc/data/test/mjbEPe/mjbEPe_hdd.jpg
+Input_3: C:/vsc/data/test/mjbEPe/mjbEPe_kau.jpg
+Input_4: C:/vsc/data/test/mjbEPe/mjbEPe_ptd.jpg
+Sentence:  A man puts a gold medal around the neck of the first javelin thrower and shakes his hand.
+Candidates: [[4, 1, 3, 2], [4, 2, 3, 1], [4, 1, 2, 3]]
+
+### Id: yHzXd8
+Input_1: C:/vsc/data/test/yHzXd8/yHzXd8_elj.jpg
+Input_2: C:/vsc/data/test/yHzXd8/yHzXd8_hyh.jpg
+Input_3: C:/vsc/data/test/yHzXd8/yHzXd8_lbd.jpg
+Input_4: C:/vsc/data/test/yHzXd8/yHzXd8_xkd.jpg
+Sentence: The chef begins to cut pieces of food on the board, then moves to a bowl to prepare another ingredient, before returning to the cutting board to continue.
+Candidates: [[1, 4, 3, 2], [1, 3, 2, 4], [1, 2, 3, 4]]
+
+### Id: vh0wEB
+Input_1: C:/vsc/data/test/vh0wEB/vh0wEB_ilo.jpg
+Input_2: C:/vsc/data/test/vh0wEB/vh0wEB_jpx.jpg
+Input_3: C:/vsc/data/test/vh0wEB/vh0wEB_tda.jpg
+Input_4: C:/vsc/data/test/vh0wEB/vh0wEB_vcy.jpg
+Sentence: The worker raises the tire above the wheel, then positions it onto the rim, adjusting it carefully as they prepare to secure it in place.
+Candidates: [[1, 4, 3, 2], [2, 3, 4, 1], [2, 4, 1, 3], [1, 3, 4, 2], [3, 2, 4, 1]]
+
+### Id: L5OyYw
+Input_1: C:/vsc/data/test/L5OyYw/L5OyYw_aai.jpg
+Input_2: C:/vsc/data/test/L5OyYw/L5OyYw_cru.jpg
+Input_3: C:/vsc/data/test/L5OyYw/L5OyYw_eno.jpg
+Input_4: C:/vsc/data/test/L5OyYw/L5OyYw_jhw.jpg
+Sentence: A man cuts into a piece of wood with an ax.
+Candidates: [[2, 4, 3, 1], [1, 4, 3, 2], [3, 4, 2, 1]]
+
+### Id: FPHh6p
+Input_1: C:/vsc/data/test/FPHh6p/FPHh6p_lsg.jpg
+Input_2: C:/vsc/data/test/FPHh6p/FPHh6p_sjl.jpg
+Input_3: C:/vsc/data/test/FPHh6p/FPHh6p_srm.jpg
+Input_4: C:/vsc/data/test/FPHh6p/FPHh6p_zfe.jpg
+Sentence: The person begins to clear snow from the car's roof, then moves to the side, and finally stands back, surveying the snowy scene.
+Candidates: [[4, 2, 1, 3], [4, 1, 2, 3], [4, 3, 2, 1], [4, 3, 1, 2], [3, 2, 1, 4]]
+
+### Id: Kk83WO
+Input_1: C:/vsc/data/test/Kk83WO/Kk83WO_grs.jpg
+Input_2: C:/vsc/data/test/Kk83WO/Kk83WO_kqe.jpg
+Input_3: C:/vsc/data/test/Kk83WO/Kk83WO_mex.jpg
+Input_4: C:/vsc/data/test/Kk83WO/Kk83WO_vch.jpg
+Sentence: A climber begins to ascend the wall, then a trainer explains techniques, followed by a demonstration of climbing moves, and finally, the climber executes the techniques shown.
+Candidates: [[4, 1, 3, 2], [4, 3, 1, 2], [1, 3, 4, 2], [1, 2, 4, 3]]
+
+### Id: LRHWnG
+Input_1: C:/vsc/data/test/LRHWnG/LRHWnG_elg.jpg
+Input_2: C:/vsc/data/test/LRHWnG/LRHWnG_jfk.jpg
+Input_3: C:/vsc/data/test/LRHWnG/LRHWnG_pal.jpg
+Input_4: C:/vsc/data/test/LRHWnG/LRHWnG_yeu.jpg
+Sentence:  Then, a boy puts on roller skaters and performs in the gym.
+Candidates: [[3, 1, 4, 2], [4, 1, 2, 3], [4, 1, 3, 2]]
+
+### Id: aPKUZi
+Input_1: C:/vsc/data/test/aPKUZi/aPKUZi_elk.jpg
+Input_2: C:/vsc/data/test/aPKUZi/aPKUZi_hun.jpg
+Input_3: C:/vsc/data/test/aPKUZi/aPKUZi_idi.jpg
+Input_4: C:/vsc/data/test/aPKUZi/aPKUZi_zfo.jpg
+Sentence: The swimmer begins with an easy effort, then gradually increases pace and stroke rate, moving into a steady effort by the final frame. The progression shows enhanced speed and efficiency.
+Candidates: [[2, 1, 3, 4], [1, 2, 4, 3], [1, 2, 3, 4]]
+
+### Id: fufIXJ
+Input_1: C:/vsc/data/test/fufIXJ/fufIXJ_esz.jpg
+Input_2: C:/vsc/data/test/fufIXJ/fufIXJ_ilt.jpg
+Input_3: C:/vsc/data/test/fufIXJ/fufIXJ_yik.jpg
+Input_4: C:/vsc/data/test/fufIXJ/fufIXJ_zty.jpg
+Sentence: A woman waves while holding a pole, then a man clears snow from the red vehicle, followed by a shot of someone inside the car, and finally, the man continues to shovel snow.
+Candidates: [[4, 3, 2, 1], [2, 4, 3, 1], [2, 3, 4, 1]]
+
+### Id: S4QoRB
+Input_1: C:/vsc/data/test/S4QoRB/S4QoRB_ggj.jpg
+Input_2: C:/vsc/data/test/S4QoRB/S4QoRB_gxx.jpg
+Input_3: C:/vsc/data/test/S4QoRB/S4QoRB_miy.jpg
+Input_4: C:/vsc/data/test/S4QoRB/S4QoRB_otl.jpg
+Sentence: The box shifts back on the counter as the camera slightly zooms out, then the knife retracts from the sharpening stone as the chef___ hand moves away from the cutting board.
+Candidates: [[1, 3, 2, 4], [2, 3, 1, 4], [3, 2, 4, 1], [2, 4, 1, 3]]
+
+### Id: VrYJLb
+Input_1: C:/vsc/data/test/VrYJLb/VrYJLb_bne.jpg
+Input_2: C:/vsc/data/test/VrYJLb/VrYJLb_ocm.jpg
+Input_3: C:/vsc/data/test/VrYJLb/VrYJLb_qsw.jpg
+Input_4: C:/vsc/data/test/VrYJLb/VrYJLb_uuj.jpg
+Sentence: The installation guide appears, then the boxes are shown, followed by a person raising the window frame on the roof.
+Candidates: [[2, 3, 4, 1], [1, 3, 4, 2]]
+
+### Id: khtCHL
+Input_1: C:/vsc/data/test/khtCHL/khtCHL_bzi.jpg
+Input_2: C:/vsc/data/test/khtCHL/khtCHL_fhk.jpg
+Input_3: C:/vsc/data/test/khtCHL/khtCHL_iji.jpg
+Input_4: C:/vsc/data/test/khtCHL/khtCHL_uvb.jpg
+Sentence: A hand adds twigs to burning paper as the camera zooms in slightly, then shifts focus from stacked wood in a fire pit to a hand sanitizer bottle in the foreground.
+Candidates: [[2, 3, 1, 4], [1, 3, 2, 4]]
+
+### Id: CzkRiH
+Input_1: C:/vsc/data/test/CzkRiH/CzkRiH_kwh.jpg
+Input_2: C:/vsc/data/test/CzkRiH/CzkRiH_odn.jpg
+Input_3: C:/vsc/data/test/CzkRiH/CzkRiH_qnw.jpg
+Input_4: C:/vsc/data/test/CzkRiH/CzkRiH_vqx.jpg
+Sentence: A little girl is crossing the monkey bars.
+Candidates: [[2, 4, 3, 1], [1, 3, 2, 4], [4, 1, 3, 2], [2, 4, 1, 3]]
+
+### Id: NsfjW8
+Input_1: C:/vsc/data/test/NsfjW8/NsfjW8_bwc.jpg
+Input_2: C:/vsc/data/test/NsfjW8/NsfjW8_fpb.jpg
+Input_3: C:/vsc/data/test/NsfjW8/NsfjW8_gng.jpg
+Input_4: C:/vsc/data/test/NsfjW8/NsfjW8_qpr.jpg
+Sentence: A man in a gym walks over to a barbell.
+Candidates: [[1, 4, 3, 2], [2, 4, 3, 1], [1, 3, 4, 2], [1, 2, 4, 3]]
+
+### Id: iefIZE
+Input_1: C:/vsc/data/test/iefIZE/iefIZE_buh.jpg
+Input_2: C:/vsc/data/test/iefIZE/iefIZE_jgv.jpg
+Input_3: C:/vsc/data/test/iefIZE/iefIZE_ljd.jpg
+Input_4: C:/vsc/data/test/iefIZE/iefIZE_ucr.jpg
+Sentence:  A man gets hit by a rope while chasing a calf.
+Candidates: [[1, 4, 3, 2], [1, 2, 3, 4], [1, 3, 4, 2], [3, 1, 2, 4]]

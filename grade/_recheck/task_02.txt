@@ -1,0 +1,223 @@
+### Id: hHJkXc
+Input_1: C:/vsc/data/test/hHJkXc/hHJkXc_ftu.jpg
+Input_2: C:/vsc/data/test/hHJkXc/hHJkXc_tpo.jpg
+Input_3: C:/vsc/data/test/hHJkXc/hHJkXc_wcj.jpg
+Input_4: C:/vsc/data/test/hHJkXc/hHJkXc_xll.jpg
+Sentence: The gymnast in red rotates counter-clockwise on the beam, raising her arms higher, then another gymnast in pink moves slightly forward on the beam, maintaining her raised arm position, as the camera remains steady throughout.
+Candidates: [[3, 2, 1, 4], [3, 1, 2, 4], [4, 1, 2, 3]]
+
+### Id: 23YSXP
+Input_1: C:/vsc/data/test/23YSXP/23YSXP_czm.jpg
+Input_2: C:/vsc/data/test/23YSXP/23YSXP_qhh.jpg
+Input_3: C:/vsc/data/test/23YSXP/23YSXP_tri.jpg
+Input_4: C:/vsc/data/test/23YSXP/23YSXP_uvf.jpg
+Sentence: The hands move downward, creating lather between them, then shift to washing under running water before a hand exits the frame, as text appears emphasizing clean hands.
+Candidates: [[4, 1, 2, 3], [4, 2, 1, 3]]
+
+### Id: KHpPUv
+Input_1: C:/vsc/data/test/KHpPUv/KHpPUv_axw.jpg
+Input_2: C:/vsc/data/test/KHpPUv/KHpPUv_dkz.jpg
+Input_3: C:/vsc/data/test/KHpPUv/KHpPUv_sdr.jpg
+Input_4: C:/vsc/data/test/KHpPUv/KHpPUv_wpo.jpg
+Sentence: The man finishes his routine by flipping multiple times and then off to the side of the parallel bars where he lands on his feet, smiles, takes small bows and walks off.
+Candidates: [[2, 3, 1, 4], [1, 3, 2, 4], [2, 1, 3, 4], [3, 4, 2, 1]]
+
+### Id: tTOg1O
+Input_1: C:/vsc/data/test/tTOg1O/tTOg1O_mzv.jpg
+Input_2: C:/vsc/data/test/tTOg1O/tTOg1O_nrp.jpg
+Input_3: C:/vsc/data/test/tTOg1O/tTOg1O_qbv.jpg
+Input_4: C:/vsc/data/test/tTOg1O/tTOg1O_qvw.jpg
+Sentence: The man raises the blender, then moves it down to the counter, prepares ingredients, and finally picks up a bowl.
+Candidates: [[3, 4, 2, 1], [3, 4, 1, 2], [2, 4, 3, 1]]
+
+### Id: cieCUR
+Input_1: C:/vsc/data/test/cieCUR/cieCUR_bbq.jpg
+Input_2: C:/vsc/data/test/cieCUR/cieCUR_dzr.jpg
+Input_3: C:/vsc/data/test/cieCUR/cieCUR_iru.jpg
+Input_4: C:/vsc/data/test/cieCUR/cieCUR_lcs.jpg
+Sentence: The camera zooms in on the dresser's drawers as the person checks for missed spots, then the scene shifts to a person applying a protective covering to a drawer and painting the cabinet front.
+Candidates: [[2, 3, 1, 4], [1, 3, 2, 4], [2, 4, 1, 3], [1, 4, 2, 3]]
+
+### Id: XN8XTY
+Input_1: C:/vsc/data/test/XN8XTY/XN8XTY_awz.jpg
+Input_2: C:/vsc/data/test/XN8XTY/XN8XTY_gwg.jpg
+Input_3: C:/vsc/data/test/XN8XTY/XN8XTY_hwj.jpg
+Input_4: C:/vsc/data/test/XN8XTY/XN8XTY_yby.jpg
+Sentence: The camera pans from two seated men to a guitarist strumming intently, then zooms in on a man bringing a harmonica closer as his hands form a cupped shape around it.
+Candidates: [[1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: ZAc3al
+Input_1: C:/vsc/data/test/ZAc3al/ZAc3al_dta.jpg
+Input_2: C:/vsc/data/test/ZAc3al/ZAc3al_tsl.jpg
+Input_3: C:/vsc/data/test/ZAc3al/ZAc3al_uny.jpg
+Input_4: C:/vsc/data/test/ZAc3al/ZAc3al_uud.jpg
+Sentence:  A woman with a baby strapped to her chest bowls a ball down a lane.
+Candidates: [[2, 4, 1, 3], [4, 1, 3, 2], [2, 1, 4, 3], [3, 1, 2, 4]]
+
+### Id: PnykTd
+Input_1: C:/vsc/data/test/PnykTd/PnykTd_kqa.jpg
+Input_2: C:/vsc/data/test/PnykTd/PnykTd_kwo.jpg
+Input_3: C:/vsc/data/test/PnykTd/PnykTd_sni.jpg
+Input_4: C:/vsc/data/test/PnykTd/PnykTd_vso.jpg
+Sentence: The woman puts the razor handle back in her mouth and tries to shave again but it falls out of her mouth and she drops her head in frustration then leans back on the bed, laughs, and then crosses her arms.
+Candidates: [[3, 1, 2, 4], [4, 1, 2, 3], [2, 1, 3, 4]]
+
+### Id: FrNHna
+Input_1: C:/vsc/data/test/FrNHna/FrNHna_kkd.jpg
+Input_2: C:/vsc/data/test/FrNHna/FrNHna_prc.jpg
+Input_3: C:/vsc/data/test/FrNHna/FrNHna_qcf.jpg
+Input_4: C:/vsc/data/test/FrNHna/FrNHna_ztl.jpg
+Sentence:  The boy runs into the room and jumps on the bed.
+Candidates: [[3, 2, 1, 4], [4, 1, 2, 3], [4, 2, 1, 3]]
+
+### Id: YSPJJW
+Input_1: C:/vsc/data/test/YSPJJW/YSPJJW_soz.jpg
+Input_2: C:/vsc/data/test/YSPJJW/YSPJJW_wpx.jpg
+Input_3: C:/vsc/data/test/YSPJJW/YSPJJW_wsg.jpg
+Input_4: C:/vsc/data/test/YSPJJW/YSPJJW_xpb.jpg
+Sentence: A woman in a white dress starts a lawn mower.
+Candidates: [[2, 4, 1, 3], [4, 3, 2, 1], [3, 2, 1, 4], [2, 3, 1, 4], [2, 4, 3, 1]]
+
+### Id: pJETr3
+Input_1: C:/vsc/data/test/pJETr3/pJETr3_cqh.jpg
+Input_2: C:/vsc/data/test/pJETr3/pJETr3_fbt.jpg
+Input_3: C:/vsc/data/test/pJETr3/pJETr3_luk.jpg
+Input_4: C:/vsc/data/test/pJETr3/pJETr3_ric.jpg
+Sentence:  The individual puts the shoes on his feet.
+Candidates: [[4, 3, 1, 2], [3, 4, 1, 2]]
+
+### Id: yqWbVb
+Input_1: C:/vsc/data/test/yqWbVb/yqWbVb_dvw.jpg
+Input_2: C:/vsc/data/test/yqWbVb/yqWbVb_vec.jpg
+Input_3: C:/vsc/data/test/yqWbVb/yqWbVb_wvd.jpg
+Input_4: C:/vsc/data/test/yqWbVb/yqWbVb_ytp.jpg
+Sentence: A male gymnast walks up to the parallel bars and uses a spring board to jump up.
+Candidates: [[1, 2, 3, 4], [1, 4, 3, 2], [1, 2, 4, 3]]
+
+### Id: bvzEsD
+Input_1: C:/vsc/data/test/bvzEsD/bvzEsD_bfh.jpg
+Input_2: C:/vsc/data/test/bvzEsD/bvzEsD_htt.jpg
+Input_3: C:/vsc/data/test/bvzEsD/bvzEsD_lcj.jpg
+Input_4: C:/vsc/data/test/bvzEsD/bvzEsD_mnk.jpg
+Sentence:  The man stacks the buckets and begins putting sand around it and sculpting it into a castle.
+Candidates: [[1, 4, 2, 3], [1, 2, 3, 4]]
+
+### Id: rBuAQi
+Input_1: C:/vsc/data/test/rBuAQi/rBuAQi_mww.jpg
+Input_2: C:/vsc/data/test/rBuAQi/rBuAQi_qmn.jpg
+Input_3: C:/vsc/data/test/rBuAQi/rBuAQi_uca.jpg
+Input_4: C:/vsc/data/test/rBuAQi/rBuAQi_wfv.jpg
+Sentence: man says goodbye and leaves the shop and get home where man carry the bike and put it in a living room.
+Candidates: [[4, 3, 2, 1], [3, 4, 2, 1]]
+
+### Id: BECRdM
+Input_1: C:/vsc/data/test/BECRdM/BECRdM_diw.jpg
+Input_2: C:/vsc/data/test/BECRdM/BECRdM_hwq.jpg
+Input_3: C:/vsc/data/test/BECRdM/BECRdM_iis.jpg
+Input_4: C:/vsc/data/test/BECRdM/BECRdM_nhy.jpg
+Sentence:   The man simultaneously throws a rope around the calfs neck and dismounts the horse, while the horse is in motion.
+Candidates: [[3, 1, 2, 4], [2, 3, 1, 4], [3, 4, 1, 2]]
+
+### Id: pR1lov
+Input_1: C:/vsc/data/test/pR1lov/pR1lov_fbv.jpg
+Input_2: C:/vsc/data/test/pR1lov/pR1lov_qfk.jpg
+Input_3: C:/vsc/data/test/pR1lov/pR1lov_rns.jpg
+Input_4: C:/vsc/data/test/pR1lov/pR1lov_yor.jpg
+Sentence: The child moves right, swings the racket, and the camera slightly pans, followed by the player in the yellow shirt moving forward with another player following, both approaching the center of the court.
+Candidates: [[2, 4, 1, 3], [2, 3, 1, 4]]
+
+### Id: gv6DET
+Input_1: C:/vsc/data/test/gv6DET/gv6DET_shc.jpg
+Input_2: C:/vsc/data/test/gv6DET/gv6DET_vkj.jpg
+Input_3: C:/vsc/data/test/gv6DET/gv6DET_xae.jpg
+Input_4: C:/vsc/data/test/gv6DET/gv6DET_xjv.jpg
+Sentence: The person kneels and organizes tools on tiled flooring, then applies wood finish to a fence, followed by a close-up of painting tools on a wooden surface.
+Candidates: [[3, 2, 4, 1], [3, 1, 4, 2]]
+
+### Id: cQOmJj
+Input_1: C:/vsc/data/test/cQOmJj/cQOmJj_blb.jpg
+Input_2: C:/vsc/data/test/cQOmJj/cQOmJj_ktw.jpg
+Input_3: C:/vsc/data/test/cQOmJj/cQOmJj_nlr.jpg
+Input_4: C:/vsc/data/test/cQOmJj/cQOmJj_tcf.jpg
+Sentence: A person arranges tools on a carpet as a message invites YouTube subscriptions, then a lid descends onto meat and shifts right while a hand moves left.
+Candidates: [[3, 4, 2, 1], [4, 3, 2, 1], [1, 2, 4, 3]]
+
+### Id: yx3vew
+Input_1: C:/vsc/data/test/yx3vew/yx3vew_coz.jpg
+Input_2: C:/vsc/data/test/yx3vew/yx3vew_lun.jpg
+Input_3: C:/vsc/data/test/yx3vew/yx3vew_nsx.jpg
+Input_4: C:/vsc/data/test/yx3vew/yx3vew_vmm.jpg
+Sentence: A girl is crossing the monkey bars.
+Candidates: [[1, 2, 3, 4], [4, 3, 1, 2], [1, 4, 3, 2], [4, 3, 2, 1], [1, 3, 2, 4]]
+
+### Id: zVUWuP
+Input_1: C:/vsc/data/test/zVUWuP/zVUWuP_blg.jpg
+Input_2: C:/vsc/data/test/zVUWuP/zVUWuP_hsb.jpg
+Input_3: C:/vsc/data/test/zVUWuP/zVUWuP_ogm.jpg
+Input_4: C:/vsc/data/test/zVUWuP/zVUWuP_pci.jpg
+Sentence:  The two girls remove the baking sheet from the oven.
+Candidates: [[1, 3, 4, 2], [1, 2, 4, 3]]
+
+### Id: Sl4f9t
+Input_1: C:/vsc/data/test/Sl4f9t/Sl4f9t_jbx.jpg
+Input_2: C:/vsc/data/test/Sl4f9t/Sl4f9t_jqt.jpg
+Input_3: C:/vsc/data/test/Sl4f9t/Sl4f9t_lec.jpg
+Input_4: C:/vsc/data/test/Sl4f9t/Sl4f9t_vls.jpg
+Sentence: The camera zooms in on the man playing the piano, then shifts to the performer leaning in to engage closely with the boy holding a flute, maintaining eye contact.
+Candidates: [[2, 1, 4, 3], [1, 2, 4, 3]]
+
+### Id: YPBG8e
+Input_1: C:/vsc/data/test/YPBG8e/YPBG8e_ekd.jpg
+Input_2: C:/vsc/data/test/YPBG8e/YPBG8e_kyj.jpg
+Input_3: C:/vsc/data/test/YPBG8e/YPBG8e_rrp.jpg
+Input_4: C:/vsc/data/test/YPBG8e/YPBG8e_ynf.jpg
+Sentence: The process begins with placing a spare tire, then the person moves in a star pattern to secure the bolts, followed by tightening them thoroughly.
+Candidates: [[1, 3, 2, 4], [1, 4, 2, 3], [1, 2, 3, 4]]
+
+### Id: YtHlYo
+Input_1: C:/vsc/data/test/YtHlYo/YtHlYo_dum.jpg
+Input_2: C:/vsc/data/test/YtHlYo/YtHlYo_euy.jpg
+Input_3: C:/vsc/data/test/YtHlYo/YtHlYo_lwh.jpg
+Input_4: C:/vsc/data/test/YtHlYo/YtHlYo_wzf.jpg
+Sentence: The jar is wrapped and paper is gathered at the top with scissors poised to cut, then tissue paper is adjusted inside a green bag and secured with a ribbon tied around the handles.
+Candidates: [[3, 1, 2, 4], [3, 2, 1, 4], [4, 1, 2, 3], [2, 3, 4, 1]]
+
+### Id: 8L7TfG
+Input_1: C:/vsc/data/test/8L7TfG/8L7TfG_dkq.jpg
+Input_2: C:/vsc/data/test/8L7TfG/8L7TfG_frh.jpg
+Input_3: C:/vsc/data/test/8L7TfG/8L7TfG_hxa.jpg
+Input_4: C:/vsc/data/test/8L7TfG/8L7TfG_hyt.jpg
+Sentence:  The boy climbs across on the monkey bars.
+Candidates: [[3, 4, 1, 2], [2, 3, 4, 1], [2, 4, 3, 1], [4, 3, 1, 2], [3, 1, 2, 4]]
+
+### Id: b44PjE
+Input_1: C:/vsc/data/test/b44PjE/b44PjE_ano.jpg
+Input_2: C:/vsc/data/test/b44PjE/b44PjE_chg.jpg
+Input_3: C:/vsc/data/test/b44PjE/b44PjE_iwk.jpg
+Input_4: C:/vsc/data/test/b44PjE/b44PjE_sbf.jpg
+Sentence:  She climbs her way back on the bars and jumps down mid way through.
+Candidates: [[2, 4, 1, 3], [2, 1, 4, 3], [2, 3, 4, 1], [3, 4, 2, 1], [3, 2, 4, 1]]
+
+### Id: RkBgHm
+Input_1: C:/vsc/data/test/RkBgHm/RkBgHm_hdc.jpg
+Input_2: C:/vsc/data/test/RkBgHm/RkBgHm_iks.jpg
+Input_3: C:/vsc/data/test/RkBgHm/RkBgHm_jjh.jpg
+Input_4: C:/vsc/data/test/RkBgHm/RkBgHm_txm.jpg
+Sentence: A runner is interviewed indoors at a bar, transitioning to another runner outdoors as the camera pans right, followed by a man preparing a colorful kite, smiling and holding the string while the kite is absent.
+Candidates: [[1, 2, 3, 4], [1, 2, 4, 3]]
+
+### Id: 1pCMCL
+Input_1: C:/vsc/data/test/1pCMCL/1pCMCL_gfq.jpg
+Input_2: C:/vsc/data/test/1pCMCL/1pCMCL_hdo.jpg
+Input_3: C:/vsc/data/test/1pCMCL/1pCMCL_vrz.jpg
+Input_4: C:/vsc/data/test/1pCMCL/1pCMCL_zuq.jpg
+Sentence:  They use tubes to slide down a steep hill.
+Candidates: [[1, 2, 3, 4], [1, 4, 3, 2]]
+
+### Id: XFNFS2
+Input_1: C:/vsc/data/test/XFNFS2/XFNFS2_bki.jpg
+Input_2: C:/vsc/data/test/XFNFS2/XFNFS2_byd.jpg
+Input_3: C:/vsc/data/test/XFNFS2/XFNFS2_nwj.jpg
+Input_4: C:/vsc/data/test/XFNFS2/XFNFS2_wkf.jpg
+Sentence:  A child in green jacket gets into an intertube.
+Candidates: [[4, 2, 3, 1], [3, 1, 4, 2], [2, 4, 3, 1], [3, 2, 4, 1]]

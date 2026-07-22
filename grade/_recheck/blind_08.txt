@@ -1,0 +1,195 @@
+### Id: lOOMKU
+Input_1: C:/vsc/data/test/lOOMKU/lOOMKU_ghi.jpg
+Input_2: C:/vsc/data/test/lOOMKU/lOOMKU_qqq.jpg
+Input_3: C:/vsc/data/test/lOOMKU/lOOMKU_tql.jpg
+Input_4: C:/vsc/data/test/lOOMKU/lOOMKU_whn.jpg
+Sentence:  The cooker puts pasta on a square container and adds vegetables.
+
+### Id: IsiDy4
+Input_1: C:/vsc/data/test/IsiDy4/IsiDy4_dca.jpg
+Input_2: C:/vsc/data/test/IsiDy4/IsiDy4_sbq.jpg
+Input_3: C:/vsc/data/test/IsiDy4/IsiDy4_uno.jpg
+Input_4: C:/vsc/data/test/IsiDy4/IsiDy4_xlv.jpg
+Sentence: The welder begins by adjusting the electrode position, then moves to weld, followed by a close-up of the welding process, and finally, cleans the work area.
+
+### Id: N2WKnU
+Input_1: C:/vsc/data/test/N2WKnU/N2WKnU_gsz.jpg
+Input_2: C:/vsc/data/test/N2WKnU/N2WKnU_qdf.jpg
+Input_3: C:/vsc/data/test/N2WKnU/N2WKnU_ybc.jpg
+Input_4: C:/vsc/data/test/N2WKnU/N2WKnU_ygc.jpg
+Sentence:  While he's skiing he tries to around to stand forward like normal, but he goes flying when he tries to turn around.
+
+### Id: uYabeZ
+Input_1: C:/vsc/data/test/uYabeZ/uYabeZ_ejk.jpg
+Input_2: C:/vsc/data/test/uYabeZ/uYabeZ_huz.jpg
+Input_3: C:/vsc/data/test/uYabeZ/uYabeZ_iwo.jpg
+Input_4: C:/vsc/data/test/uYabeZ/uYabeZ_vkg.jpg
+Sentence:  The man drinks all the beers in quick succession.
+
+### Id: nKYQFc
+Input_1: C:/vsc/data/test/nKYQFc/nKYQFc_crd.jpg
+Input_2: C:/vsc/data/test/nKYQFc/nKYQFc_rod.jpg
+Input_3: C:/vsc/data/test/nKYQFc/nKYQFc_tdy.jpg
+Input_4: C:/vsc/data/test/nKYQFc/nKYQFc_ymi.jpg
+Sentence: Kalliope, a clockwork orchardist with wooden limbs and brass fittings, begins by arranging seedlings and cradling a ticking pocket-apple in a greenhouse, then moves out to prune terraced orchards at midday, after which she climbs a grafting scaffold to coax a towering clockwork-tree into bloom, and finally inserts the humming pocket-apple into the tree___ gear-studded heart, activating the grove.
+
+### Id: NE8nHt
+Input_1: C:/vsc/data/test/NE8nHt/NE8nHt_ery.jpg
+Input_2: C:/vsc/data/test/NE8nHt/NE8nHt_fgd.jpg
+Input_3: C:/vsc/data/test/NE8nHt/NE8nHt_juq.jpg
+Input_4: C:/vsc/data/test/NE8nHt/NE8nHt_yai.jpg
+Sentence: Morrow, a pocket-sized Lantern___inder, begins by sitting at a toadstool workbench binding and tending his lantern, then walks along a root___trewn grove gathering trapped sighs into it, after which he kneels at a ruined well to coax a heavy sigh into the lantern, and finally climbs a hill at dawn to release the condensed sigh over the sleeping village.
+
+### Id: OlMzd1
+Input_1: C:/vsc/data/test/OlMzd1/OlMzd1_cjd.jpg
+Input_2: C:/vsc/data/test/OlMzd1/OlMzd1_jlw.jpg
+Input_3: C:/vsc/data/test/OlMzd1/OlMzd1_lit.jpg
+Input_4: C:/vsc/data/test/OlMzd1/OlMzd1_qbn.jpg
+Sentence: Aurelia, the clockwork night-botanist, begins by studying luminescent seeds at her cluttered workshop bench, then trudges into a moonlit marsh to plant those seeds by hand, after which she climbs a storm-battered clocktower rooftop to graft a luminous vine into the masonry, and finally stands at dawn above the cobbled market square to find the stones threaded with new shoots as her clockwork raven takes flight.
+
+### Id: jg8yLv
+Input_1: C:/vsc/data/test/jg8yLv/jg8yLv_brp.jpg
+Input_2: C:/vsc/data/test/jg8yLv/jg8yLv_euh.jpg
+Input_3: C:/vsc/data/test/jg8yLv/jg8yLv_frs.jpg
+Input_4: C:/vsc/data/test/jg8yLv/jg8yLv_guk.jpg
+Sentence: Nal begins by crafting a translucent living kite at his seaside attic workbench, then carries the folded kites to a windswept cliff and tests the gust before launch, after which he releases them into a migrating flock above a mountain pass while steering them with his brass windstaff, and finally watches from a high coastal pier at dusk as the glowing kites trace a migratory corridor toward distant islands.
+
+### Id: 1cCNJf
+Input_1: C:/vsc/data/test/1cCNJf/1cCNJf_kgd.jpg
+Input_2: C:/vsc/data/test/1cCNJf/1cCNJf_mzv.jpg
+Input_3: C:/vsc/data/test/1cCNJf/1cCNJf_wac.jpg
+Input_4: C:/vsc/data/test/1cCNJf/1cCNJf_xlj.jpg
+Sentence: Eris begins by standing on a windswept seaside cliff plotting a fading border on a weather___tained map, then crosses a fractured valley between snow and sun and shakes her satchel to spill seeds that become snowflakes and ember motes, after which she kneels on the ridge that seams two skies and sews the border with silver thread guided by her oak___nd___aple compass, and finally returns to a village maproom to hang the completed stitched map while villagers marvel and the last chiming seed rings at her feet.
+
+### Id: d8oDrG
+Input_1: C:/vsc/data/test/d8oDrG/d8oDrG_bgy.jpg
+Input_2: C:/vsc/data/test/d8oDrG/d8oDrG_kpi.jpg
+Input_3: C:/vsc/data/test/d8oDrG/d8oDrG_vqx.jpg
+Input_4: C:/vsc/data/test/d8oDrG/d8oDrG_yvj.jpg
+Sentence: Nadir, the Starlit Tinkerbadger, begins hunched in an alley tinkering a clockwork star as a living map peeks from his satchel, then climbs to a rooftop where the map unfurls and he steers it like a compass with his brass-prosthetic paw toward a distant observatory, after which he threads the map's filaments into a giant astrolabe door and inserts a cog to unlock it, and finally stands on the hillcrest as the opened gate releases the satchel's constellations into the dawn, forming a luminous pathway across the sky.
+
+### Id: GbglTR
+Input_1: C:/vsc/data/test/GbglTR/GbglTR_lkf.jpg
+Input_2: C:/vsc/data/test/GbglTR/GbglTR_lvq.jpg
+Input_3: C:/vsc/data/test/GbglTR/GbglTR_myx.jpg
+Input_4: C:/vsc/data/test/GbglTR/GbglTR_ptm.jpg
+Sentence: Aurelia begins by kneeling inside the glass-domed orchard at dawn to plant a sapling while her biomechanical fox unfurls a star-chart, then at midday on the sunlit walkway she stands and uses her music-box pruning saw as a windmill to pollinate glass-budded blossoms while the fox sketches star-lines on the dome, after which at dusk on the catwalk she steadies a falling sapling and retunes the saw as the fox traces constellations linking each tree to a star, and finally at night with the dome open she stands on a central platform as the saw scatters glowing pollen that, completed by the fox___ finished constellation, makes the orchard___ fruit bloom and glow.
+
+### Id: RInevj
+Input_1: C:/vsc/data/test/RInevj/RInevj_edx.jpg
+Input_2: C:/vsc/data/test/RInevj/RInevj_foe.jpg
+Input_3: C:/vsc/data/test/RInevj/RInevj_gke.jpg
+Input_4: C:/vsc/data/test/RInevj/RInevj_qce.jpg
+Sentence: Marisol the Clockwork Tidehawk begins perched on the scarred prow of a half___unken lighthouse with a cracked diver's helmet and a bioluminescent lantern, then glides down into the deep toward a drowned city's spire, after which she explores a submerged cathedral courtyard and traces barnacles etched with star___aps that lead her to recover a small brass tide___ompass, and finally breaks the surface at dawn, emerging wistful and clutching the compass.
+
+### Id: bhBfxb
+Input_1: C:/vsc/data/test/bhBfxb/bhBfxb_mlx.jpg
+Input_2: C:/vsc/data/test/bhBfxb/bhBfxb_pnf.jpg
+Input_3: C:/vsc/data/test/bhBfxb/bhBfxb_tfw.jpg
+Input_4: C:/vsc/data/test/bhBfxb/bhBfxb_xqr.jpg
+Sentence: Myrrh, a mournful bioluminescent octopus, begins by surfacing from an abyssal wreck to retrieve a drifting memory-lantern and ink the first lines of a map into the water, then threads a narrow alley of sunken hulls while consulting her sextant as trailing lantern-maps follow, after which she works in a kelp-draped submerged library to ink and arrange a luminous chart of the stolen recollections, and finally pauses at a vertical water column to release the completed translucent maps upward toward the sunlit surface.
+
+### Id: Sdgaeb
+Input_1: C:/vsc/data/test/Sdgaeb/Sdgaeb_clg.jpg
+Input_2: C:/vsc/data/test/Sdgaeb/Sdgaeb_fkb.jpg
+Input_3: C:/vsc/data/test/Sdgaeb/Sdgaeb_lwj.jpg
+Input_4: C:/vsc/data/test/Sdgaeb/Sdgaeb_swr.jpg
+Sentence: Morrow Vane begins by drifting alone down fogbound canals at midnight, then at a crowded lantern-lit quay a nervous cloaked stranger presses a crumpled secret route into his hands, after which he returns to his cramped houseboat cabin to study and trace the route onto his charts, and finally he leads a small flotilla through lifting dawn fog toward a distant stone archway.
+
+### Id: 9UQF4d
+Input_1: C:/vsc/data/test/9UQF4d/9UQF4d_gxk.jpg
+Input_2: C:/vsc/data/test/9UQF4d/9UQF4d_ijq.jpg
+Input_3: C:/vsc/data/test/9UQF4d/9UQF4d_slz.jpg
+Input_4: C:/vsc/data/test/9UQF4d/9UQF4d_xzf.jpg
+Sentence: Nyxum the Starwright begins by kneeling on a rain-slick rooftop to scoop a tiny glowing star-fragment from a puddle, then in a cluttered workshop sews that fragment into the hull of a paper boat, after which at a misty riverbank they set the finished boat afloat among others, and finally at dawn they stand on a meadow knoll to watch dozens of stitched boats lift on threads of returning starlight toward the brightening sky.
+
+### Id: 8vtk8F
+Input_1: C:/vsc/data/test/8vtk8F/8vtk8F_hyf.jpg
+Input_2: C:/vsc/data/test/8vtk8F/8vtk8F_nkz.jpg
+Input_3: C:/vsc/data/test/8vtk8F/8vtk8F_rgl.jpg
+Input_4: C:/vsc/data/test/8vtk8F/8vtk8F_wnf.jpg
+Sentence: Maribel begins by standing on a ridge at night above a sleeping town and tracing a street on a worn chart by lantern light, then threads a forgotten alley where she uses the lantern to reveal a route and records it with charcoal on her coat, after which she kneels in an abandoned plaza at pre-dawn and releases fireflies that form a floating map aligned by her compass-eye, and finally at first light she sets the lantern on a waypost to mark the rediscovered street and walks away down the opened lane.
+
+### Id: ncshcV
+Input_1: C:/vsc/data/test/ncshcV/ncshcV_rjn.jpg
+Input_2: C:/vsc/data/test/ncshcV/ncshcV_spe.jpg
+Input_3: C:/vsc/data/test/ncshcV/ncshcV_wey.jpg
+Input_4: C:/vsc/data/test/ncshcV/ncshcV_yvp.jpg
+Sentence: Lira begins on a fog___hoked pier tightening the cork on a bottled constellation in her lantern, then wades through waist___igh water holding it aloft to guide a stranded skiff to the channel, after which she climbs into an ancient lighthouse and unseals the bottle to feed the star___otes into the lamp, and finally watches from the cliff as the released constellation arcs into the sky and becomes a guiding star for a small brig.
+
+### Id: QECFyR
+Input_1: C:/vsc/data/test/QECFyR/QECFyR_ezk.jpg
+Input_2: C:/vsc/data/test/QECFyR/QECFyR_fvi.jpg
+Input_3: C:/vsc/data/test/QECFyR/QECFyR_plz.jpg
+Input_4: C:/vsc/data/test/QECFyR/QECFyR_wqg.jpg
+Sentence: The Cartographer of Hollow Rain begins by kneeling under a gaslamp in a rain-slick alley to sketch a compass rose that blooms puddles of memory, then stands on a windswept quay and lifts his umbrella to fold storm and rain into origami birds that gather the weather, after which he retreats to a ruined lighthouse and releases the birds to unfold into memory-puddles while tending a growing compass rose on the spiral stairs, and finally he walks across a dawn plain with a closed umbrella and dimmed lantern, finishing the last compass marks as the memories evaporate to stitch living weather onto his map-stitched coat.
+
+### Id: TwVBpy
+Input_1: C:/vsc/data/test/TwVBpy/TwVBpy_dkg.jpg
+Input_2: C:/vsc/data/test/TwVBpy/TwVBpy_gpg.jpg
+Input_3: C:/vsc/data/test/TwVBpy/TwVBpy_mmv.jpg
+Input_4: C:/vsc/data/test/TwVBpy/TwVBpy_wnt.jpg
+Sentence: The Meridian Gardener begins by readying their whale-shaped bellows and consulting a stitched star-map at the prow of a sky-ship, then tends floating gardens along a luminous ship-lane as a monocle-guided compass marks anchoring points and mist nourishes the planters, after which they lunge to rescue a spinning garden from micro-asteroids using bellows' fog and braided vines to steady it, and finally stands aboard a small vessel trailing a procession of flourishing floating gardens along a nebula sunrise with the bellows held like a staff.
+
+### Id: pZLnKL
+Input_1: C:/vsc/data/test/pZLnKL/pZLnKL_ino.jpg
+Input_2: C:/vsc/data/test/pZLnKL/pZLnKL_jbc.jpg
+Input_3: C:/vsc/data/test/pZLnKL/pZLnKL_kew.jpg
+Input_4: C:/vsc/data/test/pZLnKL/pZLnKL_wkh.jpg
+Sentence: The Memory-Harvest Snail begins by emerging from a twilight valley and siphoning fog into amber memory capsules, then navigates a sunlit abandoned train station to fill more capsules from steam and relics, after which it pauses at an overgrown cemetery to release a capsule that projects a remembered scene above a grave, and finally enters a ruined memory-archive cathedral to slot its feelers into a reliquary and deposit hundreds of capsules that unspool into a luminous tapestry.
+
+### Id: lXcuqN
+Input_1: C:/vsc/data/test/lXcuqN/lXcuqN_aud.jpg
+Input_2: C:/vsc/data/test/lXcuqN/lXcuqN_eej.jpg
+Input_3: C:/vsc/data/test/lXcuqN/lXcuqN_kfj.jpg
+Input_4: C:/vsc/data/test/lXcuqN/lXcuqN_lbq.jpg
+Sentence: The Archive-Moth begins by perching on the cracked steps of an abandoned library with a satchel of rusted keys and whispered stories, then enters the vaulted archive and, through its clockwork spectacles, guides a rusted key into an iron chest, after which it tends a rooftop garden where seedlings grow into glowing pages, and finally leaves a single key on the restored threshold before launching at dawn toward the horizon.
+
+### Id: 23mLli
+Input_1: C:/vsc/data/test/23mLli/23mLli_bwu.jpg
+Input_2: C:/vsc/data/test/23mLli/23mLli_ltb.jpg
+Input_3: C:/vsc/data/test/23mLli/23mLli_szr.jpg
+Input_4: C:/vsc/data/test/23mLli/23mLli_tdx.jpg
+Sentence: Aurelio, the Clockwork Orchardist, begins at dawn pruning glass fruit in a floating orchard, then at midday lunges to catch a tumbling pear after an updraft, after which he spends late afternoon in his workshop clicking his shears into a pocket-watch to repair a cracked fruit, and finally sits on the isle___ edge at night winding the watch as the suspended fruits pulse in time.
+
+### Id: tISnNm
+Input_1: C:/vsc/data/test/tISnNm/tISnNm_foq.jpg
+Input_2: C:/vsc/data/test/tISnNm/tISnNm_gje.jpg
+Input_3: C:/vsc/data/test/tISnNm/tISnNm_jhf.jpg
+Input_4: C:/vsc/data/test/tISnNm/tISnNm_sjc.jpg
+Sentence: Irisol, the storm-chanter shepherd, begins on a jagged coastal headland as a drifting flock of phosphorescent cloud-sheep gathers, then stands at the prow of a weathered skiff lifting a whale-bone flute to guide them across open water, after which they brace on the deck of a capsized longboat with flute raised as a tempest drives the flock into a luminous protective spiral, and finally sit on a smooth sea-glass reef with the flock drifting calmly around them.
+
+### Id: a94blB
+Input_1: C:/vsc/data/test/a94blB/a94blB_nly.jpg
+Input_2: C:/vsc/data/test/a94blB/a94blB_umq.jpg
+Input_3: C:/vsc/data/test/a94blB/a94blB_vcq.jpg
+Input_4: C:/vsc/data/test/a94blB/a94blB_ydr.jpg
+Sentence: Aurelia the Cartographer Moth begins by sketching constellations at her attic drafting table, then launches from a mossy rooftop garden into the night trailing a glowing thread, after which she ascends above a chasm to anchor a luminous stitch into a suspended spire, and finally perches in a cliffside observatory to complete the last stitch on a vast stitched star-map at dawn.
+
+### Id: Mzqkaf
+Input_1: C:/vsc/data/test/Mzqkaf/Mzqkaf_cpb.jpg
+Input_2: C:/vsc/data/test/Mzqkaf/Mzqkaf_mdl.jpg
+Input_3: C:/vsc/data/test/Mzqkaf/Mzqkaf_sll.jpg
+Input_4: C:/vsc/data/test/Mzqkaf/Mzqkaf_wcv.jpg
+Sentence: Senya, the Cartographer of Lost Seasons, begins by arriving at a steam-weathered crossroads and studying the horizon with her folded brass sextant, then climbs a soot-dark rooftop at night and lifts the sextant to unfurl constellations, after which she kneels in a seasonal glade and uses fog from her glass-lattice arm to draw glowing paths onto vellum, and finally stands on a dawn cliff to release the finished map as it transforms into drifting leaves and star-motes that change the weather below.
+
+### Id: 3JujAw
+Input_1: C:/vsc/data/test/3JujAw/3JujAw_afh.jpg
+Input_2: C:/vsc/data/test/3JujAw/3JujAw_dpj.jpg
+Input_3: C:/vsc/data/test/3JujAw/3JujAw_jcf.jpg
+Input_4: C:/vsc/data/test/3JujAw/3JujAw_jrq.jpg
+Sentence: Atlasine, the Clockwork Orchardist, begins by pruning copper-leafed trees in a misty dawn orchard, then at midday kneels beneath an ancient automaton tree to retrieve a glowing seed vial, after which she plants the pulsing seed in a glass greenhouse, and months later returns on a ladder to harvest the now-lush orchard heavy with luminous metallic fruit.
+
+### Id: VhL5Rz
+Input_1: C:/vsc/data/test/VhL5Rz/VhL5Rz_aad.jpg
+Input_2: C:/vsc/data/test/VhL5Rz/VhL5Rz_knl.jpg
+Input_3: C:/vsc/data/test/VhL5Rz/VhL5Rz_wkm.jpg
+Input_4: C:/vsc/data/test/VhL5Rz/VhL5Rz_wra.jpg
+Sentence: Iolana, the Starlight Seamstress, begins in a quiet asteroid atelier preparing her humming spool and studying a frayed star-map, then strides along a living ribbon of the Milky Way unwinding starlight as she travels, after which she kneels at a torn constellation to stitch its starline with a moonbeam needle and living thread, and finally stands on a crescent moon to admire the mended constellations as the spool rests quiet in her palm.
+
+### Id: 2dAsEN
+Input_1: C:/vsc/data/test/2dAsEN/2dAsEN_eif.jpg
+Input_2: C:/vsc/data/test/2dAsEN/2dAsEN_ggu.jpg
+Input_3: C:/vsc/data/test/2dAsEN/2dAsEN_glo.jpg
+Input_4: C:/vsc/data/test/2dAsEN/2dAsEN_hcj.jpg
+Sentence: Aurek begins by standing on a cobblestone quay at twilight preparing to set out with his monocle and battered telescope, then at night in a coastal lighthouse he hunches over maps as the monocle projects forecasts and he traces a route, after which on a wind___hipped cliff he measures a gathering storm with the telescope while shielding a jar that catches its remembered rain, and finally at dawn on a flattened plain he opens the jar to release a mist into the projected forecasts, completing his ritual of weather___apping.

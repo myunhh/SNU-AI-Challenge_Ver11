@@ -1,0 +1,215 @@
+### Id: qkSjok
+Input_1: C:/vsc/data/test/qkSjok/qkSjok_aat.jpg
+Input_2: C:/vsc/data/test/qkSjok/qkSjok_czy.jpg
+Input_3: C:/vsc/data/test/qkSjok/qkSjok_gui.jpg
+Input_4: C:/vsc/data/test/qkSjok/qkSjok_wlf.jpg
+Sentence: The cat's paw approaches the clippers with a slight camera zoom, transitioning to a kitchen scene where a person cuts green onions before speaking in a medium shot.
+Candidates: [[4, 3, 2, 1], [4, 3, 1, 2]]
+
+### Id: TcX8RT
+Input_1: C:/vsc/data/test/TcX8RT/TcX8RT_fox.jpg
+Input_2: C:/vsc/data/test/TcX8RT/TcX8RT_rdj.jpg
+Input_3: C:/vsc/data/test/TcX8RT/TcX8RT_ssi.jpg
+Input_4: C:/vsc/data/test/TcX8RT/TcX8RT_vnv.jpg
+Sentence: A skateboarder moves further along the curve, receding from the camera as spectators watch, followed by a skier shifting left while navigating the course, with the camera angle revealing more details as they approach the finish line.
+Candidates: [[3, 1, 2, 4], [3, 2, 1, 4], [1, 3, 2, 4], [4, 1, 2, 3]]
+
+### Id: cyA948
+Input_1: C:/vsc/data/test/cyA948/cyA948_lfm.jpg
+Input_2: C:/vsc/data/test/cyA948/cyA948_nza.jpg
+Input_3: C:/vsc/data/test/cyA948/cyA948_pjw.jpg
+Input_4: C:/vsc/data/test/cyA948/cyA948_vme.jpg
+Sentence: The skier navigates from a tree-lined trail to an open slope with other skiers visible, then continues down the snowy slope as the camera tilts slightly left, moving from the center to the right.
+Candidates: [[1, 4, 2, 3], [1, 3, 2, 4], [1, 4, 3, 2]]
+
+### Id: XGuH3q
+Input_1: C:/vsc/data/test/XGuH3q/XGuH3q_csb.jpg
+Input_2: C:/vsc/data/test/XGuH3q/XGuH3q_gql.jpg
+Input_3: C:/vsc/data/test/XGuH3q/XGuH3q_iqe.jpg
+Input_4: C:/vsc/data/test/XGuH3q/XGuH3q_ljq.jpg
+Sentence: A person on Skyrunner jumps higher and moves left, captured by an upward camera angle, then a child in a red shirt hops forward on a chalk hopscotch as another child joins from the right.
+Candidates: [[1, 3, 2, 4], [2, 3, 1, 4]]
+
+### Id: iCAOJa
+Input_1: C:/vsc/data/test/iCAOJa/iCAOJa_cct.jpg
+Input_2: C:/vsc/data/test/iCAOJa/iCAOJa_fmt.jpg
+Input_3: C:/vsc/data/test/iCAOJa/iCAOJa_omm.jpg
+Input_4: C:/vsc/data/test/iCAOJa/iCAOJa_qvz.jpg
+Sentence: The athlete leaps over the high jump bar with a close-up view, followed by another athlete landing in the sand pit near measurement markers, concluding with the results board zooming in to show rankings.
+Candidates: [[1, 3, 4, 2], [2, 3, 4, 1]]
+
+### Id: SvmYxN
+Input_1: C:/vsc/data/test/SvmYxN/SvmYxN_auu.jpg
+Input_2: C:/vsc/data/test/SvmYxN/SvmYxN_pve.jpg
+Input_3: C:/vsc/data/test/SvmYxN/SvmYxN_qps.jpg
+Input_4: C:/vsc/data/test/SvmYxN/SvmYxN_xqt.jpg
+Sentence: A diver flips mid-air, then a boy descends into the pool; the scene shifts to a wide view of a water polo match, concluding with a close-up of a title screen reading "MATT VS."
+Candidates: [[2, 3, 1, 4], [1, 3, 2, 4]]
+
+### Id: DOlsHX
+Input_1: C:/vsc/data/test/DOlsHX/DOlsHX_dim.jpg
+Input_2: C:/vsc/data/test/DOlsHX/DOlsHX_kya.jpg
+Input_3: C:/vsc/data/test/DOlsHX/DOlsHX_mzc.jpg
+Input_4: C:/vsc/data/test/DOlsHX/DOlsHX_vgs.jpg
+Sentence: The skier celebrates with teammates before performing an aerial maneuver as the camera zooms out, while the windsurfer tilts more vertically and lowers the sail approaching the water's surface.
+Candidates: [[2, 4, 1, 3], [2, 3, 1, 4]]
+
+### Id: da2MIM
+Input_1: C:/vsc/data/test/da2MIM/da2MIM_fwb.jpg
+Input_2: C:/vsc/data/test/da2MIM/da2MIM_igh.jpg
+Input_3: C:/vsc/data/test/da2MIM/da2MIM_kqg.jpg
+Input_4: C:/vsc/data/test/da2MIM/da2MIM_tgm.jpg
+Sentence: Cheerleaders are lifted high and descend into a synchronized line, followed by dancers entering and bending forward over step platforms in perfect unison.
+Candidates: [[4, 1, 2, 3], [4, 2, 1, 3], [3, 2, 1, 4]]
+
+### Id: 75Z57K
+Input_1: C:/vsc/data/test/75Z57K/75Z57K_fkg.jpg
+Input_2: C:/vsc/data/test/75Z57K/75Z57K_hdx.jpg
+Input_3: C:/vsc/data/test/75Z57K/75Z57K_wer.jpg
+Input_4: C:/vsc/data/test/75Z57K/75Z57K_wvb.jpg
+Sentence: The person in the hooded coat exits as another shovels snow from the car, then shifts to clearing the windshield, revealing glass as they move leftward.
+Candidates: [[2, 1, 4, 3], [1, 2, 4, 3], [1, 2, 3, 4]]
+
+### Id: m0WLBa
+Input_1: C:/vsc/data/test/m0WLBa/m0WLBa_off.jpg
+Input_2: C:/vsc/data/test/m0WLBa/m0WLBa_ubv.jpg
+Input_3: C:/vsc/data/test/m0WLBa/m0WLBa_vvf.jpg
+Input_4: C:/vsc/data/test/m0WLBa/m0WLBa_zdr.jpg
+Sentence: The skater rises from sitting to standing, speaking animatedly, then pushes off with their foot, gliding left as the camera pans right, and lowers their body in preparation for a trick.
+Candidates: [[1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: JwI2O1
+Input_1: C:/vsc/data/test/JwI2O1/JwI2O1_mhe.jpg
+Input_2: C:/vsc/data/test/JwI2O1/JwI2O1_txn.jpg
+Input_3: C:/vsc/data/test/JwI2O1/JwI2O1_utb.jpg
+Input_4: C:/vsc/data/test/JwI2O1/JwI2O1_wnx.jpg
+Sentence:  The girl then begins climbing across the set of monkey bars.
+Candidates: [[3, 4, 1, 2], [4, 3, 1, 2], [1, 2, 3, 4], [3, 4, 2, 1]]
+
+### Id: 9fwwT6
+Input_1: C:/vsc/data/test/9fwwT6/9fwwT6_osd.jpg
+Input_2: C:/vsc/data/test/9fwwT6/9fwwT6_qve.jpg
+Input_3: C:/vsc/data/test/9fwwT6/9fwwT6_sav.jpg
+Input_4: C:/vsc/data/test/9fwwT6/9fwwT6_zoq.jpg
+Sentence: A man mounts a beam in front of the judges.
+Candidates: [[4, 2, 3, 1], [4, 1, 3, 2], [3, 1, 2, 4]]
+
+### Id: enJCzv
+Input_1: C:/vsc/data/test/enJCzv/enJCzv_gei.jpg
+Input_2: C:/vsc/data/test/enJCzv/enJCzv_kbe.jpg
+Input_3: C:/vsc/data/test/enJCzv/enJCzv_kuh.jpg
+Input_4: C:/vsc/data/test/enJCzv/enJCzv_nwv.jpg
+Sentence: The musician shifts right and leans back with the guitar as the camera zooms in slightly, then stage lights fade, revealing a seated performer with a band member as the camera zooms out.
+Candidates: [[3, 4, 2, 1], [3, 4, 1, 2]]
+
+### Id: ryRBAt
+Input_1: C:/vsc/data/test/ryRBAt/ryRBAt_aym.jpg
+Input_2: C:/vsc/data/test/ryRBAt/ryRBAt_duq.jpg
+Input_3: C:/vsc/data/test/ryRBAt/ryRBAt_hxp.jpg
+Input_4: C:/vsc/data/test/ryRBAt/ryRBAt_wbj.jpg
+Sentence:  The man stop raking, walks toward a tree, and hangs the rake on the tree.
+Candidates: [[4, 2, 1, 3], [2, 3, 1, 4], [3, 2, 1, 4]]
+
+### Id: NGEcEv
+Input_1: C:/vsc/data/test/NGEcEv/NGEcEv_cxm.jpg
+Input_2: C:/vsc/data/test/NGEcEv/NGEcEv_mit.jpg
+Input_3: C:/vsc/data/test/NGEcEv/NGEcEv_ymh.jpg
+Input_4: C:/vsc/data/test/NGEcEv/NGEcEv_zme.jpg
+Sentence:  An athlete approaches the field area.
+Candidates: [[2, 3, 1, 4], [3, 2, 4, 1], [3, 2, 1, 4], [3, 4, 2, 1]]
+
+### Id: 8WEGwa
+Input_1: C:/vsc/data/test/8WEGwa/8WEGwa_fwi.jpg
+Input_2: C:/vsc/data/test/8WEGwa/8WEGwa_gez.jpg
+Input_3: C:/vsc/data/test/8WEGwa/8WEGwa_hyc.jpg
+Input_4: C:/vsc/data/test/8WEGwa/8WEGwa_kwz.jpg
+Sentence:  The gets off the rope and walks on the mats off the floor and towards his group.
+Candidates: [[3, 1, 2, 4], [3, 2, 1, 4], [4, 1, 2, 3], [4, 2, 1, 3]]
+
+### Id: aTrFXQ
+Input_1: C:/vsc/data/test/aTrFXQ/aTrFXQ_bdk.jpg
+Input_2: C:/vsc/data/test/aTrFXQ/aTrFXQ_cjn.jpg
+Input_3: C:/vsc/data/test/aTrFXQ/aTrFXQ_dgi.jpg
+Input_4: C:/vsc/data/test/aTrFXQ/aTrFXQ_ywf.jpg
+Sentence:   The man tries to open his trunk again, this time the opening is easier and the man climbs into the trunk of the car to the front of the car to open the drivers door from the inside drivers seat.
+Candidates: [[4, 3, 2, 1], [4, 2, 3, 1], [4, 2, 1, 3], [2, 1, 4, 3]]
+
+### Id: UwdDWd
+Input_1: C:/vsc/data/test/UwdDWd/UwdDWd_aqk.jpg
+Input_2: C:/vsc/data/test/UwdDWd/UwdDWd_mop.jpg
+Input_3: C:/vsc/data/test/UwdDWd/UwdDWd_oiy.jpg
+Input_4: C:/vsc/data/test/UwdDWd/UwdDWd_yzk.jpg
+Sentence:  She puts it in a glass pan and puts the pan in the oven.
+Candidates: [[3, 1, 2, 4], [4, 2, 3, 1], [1, 2, 3, 4], [4, 1, 3, 2], [3, 2, 4, 1]]
+
+### Id: a90lEu
+Input_1: C:/vsc/data/test/a90lEu/a90lEu_bhn.jpg
+Input_2: C:/vsc/data/test/a90lEu/a90lEu_hbz.jpg
+Input_3: C:/vsc/data/test/a90lEu/a90lEu_qrb.jpg
+Input_4: C:/vsc/data/test/a90lEu/a90lEu_xpu.jpg
+Sentence:  Then she lightly twists the braiding hair and uses as many bobby pins as she needs.
+Candidates: [[4, 1, 3, 2], [2, 1, 4, 3], [1, 2, 3, 4]]
+
+### Id: uQE4mF
+Input_1: C:/vsc/data/test/uQE4mF/uQE4mF_epq.jpg
+Input_2: C:/vsc/data/test/uQE4mF/uQE4mF_guh.jpg
+Input_3: C:/vsc/data/test/uQE4mF/uQE4mF_gwe.jpg
+Input_4: C:/vsc/data/test/uQE4mF/uQE4mF_nud.jpg
+Sentence:  A woman is helping the boy down a slide and the same person in the red vest catches them.
+Candidates: [[3, 2, 1, 4], [1, 3, 2, 4], [4, 1, 2, 3], [1, 2, 3, 4], [3, 1, 2, 4]]
+
+### Id: f7JwiT
+Input_1: C:/vsc/data/test/f7JwiT/f7JwiT_bgj.jpg
+Input_2: C:/vsc/data/test/f7JwiT/f7JwiT_buv.jpg
+Input_3: C:/vsc/data/test/f7JwiT/f7JwiT_pno.jpg
+Input_4: C:/vsc/data/test/f7JwiT/f7JwiT_qws.jpg
+Sentence: A toddler goes down on a slide in a playground full of people, when the toddler touches the floor, she stand and run.
+Candidates: [[1, 3, 4, 2], [3, 2, 4, 1], [3, 1, 4, 2], [2, 1, 4, 3]]
+
+### Id: S0cFZA
+Input_1: C:/vsc/data/test/S0cFZA/S0cFZA_pfw.jpg
+Input_2: C:/vsc/data/test/S0cFZA/S0cFZA_sjq.jpg
+Input_3: C:/vsc/data/test/S0cFZA/S0cFZA_udi.jpg
+Input_4: C:/vsc/data/test/S0cFZA/S0cFZA_yeb.jpg
+Sentence:  A woman puts a baby in the swimming pool, and the baby swims fast to reach the border of the swimming pool.
+Candidates: [[1, 4, 2, 3], [1, 2, 4, 3], [1, 4, 3, 2]]
+
+### Id: bhC2Jx
+Input_1: C:/vsc/data/test/bhC2Jx/bhC2Jx_nrw.jpg
+Input_2: C:/vsc/data/test/bhC2Jx/bhC2Jx_rgf.jpg
+Input_3: C:/vsc/data/test/bhC2Jx/bhC2Jx_whl.jpg
+Input_4: C:/vsc/data/test/bhC2Jx/bhC2Jx_wme.jpg
+Sentence: The bartender begins to prepare a drink, then garnishes it with a lemon slice, and finally presents the finished cocktail to the camera.
+Candidates: [[1, 4, 2, 3], [1, 4, 3, 2], [1, 2, 3, 4]]
+
+### Id: S3E8Td
+Input_1: C:/vsc/data/test/S3E8Td/S3E8Td_eev.jpg
+Input_2: C:/vsc/data/test/S3E8Td/S3E8Td_icu.jpg
+Input_3: C:/vsc/data/test/S3E8Td/S3E8Td_kgj.jpg
+Input_4: C:/vsc/data/test/S3E8Td/S3E8Td_qxz.jpg
+Sentence: The scene transitions from a title screen to a person rising from a mat, then shifts to a woman in blue kneeling as another gestures beside her, with a slight downward camera tilt.
+Candidates: [[3, 4, 2, 1], [4, 3, 2, 1]]
+
+### Id: VAhS2V
+Input_1: C:/vsc/data/test/VAhS2V/VAhS2V_nnb.jpg
+Input_2: C:/vsc/data/test/VAhS2V/VAhS2V_phw.jpg
+Input_3: C:/vsc/data/test/VAhS2V/VAhS2V_wiv.jpg
+Input_4: C:/vsc/data/test/VAhS2V/VAhS2V_xuu.jpg
+Sentence: The view opens with a truck ahead, then shifts to a skateboarder gaining speed, followed by the road ahead, and finally shows a person looking back at the camera.
+Candidates: [[2, 4, 3, 1], [3, 4, 2, 1], [1, 4, 2, 3]]
+
+### Id: 4xk66H
+Input_1: C:/vsc/data/test/4xk66H/4xk66H_avc.jpg
+Input_2: C:/vsc/data/test/4xk66H/4xk66H_kdu.jpg
+Input_3: C:/vsc/data/test/4xk66H/4xk66H_ufo.jpg
+Input_4: C:/vsc/data/test/4xk66H/4xk66H_zej.jpg
+Sentence: The woman walks her dog down the sidewalk, pausing to gesture, then continues as the dog moves from left to center; she then brushes another dog's back, moving her hand to its neck, while the dog stands calmly.
+Candidates: [[2, 4, 1, 3], [1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: Q8AcuC
+Input_1: C:/vsc/data/test/Q8AcuC/Q8AcuC_htl.jpg
+Input_2: C:/vsc/data/test/Q8AcuC/Q8AcuC_qch.jpg
+Input_3: C:/vsc/data/test/Q8AcuC/Q8AcuC_sco.jpg
+Input_4: C:/vsc/data/test/Q8AcuC/Q8AcuC_sdu.jpg
+Sentence: A man pushes a mower forward, veering slightly right near the house, then the scene shifts to a close-up of someone applying wood finish, ending with a view of painting supplies on a wooden surface.
+Candidates: [[2, 1, 3, 4], [1, 2, 3, 4]]

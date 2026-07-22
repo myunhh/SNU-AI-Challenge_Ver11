@@ -1,0 +1,119 @@
+### Id: VAhS2V
+Input_1: C:/vsc/data/test/VAhS2V/VAhS2V_nnb.jpg
+Input_2: C:/vsc/data/test/VAhS2V/VAhS2V_phw.jpg
+Input_3: C:/vsc/data/test/VAhS2V/VAhS2V_wiv.jpg
+Input_4: C:/vsc/data/test/VAhS2V/VAhS2V_xuu.jpg
+Sentence: The view opens with a truck ahead, then shifts to a skateboarder gaining speed, followed by the road ahead, and finally shows a person looking back at the camera.
+Candidates: [[1, 4, 2, 3], [2, 4, 3, 1], [3, 4, 2, 1]]
+
+### Id: 4xk66H
+Input_1: C:/vsc/data/test/4xk66H/4xk66H_avc.jpg
+Input_2: C:/vsc/data/test/4xk66H/4xk66H_kdu.jpg
+Input_3: C:/vsc/data/test/4xk66H/4xk66H_ufo.jpg
+Input_4: C:/vsc/data/test/4xk66H/4xk66H_zej.jpg
+Sentence: The woman walks her dog down the sidewalk, pausing to gesture, then continues as the dog moves from left to center; she then brushes another dog's back, moving her hand to its neck, while the dog stands calmly.
+Candidates: [[2, 4, 1, 3], [1, 4, 2, 3], [1, 3, 2, 4]]
+
+### Id: neLENZ
+Input_1: C:/vsc/data/test/neLENZ/neLENZ_jlh.jpg
+Input_2: C:/vsc/data/test/neLENZ/neLENZ_kso.jpg
+Input_3: C:/vsc/data/test/neLENZ/neLENZ_lqv.jpg
+Input_4: C:/vsc/data/test/neLENZ/neLENZ_vnh.jpg
+Sentence: Hands secure sections of hair into an updo, then the camera zooms out and pans left to reveal text overlay about a DIY updo tutorial.
+Candidates: [[3, 2, 4, 1], [3, 1, 4, 2], [2, 1, 4, 3]]
+
+### Id: YZuSuG
+Input_1: C:/vsc/data/test/YZuSuG/YZuSuG_fyn.jpg
+Input_2: C:/vsc/data/test/YZuSuG/YZuSuG_hgs.jpg
+Input_3: C:/vsc/data/test/YZuSuG/YZuSuG_oxc.jpg
+Input_4: C:/vsc/data/test/YZuSuG/YZuSuG_soy.jpg
+Sentence:  We see the person carve a drawing on a pumpkin.
+Candidates: [[1, 3, 4, 2], [1, 4, 3, 2], [1, 2, 4, 3], [2, 3, 4, 1]]
+
+### Id: ko74ge
+Input_1: C:/vsc/data/test/ko74ge/ko74ge_xdh.jpg
+Input_2: C:/vsc/data/test/ko74ge/ko74ge_xhk.jpg
+Input_3: C:/vsc/data/test/ko74ge/ko74ge_yig.jpg
+Input_4: C:/vsc/data/test/ko74ge/ko74ge_zlc.jpg
+Sentence:  He is using a red can of spray paint to demonstrate how to paints a cream colored sofa with red paint.
+Candidates: [[4, 1, 3, 2], [1, 2, 3, 4], [3, 4, 2, 1], [1, 4, 3, 2], [2, 3, 4, 1]]
+
+### Id: Odqs9J
+Input_1: C:/vsc/data/test/Odqs9J/Odqs9J_aja.jpg
+Input_2: C:/vsc/data/test/Odqs9J/Odqs9J_bla.jpg
+Input_3: C:/vsc/data/test/Odqs9J/Odqs9J_fzs.jpg
+Input_4: C:/vsc/data/test/Odqs9J/Odqs9J_wce.jpg
+Sentence: The person begins to apply wallpaper in the first frame, then uses a cutting tool in the second, moves to adjust the wallpaper in the third, and finally the video ends with a logo.
+Candidates: [[1, 2, 3, 4], [2, 3, 1, 4], [1, 3, 2, 4]]
+
+### Id: ALfz6z
+Input_1: C:/vsc/data/test/ALfz6z/ALfz6z_ank.jpg
+Input_2: C:/vsc/data/test/ALfz6z/ALfz6z_mdl.jpg
+Input_3: C:/vsc/data/test/ALfz6z/ALfz6z_rxw.jpg
+Input_4: C:/vsc/data/test/ALfz6z/ALfz6z_sou.jpg
+Sentence: An athlete bends over and exits the frame as the camera shifts to seated competitors; simultaneously, a person sprays a roof, moves right to another section while standing, and the camera pans slightly downward.
+Candidates: [[3, 1, 4, 2], [2, 1, 3, 4], [4, 1, 3, 2]]
+
+### Id: 5zb7Ro
+Input_1: C:/vsc/data/test/5zb7Ro/5zb7Ro_akn.jpg
+Input_2: C:/vsc/data/test/5zb7Ro/5zb7Ro_fjw.jpg
+Input_3: C:/vsc/data/test/5zb7Ro/5zb7Ro_git.jpg
+Input_4: C:/vsc/data/test/5zb7Ro/5zb7Ro_hln.jpg
+Sentence: The athlete lifts the barbell from the ground to waist level as the coach points, then another athlete lowers a barbell from overhead to the ground while a new lifter prepares to begin.
+Candidates: [[3, 4, 2, 1], [4, 3, 2, 1], [3, 1, 2, 4], [4, 1, 3, 2]]
+
+### Id: XN8XTY
+Input_1: C:/vsc/data/test/XN8XTY/XN8XTY_awz.jpg
+Input_2: C:/vsc/data/test/XN8XTY/XN8XTY_gwg.jpg
+Input_3: C:/vsc/data/test/XN8XTY/XN8XTY_hwj.jpg
+Input_4: C:/vsc/data/test/XN8XTY/XN8XTY_yby.jpg
+Sentence: The camera pans from two seated men to a guitarist strumming intently, then zooms in on a man bringing a harmonica closer as his hands form a cupped shape around it.
+Candidates: [[1, 3, 2, 4], [1, 4, 2, 3]]
+
+### Id: PnykTd
+Input_1: C:/vsc/data/test/PnykTd/PnykTd_kqa.jpg
+Input_2: C:/vsc/data/test/PnykTd/PnykTd_kwo.jpg
+Input_3: C:/vsc/data/test/PnykTd/PnykTd_sni.jpg
+Input_4: C:/vsc/data/test/PnykTd/PnykTd_vso.jpg
+Sentence: The woman puts the razor handle back in her mouth and tries to shave again but it falls out of her mouth and she drops her head in frustration then leans back on the bed, laughs, and then crosses her arms.
+Candidates: [[2, 1, 3, 4], [3, 1, 2, 4], [4, 1, 2, 3]]
+
+### Id: FrNHna
+Input_1: C:/vsc/data/test/FrNHna/FrNHna_kkd.jpg
+Input_2: C:/vsc/data/test/FrNHna/FrNHna_prc.jpg
+Input_3: C:/vsc/data/test/FrNHna/FrNHna_qcf.jpg
+Input_4: C:/vsc/data/test/FrNHna/FrNHna_ztl.jpg
+Sentence:  The boy runs into the room and jumps on the bed.
+Candidates: [[3, 2, 1, 4], [4, 2, 1, 3], [4, 1, 2, 3]]
+
+### Id: YSPJJW
+Input_1: C:/vsc/data/test/YSPJJW/YSPJJW_soz.jpg
+Input_2: C:/vsc/data/test/YSPJJW/YSPJJW_wpx.jpg
+Input_3: C:/vsc/data/test/YSPJJW/YSPJJW_wsg.jpg
+Input_4: C:/vsc/data/test/YSPJJW/YSPJJW_xpb.jpg
+Sentence: A woman in a white dress starts a lawn mower.
+Candidates: [[3, 2, 1, 4], [2, 4, 1, 3], [4, 3, 2, 1], [2, 3, 1, 4], [2, 4, 3, 1]]
+
+### Id: pJETr3
+Input_1: C:/vsc/data/test/pJETr3/pJETr3_cqh.jpg
+Input_2: C:/vsc/data/test/pJETr3/pJETr3_fbt.jpg
+Input_3: C:/vsc/data/test/pJETr3/pJETr3_luk.jpg
+Input_4: C:/vsc/data/test/pJETr3/pJETr3_ric.jpg
+Sentence:  The individual puts the shoes on his feet.
+Candidates: [[3, 4, 1, 2], [4, 3, 1, 2]]
+
+### Id: BECRdM
+Input_1: C:/vsc/data/test/BECRdM/BECRdM_diw.jpg
+Input_2: C:/vsc/data/test/BECRdM/BECRdM_hwq.jpg
+Input_3: C:/vsc/data/test/BECRdM/BECRdM_iis.jpg
+Input_4: C:/vsc/data/test/BECRdM/BECRdM_nhy.jpg
+Sentence:   The man simultaneously throws a rope around the calfs neck and dismounts the horse, while the horse is in motion.
+Candidates: [[3, 1, 2, 4], [4, 3, 2, 1], [2, 3, 1, 4], [3, 4, 1, 2]]
+
+### Id: pR1lov
+Input_1: C:/vsc/data/test/pR1lov/pR1lov_fbv.jpg
+Input_2: C:/vsc/data/test/pR1lov/pR1lov_qfk.jpg
+Input_3: C:/vsc/data/test/pR1lov/pR1lov_rns.jpg
+Input_4: C:/vsc/data/test/pR1lov/pR1lov_yor.jpg
+Sentence: The child moves right, swings the racket, and the camera slightly pans, followed by the player in the yellow shirt moving forward with another player following, both approaching the center of the court.
+Candidates: [[2, 3, 1, 4], [2, 4, 1, 3]]

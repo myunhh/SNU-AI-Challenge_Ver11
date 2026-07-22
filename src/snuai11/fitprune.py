@@ -44,6 +44,19 @@ default and each ablatable to exactly the previous behavior:
     which MMR subsumes; diversity_frac is ignored when mmr_lambda > 0).
     lambda 0 falls back to the legacy top-k + diversity-fill path.
 
+  * motion (cfg.motion_weight, 2026-07-22): blend in each token's mean raw
+    residual norm against the SAME grid position of the sample's other 3
+    frames — static background scores near 0, moving/changing foreground
+    high. Raw norms, not cosine: a token that looks identical across frames
+    must score ~0 regardless of direction. Validated before implementation
+    (scripts/measure_motion_signal.py): spearman +0.693 against the
+    prune_viz-verified objectness proxy but +0.011 against the caption
+    cosine — foreground signal that the caption channel does not carry.
+    Only defined when all 4 images share one token grid (~78% of train);
+    otherwise the term is silently dropped for that image (exact legacy
+    2-term blend — never resize/interpolate to force alignment). Weight 0
+    reproduces the pre-motion pipeline bit-for-bit.
+
 Default weights (objectness 0.3, MMR lambda 0.5) are structural choices,
 not tuned values (Ver11 has no local holdout). The lambda floor is derived,
 not arbitrary: both terms live on [0, 1], so in the worst case (foreground
@@ -90,6 +103,7 @@ class PruneConfig:
     event_pool: str = "max"  # pool over the 4 events: max|mean
     objectness_weight: float = 0.3  # blend weight of centroid-residual norm (0 = pure cosine)
     mmr_lambda: float = 0.5  # MMR redundancy penalty (0 = legacy top-k + diversity fill)
+    motion_weight: float = 0.0  # cross-frame residual-norm blend weight (0 = pre-motion behavior)
     enabled: bool = True
 
 
@@ -163,19 +177,58 @@ def objectness_scores(visual: torch.Tensor) -> torch.Tensor:
 
 
 @torch.no_grad()
+def motion_scores(per_image_embeds: list[torch.Tensor], img_i: int) -> torch.Tensor | None:
+    """Mean cross-frame residual norm per token of image img_i. [N] or None.
+
+    motion[p] = mean_{j != i} ||v_i[p] - v_j[p]|| — a token whose grid
+    position looks the same in the sample's other 3 frames (static
+    background) scores near 0, moving/changing foreground scores high. Raw
+    residual norms, NOT cosine: visually identical tokens must score ~0
+    regardless of direction (scripts/measure_motion_signal.py is the
+    validated reference this mirrors).
+
+    Returns None when the 4 images' token counts differ (different native
+    resolutions, ~22% of train): positional alignment is meaningless there.
+    Callers must then silently drop the motion term (legacy cos+objectness
+    blend) — never crash, never resize/interpolate to force alignment.
+    """
+    n = per_image_embeds[img_i].shape[0]
+    if any(t.shape[0] != n for t in per_image_embeds):
+        return None
+    v_i = per_image_embeds[img_i].float()
+    others = [per_image_embeds[j].float() for j in range(len(per_image_embeds)) if j != img_i]
+    diffs = torch.stack([(v_i - o).norm(dim=-1) for o in others], dim=0)  # [3, N]
+    return diffs.mean(dim=0)  # [N]
+
+
+@torch.no_grad()
 def combined_scores(
-    visual: torch.Tensor,
+    per_image_embeds: list[torch.Tensor],
+    img_i: int,
     event_embeds: list[torch.Tensor],
     cfg: PruneConfig = PruneConfig(),
 ) -> torch.Tensor:
-    """Selection score: caption-cosine blended with objectness, each
-    per-image min-maxed to [0, 1]. weight 0 keeps the pure-cosine RANKING
-    (min-max is monotonic), so the ablation is exact. [N]"""
+    """Selection score for image img_i: caption-cosine blended with
+    objectness and cross-frame motion, each per-image min-maxed to [0, 1].
+    objectness_weight/motion_weight are the shares taken from the cosine
+    term (w_cos = 1 - w_obj - w_mot); each weight at 0 removes its term
+    exactly, so every ablation is exact — motion_weight=0 reproduces the
+    pre-motion output bit-for-bit, and a grid-mismatched sample under
+    motion_weight>0 takes the very same legacy code path. [N]"""
+    w_obj, w_mot = cfg.objectness_weight, cfg.motion_weight
+    if w_obj + w_mot > 1.0:
+        raise ValueError(f"objectness_weight + motion_weight = {w_obj + w_mot:g} > 1")
+    visual = per_image_embeds[img_i]
     cos = _minmax(cross_target_scores(visual, event_embeds, cfg))
-    w = cfg.objectness_weight
-    if w <= 0.0:
-        return cos
-    return (1.0 - w) * cos + w * _minmax(objectness_scores(visual))
+    mot = motion_scores(per_image_embeds, img_i) if w_mot > 0.0 else None
+    if mot is None:  # motion off — or unequal token grids: exact legacy blend
+        if w_obj <= 0.0:
+            return cos
+        return (1.0 - w_obj) * cos + w_obj * _minmax(objectness_scores(visual))
+    out = (1.0 - w_obj - w_mot) * cos + w_mot * _minmax(mot)
+    if w_obj > 0.0:
+        out = out + w_obj * _minmax(objectness_scores(visual))
+    return out
 
 
 @torch.no_grad()
@@ -267,14 +320,17 @@ def select_diverse(
 
 @torch.no_grad()
 def keep_indices_for_image(
-    visual: torch.Tensor,
+    per_image_embeds: list[torch.Tensor],
+    img_i: int,
     event_embeds: list[torch.Tensor],
     cfg: PruneConfig = PruneConfig(),
 ) -> torch.Tensor:
-    """End-to-end per-image selection. Returns ascending token indices."""
+    """End-to-end selection for image img_i — sibling embeds are the motion
+    context (only read when motion_weight > 0). Returns ascending indices."""
+    visual = per_image_embeds[img_i]
     if not cfg.enabled or cfg.keep_ratio >= 1.0:
         return torch.arange(visual.shape[0], device=visual.device)
-    scores = combined_scores(visual, event_embeds, cfg)
+    scores = combined_scores(per_image_embeds, img_i, event_embeds, cfg)
     if cfg.mmr_lambda > 0.0:
         return select_mmr(scores, visual, cfg.keep_ratio, cfg.mmr_lambda)
     return select_diverse(scores, visual, cfg.keep_ratio, cfg.diversity_frac)
