@@ -20,6 +20,7 @@ Resumable: progress.jsonl is append-only; done ids are skipped on restart.
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import time
 from pathlib import Path
@@ -33,6 +34,57 @@ from .fitprune import PruneConfig
 from .submission import write_submission
 from .tta import aggregate_logprobs, margin_of, normalize, remap_scores, tta_views
 from .vlm import DEFAULT_MAX_PIXELS, Engine, Score24Head, load_model_and_processor
+
+
+# Fields that change what a prediction in progress.jsonl actually means.
+# --limit/--eval/--split etc. don't affect per-sample scoring and are
+# deliberately excluded.
+#
+# 2026-07-24: "adapter"/"head" were missing here, which let a --out dir get
+# resumed under a DIFFERENT LoRA adapter than produced its existing rows —
+# runs/triage_boost_0.5 silently mixed 216 rows scored with the DPO-on-
+# ckpt1200 adapter with rows scored with the SFT-only ckpt1200 adapter into
+# one progress.jsonl/submission.csv, caught only by manually diffing ids
+# against a backup dir. Unlike train_sft.check_out_reuse (where --adapter
+# legitimately differs across a warm-start continuation), here a changed
+# --adapter/--head IS a scoring-config change, not a legitimate resume.
+_RESUME_DRIFT_FIELDS = (
+    "tta", "stage2", "keep_ratio", "diversity_frac", "objectness_weight",
+    "mmr_lambda", "motion_weight", "boost_frac", "boost_copies", "no_prune", "max_pixels",
+    "adapter", "head",
+)
+
+
+def check_resume_config(out: Path, args: argparse.Namespace) -> None:
+    """Refuse to append to an existing progress.jsonl under a different
+    scoring config than produced those records, unless --allow-config-drift.
+
+    2026-07-23: same class of bug as train_sft.check_out_reuse — progress.jsonl
+    resumes purely by sample id (see module docstring) with no config check,
+    so a crash-and-resume (scripts/run_pre_supervised.sh) or a manually
+    reused --out with different flags would silently mix predictions scored
+    under different configs (e.g. motion_weight 0.0 vs 0.3) into one
+    submission.csv, with nothing recording which rows came from which config.
+    """
+    if getattr(args, "allow_config_drift", False):
+        return
+    prior_path = out / "config.json"
+    progress_path = out / "progress.jsonl"
+    if not prior_path.exists() or not progress_path.exists() or not progress_path.read_text().strip():
+        return
+    prior = json.loads(prior_path.read_text())
+    drift = {
+        f: (prior[f], getattr(args, f))
+        for f in _RESUME_DRIFT_FIELDS
+        if f in prior and prior[f] != getattr(args, f)
+    }
+    if drift:
+        raise SystemExit(
+            f"[resume-drift] {out} has progress.jsonl written under a different "
+            f"scoring config: {drift}. Resuming would mix predictions from "
+            f"different configs into one submission.csv. Use a new --out, or "
+            f"pass --allow-config-drift if this is intentional."
+        )
 
 
 def load_engine(args) -> Engine:
@@ -64,6 +116,8 @@ def load_engine(args) -> Engine:
         objectness_weight=args.objectness_weight,
         mmr_lambda=args.mmr_lambda,
         motion_weight=args.motion_weight,
+        boost_frac=args.boost_frac,
+        boost_copies=args.boost_copies,
         enabled=not args.no_prune,
     )
     return Engine(model, processor, head, prune_cfg, max_pixels=args.max_pixels)
@@ -83,8 +137,12 @@ def predict_sample(engine: Engine, sample, n_tta: int, tau: float, stage2: str =
         images = [sample.image_paths[sigma[j]] for j in range(4)]
         prep = engine.prepare(images, sample.caption)
         preps.append((sigma, prep))
-        keep = engine.keep_mask(prep, sample.caption, engine.prune_cfg)
-        logits = engine.forward_prepared(prep, keep)[0]
+        if engine.prune_cfg.boost_frac > 0.0:
+            idx = engine.scored_idx(prep, sample.caption, engine.prune_cfg)
+            logits = engine.forward_prepared(prep, idx=idx)[0]
+        else:
+            keep = engine.keep_mask(prep, sample.caption, engine.prune_cfg)
+            logits = engine.forward_prepared(prep, keep)[0]
         view_probs.append(remap_scores(normalize(logits), sigma))
 
     agg = aggregate_logprobs(view_probs)
@@ -112,6 +170,48 @@ def predict_sample(engine: Engine, sample, n_tta: int, tau: float, stage2: str =
     }
 
 
+def predict_sample_resilient(
+    engine: Engine, sample, n_tta: int, tau: float, stage2: str = "always", max_retries: int = 1,
+) -> dict:
+    """predict_sample, self-healing transient CUDA OOM in-process.
+
+    2026-07-23: on 24GB cards, several hundred TTA8+stage2=always samples in
+    accumulate allocator fragmentation until a <500MB allocation fails with
+    ~20+GB already in use and a few hundred MB sitting reserved-but-unallocated
+    in the cache. The known fix so far was an external supervisor
+    (scripts/run_pre_supervised.sh) killing and relaunching the whole process
+    on crash, which works but costs a full ~15s model reload per crash and
+    depends on that wrapper being what actually invokes inference. This
+    catches the same error one level up: empty_cache()+gc.collect() then
+    retries the same sample in-process, so a genuinely transient blip never
+    has to cost a process exit.
+
+    2026-07-23 (same day, later): live 819-sample runs show this is NOT pure
+    per-call fragmentation — the crash-time `used` VRAM creeps up over hours
+    (23.15GB -> 23.23GB+) and "reserved but unallocated" stays several hundred
+    MB even after repeated empty_cache() calls, i.e. a process-lifetime growth
+    that only a real process restart (fresh CUDA context) reclaims. Measured
+    over 37 retry sequences with the original max_retries=5 + exponential
+    backoff: 36 fully exhausted all 5 attempts before crashing anyway (only 1
+    recovered) — most of that 25s of backoff per doomed sample was pure waste
+    that made the external supervisor's crash-restart cycle slower, not
+    rarer. max_retries=1 with a short flat sleep keeps the cheap shot at a
+    genuine transient blip while minimizing wasted time on the (now-dominant)
+    case where only a full restart will actually free the memory.
+    """
+    for attempt in range(max_retries + 1):
+        try:
+            return predict_sample(engine, sample, n_tta, tau, stage2=stage2)
+        except torch.cuda.OutOfMemoryError:
+            if attempt == max_retries:
+                raise
+            print(f"[oom-retry] {sample.id}: attempt {attempt + 1}/{max_retries} — "
+                  f"emptying cache and retrying in-process", flush=True)
+            gc.collect()
+            torch.cuda.empty_cache()
+            time.sleep(1)
+
+
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--model-id", default=None)
@@ -134,11 +234,21 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("--mmr-lambda", type=float, default=0.5)
     ap.add_argument("--motion-weight", type=float, default=0.0,
                     help="cross-frame residual-norm blend weight (0 = pre-motion behavior)")
+    ap.add_argument("--boost-frac", type=float, default=0.0,
+                    help="duplicate this fraction of each image's TOP-scoring kept visual "
+                         "tokens once more in the LLM input sequence, at the same m-rope "
+                         "position as the original (0 = off, exact legacy sequence; "
+                         "2026-07-23 token-boost track, unvalidated, see fitprune.py)")
+    ap.add_argument("--boost-copies", type=int, default=1,
+                    help="extra copies appended per boosted token (ignored when --boost-frac 0)")
     ap.add_argument("--no-prune", action="store_true")
     ap.add_argument("--max-pixels", type=int, default=DEFAULT_MAX_PIXELS)
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--eval", action="store_true",
                      help="score against truth (train split only; in-sample since Ver11 trains on 100%)")
+    ap.add_argument("--allow-config-drift", action="store_true",
+                    help="allow resuming an --out whose progress.jsonl was written under a "
+                         "different scoring config (see check_resume_config)")
     args = ap.parse_args(argv)
 
     if args.model_id is None:
@@ -147,6 +257,7 @@ def main(argv: list[str] | None = None) -> None:
         args.model_id = resolve_model_id()
     out = Path(args.out or f"runs/{args.split}_v11")
     out.mkdir(parents=True, exist_ok=True)
+    check_resume_config(out, args)
 
     samples = load_samples(args.data_root, args.split)
     if args.limit:
@@ -155,9 +266,21 @@ def main(argv: list[str] | None = None) -> None:
     progress_path = out / "progress.jsonl"
     done: dict[str, dict] = {}
     if progress_path.exists():
+        n_torn = 0
         for line in progress_path.read_text().splitlines():
-            rec = json.loads(line)
+            if not line.strip() or "\x00" in line:
+                n_torn += 1
+                continue
+            try:
+                rec = json.loads(line)
+            except json.JSONDecodeError:
+                # a mid-write crash (e.g. power loss) can leave the last
+                # record truncated on disk; drop it and let it be redone.
+                n_torn += 1
+                continue
             done[rec["id"]] = rec
+        if n_torn:
+            print(f"[resume] dropped {n_torn} torn/incomplete trailing record(s)")
         print(f"[resume] {len(done)} samples already done")
 
     engine = load_engine(args)
@@ -171,7 +294,7 @@ def main(argv: list[str] | None = None) -> None:
             if sample.id in done:
                 continue
             t0 = time.time()
-            rec = predict_sample(engine, sample, args.tta, args.tau, stage2=args.stage2)
+            rec = predict_sample_resilient(engine, sample, args.tta, args.tau, stage2=args.stage2)
             rec["id"] = sample.id
             rec["elapsed_s"] = round(time.time() - t0, 2)
             if sample.rank is not None:

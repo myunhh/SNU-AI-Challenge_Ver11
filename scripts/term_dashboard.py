@@ -388,13 +388,24 @@ def render_infer(width: int, infer_dir: Path, total: int) -> str:
     vram_all = read_jsonl(VRAM_LOG)
     vram = [r for r in vram_all if launch_ts is None or r["ts"] >= launch_ts] if vram_all else vram_all
     err = has_errors()
-    alive = session_alive(proc_pattern="snuai11.infer", tag=infer_dir.name)
-    sub_done = (infer_dir / "submission.csv").exists()
+    # "snuai11.infer" never appears in the real argv -- run_pre.py imports
+    # infer.main() internally, so the OS-level cmdline is just "python
+    # run_pre.py --adapter ... --out <infer_dir>". pgrep only sees argv, not
+    # Python imports, so the old pattern matched nothing and this always
+    # read as dead (2026-07-24 fix, found live against the DPO819 run).
+    alive = session_alive(proc_pattern="run_pre.py", tag=infer_dir.name)
+    # --split test runs finish with submission.csv; --split train --eval
+    # runs (e.g. the boost_frac triage legs) never write one, only
+    # eval.json -- either file marks a clean finish.
+    done_file = "submission.csv" if (infer_dir / "submission.csv").exists() else (
+        "eval.json" if (infer_dir / "eval.json").exists() else None
+    )
+    sub_done = done_file is not None
 
     if err:
         phase, pcolor = "오류 감지", CRIT
     elif sub_done:
-        phase, pcolor = "완료 — submission.csv 있음", GOOD
+        phase, pcolor = f"완료 — {done_file} 있음", GOOD
     elif not alive and done < total:
         phase, pcolor = "세션 종료(비정상?)", CRIT
     elif not recs:

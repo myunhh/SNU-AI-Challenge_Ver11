@@ -57,6 +57,21 @@ default and each ablatable to exactly the previous behavior:
     2-term blend — never resize/interpolate to force alignment). Weight 0
     reproduces the pre-motion pipeline bit-for-bit.
 
+  * boost (cfg.boost_frac / cfg.boost_copies, 2026-07-23): duplicate the
+    boost_frac highest-scoring members of each image's ALREADY-KEPT set
+    boost_copies extra times in the LLM input sequence (same m-rope
+    position as the original occurrence — see vlm.py's get_rope_index
+    note: these are semantic grid coordinates, so a repeat is valid, not
+    just convenient), so that content competes again in every later
+    token's attention softmax. Mechanically close to Ver14's ERA/LAR
+    attention log-bias (a different, sibling track: rejected there on
+    n=945, Delta=-2.86pp), but boosts FitPrune's own objectness+MMR-ranked
+    score instead of LAR's cluster-absorption count — the axis LAR's
+    stuff-over-things regression was attributed to. boost_frac 0 (default)
+    reproduces the pre-boost sequence bit-for-bit. UNVALIDATED as of
+    introduction — no holdout/LB gate passed yet; serving-only (no
+    retrain), see infer.py predict_sample's boost_frac branch.
+
 Default weights (objectness 0.3, MMR lambda 0.5) are structural choices,
 not tuned values (Ver11 has no local holdout). The lambda floor is derived,
 not arbitrary: both terms live on [0, 1], so in the worst case (foreground
@@ -104,6 +119,8 @@ class PruneConfig:
     objectness_weight: float = 0.3  # blend weight of centroid-residual norm (0 = pure cosine)
     mmr_lambda: float = 0.5  # MMR redundancy penalty (0 = legacy top-k + diversity fill)
     motion_weight: float = 0.0  # cross-frame residual-norm blend weight (0 = pre-motion behavior)
+    boost_frac: float = 0.0  # fraction of each image's KEPT tokens to duplicate in the LLM sequence (0 = off, exact legacy forward)
+    boost_copies: int = 1  # extra copies appended per boosted token (ignored when boost_frac <= 0)
     enabled: bool = True
 
 
@@ -334,3 +351,49 @@ def keep_indices_for_image(
     if cfg.mmr_lambda > 0.0:
         return select_mmr(scores, visual, cfg.keep_ratio, cfg.mmr_lambda)
     return select_diverse(scores, visual, cfg.keep_ratio, cfg.diversity_frac)
+
+
+@torch.no_grad()
+def boost_indices_for_image(
+    per_image_embeds: list[torch.Tensor],
+    img_i: int,
+    event_embeds: list[torch.Tensor],
+    cfg: PruneConfig,
+) -> torch.Tensor:
+    """Local indices into per_image_embeds[img_i] to additionally duplicate
+    in the LLM input sequence — a SUBSET of keep_indices_for_image's own
+    output (boosting never resurrects a pruned token): the cfg.boost_frac
+    highest-scoring members of the kept set, ranked by the SAME
+    combined_scores used for selection, each repeated cfg.boost_copies
+    times. Empty when cfg.boost_frac <= 0 (exact legacy sequence, no
+    boost) or when nothing is kept."""
+    kept_local = keep_indices_for_image(per_image_embeds, img_i, event_embeds, cfg)
+    if cfg.boost_frac <= 0.0 or kept_local.numel() == 0:
+        return kept_local[:0]
+    scores = combined_scores(per_image_embeds, img_i, event_embeds, cfg)
+    kept_scores = scores[kept_local]
+    n_boost = min(kept_local.numel(), max(1, round(kept_local.numel() * cfg.boost_frac)))
+    top = torch.topk(kept_scores, n_boost).indices
+    return kept_local[top].repeat(cfg.boost_copies)
+
+
+@torch.no_grad()
+def merge_with_duplicates(base_idx: torch.Tensor, extra: torch.Tensor) -> torch.Tensor:
+    """Sequence-position index for a boosted forward pass: base_idx
+    (ascending, unique — e.g. a keep mask's nonzero positions) with each
+    position in `extra` inserted as one additional adjacent occurrence.
+    Every value in extra must already be present in base_idx (boosting
+    only duplicates already-kept positions). extra empty -> base_idx
+    returned unchanged (exact legacy sequence).
+
+    A plain value-sort places every duplicate immediately next to its
+    original: base_idx is concatenated before extra, so a stable sort
+    keeps each position's base occurrence first among any tied group —
+    though ties are interchangeable here anyway (identical content, same
+    m-rope position, see vlm.py), stability just keeps the output
+    deterministic run to run.
+    """
+    if extra.numel() == 0:
+        return base_idx
+    combined = torch.cat([base_idx, extra])
+    return combined[torch.argsort(combined, stable=True)]

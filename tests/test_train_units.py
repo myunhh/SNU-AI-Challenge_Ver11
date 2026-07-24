@@ -4,6 +4,7 @@ import torch
 from snuai11 import perm
 from snuai11.train_sft import (
     LORA_SUFFIXES,
+    check_out_reuse,
     dist_env,
     expected_kt,
     kendall_norm_matrix,
@@ -117,3 +118,48 @@ def test_expected_kt_grad_flows_and_pushes_gt_up():
     assert logits.grad is not None and torch.isfinite(logits.grad).all()
     # minimizing the loss must INCREASE the GT logit (negative gradient)
     assert float(logits.grad[0, 3]) < 0
+
+
+def _base_out_reuse_config(**overrides):
+    from types import SimpleNamespace
+
+    cfg = dict(
+        allow_config_drift=False, model_id="m", phase="sft", keep_ratio=0.5,
+        diversity_frac=0.2, objectness_weight=0.3, mmr_lambda=0.5,
+        motion_weight=0.0, prune_prob=0.75, no_prune=False, max_pixels=1126400,
+        lora_r=16, lora_alpha=32, lora_dropout=0.05,
+    )
+    cfg.update(overrides)
+    return SimpleNamespace(**cfg)
+
+
+def test_check_out_reuse_allows_fresh_out(tmp_path):
+    check_out_reuse(tmp_path / "never_created", _base_out_reuse_config())
+
+
+def test_check_out_reuse_allows_matching_continuation(tmp_path, monkeypatch):
+    import json
+
+    out = tmp_path / "run"
+    ckpt = out / "checkpoint-200"
+    ckpt.mkdir(parents=True)
+    args = _base_out_reuse_config()
+    (ckpt / "train_args.json").write_text(json.dumps(vars(args)))
+    # a legit continuation only changes --adapter/--steps, not the config
+    # drift fields — must not raise.
+    check_out_reuse(out, _base_out_reuse_config())
+
+
+def test_check_out_reuse_blocks_config_drift(tmp_path):
+    import json
+
+    out = tmp_path / "run"
+    ckpt = out / "checkpoint-200"
+    ckpt.mkdir(parents=True)
+    (ckpt / "train_args.json").write_text(json.dumps(vars(_base_out_reuse_config(motion_weight=0.3))))
+
+    with pytest.raises(SystemExit, match="motion_weight"):
+        check_out_reuse(out, _base_out_reuse_config(motion_weight=0.0))
+
+    # --allow-config-drift bypasses the check
+    check_out_reuse(out, _base_out_reuse_config(motion_weight=0.0, allow_config_drift=True))

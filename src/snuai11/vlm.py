@@ -25,7 +25,7 @@ from torch import nn
 
 from . import perm
 from .decompose import content_words, decompose_caption
-from .fitprune import PruneConfig, keep_indices_for_image
+from .fitprune import PruneConfig, boost_indices_for_image, keep_indices_for_image, merge_with_duplicates
 from .prompting import build_score24_messages
 
 DEFAULT_MAX_PIXELS = 1_126_400  # ~1100 merged visual tokens per image
@@ -175,6 +175,39 @@ class Prepared:
     image_positions: list[torch.Tensor]  # 4 x [tokens_i] sequence indices
 
 
+def _visual_row_index(prep: Prepared) -> torch.Tensor:
+    """[L] long tensor mapping each sequence position to its 0-indexed row
+    in prep.deepstack (row-major visual-token order, matching
+    prep.per_image_embeds concatenation order); -1 for non-visual (text)
+    positions. Repeats are valid input to a later index-select — that is
+    exactly how a boosted idx duplicates a deepstack row."""
+    L = prep.inputs_embeds.shape[1]
+    row = torch.full((L,), -1, dtype=torch.long, device=prep.visual_pos_masks.device)
+    vis_positions = prep.visual_pos_masks[0].nonzero().squeeze(1)
+    row[vis_positions] = torch.arange(vis_positions.numel(), device=row.device)
+    return row
+
+
+def _select_for_forward(prep: Prepared, idx: torch.Tensor):
+    """embeds/position_ids/attention_mask/visual_pos_masks/deepstack for an
+    explicit sequence-position index — idx MAY repeat positions (token
+    boosting, see fitprune.merge_with_duplicates). Position ids are
+    get_rope_index's SEMANTIC (3,B,L) grid coordinates (see module
+    docstring), so a repeated position keeps the SAME coordinate as its
+    original occurrence: correct by construction, not merely convenient.
+    When idx has no repeats and comes from a boolean keep mask's
+    keep[0].nonzero(), this is numerically identical to
+    Engine.forward_prepared's boolean-keep branch — cross-checked
+    independently in tests/test_fitprune.py (synthetic tensors, no model)."""
+    embeds = prep.inputs_embeds[:, idx]
+    pos = prep.position_ids[:, :, idx]
+    attn = prep.attention_mask[:, idx]
+    vmask = prep.visual_pos_masks[:, idx]
+    row = _visual_row_index(prep)[idx]
+    ds = [d[row[row >= 0]] for d in prep.deepstack]
+    return embeds, pos, attn, vmask, ds
+
+
 class Engine:
     """One-pass score24 with optional Cross-Targeted FitPrune."""
 
@@ -292,9 +325,36 @@ class Engine:
             keep[0, positions[kept_local]] = True
         return keep
 
-    def forward_prepared(self, prep: Prepared, keep: torch.Tensor | None = None) -> torch.Tensor:
-        """LLM forward -> score24 logits [1, 24]. keep=None means full tokens."""
-        if keep is None:
+    def scored_idx(self, prep: Prepared, caption: str, cfg: PruneConfig) -> torch.Tensor:
+        """Sequence-position index for forward_prepared(idx=...) — FitPrune's
+        kept positions (identical index set to keep_mask(...)[0].nonzero()
+        when cfg.boost_frac <= 0), with cfg.boost_frac's top-scoring kept
+        visual tokens of each image additionally duplicated cfg.boost_copies
+        times, so that content competes again in every later token's
+        attention softmax (2026-07-23 token-boost track, serving-only, no
+        retrain — see fitprune.boost_indices_for_image)."""
+        keep = self.keep_mask(prep, caption, cfg)
+        base = keep[0].nonzero().squeeze(1)
+        if cfg.boost_frac <= 0.0 or not cfg.enabled or cfg.keep_ratio >= 1.0:
+            return base
+        events = self.event_embeds(caption)
+        extra_parts = []
+        for img_i in range(len(prep.per_image_embeds)):
+            dup_local = boost_indices_for_image(prep.per_image_embeds, img_i, events, cfg)
+            if dup_local.numel():
+                extra_parts.append(prep.image_positions[img_i][dup_local])
+        extra = torch.cat(extra_parts) if extra_parts else base[:0]
+        return merge_with_duplicates(base, extra)
+
+    def forward_prepared(self, prep: Prepared, keep: torch.Tensor | None = None,
+                          idx: torch.Tensor | None = None) -> torch.Tensor:
+        """LLM forward -> score24 logits [1, 24]. keep=None and idx=None
+        means full tokens. idx (from scored_idx) generalizes keep to a
+        sequence-position index that MAY repeat positions (token boosting)
+        — when given, keep is ignored."""
+        if idx is not None:
+            embeds, pos, attn, vmask, ds = _select_for_forward(prep, idx)
+        elif keep is None:
             embeds, pos, attn = prep.inputs_embeds, prep.position_ids, prep.attention_mask
             vmask, ds = prep.visual_pos_masks, prep.deepstack
         else:

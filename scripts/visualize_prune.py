@@ -17,6 +17,12 @@ Usage (needs the GPU free — loads the full model to run the vision tower):
   A100 32B  :  python scripts/visualize_prune.py
 Flags: --n 3 (samples) --start 0 --keep-ratio 0.5 --diversity-frac 0.2
        --out runs/prune_viz
+       --boost-frac 0 (2026-07-24: adds a BOOST panel per image when > 0 —
+       same KEPT/pruned fade as the final panel, but the boost_frac
+       highest-scoring KEPT cells get an orange box instead of blue,
+       showing which cells fitprune.boost_indices_for_image duplicates in
+       the LLM input sequence. boost_frac 0 (default) = byte-identical to
+       the pre-boost figure, no new panel.) --boost-copies 1
 """
 
 from __future__ import annotations
@@ -41,6 +47,8 @@ MERGE = 2  # merge_size
 # colormap: jet is not colorblind-safe and reads as "louder" than the data).
 HEAT_HUE = (42, 120, 214)  # #2a78d6 — sequential blue, categorical slot 1
 ACCENT = (42, 120, 214)  # kept-cell border, same blue for one consistent meaning
+BOOST_COLOR = (235, 104, 52)  # #eb6834 — categorical slot 2 (orange), validated
+                              # adjacent-pair CVD contrast against slot-1 blue
 FADE_GRAY = (137, 135, 129)  # #898781 — muted ink; pruned cells fade toward this
 GRID_LINE = (225, 224, 217)  # #e1e0d9 — hairline, recedes into the surface
 INK = (11, 11, 11)  # #0b0b0b — primary text
@@ -129,6 +137,32 @@ def draw_grid_lines(img: Image.Image, h2: int, w2: int, kept_mask: np.ndarray | 
     return img
 
 
+def draw_boost_grid_lines(img: Image.Image, h2: int, w2: int, kept_mask: np.ndarray,
+                           boost_mask: np.ndarray, cell: int = MERGE * PATCH_SIZE) -> Image.Image:
+    """Like draw_grid_lines(kept_mask=...) but two-tier: boosted cells (a
+    subset of kept — boost never resurrects a pruned token, see
+    fitprune.boost_indices_for_image) get a thicker BOOST_COLOR box instead
+    of the plain ACCENT one, so 'this content gets duplicated in the LLM
+    sequence' reads as a distinct visual tier from plain 'kept'."""
+    from PIL import ImageDraw
+
+    img = img.copy()
+    d = ImageDraw.Draw(img)
+    W, H = img.size
+    for r in range(h2 + 1):
+        d.line([(0, r * cell), (W, r * cell)], fill=GRID_LINE, width=1)
+    for c in range(w2 + 1):
+        d.line([(c * cell, 0), (c * cell, H)], fill=GRID_LINE, width=1)
+    for r in range(h2):
+        for c in range(w2):
+            x0, y0, x1, y1 = c * cell, r * cell, (c + 1) * cell, (r + 1) * cell
+            if boost_mask[r, c]:
+                d.rectangle([x0, y0, x1 - 1, y1 - 1], outline=BOOST_COLOR, width=3)
+            elif kept_mask[r, c]:
+                d.rectangle([x0, y0, x1 - 1, y1 - 1], outline=ACCENT, width=2)
+    return img
+
+
 def truncate_to_width(text: str, font, max_width: int, draw) -> str:
     """Shrink `text` with a trailing ellipsis until it fits max_width pixels,
     measured with the actual font (character width varies a lot between
@@ -173,7 +207,7 @@ def make_caption(events: list[str], font, width: int) -> Image.Image:
     return img
 
 
-def make_legend(font=None, width: int = 900) -> Image.Image:
+def make_legend(font=None, width: int = 900, include_boost: bool = False) -> Image.Image:
     """One legend strip per sample: what blue-wash / blue-box / gray mean.
     Laid out left-to-right by measured text width so it never clips,
     regardless of how many panels the row above ends up being."""
@@ -188,6 +222,8 @@ def make_legend(font=None, width: int = 900) -> Image.Image:
         (None, ACCENT, "= kept 패치"),
         (FADE_GRAY, None, "= pruned 패치 (페이드)"),
     ]
+    if include_boost:
+        entries.append((None, BOOST_COLOR, "= boost 패치 (시퀀스에 추가 복제된 kept 패치)"))
     for fill, outline, label in entries:
         box = [x, 8, x + swatch, 24]
         if fill is not None:
@@ -234,6 +270,10 @@ def main() -> None:
     ap.add_argument("--mmr-lambda", type=float, default=0.5)
     ap.add_argument("--motion-weight", type=float, default=0.0,
                     help="cross-frame residual-norm blend weight (0 = pre-motion behavior)")
+    ap.add_argument("--boost-frac", type=float, default=0.0,
+                    help="fraction of each image's KEPT cells to show as boosted/duplicated (0 = off, no new panel)")
+    ap.add_argument("--boost-copies", type=int, default=1,
+                    help="extra copies per boosted cell (label only, ignored when --boost-frac 0)")
     ap.add_argument("--max-pixels", type=int, default=None)
     ap.add_argument("--out", default="runs/prune_viz")
     args = ap.parse_args()
@@ -256,7 +296,8 @@ def main() -> None:
     head = Score24Head.init_from_lm_head(model, letter_ids).to(model.lm_head.weight.device).eval()
     cfg = PruneConfig(keep_ratio=args.keep_ratio, diversity_frac=args.diversity_frac,
                       objectness_weight=args.objectness_weight, mmr_lambda=args.mmr_lambda,
-                      motion_weight=args.motion_weight)
+                      motion_weight=args.motion_weight, boost_frac=args.boost_frac,
+                      boost_copies=args.boost_copies)
     engine = Engine(model, processor, head, cfg, max_pixels=args.max_pixels or DEFAULT_MAX_PIXELS)
 
     font = load_font(16)
@@ -323,10 +364,28 @@ def main() -> None:
             final.thumbnail((260, 260))
             panels.append(make_panel(f"img{img_i+1} KEPT {n_kept}/{n_tot} ({n_kept/n_tot:.0%})", final, font))
 
+            if cfg.boost_frac > 0.0:
+                from snuai11.fitprune import boost_indices_for_image
+
+                boost_local = boost_indices_for_image(prep.per_image_embeds, img_i, event_embeds, cfg)
+                boost_unique = torch.unique(boost_local).cpu().numpy()
+                boost_grid = np.zeros((h2, w2), dtype=bool)
+                if boost_unique.size:
+                    rr, cc = np.unravel_index(boost_unique, (h2, w2))
+                    boost_grid[rr, cc] = True
+                n_boost = int(boost_grid.sum())
+                occ = 1 + cfg.boost_copies
+                boosted = overlay(resized, np.ones((h2, w2)), kept_grid)
+                boosted = draw_boost_grid_lines(boosted, h2, w2, kept_grid, boost_grid)
+                boosted.thumbnail((260, 260))
+                panels.append(make_panel(
+                    f"img{img_i+1} BOOST {n_boost}/{n_kept} kept, ×{occ} in seq (bf={cfg.boost_frac})",
+                    boosted, font))
+
             rows.append(hstack(panels))
 
         row_width = max(r.width for r in rows)
-        legend = make_legend(font, width=row_width)
+        legend = make_legend(font, width=row_width, include_boost=cfg.boost_frac > 0.0)
         caption = make_caption(events, font, width=row_width)
         grid_img = vstack([legend, caption] + rows)
         dst = out_dir / f"{s.id}.png"

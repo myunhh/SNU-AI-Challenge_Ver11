@@ -4,9 +4,11 @@ import torch
 from snuai11.fitprune import (
     PruneConfig,
     _minmax,
+    boost_indices_for_image,
     combined_scores,
     cross_target_scores,
     keep_indices_for_image,
+    merge_with_duplicates,
     motion_scores,
     objectness_scores,
     per_event_scores,
@@ -369,3 +371,195 @@ def test_keep_mask_with_motion_weight(monkeypatch):
     assert keep[0, :n_text].all()  # text tokens always kept
     kept_vis = int(keep[0][vmask[0]].sum())
     assert kept_vis == 4 * round(n_per * 0.5)  # 50% of each image's tokens
+
+
+# ---- token boost (2026-07-23) ----------------------------------------------
+
+
+def test_boost_frac_zero_is_empty():
+    vis, events = _stuff_vs_things()
+    dup = boost_indices_for_image([vis] * 4, 0, events, PruneConfig(keep_ratio=0.5))
+    assert dup.numel() == 0
+
+
+def test_boost_picks_highest_scoring_members_of_kept_set():
+    # boost must never resurrect a pruned token, and must rank strictly by
+    # the SAME combined_scores used for selection.
+    vis, events = _stuff_vs_things()
+    cfg = PruneConfig(keep_ratio=0.5, boost_frac=0.5)  # top half of the kept 20 -> 10
+    kept = set(keep_indices_for_image([vis] * 4, 0, events, cfg).tolist())
+    dup = boost_indices_for_image([vis] * 4, 0, events, cfg)
+    assert dup.numel() == 10
+    assert set(dup.tolist()) <= kept
+    scores = combined_scores([vis] * 4, 0, events, cfg)
+    ranked_kept = sorted(kept, key=lambda i: -scores[i].item())
+    assert set(dup.tolist()) == set(ranked_kept[:10])
+
+
+def test_boost_copies_multiplies_extra_occurrences():
+    vis, events = _stuff_vs_things()
+    cfg1 = PruneConfig(keep_ratio=0.5, boost_frac=0.1, boost_copies=1)
+    cfg3 = PruneConfig(keep_ratio=0.5, boost_frac=0.1, boost_copies=3)
+    dup1 = boost_indices_for_image([vis] * 4, 0, events, cfg1)
+    dup3 = boost_indices_for_image([vis] * 4, 0, events, cfg3)
+    assert dup3.numel() == 3 * dup1.numel()
+    assert set(dup3.tolist()) == set(dup1.tolist())
+    dup0 = boost_indices_for_image([vis] * 4, 0, events, PruneConfig(keep_ratio=0.5, boost_frac=0.1, boost_copies=0))
+    assert dup0.numel() == 0  # 0 copies -> no boost even though boost_frac > 0
+
+
+def test_boost_frac_rounds_up_to_at_least_one_and_caps_to_kept_size():
+    vis = _rand(3, 8)
+    events = [_rand(2, 8) for _ in range(4)]
+    dup = boost_indices_for_image([vis] * 4, 0, events, PruneConfig(keep_ratio=0.5, boost_frac=0.01))
+    assert dup.numel() >= 1
+    cfg_full = PruneConfig(keep_ratio=0.5, boost_frac=1.0)
+    kept = keep_indices_for_image([vis] * 4, 0, events, cfg_full)
+    dup_full = boost_indices_for_image([vis] * 4, 0, events, cfg_full)
+    assert dup_full.numel() == kept.numel()  # capped, never exceeds the kept set
+
+
+def test_merge_with_duplicates_noop_when_extra_empty():
+    base = torch.tensor([2, 5, 9, 20])
+    out = merge_with_duplicates(base, base[:0])
+    assert torch.equal(out, base)
+
+
+def test_merge_with_duplicates_inserts_adjacent_and_preserves_order():
+    base = torch.tensor([2, 5, 9, 20])
+    extra = torch.tensor([5, 9, 5])  # position 5 duplicated twice, 9 once
+    out = merge_with_duplicates(base, extra)
+    assert out.tolist() == [2, 5, 5, 5, 9, 9, 20]
+
+
+def test_select_for_forward_matches_legacy_keep_path():
+    # Independent cross-check (legacy math re-derived here, not called from
+    # production code): forward_prepared's boolean-keep branch and
+    # vlm._select_for_forward(prep, keep[0].nonzero()) must select IDENTICAL
+    # embeds/position_ids/attention_mask/visual_pos_masks/deepstack.
+    from snuai11.vlm import Prepared, _select_for_forward
+
+    L, d, V = 10, 4, 6
+    inputs_embeds = torch.arange(L * d, dtype=torch.float32).reshape(1, L, d)
+    position_ids = torch.arange(3 * L, dtype=torch.long).reshape(3, 1, L)
+    attention_mask = torch.ones(1, L, dtype=torch.long)
+    visual_pos_masks = torch.zeros(1, L, dtype=torch.bool)
+    visual_pos_masks[0, [1, 2, 4, 5, 7, 8]] = True
+    deepstack = [torch.arange(V * d, dtype=torch.float32).reshape(V, d) + k * 1000 for k in range(3)]
+    prep = Prepared(
+        inputs_embeds=inputs_embeds, position_ids=position_ids,
+        attention_mask=attention_mask, visual_pos_masks=visual_pos_masks,
+        deepstack=deepstack, per_image_embeds=[], image_positions=[],
+    )
+
+    keep = torch.zeros(1, L, dtype=torch.bool)
+    keep[0, [0, 2, 4, 6, 8, 9]] = True  # keeps 3 of the 6 visual positions (2, 4, 8)
+    idx = keep[0].nonzero().squeeze(1)
+
+    embeds_old = prep.inputs_embeds[:, idx]
+    pos_old = prep.position_ids[:, :, idx]
+    attn_old = prep.attention_mask[:, idx]
+    vmask_old = prep.visual_pos_masks[:, idx]
+    kept_rows = keep[prep.visual_pos_masks]
+    ds_old = [t[kept_rows] for t in prep.deepstack]
+
+    embeds_new, pos_new, attn_new, vmask_new, ds_new = _select_for_forward(prep, idx)
+
+    assert torch.equal(embeds_old, embeds_new)
+    assert torch.equal(pos_old, pos_new)
+    assert torch.equal(attn_old, attn_new)
+    assert torch.equal(vmask_old, vmask_new)
+    for a, b in zip(ds_old, ds_new):
+        assert torch.equal(a, b)
+
+
+def test_select_for_forward_duplicates_embeds_position_and_deepstack_together():
+    from snuai11.vlm import Prepared, _select_for_forward
+
+    L, d, V = 10, 4, 6
+    inputs_embeds = torch.arange(L * d, dtype=torch.float32).reshape(1, L, d)
+    position_ids = torch.arange(3 * L, dtype=torch.long).reshape(3, 1, L)
+    attention_mask = torch.ones(1, L, dtype=torch.long)
+    visual_pos_masks = torch.zeros(1, L, dtype=torch.bool)
+    visual_pos_masks[0, [1, 2, 4, 5, 7, 8]] = True
+    deepstack = [torch.arange(V * d, dtype=torch.float32).reshape(V, d)]
+    prep = Prepared(
+        inputs_embeds=inputs_embeds, position_ids=position_ids,
+        attention_mask=attention_mask, visual_pos_masks=visual_pos_masks,
+        deepstack=deepstack, per_image_embeds=[], image_positions=[],
+    )
+    # duplicate sequence position 4 (the 3rd visual token overall -> deepstack row 2)
+    idx = torch.tensor([0, 2, 4, 4, 8, 9])
+    embeds, pos, attn, vmask, ds = _select_for_forward(prep, idx)
+
+    assert embeds.shape[1] == 6
+    assert torch.equal(embeds[:, 2], embeds[:, 3])
+    assert torch.equal(embeds[0, 2], inputs_embeds[0, 4])
+    assert torch.equal(pos[:, :, 2], pos[:, :, 3])  # SAME m-rope coordinate, not a new one
+    assert torch.equal(pos[:, :, 2], position_ids[:, :, 4])
+    assert attn.shape == (1, 6)
+    assert vmask[0].tolist() == [False, True, True, True, True, False]
+    assert ds[0].shape[0] == 4  # one deepstack row per True vmask entry
+    assert torch.equal(ds[0][1], deepstack[0][2])
+    assert torch.equal(ds[0][2], deepstack[0][2])  # duplicated row
+
+
+def test_scored_idx_matches_keep_mask_when_boost_frac_zero(monkeypatch):
+    from snuai11.vlm import Engine, Prepared
+
+    n_per, d, n_text = 12, 16, 5
+    pe = _four_images(n=n_per, d=d)
+    L = n_text + 4 * n_per
+    positions = [torch.arange(n_text + i * n_per, n_text + (i + 1) * n_per) for i in range(4)]
+    vmask = torch.zeros(1, L, dtype=torch.bool)
+    for p in positions:
+        vmask[0, p] = True
+    prep = Prepared(
+        inputs_embeds=torch.zeros(1, L, d),
+        position_ids=torch.zeros(3, 1, L, dtype=torch.long),
+        attention_mask=torch.ones(1, L, dtype=torch.long),
+        visual_pos_masks=vmask,
+        deepstack=[torch.zeros(4 * n_per, d) for _ in range(3)],
+        per_image_embeds=pe,
+        image_positions=positions,
+    )
+    events = [_rand(3, d, seed=i) for i in range(4)]
+    monkeypatch.setattr(Engine, "device", torch.device("cpu"), raising=False)
+    eng = object.__new__(Engine)
+    eng.event_embeds = lambda caption: events
+    cfg = PruneConfig(keep_ratio=0.5)  # boost_frac defaults to 0.0
+    keep = eng.keep_mask(prep, "cap", cfg)
+    got = eng.scored_idx(prep, "cap", cfg)
+    assert torch.equal(got, keep[0].nonzero().squeeze(1))
+
+
+def test_scored_idx_boost_frac_positive_duplicates_top_kept_tokens_per_image(monkeypatch):
+    from snuai11.vlm import Engine, Prepared
+
+    n_per, d, n_text = 12, 16, 5
+    pe = _four_images(n=n_per, d=d)
+    L = n_text + 4 * n_per
+    positions = [torch.arange(n_text + i * n_per, n_text + (i + 1) * n_per) for i in range(4)]
+    vmask = torch.zeros(1, L, dtype=torch.bool)
+    for p in positions:
+        vmask[0, p] = True
+    prep = Prepared(
+        inputs_embeds=torch.zeros(1, L, d),
+        position_ids=torch.zeros(3, 1, L, dtype=torch.long),
+        attention_mask=torch.ones(1, L, dtype=torch.long),
+        visual_pos_masks=vmask,
+        deepstack=[torch.zeros(4 * n_per, d) for _ in range(3)],
+        per_image_embeds=pe,
+        image_positions=positions,
+    )
+    events = [_rand(3, d, seed=i) for i in range(4)]
+    monkeypatch.setattr(Engine, "device", torch.device("cpu"), raising=False)
+    eng = object.__new__(Engine)
+    eng.event_embeds = lambda caption: events
+    cfg = PruneConfig(keep_ratio=0.5, boost_frac=0.5)  # half of each image's 6 kept -> 3 extra
+    keep = eng.keep_mask(prep, "cap", cfg)
+    base = keep[0].nonzero().squeeze(1)
+    got = eng.scored_idx(prep, "cap", cfg)
+    assert got.numel() == base.numel() + 4 * 3
+    assert set(base.tolist()) <= set(got.tolist())  # every base position still present
+    assert got[:n_text].tolist() == list(range(n_text))  # text prefix untouched

@@ -146,6 +146,47 @@ def margin_dpo_loss(logits24: torch.Tensor, label: int, beta: float, ce_weight: 
     return loss
 
 
+# Fields that change what a checkpoint under --out actually means (pruning
+# distribution / model architecture). --steps, --adapter, --seed etc. are
+# legitimately expected to differ across a warm-start continuation into the
+# same --out and are deliberately excluded.
+_CONFIG_DRIFT_FIELDS = (
+    "model_id", "phase", "keep_ratio", "diversity_frac", "objectness_weight",
+    "mmr_lambda", "motion_weight", "prune_prob", "no_prune", "max_pixels",
+    "lora_r", "lora_alpha", "lora_dropout",
+)
+
+
+def check_out_reuse(out: Path, args: argparse.Namespace) -> None:
+    """Refuse to write checkpoints into an --out dir whose existing
+    checkpoints were trained under a materially different config, unless
+    --allow-config-drift.
+
+    2026-07-23: an --out dir got reused across runs with different
+    --motion-weight; save() writes train_args.json per-checkpoint (so each
+    file was individually honest), but nothing stopped the reuse itself,
+    and downstream scripts/comments ended up asserting the wrong config for
+    an existing checkpoint (treating a motion_weight=0.3-trained checkpoint
+    as "pre-motion") because they had no automatic reason to suspect drift.
+    """
+    if getattr(args, "allow_config_drift", False) or not out.exists():
+        return
+    for prior_path in sorted(out.glob("*/train_args.json")):
+        prior = json.loads(prior_path.read_text())
+        drift = {
+            f: (prior[f], getattr(args, f))
+            for f in _CONFIG_DRIFT_FIELDS
+            if f in prior and prior[f] != getattr(args, f)
+        }
+        if drift:
+            raise SystemExit(
+                f"[out-reuse] {out} already has a checkpoint ({prior_path.parent.name}) "
+                f"trained with a different config: {drift}. Reusing this --out would "
+                f"shadow/overwrite those checkpoints under a different meaning. "
+                f"Use a new --out, or pass --allow-config-drift if this is intentional."
+            )
+
+
 def kendall_norm_matrix(device=None) -> torch.Tensor:
     """[24, 24] fp32 tensor of KendallTau(a, b)/6 — row = GT class."""
     return torch.tensor(perm.kendall_matrix(), dtype=torch.float32, device=device) / 6.0
@@ -203,6 +244,9 @@ def main(argv: list[str] | None = None) -> None:
     # metric-aligned aux loss (both phases)
     ap.add_argument("--kt-weight", type=float, default=0.5,
                     help="expected-Kendall aux loss weight (0 = pre-2026-07-17 pure CE/DPO)")
+    ap.add_argument("--allow-config-drift", action="store_true",
+                    help="allow reusing --out even if its existing checkpoints were trained "
+                         "with a different pruning/architecture config (see check_out_reuse)")
     args = ap.parse_args(argv)
 
     rank, local_rank, world_size = init_distributed()
@@ -223,6 +267,7 @@ def main(argv: list[str] | None = None) -> None:
     except ValueError as e:
         raise SystemExit(str(e)) from e
     out = Path(args.out or f"runs/{'sft' if args.phase == 'sft' else 'dpo'}32b_v11")
+    check_out_reuse(out, args)
     out.mkdir(parents=True, exist_ok=True)
     if is_main:
         write_env_report(out)
